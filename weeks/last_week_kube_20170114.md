@@ -1,0 +1,38 @@
+Last Week in Kubernetes: Week ending January 14, 2017
+========================================================
+
+Community Meeting Summary
+-------------------------
+
+The [community meeting](https://docs.google.com/document/d/1VQDIAB0OqiSjIHI8AWMvSdceWhnz56jNpZrLs6o7NJY) was dominated by a discussion around whether all repos in the kubernetes namespace should be a part of the same automation, particularly merge automation.  Aaron Crickenberger (spiffxp) has been offering this to other repos in the Kubernetes namespace, but some teams, particularly Helm, are concerned about unexpected changes this might cause.  One goal of getting all repos on the same automation is to retire mungegithub.
+
+Jacob Pavlik demonstrated the KQueen cluster manager.  Jaice DuMars went over release 1.10, which is in week 2 of 12 and will go into Feature Freeze on January 22nd, so get your features in!  And SIG Azure and SIG Node made reports.
+
+Feature Work
+------------
+
+[Configurable Pod Process Namespace Sharing](https://github.com/kubernetes/features/issues/495) prepared for inclusion in 1.10 this week with the [addition of a feature flag](https://github.com/kubernetes/kubernetes/pull/58100) for PID namespace sharing.  The --docker-disable-shared-pid was also removed from kubelet.
+
+Kubelets can [now be run in containers](https://github.com/kubernetes/kubernetes/pull/57034), allowing for a completely containerized Kubernetes install.  Such installs are now passing e2e tests.
+
+Support for [raw block devices as persistent volumes](https://github.com/kubernetes/features/issues/351) moved ahead with the merge of [iSCSI support for block volumes](https://github.com/kubernetes/kubernetes/pull/54752).
+
+Deprecated
+----------
+
+Docker 1.10 is [no longer supported](https://github.com/kubernetes/kubernetes/pull/57845). The minimum docker version is now 1.11.  While docker 1.10 was officially deprecated in release 1.9, the compatibility code has now actually been completely removed.
+
+sig-cluster-lifecycle is [gradually deprecating the /cluster directory](https://github.com/kubernetes/kubernetes/issues/49213) in favor of having these cluster setup tools maintained outside of kubernetes/kubernetes.  In 1.10, that will include removing the windows/, photon-controller/, libvirt-coreos/, and gce/container-linux/ subdirectories, with more to be removed in future releases.
+
+Version Updates
+----------------
+
+* CSI is now [version 0.1.0](https://github.com/kubernetes/kubernetes/pull/57989)
+* Kube-dns is now [1.14.8](https://github.com/kubernetes/kubernetes/pull/57918)
+
+Other Merges
+-----------
+
+* Users can now choose [not to expose their controllers on HTTP port](https://github.com/kubernetes/kubernetes/pull/58018).
+* GlusterFS volumes [now support volume metrics](https://github.com/kubernetes/kubernetes/pull/57993).
+* e2e tests [no longer necessarily require docker](https://github.com/kubernetes/kubernetes/pull/57976).

@@ -1,0 +1,49 @@
+Last Week In Kubernetes Development: Week Ending January 21, 2018
+
+## Community Meeting Summary
+
+The demo for [this week's meeting](https://www.youtube.com/watch?v=x67RK7W-BnM) was Kubernetes running on Docker For Mac.  The Docker.com folks have been hard at work enabling this, and the demo now looks pretty polished.  Developers with Mac desktops should be able to easily use Kubernetes with their existing Docker for Mac workflows.
+
+Jaice DuMars explained the delay of the alpha release and gave a 1.10 stats update (see below).  Dan Williams updated folks on SIG-Network, who have been making a lot of changes, including adding IPv6 support. Phillip Wittrock updated everyone on what the Steering Committee is currently working on, especially creating template SIG charters so that all SIGs can create their own charters.  If you have opinions about the organization and leadership of your SIG, please [take the survey on SIG governance](https://goo.gl/Zm81Ly).
+
+Kubernetes will be [participating in Google Summer of Code](https://github.com/cncf/soc) with the CNCF this year.  Please contact Ihor Dvoretskyi if you are interested in mentoring or know a student.  SIG Intros and Deep Dives at KubeCon Europe will be announced soon.  The project will have another "Meet Our Contributors" on February 7th, this one focused on helping out new contributors (contact Paris Pittman to participate).
+
+The format for the Community meeting will also be changing slightly in the future.  SIGs will be scheduled for updates per release cycle instead of ad hoc, and demo speakers will be asked to rehearse before the meeting.
+
+## Release Schedule
+
+This was [week 3](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.10/release-1.10.md) of version 1.10 development.   This week should have included an early alpha release, mainly as a dry run for release packaging.  However, it's been delayed because Branch Manager Caleb Miles had a painful bike accident and has been offline.  An alpha release is expected this week.
+
+Feature Freeze, which was supposed to be January 22nd, has also been delayed by one week because the Features Lead is still waiting for status clarification on some features from several SIGs.  Final Feature Freeze deadline will now be on the 29th.  Many SIGs have updated their features, though, and Ihor has created the [Feature Tracking Board](https://docs.google.com/spreadsheets/d/17bZrKTk8dOx5nomLrD1-93uBfajK5JS-v1o-nCLJmzE/edit?usp=sharing) for version 1.10.
+
+## Feature Work
+
+While 148 patches were merged last week, most of them were minor bug fixes (including at least ten for GCE support), cherry-picks for copying fixes across releases, [typo fixes](https://github.com/kubernetes/kubernetes/pull/50286), and some doc and release note corrections.  Among the interesting feature work was:
+
+* Kubeadm now [supports overriding flags](https://github.com/kubernetes/kubernetes/pull/58080) for the api-server, controller, and scheduler during `kubeadm init`.
+* [RBAC now returns reasons for allowed authorizations](https://github.com/kubernetes/kubernetes/pull/58531), making them auditable.
+* The [way that Secrets, ConfigMaps, and the downwardAPI update their data](https://github.com/kubernetes/kubernetes/pull/57422) has been changed.  If you work with one of these features, you may want to check your code against the refactor.
+* The api-server now supports [custom cipher suites](https://github.com/kubernetes/kubernetes/pull/48859) for connections.
+* The api-server and controller now run in [privileged containers](https://github.com/kubernetes/kubernetes/pull/57561), enabling correct installation on OpenStack.
+* The [kubelet](https://github.com/kubernetes/kubernetes/pull/58405) and [controller manager](https://github.com/kubernetes/kubernetes/pull/58398) have been refactored to [use cobra CLI command communication](https://github.com/kubernetes/kubernetes/issues/34732), which is part of ongoing work to clean up component configuration in Kubernetes and HyperKube.
+* CRDs can now be [created using YAML](https://github.com/kubernetes/kubernetes/pull/58260) as well as JSON.
+
+## Deprecated
+
+* Dockershim [no longer re-implements the CRI API](https://github.com/kubernetes/kubernetes/pull/58548), and instead communicates with the Kubelet using pure gRPC.
+
+## Version Updates
+
+* kube-dns for Kubeadm is [now 1.14.8](https://github.com/kubernetes/kubernetes/pull/58013)
+
+## Other Merges
+
+* We now have automated tests using the [vSphere Cloud Provider simulator](https://github.com/kubernetes/kubernetes/pull/55918)
+* The implicit disabling of admission plugins that are not in the enablement list for kube-apiserver [has been restored](https://github.com/kubernetes/kubernetes/pull/58517).
+* A major [issue with using custom Admission Control config files](https://github.com/kubernetes/kubernetes/pull/58439) has been fixed.
+* [Keepalives for the etcd server](https://github.com/kubernetes/kubernetes/pull/58008) have been adjusted so that they actually close the socket if the client can't connect.
+* The Pod describer [now includes HostPort](https://github.com/kubernetes/kubernetes/pull/57507) in its output.
+
+## Graph of the Week
+
+This week's graph, brought to you by Jorge Castro, is [Approvers](https://k8s.devstats.cncf.io/dashboard/db/approvers?orgId=1&var-period=w&var-repogroups=All) and the [Approvers Histogram](https://k8s.devstats.cncf.io/dashboard/db/approvers-histogram?orgId=1&var-period_name=Last%20month&var-period=m&var-repogroup_name=All&var-repogroup=all)  This graph shows you the number of pull request approvals in each repository, and the accompanying histogram shows you who did those approvals. Looks like @cblecker is our leading approver for last month.
