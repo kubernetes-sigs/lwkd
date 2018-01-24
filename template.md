@@ -1,4 +1,4 @@
-# Last Week In Kubernetes Development: Week Ending
+# Week Ending
 
 ## Community Meeting Summary
 
