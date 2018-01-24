@@ -1,6 +1,6 @@
 # Last Week In Kubernetes Development
 
-This repository contains the .md files used to produce the weekly Kubernetes updates called "Last Week in Kubernetes Development", or LWKD.  Contributions by pull request are encouraged and accepted.
+[The LWKD repository](https://github.com/lwkd/lwkd.github.io) contains the .md files used to produce the weekly Kubernetes updates called "Last Week in Kubernetes Development", or LWKD.  Contributions by pull request are encouraged and accepted.
 
 ## Contributing
 
@@ -19,14 +19,14 @@ What we're looking for:
 
 We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by KubeWeekly.
 
-More than anything, please **be brief**.  A major goal of LWKD is to provide a summary of Kubernetes activity which can be taken in in 15 minutes or less.  The idea item for LWKD is one sentence and a link.
+More than anything, please **be brief**.  A major goal of LWKD is to provide a summary of Kubernetes activity which can be taken in in 15 minutes or less.  The ideal item for LWKD is one sentence and a link.
 
 You may optionally credit yourself at the end of each item you add with your initials in italics, like so:
 
 * We now have automated tests using the [vSphere Cloud Provider simulator](https://github.com/kubernetes/kubernetes/pull/55918) *JMB*
 
-Should you do this, please add your initials, name and contact link to the authors.md file.
+Should you do this, please make sure to add your initials, name and contact link to the authors.md file.
 
 ## Licensing
 
-LWKD is under the Creative Commons Share-Alike v3 License (per LICENSE file).  All contributors agree that their content may be distributed under that license.
+LWKD is under the [Creative Commons Share-Alike v4 License](https://creativecommons.org/licenses/by-sa/4.0/legalcode).  All contributors agree that their content may be distributed under that license.
