@@ -16,8 +16,9 @@ What we're looking for:
 * Notices of deprecated features, plugins, and APIs.
 * Notices of version number changes and dependency version changes.
 * "Graph of the Week" from devstats.
+* Summary of changes in kubernetes-associated repositories such as Helm and KubeVirt (based on the teams for these apps submitting the updates).
 
-We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by KubeWeekly.
+We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by [KubeWeekly](http://kubeweekly.com/).
 
 More than anything, please **be brief**.  A major goal of LWKD is to provide a summary of Kubernetes activity which can be taken in in 15 minutes or less.  The ideal item for LWKD is one sentence and a link.
 
