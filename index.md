@@ -6,6 +6,8 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
 
 # Weekly Updates for 2018
 
+[Week Ending February 18, 2018](/2018/20180218)
+
 [Week Ending February 11, 2018](/2018/20180211)
 
 [Special Edition: February 5, 2018](/2018/20180205)
