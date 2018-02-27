@@ -4,3 +4,4 @@ description: Stay up-to-date on Kubernetes development in 15 minutes a week.
 permalink: /:year/:year:month:day
 plugins:
   - jekyll-feed
+google_analytics: UA-114855009-1
