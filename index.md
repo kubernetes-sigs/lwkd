@@ -6,16 +6,8 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
 
 # Weekly Updates for 2018
 
-[Week Ending February 25, 2018](/2018/20180227)
-
-[Week Ending February 18, 2018](/2018/20180218)
-
-[Week Ending February 11, 2018](/2018/20180211)
-
-[Special Edition: February 5, 2018](/2018/20180205)
-
-[Week Ending January 28, 2018](/2018/20180128)
-
-[Week Ending January 21, 2018](/2018/20180121)
-
-[Week Ending January 14, 2018](/2018/20180114)
+{% for post in site.posts %}
+<p>
+  <a href="{{ post.url }}">{{ post.title }}</a>
+</p>
+{% endfor %}
