@@ -4,7 +4,7 @@
 
 ## Contributing
 
-Every Monday, a new issue of LWKD will come out.  At the same time, we will add a new week's blank newsletter to the appropriate "weeks" folder.  Once that happens, we will start accepting pull requests to modify that week.
+Every Monday, a new issue of LWKD will come out.  At the same time, we will add a new week's blank newsletter to the future folder.  Once that happens, we will start accepting pull requests to modify that week.
 
 If you don't feel like creating a pull request, or there's too many edit conflicts already, then add your item as an Issue.
 
