@@ -4,7 +4,7 @@
 
 ## Contributing
 
-Every Monday, a new issue of LWKD will come out.  At the same time, we will add a new week's blank newsletter to the future folder.  Once that happens, we will start accepting pull requests to modify that week.
+Every Monday, a new issue of LWKD will come out.  At the same time, we will add a new week's blank newsletter to the `future` folder.  Once that happens, we will start accepting pull requests to modify that week.
 
 If you don't feel like creating a pull request, or there's too many edit conflicts already, then add your item as an Issue.
 
@@ -16,7 +16,7 @@ What we're looking for:
 * Notices of deprecated features, plugins, and APIs.
 * Notices of version number changes and dependency version changes.
 * "Graph of the Week" from devstats.
-* Summary of changes in kubernetes-associated repositories such as Helm and KubeVirt (based on the teams for these apps submitting the updates).
+* Summary of changes in kubernetes-associated repositories such as Helm and KubeVirt (based on the teams for these apps submitting the updates, our editorial staff doesn't track those).
 
 We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by [KubeWeekly](http://kubeweekly.com/).
 
