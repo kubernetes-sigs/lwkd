@@ -11,3 +11,7 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
   <a href="{{ post.url }}">{{ post.title }}</a>
 </p>
 {% endfor %}
+
+# Privacy Notice
+
+LWKD collects web browsing data, including IP address, using Google Analytics cookies for popularity and success statistics.  This data is not shared by LWKD with any other parties, and expires automatically after 26 months.  To remove or examine your data, please [contact Google](https://privacy.google.com/businesses/compliance).  If you subscribe to LWKD by email, we also collect email information for tracking and delivery purposes.  You can ask for this to be removed by [contacting us](mailto:lwkd@lwkd.info).
