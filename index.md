@@ -4,7 +4,7 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
 
 [Subscribe](http://eepurl.com/dkBy_j) to receive LWKD by email, or [follow us on Twitter](https://twitter.com/LWKDNews) or on our [RSS feed](/feed.xml)
 
-# Weekly Updates for 2018
+# Weekly Updates
 
 {% for post in site.posts %}
 <p>
