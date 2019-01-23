@@ -4,12 +4,16 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
 
 [Subscribe](http://eepurl.com/dkBy_j) to receive LWKD by email, or [follow us on Twitter](https://twitter.com/LWKDNews) or on our [RSS feed](/feed.xml)
 
-# Weekly Updates
-
 {% for post in site.posts %}
-<p>
-  <a href="{{ post.url }}">{{ post.title }}</a>
-</p>
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+    {% unless forloop.first %}</ul>{% endunless %}
+    <h1 id="y{{post.date | date: "%Y"}}">Weely Updates for {{ currentdate }}</h1>
+    <ul>
+    {% assign date = currentdate %}
+  {% endif %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% if forloop.last %}</ul>{% endif %}
 {% endfor %}
 
 # Privacy Notice
