@@ -8,12 +8,10 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</ul>{% endunless %}
-    <h1 id="y{{post.date | date: "%Y"}}">Weely Updates for {{ currentdate }}</h1>
-    <ul>
+<h1 id="y{{post.date | date: "%Y"}}">Weekly Updates for {{ currentdate }}</h1>
     {% assign date = currentdate %}
   {% endif %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% if forloop.last %}</ul>{% endif %}
+<p><a href="{{ post.url }}">{{ post.title }}</a></p>
 {% endfor %}
 
 # Privacy Notice
