@@ -13,6 +13,8 @@ slug: 2019-01-20-update
 
 ## Release Schedule
 
+**Next Deadline:**
+
 
 ## Featured PRs
 
@@ -32,5 +34,3 @@ slug: 2019-01-20-update
 ## Other Repositories
 
 *
-
-## Contributor Tip of the Week
