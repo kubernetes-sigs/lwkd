@@ -11,3 +11,7 @@
 # List of non-author contributors
 
 * [Noah Kantrowitz](https://github.com/coderanger) (Jeckyll code)
+
+# Logo
+
+* The LWKD logo was designed by [GraphArtgency](https://www.graphartgency.com/). Contact them for community-friendly graphic design!
