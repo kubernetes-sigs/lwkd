@@ -4,7 +4,7 @@ LWKD is the product of [contributors from the Kubernetes Project](/authors).  It
 
 [Subscribe](http://eepurl.com/dkBy_j) to receive LWKD by email, or [follow us on Twitter](https://twitter.com/LWKDNews) or on our [RSS feed](/feed.xml)
 
-{% for post in site.posts %}
+{% for post in site.posts limit: 25 %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
 <h1 id="y{{post.date | date: "%Y"}}">Weekly Updates for {{ currentdate }}</h1>
