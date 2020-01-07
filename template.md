@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Week Ending Month DD, 2019
-date: 2019-01-22 22:00:00 -0000
-slug: 2019-01-20-update
+title: Week Ending Month DD, 2020
+date: 2020-01-22 22:00:00 -0000
+slug: 2020-01-20-update
 ---
 
 ## Developer News
