@@ -8,9 +8,6 @@ slug: 2020-01-20-update
 ## Developer News
 
 
-## Meeting Summary
-
-
 ## Release Schedule
 
 **Next Deadline:**
@@ -23,14 +20,14 @@ slug: 2020-01-20-update
 
 *
 
+## Promotions
+
+*
+
 ## Deprecated
 
 *
 
 ## Version Updates
-
-*
-
-## Other Repositories
 
 *
