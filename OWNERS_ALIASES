@@ -1,0 +1,13 @@
+# See the OWNERS docs at https://go.k8s.io/owners#owners_aliases
+
+aliases:
+  lwkd-maintainers:
+    - jberkus
+    - coderanger
+    - mbbroberg
+    - mrbobbytables
+  sig-contributor-experience-leads:
+    - alisondy
+    - cblecker
+    - mrbobbytables
+    - nikhita
