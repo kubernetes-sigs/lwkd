@@ -19,7 +19,7 @@ What we're looking for:
 * Updates, deadlines, and current status on the release in progress.
 * Notices of deprecated features, plugins, and APIs.
 * Notices of version number changes and dependency version changes.
-* Summary of changes in kubernetes-associated repositories such as Helm and KubeVirt (based on the teams for these apps submitting the updates, our editorial staff doesn't track those).
+* Summary of changes in kubernetes-associated repositories such as CSI, Helm, and KubeVirt (based on the teams for these apps submitting the updates, our editorial staff doesn't track those).
 
 We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by [KubeWeekly](http://kubeweekly.io/).
 
