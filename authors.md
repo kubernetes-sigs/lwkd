@@ -1,9 +1,13 @@
+LWKD is a subproject of Kubernetes [SIG Contributor Experience](https://github.com/kubernetes/community/tree/master/sig-contributor-experience).
+
 # Editors of LWKD
 
 * *JMB* [Josh Berkus](https://github.com/jberkus)
 * *NK* [Noah Kantrowitz](https://github.com/coderanger)
 
 # List of Additional Contributors To LWKD
+
+## 2019
 
 * *FD* [Fabian Deutch](https://github.com/fabiand)
 * *SC* [Scott Collier](https://github.com/scollier)
