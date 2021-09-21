@@ -1,6 +1,6 @@
 LWKD is a weekly newsletter summarizing code activity in the Kubernetes project: merges, PRs, deprecations, version updates, release schedules, and community meetings.  It does not cover events or news in the Kubernetes ecosystem, as our sister publication [KubeWeekly](http://bit.ly/kubeweekly) does a great job of handling those.
 
-LWKD is the product of [contributors from the Kubernetes Project's SIG-Contributor Experience](/authors).  If you're interested in helping with LWKD, see our [README](https://github.com/lwkd/lwkd.github.io).  You can also contact us at lwkd@lwkd.info.
+LWKD is the product of [contributors from the Kubernetes Project's SIG-Contributor Experience](/authors).  If you're interested in helping with LWKD, see our [README](https://github.com/lwkd/lwkd.github.io).  You can also contact us at lwkd@kubernetes.io.
 
 [Subscribe](https://buttondown.email/LastWeekInKubernetes) to receive LWKD by email, or [follow us on Twitter](https://twitter.com/LWKDNews) or on our [RSS feed](/feed.xml)
 
