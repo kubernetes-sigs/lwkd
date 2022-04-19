@@ -7,6 +7,10 @@ LWKD is a subproject of Kubernetes [SIG Contributor Experience](https://github.c
 
 # List of Additional Contributors To LWKD
 
+## 2022
+
+* *AT* [Avinesh Tripathi](https://github.com/AvineshTripathi)
+
 ## 2019
 
 * *FD* [Fabian Deutch](https://github.com/fabiand)
