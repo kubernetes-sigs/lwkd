@@ -33,6 +33,16 @@ Should you do this, please make sure to add your initials, name and contact link
 
 All contributors will be honored in the Authors.md file for a year or more after their last contribution.
 
+## Searching for PRs
+
+We search for singificant PRs merged in the last week against kubernetes/kubernetes using this github query:
+
+```
+is:pr merged:>YYYY-MM-DD label:release-note,release-note-action-required,"kind/deprecation","kind/api-change","size/xl","size/l"
+```
+
+... where YYYY-MM-DD is one week ago
+
 ## Contact Information
 
 - [Contributor Experience Slack channel](https://kubernetes.slack.com/messages/sig-contribex); tag @jberkus and @coderanger in your query
