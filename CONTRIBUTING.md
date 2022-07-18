@@ -21,7 +21,7 @@ What we're looking for:
 * Notices of version number changes and dependency version changes.
 * Summary of changes in kubernetes-associated repositories such as CSI, Helm, and KubeVirt (based on the teams for these apps submitting the updates, our editorial staff doesn't track those).
 
-We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by [KubeWeekly](http://kubeweekly.io/).
+We are **not** looking for information about upcoming events, external blog posts, new projects or products, or other Kubernetes "ecosystem" news, all of which is well-covered by [KubeWeekly](https://kubeweekly.io/).
 
 More than anything, please **be brief**.  A major goal of LWKD is to provide a summary of Kubernetes activity which can be taken in in 15 minutes or less.  The ideal item for LWKD is one sentence and a link.
 
