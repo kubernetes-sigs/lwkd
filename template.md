@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Week Ending Month DD, 2022
-date: 2022-01-22 22:00:00 -0000
-slug: 2022-01-20-update
+title: Week Ending Month DD, 2023
+date: 2023-01-22 22:00:00 -0000
+slug: 2023-01-20-update
 ---
 
 ## Developer News
