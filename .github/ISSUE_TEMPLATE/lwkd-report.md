@@ -26,7 +26,7 @@ labels: 'kind/feature'
 - [ ] Release Schedule
 - [ ] Featured PRs
 - [ ] Other Merges
-- [ ] Promotions
+- [ ] Version Promotions/ Graduates
 - [ ] Deprecated
 - [ ] Version Updates
 - [ ] Related Projects
