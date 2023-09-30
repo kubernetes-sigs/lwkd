@@ -30,5 +30,6 @@ labels: 'kind/feature'
 - [ ] Deprecated
 - [ ] Version Updates
 - [ ] Related Projects
+- [ ] Not Sure / Other
 
 To include updates from projects other than `Kubernetes` and `Kubernetes/sigs`, please refer to the [list of projects]() we accept submissions from.
