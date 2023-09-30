@@ -1,5 +1,5 @@
 ---
-name: Feature an update for LWKD
+name: Submit a News Item
 about: Submit a news, PR, content or update for the next 'Last Week in Kubernetes Development' Newsletter
 title: 'Add to LWKD - [Title]'
 labels: 'kind/feature'
