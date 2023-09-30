@@ -5,20 +5,20 @@ title: 'News Item: [Title]'
 labels: 'kind/feature'
 ---
 
-**Request to add your PR/updates/content/news in the next week's LWKD Newsletter**
-<!-- Please only use this template for submitting content you'd like to feature in the LWKD Newsletter -->
-<!-- See https://kubernetes.io/docs/contribute/start/ for guidance on writing an actionable issue description. -->
-
-**What would you like to be added**
-<!-- Please provide a detailed description of how this news, feature, or enhancement should function from the reader's perspective -->
 
 
-**Why is this needed**
-<!-- Provide more context of how this information can be used in practice?, who will benefit from this?, why are they being added? -->
+
+**Your Item for LWKD**
+<!-- Please write one sentence about your news item for LWKD. This line should very briefly explain what the item is and why it's important. -->
 
 
-**Additional Information**
-<!-- Provide any supplementary notes, comments or links related to your submission. If required, you may also attach drawings or mockups to aid in understanding -->
+
+**Links for Your Item**
+<!-- Share one or two links for this item. Links to merged PR and/or GitHub issues are better than links to mailing lists or web pages. -->
+Link 1 :
+
+Link 2 (optional) :
+
 
 **Section:**
 <!-- Choose the most appropriate portion of the newsletter for this information -->
