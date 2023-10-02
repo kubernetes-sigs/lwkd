@@ -16,6 +16,9 @@ slug: 2023-01-20-update
 ## Featured PRs
 
 
+## KEP of the Week
+
+
 ## Other Merges
 
 *
@@ -29,5 +32,9 @@ slug: 2023-01-20-update
 *
 
 ## Version Updates
+
+*
+
+## Subprojects and Dependency Updates
 
 *
