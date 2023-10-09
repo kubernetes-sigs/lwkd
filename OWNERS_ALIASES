@@ -4,10 +4,12 @@ aliases:
   lwkd-maintainers:
     - jberkus
     - coderanger
-    - mbbroberg
-    - mrbobbytables
+    - sreeram-venkitesh
   sig-contributor-experience-leads:
-    - alisondy
-    - cblecker
     - mrbobbytables
     - nikhita
+    - cblecker
+    - kaslin
+    - palnabarun
+    - MadhavJivrajani
+    - Priyankasaggu11929
