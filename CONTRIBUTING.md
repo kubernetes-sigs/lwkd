@@ -45,7 +45,7 @@ is:pr merged:>YYYY-MM-DD label:release-note,release-note-action-required,"kind/d
 
 ## Contact Information
 
-- [Contributor Experience Slack channel](https://kubernetes.slack.com/messages/sig-contribex); tag @jberkus and @coderanger in your query
+- [Contributor Comms Slack channel](https://kubernetes.slack.com/messages/sig-contribex-comms); tag @jberkus and @coderanger in your query
 
 ## Additional Resources
 
