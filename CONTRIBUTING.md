@@ -33,6 +33,29 @@ Should you do this, please make sure to add your initials, name and contact link
 
 All contributors will be honored in the Authors.md file for a year or more after their last contribution.
 
+## Developer News
+
+Developer News should include anything of interest to the whole pool of Kubernetes developers, which should include:
+
+* Summaries of any significant items from the kubernetes/dev mailing list
+* Any changes to SIG/Team leadership announced in the last week
+* Updates on upcoming Kubernetes Contributor Summits
+* Major Kubecon deadlines (announced only once), with a focus on maintainer stuff
+* Other upcoming events and code initiatives, like the Security Slam or mentoring programs
+* Security vulnerability announcements
+* Major changes to community infrastructure (like testing framework) or development process
+* Requests for feedback or surveys targeting all Kubernetes devs by SIGs or the CNCF (but *not* from 3rd parties)
+* Steering committee and other community elections
+* Major Steering decisions that affect a lot of developers
+
+Sources of this information include, but are not limited to:
+
+* The kubernetes.io/dev mailing list archives
+* Kubernetes.dev/events website and the Summit Team
+* Chairs and Leads slack channel
+* Issues and PRs in Community, Enhancements, and Test-Infra repos
+* Steering committee meeting minutes
+
 ## Searching for PRs
 
 We search for singificant PRs merged in the last week against kubernetes/kubernetes using this github query:
