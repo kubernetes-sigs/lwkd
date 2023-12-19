@@ -14,8 +14,6 @@
         CI_COMMIT_AUTHOR: Release Crawler
       steps:
         - uses: actions/checkout@v4
-
-        # Build steps
         - name: Set up Go
           uses: actions/setup-go@v4
           with:
