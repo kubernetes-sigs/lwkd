@@ -1,18 +1,18 @@
 package main
 
 import (
-"context"
-"fmt"
-"html/template"
-"log"
-"os"
-"time"
+	"context"
+	"fmt"
+	"html/template"
+	"log"
+	"os"
+	"time"
 
-"github.com/gomarkdown/markdown"
+	"github.com/gomarkdown/markdown"
 
-"github.com/gomarkdown/markdown/html"
-"github.com/gomarkdown/markdown/parser"
-"github.com/google/go-github/v57/github"
+	"github.com/gomarkdown/markdown/html"
+	"github.com/gomarkdown/markdown/parser"
+	"github.com/google/go-github/v57/github"
 )
 
 var repos map[string][]string = map[string][]string{
@@ -41,14 +41,12 @@ var repos map[string][]string = map[string][]string{
 	"etcd-io": []string{
 		"etcd",
 	},
-	"grpc" : []string{
+	"grpc": []string{
 		"grpc",
 	},
 	"golang": []string{
 		"go",
 	},
-
-
 }
 
 // mdToHTML converts markdown to HTML
@@ -86,14 +84,14 @@ func createHTMLFile(filename string, data map[string]string) error {
 	}
 
 	// remove File if exists
-	if _, err := os.Stat("release-notes-html/"+filename+ ".html"); err == nil {
-		err = os.Remove("release-notes-html/"+filename+ ".html")
+	if _, err := os.Stat("release-notes-html/" + filename + ".html"); err == nil {
+		err = os.Remove("release-notes-html/" + filename + ".html")
 		if err != nil {
 			return err
 		}
 	}
 	// Create the file and get the file pointer
-	file, err := os.Create("release-notes-html/"+filename + ".html")
+	file, err := os.Create("release-notes-html/" + filename + ".html")
 	if err != nil {
 		return err
 	}
@@ -113,14 +111,14 @@ func createHTMLFile(filename string, data map[string]string) error {
 func createMDFile(filename string, mdContent string) error {
 
 	// remove File if exists
-	if _, err := os.Stat("release-notes-md/"+filename+ ".md"); err == nil {
-		err = os.Remove("release-notes-md/"+filename+ ".md")
+	if _, err := os.Stat("release-notes-md/" + filename + ".md"); err == nil {
+		err = os.Remove("release-notes-md/" + filename + ".md")
 		if err != nil {
 			return err
 		}
 	}
 	// Create the file and get the file pointer
-	file, err := os.Create("release-notes-md/"+filename+ ".md")
+	file, err := os.Create("release-notes-md/" + filename + ".md")
 	if err != nil {
 		return err
 	}
@@ -142,9 +140,9 @@ func main() {
 	var mdContent string
 	var htmlContent string
 	htmlContent += "<h1>Latest Releases for " + oneWeekAgo.Format("2006-01-02") + "</h1>"
-	mdContent += "# Latest Releases for " + oneWeekAgo.Format("2006-01-02") + " "
-	weekfile := oneWeekAgo.Format("2006-01-02")
+	mdContent += "# Latest Releases for " + oneWeekAgo.Format("2006-01-02") + "  \n"
 
+	weekfile := oneWeekAgo.Format("2006-01-02")
 
 	for p, rs := range repos {
 		for _, r := range rs {
@@ -154,23 +152,22 @@ func main() {
 
 			if err == nil {
 				htmlContent += "<h2>" + p + "/" + r + "</h2> "
-				mdContent += "## " + p + "/" + r
+				mdContent += "## " + p + "/" + r + "  \n"
 				for _, release := range releases {
 					if release.GetPublishedAt().After(oneWeekAgo) {
 
 						htmlContent += "<h3>Release notes for " + release.GetName() + "</h3>"
 						htmlContent += "<h4>" + release.GetPublishedAt().Format("2006-01-02") + "</h4>"
 
-						mdContent += "### Release notes for " + release.GetName()
-						mdContent += "#### " + release.GetPublishedAt().Format("2006-01-02")
-
+						mdContent += "### Release notes for " + release.GetName() + "  \n"
+						mdContent += "#### " + release.GetPublishedAt().Format("2006-01-02") + "  \n"
 
 						content := []byte(release.GetBody())
 
 						mdContent += string(content)
 						htmlContent += string(mdToHTML(content))
 						htmlContent += "<br>"
-
+						mdContent += "  \n"
 					}
 
 				}

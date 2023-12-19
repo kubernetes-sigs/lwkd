@@ -1,0 +1,30 @@
+  on:
+    schedule:
+      - cron: '0 0 * * 1'
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+  defaults:
+    run:
+      working-directory: scripts/release-crawler
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      env:
+        CI_COMMIT_MESSAGE: Add weekly release notes
+        CI_COMMIT_AUTHOR: Release Crawler
+      steps:
+        - uses: actions/checkout@v4
+        - name: Set up Go
+          uses: actions/setup-go@v4
+          with:
+            go-version: 1.21
+        - run: go run main.go
+        # Commit and push all changed files.
+        - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
+          run: |
+            git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+            git config --global user.email "username@users.noreply.github.com"
+            git add release-notes-html/*
+            git add release-notes-md/*
+            git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+            git push
