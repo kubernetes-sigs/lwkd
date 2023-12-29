@@ -20,11 +20,23 @@
             go-version: 1.21
         - run: go run main.go
         # Commit and push all changed files.
-        - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
-          run: |
-            git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-            git config --global user.email "username@users.noreply.github.com"
-            git add release-notes-html/*
-            git add release-notes-md/*
-            git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
-            git push
+        - name: Get current date
+          id: date
+          run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        - name: Create Pull Request
+          uses: peter-evans/create-pull-request@v5
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            commit-message: Add last weeks releated Project Updates
+            title: 'add: last week related project releases'
+            body: |
+              This PR is auto-generated.
+              It adds the latest releases of the past week ${{ steps.date.outputs.date }} to the repository
+            labels: add, automated pr
+            branch: add/related-projects-${{ steps.date.outputs.date }}
+            add-paths: |
+               scripts/release-crawler/release-notes-html/*.html
+               scripts/release-crawler/release-notes-md/*.md
+            base: main
+            signoff: true
+            delete-branch: true
