@@ -37,12 +37,27 @@ var repos map[string][]string = map[string][]string{
 		"kubeadm",
 		"ngninx-ingress",
 		"cluster-api",
+		"cloud-provider",
+		"cloud-provider-aws",
+		"cloud-provider-gcp",
+		"cloud-provider-openstack",
+		"cloud-provider-vsphere",
+		"minikube",
+		"ingress-gce",
+		"kompose",
+		"cloud-provider-alibaba-cloud",
 	},
-	"kubernetes-sigs": []string{
+	"kubernetes-sigs": {
+		"kind",
+		"kubebuilder",
+		"kustomize",
 		"kubespray",
 	},
 	"etcd-io": []string{
 		"etcd",
+	},
+	"prometheus": []string{
+		"prometheus",
 	},
 	"grpc": []string{
 		"grpc",
@@ -103,7 +118,7 @@ func createHTMLFile(filename string, data map[string]string) error {
 	// Execute the template with the file pointer and data
 	err = tmpl.Execute(file, data)
 
-	//data escaped
+	// data escaped
 	if err != nil {
 		return err
 	}
@@ -154,11 +169,18 @@ func main() {
 			})
 
 			if err == nil {
-				htmlContent += "<h2>" + p + "/" + r + "</h2> "
-				mdContent += "## " + p + "/" + r + "  \n"
+
+				lastWeekRelease := []github.RepositoryRelease{}
 				for _, release := range releases {
 					if release.GetPublishedAt().After(oneWeekAgo) {
+						lastWeekRelease = append(lastWeekRelease, *release)
+					}
+				}
+				if len(lastWeekRelease) > 0 {
+					htmlContent += "<h2>" + p + "/" + r + "</h2> "
+					mdContent += "## " + p + "/" + r + "  \n"
 
+					for _, release := range lastWeekRelease {
 						htmlContent += "<h3>Release notes for " + release.GetName() + "</h3>"
 						htmlContent += "<h4>" + release.GetPublishedAt().Format("2006-01-02") + "</h4>"
 
