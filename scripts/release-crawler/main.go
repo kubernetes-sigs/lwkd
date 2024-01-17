@@ -38,6 +38,9 @@ var repos map[string][]string = map[string][]string{
 		"ngninx-ingress",
 		"cluster-api",
 	},
+	"kubernetes-sigs": []string{
+		"kubespray",
+	},
 	"etcd-io": []string{
 		"etcd",
 	},
