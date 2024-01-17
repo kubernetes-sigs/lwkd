@@ -40,6 +40,7 @@ The collected release notes are stored as html and as MD format to be an easy us
 |kubernetes|kubeadm           |[kubeADM](https://github.com/kubernetes/kubeadm)|
 |kubernetes|ngninx-ingress           |[NGINX Ingress](https://github.com/kubernetes/ngninx-ingress )|
 |kubernetes|cluster-api           |[ClusterAPI](https://github.com/kubernetes/cluster-api)|
+|kubernetes-sigs|kubespray          |[Kubespray](https://github.com/kubernetes-sigs/kubespray)|
 |etcd-io|etcd           |[ETCD](https://github.com/etcd-io/etcd)|
 |grpc|grpc           |[GRPC](https://github.com/grpc/grpc)|
 |golang|go           |[Golang](https://github.com/golang/go)|
