@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-02-12</h1><h2>kubernetes-sigs/kind</h2> <h3>Release notes for v0.22.0</h3><h4>2024-02-14</h4><p>This release is a quick follow-up to <a href="https://github.com/kubernetes-sigs/kind/releases/tag/v0.21.0" target="_blank">v0.21.0</a> with bug fixes including not overriding the host&rsquo;s binfmt_misc (a regression in v0.20.0, see: <a href="https://github.com/kubernetes-sigs/kind/issues/3510" target="_blank">https://github.com/kubernetes-sigs/kind/issues/3510</a>).</p>
+
+<h1 id="breaking-changes">Breaking Changes</h1>
+
+<ul>
+<li>The default node image is now Kubernetes 1.29.2: <code>kindest/node:v1.29.2@sha256:51a1434a5397193442f0be2a297b488b6c919ce8a3931be0ce822606ea5ca245</code></li>
+</ul>
+
+<p><strong>If you haven&rsquo;t already, please see also <a href="https://github.com/kubernetes-sigs/kind/releases/tag/v0.21.0" target="_blank">v0.21.0  release notes</a> given the short time between releases.</strong></p>
+
+<h1 id="new-features">New Features</h1>
+
+<ul>
+<li>Remove <code>exclude-from-external-load-balancers</code> from single node clusters <a href="https://github.com/kubernetes-sigs/kind/issues/3506" target="_blank">https://github.com/kubernetes-sigs/kind/issues/3506</a></li>
+<li>Support for building node images on hosts with proxies</li>
+</ul>
+
+<p>Images pre-built for this release:</p>
+
+<ul>
+<li>v1.29.2: <code>kindest/node:v1.29.2@sha256:51a1434a5397193442f0be2a297b488b6c919ce8a3931be0ce822606ea5ca245</code></li>
+<li>v1.29.1: <code>kindest/node:v1.29.1@sha256:0c06baa545c3bb3fbd4828eb49b8b805f6788e18ce67bff34706ffa91866558b</code></li>
+<li>v1.28.7: <code>kindest/node:v1.28.7@sha256:9bc6c451a289cf96ad0bbaf33d416901de6fd632415b076ab05f5fa7e4f65c58</code></li>
+<li>v1.28.6: <code>kindest/node:v1.28.6@sha256:e9e59d321795595d0eed0de48ef9fbda50388dc8bd4a9b23fb9bd869f370ec7e</code></li>
+<li>v1.27.11: <code>kindest/node:v1.27.11@sha256:681253009e68069b8e01aad36a1e0fa8cf18bb0ab3e5c4069b2e65cafdd70843</code></li>
+<li>v1.27.10: <code>kindest/node:v1.27.10@sha256:e6b2f72f22a4de7b957cd5541e519a8bef3bae7261dd30c6df34cd9bdd3f8476</code></li>
+<li>v1.26.14: <code>kindest/node:v1.26.14@sha256:5d548739ddef37b9318c70cb977f57bf3e5015e4552be4e27e57280a8cbb8e4f</code></li>
+<li>v1.26.13: <code>kindest/node:v1.26.13@sha256:8cb4239d64ff897e0c21ad19fe1d68c3422d4f3c1c1a734b7ab9ccc76c549605</code></li>
+<li>v1.25.16: <code>kindest/node:v1.25.16@sha256:e8b50f8e06b44bb65a93678a65a26248fae585b3d3c2a669e5ca6c90c69dc519</code></li>
+<li>v1.24.17: <code>kindest/node:v1.24.17@sha256:bad10f9b98d54586cba05a7eaa1b61c6b90bfc4ee174fdc43a7b75ca75c95e51</code></li>
+<li>v1.23.17: <code>kindest/node:v1.23.17@sha256:14d0a9a892b943866d7e6be119a06871291c517d279aedb816a4b4bc0ec0a5b3</code></li>
+</ul>
+
+<p><strong>NOTE</strong>: You <em>must</em> use the <code>@sha256</code> digest to guarantee an image built for this release, until such a time as we switch to a different tagging scheme. Even then we will highly encourage digest pinning for security and reproducibility reasons.</p>
+
+<p>See also:</p>
+
+<ul>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/#creating-a-cluster" target="_blank">https://kind.sigs.k8s.io/docs/user/quick-start/#creating-a-cluster</a></li>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/#building-images" target="_blank">https://kind.sigs.k8s.io/docs/user/quick-start/#building-images</a></li>
+</ul>
+
+<p>NOTE: These node images support amd64 and arm64, both of our supported platforms. <strong>You must use the same platform as your host,</strong> for more context see <a href="https://github.com/kubernetes-sigs/kind/issues/2718" target="_blank">https://github.com/kubernetes-sigs/kind/issues/2718</a></p>
+
+<h1 id="fixes">Fixes</h1>
+
+<ul>
+<li>binfmt_misc no longer set by node images (regression in v0.20.0)</li>
+<li>fix runc hooks when non-root / usernamespaces</li>
+<li>Support multiple random extraPortMappings</li>
+<li>Docs fixes for contour and WSL2</li>
+</ul>
+
+<h1 id="contributors">Contributors</h1>
+
+<p><strong>Thank you to everyone who contributed to this release! ❤️</strong></p>
+
+<p>Users whose commits are in this release (alphabetically by user name)</p>
+
+<ul>
+<li>@BenTheElder</li>
+<li>@dependabot[bot]</li>
+<li>@dgl</li>
+<li>@howardjohn</li>
+<li>@k8s-ci-robot</li>
+<li>@r-suke</li>
+<li>@skriss<br>
+</li>
+<li>@wouterh-dev</li>
+<li>@Zumium</li>
+</ul>
+
+<p>Thank you as well to everyone else not listed here who contributed in other ways like filing issues, giving feedback, testing fixes, and helping users in slack!</p>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 2.50.0-rc.0 / 2024-02-13</h3><h4>2024-02-13</h4><ul>
+<li>[CHANGE] Remote Write: Error <code>storage.ErrTooOldSample</code> is now generating HTTP error 400 instead of HTTP error 500. #13335</li>
+<li>[FEATURE] Remote Write: Drop old inmemory samples. Activated using the config entry <code>sample_age_limit</code>. #13002</li>
+<li>[FEATURE] <strong>Experimental</strong>: Add support for ingesting zeros as created timestamps. (enabled under the feature-flag <code>created-timestamp-zero-ingestion</code>). #12733 #13279</li>
+<li>[FEATURE] Promtool: Add <code>analyze</code> histograms command. #12331</li>
+<li>[FEATURE] TSDB/compaction: Add a way to enable overlapping compaction. #13282 #13393 #13398</li>
+<li>[FEATURE] Add automatic memory limit handling. Activated using the feature flag. <code>auto-gomemlimit</code> #13395</li>
+<li>[ENHANCEMENT] Promtool: allow specifying multiple matchers in <code>promtool tsdb dump</code>. #13296</li>
+<li>[ENHANCEMENT] PromQL: Restore more efficient version of <code>NewPossibleNonCounterInfo</code> annotation. #13022</li>
+<li>[ENHANCEMENT] Kuma SD: Extend configuration to allow users to specify client ID. #13278</li>
+<li>[ENHANCEMENT] PromQL: Use natural sort in <code>sort_by_label</code> and <code>sort_by_label_desc</code>. This is <strong>experimental</strong>. #13411</li>
+<li>[ENHANCEMENT] Native Histograms: support <code>native_histogram_min_bucket_factor</code> in scrape_config. #13222</li>
+<li>[ENHANCEMENT] Native Histograms: Issue warning if histogramRate is applied to the wrong kind of histogram. #13392</li>
+<li>[ENHANCEMENT] TSDB: Make transaction isolation data structures smaller. #13015</li>
+<li>[ENHANCEMENT] TSDB/postings: Optimize merge using Loser Tree. #12878</li>
+<li>[ENHANCEMENT] TSDB: Simplify internal series delete function. #13261</li>
+<li>[ENHANCEMENT] Agent: Performance improvement by making the global hash lookup table smaller. #13262</li>
+<li>[ENHANCEMENT] PromQL: faster execution of metric functions, e.g. abs(), rate() #13446</li>
+<li>[ENHANCEMENT] TSDB: Optimize label values with matchers by taking shortcuts. #13426</li>
+<li>[ENHANCEMENT] Kubernetes SD: Check preconditions earlier and avoid unnecessary checks or iterations in kube_sd. #13408</li>
+<li>[ENHANCEMENT] Promtool: Improve visibility for <code>promtool test rules</code> with JSON colored formatting. #13342</li>
+<li>[ENHANCEMENT] Consoles: Exclude iowait and steal from CPU Utilisation. #9593</li>
+<li>[ENHANCEMENT] Various improvements and optimizations on Native Histograms. #13267, #13215, #13276 #13289, #13340</li>
+<li>[BUGFIX] Scraping: Fix quality value in HTTP Accept header. #13313</li>
+<li>[BUGFIX] UI: Fix usage of the function <code>time()</code> that was crashing. #13371</li>
+</ul>
+
+<details>
+  <summary> Commits </summary>
+
+* Enable reusing memory when converting between histogram types by @fpetkovski in https://github.com/prometheus/prometheus/pull/13215
+* Append Created Timestamps by @ArthurSens in https://github.com/prometheus/prometheus/pull/12733
+* tsdb: use Go standard errors by @mmorel-35 in https://github.com/prometheus/prometheus/pull/13155
+* Sync golangci-lint version by @SuperQ in https://github.com/prometheus/prometheus/pull/13269
+* tsdb: remove unused option by @GiedriusS in https://github.com/prometheus/prometheus/pull/13282
+* Tweak line wrappings in docs/storage.md by @windsonsea in https://github.com/prometheus/prometheus/pull/11583
+* `chunks.Reader`: Fix typo in `ChunkOrIterable` doc string by @aknuds1 in https://github.com/prometheus/prometheus/pull/13205
+* Allow non-default registry to be used for metrics of SD components by @ptodev in https://github.com/prometheus/prometheus/pull/13023
+* postings: use Loser Tree for merge by @bboreham in https://github.com/prometheus/prometheus/pull/12878
+* Get VM Scale Set NIC by @daniel-resdiary in https://github.com/prometheus/prometheus/pull/13283
+* Reuse float histogram objects by @fpetkovski in https://github.com/prometheus/prometheus/pull/13276
+* Document feature flag 'created-timestamp-zero-ingestion' by @ArthurSens in https://github.com/prometheus/prometheus/pull/13279
+* kuma_sd: Extend Kuma SD configuration to allow users to specify ClientId by @Automaat in https://github.com/prometheus/prometheus/pull/13278
+* scripts: Add minimal permissions to script golangci-lint.yml by @diogoteles08 in https://github.com/prometheus/prometheus/pull/13288
+* build(deps): bump github.com/Azure/azure-sdk-for-go/sdk/resourcemanager by @mmorel-35 in https://github.com/prometheus/prometheus/pull/13294
+* Dedup code handling getting network interface by @daniel-resdiary in https://github.com/prometheus/prometheus/pull/13285
+* scrape: consistent function names for metadata by @bboreham in https://github.com/prometheus/prometheus/pull/13177
+* relabel: improve logic for target labels by @bboreham in https://github.com/prometheus/prometheus/pull/13308
+* Move metric type definitions to common/model by @bboreham in https://github.com/prometheus/prometheus/pull/13176
+* scrape: simplify TargetsActive function by @bboreham in https://github.com/prometheus/prometheus/pull/13167
+* bug: Fix quality value in accept header by @kalpadiptyaroy in https://github.com/prometheus/prometheus/pull/13313
+* Fix reusing float histograms by @fpetkovski in https://github.com/prometheus/prometheus/pull/13289
+* Adding small test update for temp dir using t.TempDir by @zedGGs in https://github.com/prometheus/prometheus/pull/13293
+* Revert "Adding small test update for temp dir using t.TempDir (#13293)" by @bboreham in https://github.com/prometheus/prometheus/pull/13344
+* agent: make the global hash lookup table smaller by @bboreham in https://github.com/prometheus/prometheus/pull/13262
+* build(deps): bump github.com/prometheus/client_golang from 1.17.0 to 1.18.0 in /documentation/examples/remote_storage by @dependabot in https://github.com/prometheus/prometheus/pull/13354
+* Bump client_golang to v1.18.0 by @tpaschalis in https://github.com/prometheus/prometheus/pull/13373
+* remote: consider storage.ErrTooOldSample as non-retryable by returning 400 by @nmdanny in https://github.com/prometheus/prometheus/pull/13335
+* Drop old inmemory samples by @marctc in https://github.com/prometheus/prometheus/pull/13002
+* ui: fix handling of scalar and string in isHeatmapData by @kevinmingtarja in https://github.com/prometheus/prometheus/pull/13371
+* tsdb/{index,compact}: allow using custom postings encoding format by @GiedriusS in https://github.com/prometheus/prometheus/pull/13242
+* build(deps): bump actions/setup-go from 3.5.0 to 5.0.0 in /scripts by @dependabot in https://github.com/prometheus/prometheus/pull/13362
+* build(deps): bump github/codeql-action from 2.22.8 to 3.22.12 by @dependabot in https://github.com/prometheus/prometheus/pull/13358
+* put @nexucis has a release shepherd for the next release by @Nexucis in https://github.com/prometheus/prometheus/pull/13383
+* protobuf: add unit parser by @vesari in https://github.com/prometheus/prometheus/pull/13299
+* Add analyze histograms command to promtool by @zenador in https://github.com/prometheus/prometheus/pull/12331
+* tsdb: add enable overlapping compaction by @GiedriusS in https://github.com/prometheus/prometheus/pull/13393
+* tsdb/compact: fix passing merge func by @GiedriusS in https://github.com/prometheus/prometheus/pull/13391
+* allow setting multiple matchers to "promtool tsdb dump" by @machine424 in https://github.com/prometheus/prometheus/pull/13296
+* Merge 2.49.0 release to main by @bwplotka in https://github.com/prometheus/prometheus/pull/13399
+* tsdb/main: wire "EnableOverlappingCompaction" to tsdb.Options by @GiedriusS in https://github.com/prometheus/prometheus/pull/13398
+* Restore more efficient version of NewPossibleNonCounterInfo annotation by @zenador in https://github.com/prometheus/prometheus/pull/13022
+* fix slice copy in 1.20 by @tylitianrui in https://github.com/prometheus/prometheus/pull/13389
+* Query Basics: link to rate by @tredondo in https://github.com/prometheus/prometheus/pull/10538
+* Examples: link to `rate` for new users by @tredondo in https://github.com/prometheus/prometheus/pull/10535
+* add cluster variable to Overview dashboard by @the-it in https://github.com/prometheus/prometheus/pull/13180
+* Fix regressions introduced by #13242 by @pracucci in https://github.com/prometheus/prometheus/pull/13407
+* promql: use natural sort in sort_by_label and sort_by_label_desc by @bobrik in https://github.com/prometheus/prometheus/pull/13411
+* Native Histograms: support `native_histogram_min_bucket_factor` in scrape_config by @fatsheep9146 in https://github.com/prometheus/prometheus/pull/13222
+* Add warnings for histogramRate applied with isCounter not matching counter/gauge histogram by @zenador in https://github.com/prometheus/prometheus/pull/13392
+* remove  obsolete build tag by @tylitianrui in https://github.com/prometheus/prometheus/pull/13416
+* scripts: sort file list in embed directive by @jan--f in https://github.com/prometheus/prometheus/pull/13363
+* build(deps): bump github.com/prometheus/prometheus from 0.48.0 to 0.48.1 in /documentation/examples/remote_storage by @dependabot in https://github.com/prometheus/prometheus/pull/13353
+* build(deps): bump github.com/influxdata/influxdb from 1.11.2 to 1.11.4 in /documentation/examples/remote_storage by @dependabot in https://github.com/prometheus/prometheus/pull/13352
+* Upgrade some golang dependencies for resty 2.11 by @iblancasa in https://github.com/prometheus/prometheus/pull/13417
+* TestLabelValuesWithMatchers: Add test case by @aknuds1 in https://github.com/prometheus/prometheus/pull/13415
+* build(deps): bump github.com/hetznercloud/hcloud-go/v2 from 2.4.0 to 2.6.0 by @dependabot in https://github.com/prometheus/prometheus/pull/13422
+* chore(kubernetes): check preconditions earlier and avoid unnecessary checks or iterations by @machine424 in https://github.com/prometheus/prometheus/pull/13408
+* build(deps): bump actions/setup-node from 3.8.1 to 4.0.1 by @dependabot in https://github.com/prometheus/prometheus/pull/13356
+* otlp: Minor cosmetic fixes to the update script by @gouthamve in https://github.com/prometheus/prometheus/pull/13169
+* promql: simplify Native Histogram arithmetics by @linasm in https://github.com/prometheus/prometheus/pull/13267
+* fix(discovery tests): allow requireUpdate util to timeout in discovery/file… by @machine424 in https://github.com/prometheus/prometheus/pull/13380
+* scrape_test.go: Increase scrape interval in TestScrapeLoopCache to re… by @machine424 in https://github.com/prometheus/prometheus/pull/13336
+* Enhanced visibility for `promtool test rules` with JSON colored formatting by @rewanthtammana in https://github.com/prometheus/prometheus/pull/13342
+* Remove csmarchbanks from remote write owners by @csmarchbanks in https://github.com/prometheus/prometheus/pull/13432
+* storage: skip merging when no remote storage configured by @bboreham in https://github.com/prometheus/prometheus/pull/13427
+* Add more context cancellation check at evaluation time by @yeya24 in https://github.com/prometheus/prometheus/pull/13437
+* Optimize label values with matchers by taking shortcuts by @colega in https://github.com/prometheus/prometheus/pull/13426
+* consoles: exclude iowait and steal from CPU Utilisation by @julianwiedmann in https://github.com/prometheus/prometheus/pull/9593
+* Add automatic memory limit handling by @SuperQ in https://github.com/prometheus/prometheus/pull/13395
+* Update OSSF badge link by @mmorel-35 in https://github.com/prometheus/prometheus/pull/13433
+* SD Managers taking over responsibility for registration of debug metrics by @ptodev in https://github.com/prometheus/prometheus/pull/13375
+* Optimize histogram iterators by @fpetkovski in https://github.com/prometheus/prometheus/pull/13340
+* doc: Mark `mad_over_time` as experimental by @beorn7 in https://github.com/prometheus/prometheus/pull/13440
+* TestHeadLabelValuesWithMatchers: Add test case by @aknuds1 in https://github.com/prometheus/prometheus/pull/13414
+* update all go dependencies by @Nexucis in https://github.com/prometheus/prometheus/pull/13438
+* build(deps): bump the k8s-io group with 2 updates by @dependabot in https://github.com/prometheus/prometheus/pull/13454
+* build(deps): bump the go-opentelemetry-io group with 1 update by @dependabot in https://github.com/prometheus/prometheus/pull/13453
+* build(deps): bump actions/upload-artifact from 3.1.3 to 4.0.0 by @dependabot in https://github.com/prometheus/prometheus/pull/13355
+* build(deps): bump bufbuild/buf-push-action from 342fc4cdcf29115a01cf12a2c6dd6aac68dc51e1 to a654ff18effe4641ebea4a4ce242c49800728459 by @dependabot in https://github.com/prometheus/prometheus/pull/13357
+* tsdb: make transaction isolation data structures smaller by @bboreham in https://github.com/prometheus/prometheus/pull/13015
+* Labels: Add DropMetricName function, used in PromQL by @bboreham in https://github.com/prometheus/prometheus/pull/13446
+* tsdb: simplify internal series delete function by @bboreham in https://github.com/prometheus/prometheus/pull/13261
+* Merging back release v2.49.1 to main by @Nexucis in https://github.com/prometheus/prometheus/pull/13463
+* Rollback k8s.io requirements by @SuperQ in https://github.com/prometheus/prometheus/pull/13462
+* scrape: Prometheus server support exemplar in native histogram by @fatsheep9146 in https://github.com/prometheus/prometheus/pull/13449
+* ui: fix for deep linking in stacked graphs by @Loori-R in https://github.com/prometheus/prometheus/pull/13460
+* otlptranslator/update-copy.sh: Fix sed command lines by @aknuds1 in https://github.com/prometheus/prometheus/pull/13464
+* Change metric label for Puppet SD from 'http' to 'puppetdb' by @ptodev in https://github.com/prometheus/prometheus/pull/13447
+* Fix last_over_time for native histograms by @fpetkovski in https://github.com/prometheus/prometheus/pull/13474
+* Cut v2.50.0-rc.0 by @Nexucis in https://github.com/prometheus/prometheus/pull/13465
+
+</details>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@windsonsea made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/11583" target="_blank">https://github.com/prometheus/prometheus/pull/11583</a></li>
+<li>@daniel-resdiary made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13283" target="_blank">https://github.com/prometheus/prometheus/pull/13283</a></li>
+<li>@Automaat made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13278" target="_blank">https://github.com/prometheus/prometheus/pull/13278</a></li>
+<li>@diogoteles08 made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13288" target="_blank">https://github.com/prometheus/prometheus/pull/13288</a></li>
+<li>@kalpadiptyaroy made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13313" target="_blank">https://github.com/prometheus/prometheus/pull/13313</a></li>
+<li>@zedGGs made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13293" target="_blank">https://github.com/prometheus/prometheus/pull/13293</a></li>
+<li>@nmdanny made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13335" target="_blank">https://github.com/prometheus/prometheus/pull/13335</a></li>
+<li>@kevinmingtarja made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13371" target="_blank">https://github.com/prometheus/prometheus/pull/13371</a></li>
+<li>@the-it made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13180" target="_blank">https://github.com/prometheus/prometheus/pull/13180</a></li>
+<li>@bobrik made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13411" target="_blank">https://github.com/prometheus/prometheus/pull/13411</a></li>
+<li>@iblancasa made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13417" target="_blank">https://github.com/prometheus/prometheus/pull/13417</a></li>
+<li>@rewanthtammana made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13342" target="_blank">https://github.com/prometheus/prometheus/pull/13342</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/prometheus/prometheus/compare/v2.49.1...v2.50.0-rc.0" target="_blank">https://github.com/prometheus/prometheus/compare/v2.49.1&hellip;v2.50.0-rc.0</a></p>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.62.0-pre1</h3><h4>2024-02-14</h4><p>This is a prerelease of gRPC Core 1.62.0 (guardian).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This prerelease contains refinements, improvements, and bug fixes.</p>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li><code>grpcio_observability</code> package is not published in this release due to an issue in packaging.</li>
+</ul>
+<br><h3>Release notes for Release v1.61.1</h3><h4>2024-02-12</h4><p>This is release gRPC Core 1.61.1 (grand).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[Deps] Fix the issue with new Abseil #35883</li>
+</ul>
+<br>
+</body>
+
+</html>
