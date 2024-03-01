@@ -61,10 +61,14 @@ Sources of this information include, but are not limited to:
 We search for singificant PRs merged in the last week against kubernetes/kubernetes using this github query:
 
 ```
-is:pr merged:>YYYY-MM-DD label:release-note,release-note-action-required,"kind/deprecation","kind/api-change","size/xl","size/l"
+is:pr merged:>YYYY-MM-DD label:release-note,release-note-action-required,"kind/deprecation","kind/api-change","kind/feature","size/l"
 ```
 
 ... where YYYY-MM-DD is one week ago
+
+## Format and Style
+
+Please see [our stylesheet](STYLESHEET.md)
 
 ## Contact Information
 
