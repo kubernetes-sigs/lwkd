@@ -134,7 +134,7 @@ And, some formatting for specific merge types:
 
 Developer News should share with contributors the kinds of announcements that are also posted to `kubernetes/dev` and `#kubernetes-org-members`.
 
-In general, you should not repeat any news that has already appeared in LWKD. The main exception to this is major, project-spanning changes which have been hard to get people to pay attention to (i.e. moving the container images), in which case you might want to run those 2-3 times.
+In general, you should not repeat any news that has already appeared in LWKD. The main exception to this is major, project-spanning changes or event related topcis like contributor summit information, which have been hard to get people to pay attention to (i.e. moving the container images). For those cases you might want to run them 2-3 times.
 
 Some other style notes:
 
