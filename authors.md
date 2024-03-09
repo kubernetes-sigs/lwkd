@@ -11,6 +11,8 @@ LWKD is a subproject of Kubernetes [SIG Contributor Experience](https://github.c
 
 * *SV* [Sreeram Venkitesh](https://github.com/sreeram-venkitesh)
 * *FA* [Faēka Ansari](https://github.com/fykaa)
+* *MF* [Mario Fahlandt](https://github.com/mfahlandt)
+* *SS* [Satyam Soni](https://github.com/satyampsoni)
 
 ## 2022
 
