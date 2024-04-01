@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-03-18</h1><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.0.0-rc.0</h3><h4>2024-03-19</h4><p>Welcome to the v2.0.0-rc.0 release of containerd!
+<em>This is a pre-release of containerd</em></p>
+
+<p>The first major release of containerd 2.x focuses on the continued stability of
+containerd&rsquo;s core feature set with an easy upgrade from containerd 1.x. This
+release includes the stabilization of new features added in the last 1.x release
+as well as the removal of features which were deprecated in 1.x. The goal is to
+support the vast community of containerd users well into the future along with
+their ever increasing deployment footprints and variety of use cases.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Configure otel from env instead of config.toml (<a href="https://github.com/containerd/containerd/pull/8970" target="_blank">#8970</a>)</li>
+<li>Disable the support for Schema 1 images (<a href="https://github.com/containerd/containerd/pull/9765" target="_blank">#9765</a>)</li>
+<li>Fix config import relative path glob (<a href="https://github.com/containerd/containerd/pull/9746" target="_blank">#9746</a>)</li>
+<li>Enable NRI by default (<a href="https://github.com/containerd/containerd/pull/9744" target="_blank">#9744</a>)</li>
+<li>Add PluginInfo to introspection API (<a href="https://github.com/containerd/containerd/pull/9442" target="_blank">#9442</a>)</li>
+<li>Remove overlayfs volatile option on temp mounts (<a href="https://github.com/containerd/containerd/pull/9555" target="_blank">#9555</a>)</li>
+<li>Move packages based on contributing guide (<a href="https://github.com/containerd/containerd/pull/9365" target="_blank">#9365</a>)</li>
+<li>Update import and export to allow references to missing content  (<a href="https://github.com/containerd/containerd/pull/9554" target="_blank">#9554</a>)</li>
+<li>Add option to perform syncfs after pull (<a href="https://github.com/containerd/containerd/pull/9401" target="_blank">#9401</a>)</li>
+<li>Expose usage of deprecated features (<a href="https://github.com/containerd/containerd/pull/9258" target="_blank">#9258</a>)</li>
+<li>Use Intel ISA-L&rsquo;s igzip if available (<a href="https://github.com/containerd/containerd/pull/9200" target="_blank">#9200</a>)</li>
+<li>Generalize plugin library (<a href="https://github.com/containerd/containerd/pull/9214" target="_blank">#9214</a>)</li>
+<li>Introduce top level config migration (<a href="https://github.com/containerd/containerd/pull/9223" target="_blank">#9223</a>)</li>
+<li>Add image delete target (<a href="https://github.com/containerd/containerd/pull/8989" target="_blank">#8989</a>)</li>
+<li>Remove <code>LimitNOFILE</code> from <code>containerd.service</code> (<a href="https://github.com/containerd/containerd/pull/8924" target="_blank">#8924</a>)</li>
+<li>Use github.com/containerd/log (<a href="https://github.com/containerd/containerd/pull/9086" target="_blank">#9086</a>)</li>
+<li>Add image verifier transfer service plugin system based on a binary directory (<a href="https://github.com/containerd/containerd/pull/8493" target="_blank">#8493</a>)</li>
+<li>Add support for image expiration during garbage collection (<a href="https://github.com/containerd/containerd/pull/9022" target="_blank">#9022</a>)</li>
+<li>Reduce the contention between ref lock and boltdb lock in content store (<a href="https://github.com/containerd/containerd/pull/8792" target="_blank">#8792</a>)</li>
+<li>Remove &ldquo;containerd.io/restart.logpath&rdquo; label (<a href="https://github.com/containerd/containerd/pull/8264" target="_blank">#8264</a>)</li>
+<li>Remove <code>aufs</code> snapshotter (<a href="https://github.com/containerd/containerd/pull/8263" target="_blank">#8263</a>)</li>
+</ul>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Add support for multiple subscribers to CRI container events (<a href="https://github.com/containerd/containerd/pull/9661" target="_blank">#9661</a>)</li>
+<li>Enable CDI by default (<a href="https://github.com/containerd/containerd/pull/9621" target="_blank">#9621</a>)</li>
+<li>Remove non-sandboxed CRI implementation (<a href="https://github.com/containerd/containerd/pull/9228" target="_blank">#9228</a>)</li>
+<li>Add support for userns in stateless and stateful pods with idmap mounts (KEP-127, k8s &gt;= 1.27) (<a href="https://github.com/containerd/containerd/pull/8287" target="_blank">#8287</a>)</li>
+<li>Use sandboxed CRI by default (<a href="https://github.com/containerd/containerd/pull/8994" target="_blank">#8994</a>)</li>
+<li>Implement RuntimeConfig CRI call (<a href="https://github.com/containerd/containerd/pull/8722" target="_blank">#8722</a>)</li>
+<li>Add support for user namespaces (KEP-127) (<a href="https://github.com/containerd/containerd/pull/8803" target="_blank">#8803</a>)</li>
+<li>Remove CRI v1alpha2 (<a href="https://github.com/containerd/containerd/pull/8276" target="_blank">#8276</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Support vsock connection to task api (<a href="https://github.com/containerd/containerd/pull/9738" target="_blank">#9738</a>)</li>
+<li>Update RuntimeDefault seccomp profile to disallow io_uring related syscalls (<a href="https://github.com/containerd/containerd/pull/9320" target="_blank">#9320</a>)</li>
+<li>Switch runc shim to task service v3 and fix restore (<a href="https://github.com/containerd/containerd/pull/9233" target="_blank">#9233</a>)</li>
+<li>Add sandboxer configuration and move sandbox controllers to plugins (<a href="https://github.com/containerd/containerd/pull/8268" target="_blank">#8268</a>)</li>
+<li>Remove the CriuPath field from runc&rsquo;s options (<a href="https://github.com/containerd/containerd/pull/8279" target="_blank">#8279</a>)</li>
+<li>Remove support for config.toml <code>version = 1</code> (<a href="https://github.com/containerd/containerd/pull/8275" target="_blank">#8275</a>)</li>
+<li>Remove <code>io.containerd.runtime.v1.linux</code> and <code>io.containerd.runc.v1</code> (<a href="https://github.com/containerd/containerd/pull/8262" target="_blank">#8262</a>)</li>
+</ul>
+
+<h4 id="security-advisories">Security Advisories</h4>
+
+<ul>
+<li>[medium] RAPL accessible to a container <a href="https://github.com/containerd/containerd/security/advisories/GHSA-7ww5-4wqc-m92c" target="_blank">GHSA-7ww5-4wqc-m92c</a></li>
+</ul>
+
+<h4 id="breaking">Breaking</h4>
+
+<ul>
+<li>Disable the support for Schema 1 images (<a href="https://github.com/containerd/containerd/pull/9765" target="_blank">#9765</a>)</li>
+<li>Update RuntimeDefault seccomp profile to disallow io_uring related syscalls (<a href="https://github.com/containerd/containerd/pull/9320" target="_blank">#9320</a>)</li>
+<li>Move client to subpackage (<a href="https://github.com/containerd/containerd/pull/9316" target="_blank">#9316</a>)</li>
+<li>Remove <code>LimitNOFILE</code> from <code>containerd.service</code> (<a href="https://github.com/containerd/containerd/pull/8924" target="_blank">#8924</a>)</li>
+<li>Remove CRI v1alpha2 (<a href="https://github.com/containerd/containerd/pull/8276" target="_blank">#8276</a>)</li>
+<li>Remove <code>io.containerd.runtime.v1.linux</code> and <code>io.containerd.runc.v1</code> (<a href="https://github.com/containerd/containerd/pull/8262" target="_blank">#8262</a>)</li>
+<li>Remove &ldquo;containerd.io/restart.logpath&rdquo; label (<a href="https://github.com/containerd/containerd/pull/8264" target="_blank">#8264</a>)</li>
+<li>Remove <code>aufs</code> snapshotter (<a href="https://github.com/containerd/containerd/pull/8263" target="_blank">#8263</a>)</li>
+</ul>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<ul>
+<li>Deprecate go-plugin configuration option (<a href="https://github.com/containerd/containerd/pull/9238" target="_blank">#9238</a>)</li>
+<li>CNI conf_template in CRI is no longer deprecated (<a href="https://github.com/containerd/containerd/pull/8637" target="_blank">#8637</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Akihiro Suda</li>
+<li>Wei Fu</li>
+<li>Phil Estes</li>
+<li>Maksym Pavlenko</li>
+<li>Sebastiaan van Stijn</li>
+<li>Samuel Karp</li>
+<li>Kazuyoshi Kato</li>
+<li>Rodrigo Campos</li>
+<li>Danny Canter</li>
+<li>Gabriel Adrian Samfira</li>
+<li>Iceber Gu</li>
+<li>Abel Feng</li>
+<li>Kirtana Ashok</li>
+<li>Austin Vazquez</li>
+<li>Krisztian Litkey</li>
+<li>Akhil Mohan</li>
+<li>Jin Dong</li>
+<li>Mike Brown</li>
+<li>Bjorn Neergaard</li>
+<li>Kohei Tokunaga</li>
+<li>rongfu.leng</li>
+<li>Justin Chadwell</li>
+<li>James Sturtevant</li>
+<li>Paul &ldquo;TBBle&rdquo; Hampson</li>
+<li>Davanum Srinivas</li>
+<li>Enrico Weigelt</li>
+<li>Paweł Gronowski</li>
+<li>Brian Goff</li>
+<li>Hsing-Yu (David) Chen</li>
+<li>Ilya Hanov</li>
+<li>Marat Radchenko</li>
+<li>Cardy.Tang</li>
+<li>Henry Wang</li>
+<li>Laura Brehm</li>
+<li>Aditi Sharma</li>
+<li>Bryant Biggs</li>
+<li>Jordan Liggitt</li>
+<li>Kay Yan</li>
+<li>Markus Lehtonen</li>
+<li>Nashwan Azhari</li>
+<li>Shingo Omura</li>
+<li>Vinayak Goyal</li>
+<li>helen</li>
+<li>Alexandru Matei</li>
+<li>Amit Barve</li>
+<li>Charity Kathure</li>
+<li>Ed Bartosh</li>
+<li>Etienne Champetier</li>
+<li>Evan Lezar</li>
+<li>James Jenkins</li>
+<li>Milas Bowman</li>
+<li>yanggang</li>
+<li>Aditya Ramani</li>
+<li>Amir M. Ghazanfari</li>
+<li>Anthony Nandaa</li>
+<li>Artem Khramov</li>
+<li>Brad Davidson</li>
+<li>Chen Yiyang</li>
+<li>Christian Muehlhaeuser</li>
+<li>Cory Snider</li>
+<li>Djordje Lukic</li>
+<li>Ethan Lowman</li>
+<li>Jiang Liu</li>
+<li>June Rhodes</li>
+<li>Mahamed Ali</li>
+<li>Michael Crosby</li>
+<li>Peteris Rudzusiks</li>
+<li>Sam Edwards</li>
+<li>Samruddhi Khandale</li>
+<li>Shuaiyi Zhang</li>
+<li>Steve Griffith</li>
+<li>Tony Fang</li>
+<li>VERNOU Cédric</li>
+<li>hang.jiang</li>
+<li>jerryzhuang</li>
+<li>lengrongfu</li>
+<li>roman-kiselenko</li>
+<li>Aaron Lehmann</li>
+<li>Adrian Reber</li>
+<li>Alex Couture-Beil</li>
+<li>Alex Ellis</li>
+<li>Alex Rodriguez</li>
+<li>Angelos Kolaitis</li>
+<li>Antonio Huete Jimenez</li>
+<li>Avi Deitcher</li>
+<li>Ben Foster</li>
+<li>Bin Xin</li>
+<li>BinBin He</li>
+<li>Brennan Kinney</li>
+<li>Christian Stewart</li>
+<li>Craig Ingram</li>
+<li>Daisy Rong</li>
+<li>Derek Nola</li>
+<li>Edgar Lee</li>
+<li>Eng Zer Jun</li>
+<li>Fahed Dorgaa</li>
+<li>Gary McDonald</li>
+<li>Iain Macdonald</li>
+<li>James Lakin</li>
+<li>Jan Dubois</li>
+<li>Jaroslav Jindrak</li>
+<li>Jiongchi Yu</li>
+<li>Julien Balestra</li>
+<li>Kern Walster</li>
+<li>Kevin Parsons</li>
+<li>Kirill A. Korinsky</li>
+<li>Konstantin Khlebnikov</li>
+<li>Maksim An</li>
+<li>Pan Yibo</li>
+<li>Qasim Sarfraz</li>
+<li>Qiutong Song</li>
+<li>Robbie Buxton</li>
+<li>Robert-André Mauchin</li>
+<li>Shukui Yang</li>
+<li>Talon</li>
+<li>Tianon Gravi</li>
+<li>Tim Hockin</li>
+<li>Tõnis Tiigi</li>
+<li>Wang Xinwen</li>
+<li>William Chen</li>
+<li>Yibo Zhuang</li>
+<li>Yury Gargay</li>
+<li>Zechun Chen</li>
+<li>Zhang Tianyang</li>
+<li>Zoe</li>
+<li>charles-chenzz</li>
+<li>chschumacher1994</li>
+<li>guangli.bao</li>
+<li>krglosse</li>
+<li>ningmingxiao</li>
+<li>pigletfly</li>
+<li>rokkiter</li>
+<li>wangxiang</li>
+<li>zhangpeng</li>
+<li>zhanluxianshen</li>
+<li>zhaojizhuang</li>
+<li>zounengren</li>
+<li>吴小白</li>
+<li>张钰</li>
+<li>沈陵</li>
+<li>谭九鼎</li>
+</ul>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>dario.cat/mergo</strong>                                                              v1.0.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/AdaLogics/go-fuzz-headers</strong>                                         1f10f66a31bf -&gt; ced1acdcaa24</li>
+<li><strong>github.com/AdamKorcz/go-118-fuzz-build</strong>                                       5330a85ea652 -&gt; 8075edf89bb0</li>
+<li><strong>github.com/Microsoft/go-winio</strong>                                                v0.6.0 -&gt; v0.6.1</li>
+<li><strong>github.com/Microsoft/hcsshim</strong>                                                 v0.10.0-rc.7 -&gt; v0.12.0</li>
+<li><strong>github.com/cenkalti/backoff/v4</strong>                                               v4.2.0 -&gt; v4.2.1</li>
+<li><strong>github.com/checkpoint-restore/checkpointctl</strong>                                  v1.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/checkpoint-restore/go-criu/v7</strong>                                     v7.0.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/cilium/ebpf</strong>                                                       v0.9.1 -&gt; v0.11.0</li>
+<li><strong>github.com/containerd/cgroups/v3</strong>                                             v3.0.1 -&gt; v3.0.3</li>
+<li><strong>github.com/containerd/console</strong>                                                v1.0.3 -&gt; v1.0.4</li>
+<li><strong>github.com/containerd/continuity</strong>                                             v0.3.0 -&gt; v0.4.3</li>
+<li><strong>github.com/containerd/errdefs</strong>                                                v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/go-runc</strong>                                                v1.0.0 -&gt; v1.1.0</li>
+<li><strong>github.com/containerd/log</strong>                                                    v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/nri</strong>                                                    v0.3.0 -&gt; v0.6.0</li>
+<li><strong>github.com/containerd/platforms</strong>                                              v0.1.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/plugin</strong>                                                 v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/ttrpc</strong>                                                  v1.2.1 -&gt; v1.2.3</li>
+<li><strong>github.com/containerd/typeurl/v2</strong>                                             v2.1.0 -&gt; v2.1.1</li>
+<li><strong>github.com/containernetworking/plugins</strong>                                       v1.2.0 -&gt; v1.4.0</li>
+<li><strong>github.com/distribution/reference</strong>                                            v0.5.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/emicklei/go-restful/v3</strong>                                            v3.10.1 -&gt; v3.11.0</li>
+<li><strong>github.com/felixge/httpsnoop</strong>                                                 v1.0.4 <strong><em>new</em></strong></li>
+<li><strong>github.com/fsnotify/fsnotify</strong>                                                 v1.6.0 -&gt; v1.7.0</li>
+<li><strong>github.com/go-logr/logr</strong>                                                      v1.2.3 -&gt; v1.4.1</li>
+<li><strong>github.com/golang/protobuf</strong>                                                   v1.5.2 -&gt; v1.5.4</li>
+<li><strong>github.com/google/go-cmp</strong>                                                     v0.5.9 -&gt; v0.6.0</li>
+<li><strong>github.com/google/uuid</strong>                                                       v1.3.0 -&gt; v1.6.0</li>
+<li><strong>github.com/gorilla/websocket</strong>                                                 v1.5.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus</strong>            v1.0.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/grpc-ecosystem/go-grpc-middleware/v2</strong>                              v2.0.0-rc.3 <strong><em>new</em></strong></li>
+<li><strong>github.com/grpc-ecosystem/grpc-gateway/v2</strong>                                    v2.7.0 -&gt; v2.19.0</li>
+<li><strong>github.com/intel/goresctrl</strong>                                                   v0.3.0 -&gt; v0.6.0</li>
+<li><strong>github.com/klauspost/compress</strong>                                                v1.16.0 -&gt; v1.17.7</li>
+<li><strong>github.com/klauspost/cpuid/v2</strong>                                                v2.0.4 -&gt; v2.2.5</li>
+<li><strong>github.com/mdlayher/socket</strong>                                                   v0.4.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/mdlayher/vsock</strong>                                                    v1.2.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/minio/sha256-simd</strong>                                                 v1.0.0 -&gt; v1.0.1</li>
+<li><strong>github.com/moby/sys/mountinfo</strong>                                                v0.6.2 -&gt; v0.7.1</li>
+<li><strong>github.com/moby/sys/user</strong>                                                     v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/mxk/go-flowrate</strong>                                                   cca7078d478f <strong><em>new</em></strong></li>
+<li><strong>github.com/opencontainers/image-spec</strong>                                         3a7f492d3f1b -&gt; v1.1.0</li>
+<li><strong>github.com/opencontainers/runtime-spec</strong>                                       v1.1.0-rc.1 -&gt; v1.2.0</li>
+<li><strong>github.com/opencontainers/runtime-tools</strong>                                      946c877fa809 -&gt; 2e043c6bd626</li>
+<li><strong>github.com/pelletier/go-toml/v2</strong>                                              v2.1.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/prometheus/client_golang</strong>                                          v1.14.0 -&gt; v1.19.0</li>
+<li><strong>github.com/prometheus/client_model</strong>                                           v0.3.0 -&gt; v0.5.0</li>
+<li><strong>github.com/prometheus/common</strong>                                                 v0.37.0 -&gt; v0.48.0</li>
+<li><strong>github.com/prometheus/procfs</strong>                                                 v0.8.0 -&gt; v0.12.0</li>
+<li><strong>github.com/sirupsen/logrus</strong>                                                   v1.9.0 -&gt; v1.9.3</li>
+<li><strong>github.com/stretchr/testify</strong>                                                  v1.8.2 -&gt; v1.9.0</li>
+<li><strong>github.com/urfave/cli/v2</strong>                                                     v2.27.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/vishvananda/netns</strong>                                                 2eb08e3e575f -&gt; v0.0.4</li>
+<li><strong>github.com/xrash/smetrics</strong>                                                    039620a65673 <strong><em>new</em></strong></li>
+<li><strong>go.etcd.io/bbolt</strong>                                                             v1.3.7 -&gt; v1.3.9</li>
+<li><strong>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc</strong>  v0.40.0 -&gt; v0.49.0</li>
+<li><strong>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp</strong>                v0.49.0 <strong><em>new</em></strong></li>
+<li><strong>go.opentelemetry.io/otel</strong>                                                     v1.14.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/otel/exporters/otlp/otlptrace</strong>                            v1.14.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc</strong>              v1.14.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp</strong>              v1.14.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/otel/metric</strong>                                              v0.37.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/otel/sdk</strong>                                                 v1.14.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/otel/trace</strong>                                               v1.14.0 -&gt; v1.24.0</li>
+<li><strong>go.opentelemetry.io/proto/otlp</strong>                                               v0.19.0 -&gt; v1.1.0</li>
+<li><strong>golang.org/x/exp</strong>                                                             aacd6d4b4611 <strong><em>new</em></strong></li>
+<li><strong>golang.org/x/mod</strong>                                                             v0.7.0 -&gt; v0.16.0</li>
+<li><strong>golang.org/x/net</strong>                                                             v0.7.0 -&gt; v0.21.0</li>
+<li><strong>golang.org/x/oauth2</strong>                                                          v0.4.0 -&gt; v0.16.0</li>
+<li><strong>golang.org/x/sync</strong>                                                            v0.1.0 -&gt; v0.6.0</li>
+<li><strong>golang.org/x/sys</strong>                                                             v0.6.0 -&gt; v0.18.0</li>
+<li><strong>golang.org/x/term</strong>                                                            v0.5.0 -&gt; v0.17.0</li>
+<li><strong>golang.org/x/text</strong>                                                            v0.7.0 -&gt; v0.14.0</li>
+<li><strong>golang.org/x/time</strong>                                                            90d013bbcef8 -&gt; v0.3.0</li>
+<li><strong>golang.org/x/tools</strong>                                                           v0.5.0 -&gt; v0.16.1</li>
+<li><strong>google.golang.org/appengine</strong>                                                  v1.6.7 -&gt; v1.6.8</li>
+<li><strong>google.golang.org/genproto/googleapis/api</strong>                                    ef4313101c80 <strong><em>new</em></strong></li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>                                    ef4313101c80 <strong><em>new</em></strong></li>
+<li><strong>google.golang.org/grpc</strong>                                                       v1.53.0 -&gt; v1.62.1</li>
+<li><strong>google.golang.org/protobuf</strong>                                                   v1.28.1 -&gt; v1.33.0</li>
+<li><strong>k8s.io/api</strong>                                                                   v0.26.2 -&gt; v0.29.2</li>
+<li><strong>k8s.io/apimachinery</strong>                                                          v0.26.2 -&gt; v0.29.2</li>
+<li><strong>k8s.io/apiserver</strong>                                                             v0.26.2 -&gt; v0.29.2</li>
+<li><strong>k8s.io/client-go</strong>                                                             v0.26.2 -&gt; v0.29.2</li>
+<li><strong>k8s.io/component-base</strong>                                                        v0.26.2 -&gt; v0.29.2</li>
+<li><strong>k8s.io/cri-api</strong>                                                               v0.26.2 -&gt; v0.30.0-alpha.3</li>
+<li><strong>k8s.io/klog/v2</strong>                                                               v2.90.1 -&gt; v2.120.1</li>
+<li><strong>k8s.io/kubelet</strong>                                                               v0.29.2 <strong><em>new</em></strong></li>
+<li><strong>k8s.io/utils</strong>                                                                 a5ecb0141aa5 -&gt; 3b25d923346b</li>
+<li><strong>sigs.k8s.io/json</strong>                                                             f223a00ba0e2 -&gt; bc3834ca7abd</li>
+<li><strong>sigs.k8s.io/structured-merge-diff/v4</strong>                                         v4.2.3 -&gt; v4.4.1</li>
+<li><strong>tags.cncf.io/container-device-interface</strong>                                      v0.6.2 <strong><em>new</em></strong></li>
+<li><strong>tags.cncf.io/container-device-interface/specs-go</strong>                             v0.6.0 <strong><em>new</em></strong></li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.0" target="_blank">v1.7.0</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.31 (Ubuntu 20.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on non-glibc Linux distributions. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.4.31</h3><h4>2024-03-20</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.4.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.4/upgrades/upgrade_3_4.md" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://github.com/etcd-io/etcd/tree/master/Documentation#operating-etcd-clusters" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.4/op-guide/supported-platform.md" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.4.31
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+</code></pre>
+
+<pre><code class="language-bash"># start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.4.31
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-bash">rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:v3.4.31 || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-v3.4.31 \
+  gcr.io/etcd-development/etcd:v3.4.31 \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-v3.4.31  /usr/local/bin/etcd --version
+docker exec etcd-gcr-v3.4.31  /usr/local/bin/etcdctl version
+docker exec etcd-gcr-v3.4.31  /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-v3.4.31  /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-v3.4.31  /usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 2.51.0+dedupelabels / 2024-03-19</h3><h4>2024-03-20</h4><p>Special release build that incorporates performance improvements using
+the <code>dedupelabels</code> Go tag. The new labels data structure deduplicates label names
+and values via symbol or intern tables, reducing memory usage.</p>
+<br><h3>Release notes for 2.51.0 / 2024-03-18</h3><h4>2024-03-19</h4><p>This version is built with Go 1.22.1.</p>
+
+<p>There is a new optional build tag &ldquo;dedupelabels&rdquo;, which should reduce memory consumption (#12304).
+It is off by default; there will be an optional alternative image to try it out.</p>
+
+<ul>
+<li>[CHANGE] Scraping: Do experimental timestamp alignment even if tolerance is bigger than 1% of scrape interval #13624, #13737</li>
+<li>[FEATURE] Alerting: Relabel rules for AlertManagerConfig; allows routing alerts to different alertmanagers #12551, #13735</li>
+<li>[FEATURE] API: add limit param to series, label-names and label-values APIs #13396</li>
+<li>[FEATURE] UI (experimental native histograms): Add native histogram chart to Table view #13658</li>
+<li>[FEATURE] Promtool: Add a &ldquo;tsdb dump-openmetrics&rdquo; to dump in OpenMetrics format. #13194</li>
+<li>[FEATURE] PromQL (experimental native histograms): Add histogram_avg function #13467</li>
+<li>[ENHANCEMENT] Rules: Evaluate independent rules concurrently #12946, #13527</li>
+<li>[ENHANCEMENT] Scraping (experimental native histograms): Support exemplars #13488</li>
+<li>[ENHANCEMENT] Remote Write: Disable resharding during active retry backoffs #13562</li>
+<li>[ENHANCEMENT] Observability: Add native histograms to latency/duration metrics #13681</li>
+<li>[ENHANCEMENT] Observability: Add &lsquo;type&rsquo; label to prometheus_tsdb_head_out_of_order_samples_appended_total #13607</li>
+<li>[ENHANCEMENT] API: Faster generation of targets into JSON #13469, #13484</li>
+<li>[ENHANCEMENT] Scraping, API: Use faster compression library #10782</li>
+<li>[ENHANCEMENT] OpenTelemetry: Performance improvements in OTLP parsing #13627</li>
+<li>[ENHANCEMENT] PromQL: Optimisations to reduce CPU and memory #13448, #13536</li>
+<li>[BUGFIX] PromQL: Constrain extrapolation in rate() to half of sample interval #13725</li>
+<li>[BUGFIX] Remote Write: Stop slowing down when a new WAL segment is created #13583, #13628</li>
+<li>[BUGFIX] PromQL: Fix wrongly scoped range vectors with @ modifier #13559</li>
+<li>[BUGFIX] Kubernetes SD: Pod status changes were not discovered by Endpoints service discovery #13337</li>
+<li>[BUGFIX] Azure SD: Fix &lsquo;error: parameter virtualMachineScaleSetName cannot be empty&rsquo; (#13702)</li>
+<li>[BUGFIX] Remote Write: Fix signing for AWS sigv4 transport #13497</li>
+<li>[BUGFIX] Observability: Exemplars emitted by Prometheus use &ldquo;trace_id&rdquo; not &ldquo;traceID&rdquo; #13589</li>
+</ul>
+<br><h3>Release notes for 2.45.4 / 2024-03-18</h3><h4>2024-03-18</h4><ul>
+<li>[BUGFIX] Remote read: Release querier resources before encoding the results. #13777</li>
+</ul>
+<br><h3>Release notes for 2.51.0-rc.0+dedupelabels / 2024-03-14</h3><h4>2024-03-18</h4><p>Special release candidate build that incorporates performance improvements using
+the <code>dedupelabels</code> Go tag. The new labels data structure deduplicates label names
+and values via symbol or intern tables, reducing memory usage.</p>
+<br>
+</body>
+
+</html>
