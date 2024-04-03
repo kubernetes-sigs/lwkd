@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-03-25</h1><h2>kubernetes/cloud-provider-vsphere</h2> <h3>Release notes for v1.30.0-alpha.0</h3><h4>2024-03-27</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>remove <code>controller-runtime</code> dependency @XudongLiuHarold (#847)</li>
+<li>enable to run e2e test against latest in-develop k8s version @XudongLiuHarold (#874)</li>
+<li>set up github action to auto bump latest in-develop k8s version dependencies @XudongLiuHarold (#882)</li>
+<li>fix post-merge deploy job failure @XudongLiuHarold (#903)</li>
+<li>support configuring pod IP pool type @chenlin07 @DanielXiao (#957 #958 )</li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.29.0...v1.30.0-alpha.0" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.29.0&hellip;v1.30.0-alpha.0</a></p>
+<br><h2>kubernetes/minikube</h2> <h3>Release notes for v1.33.0-beta.0</h3><h4>2024-03-26</h4><p>📣😀 <strong>Please fill out our <a href="https://forms.gle/Gg3hG5ZySw8c1C24A" target="_blank">fast 5-question survey</a></strong> so that we can learn how &amp; why you use minikube, and what improvements we should make. Thank you! 💃🎉</p>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h2 id="version-1-33-0-beta-0-2024-03-26">Version 1.33.0-beta.0 - 2024-03-26</h2>
+
+<p>Features:</p>
+
+<ul>
+<li>Support multi-control plane - HA clusters <code>--ha</code> <a href="https://github.com/kubernetes/minikube/pull/17909" target="_blank">#17909</a></li>
+<li>Addon gvisor: Add arm64 support <a href="https://github.com/kubernetes/minikube/pull/18063" target="_blank">#18063</a> <a href="https://github.com/kubernetes/minikube/pull/18453" target="_blank">#18453</a></li>
+<li>New Addon: YAKD - Kubernetes Dashboard addon <a href="https://github.com/kubernetes/minikube/pull/17775" target="_blank">#17775</a></li>
+</ul>
+
+<p>Minor Improvements:</p>
+
+<ul>
+<li>Addon auto-pause: Remove memory leak &amp; add configurable interval <a href="https://github.com/kubernetes/minikube/pull/17936" target="_blank">#17936</a></li>
+<li>image build: Add <code>docker.io/library</code> to image short names <a href="https://github.com/kubernetes/minikube/pull/16214" target="_blank">#16214</a></li>
+<li>cp: Create directory if not present <a href="https://github.com/kubernetes/minikube/pull/17715" target="_blank">#17715</a></li>
+<li>Move errors getting logs into log output itself <a href="https://github.com/kubernetes/minikube/pull/18007" target="_blank">#18007</a></li>
+<li>Add default sysctls to allow privileged ports with no capabilities <a href="https://github.com/kubernetes/minikube/pull/18421" target="_blank">#18421</a></li>
+<li>Include extended attributes in preload tarballs <a href="https://github.com/kubernetes/minikube/pull/17829" target="_blank">#17829</a></li>
+<li>Apply <code>kubeadm.applyNodeLabels</code> label to all nodes <a href="https://github.com/kubernetes/minikube/pull/16416" target="_blank">#16416</a></li>
+<li>Limit driver status check to 20s <a href="https://github.com/kubernetes/minikube/pull/17553" target="_blank">#17553</a></li>
+<li>Include journalctl logs if systemd service fails to start <a href="https://github.com/kubernetes/minikube/pull/17659" target="_blank">#17659</a></li>
+<li>ISO: Add CONFIG_DM_MULTIPATH <a href="https://github.com/kubernetes/minikube/pull/18277" target="_blank">#18277</a></li>
+<li>ISO: Add CONFIG_QFMT_V2 for arm64 <a href="https://github.com/kubernetes/minikube/pull/17991" target="_blank">#17991</a></li>
+<li>ISO: Add CONFIG_CEPH_FS for arm64 <a href="https://github.com/kubernetes/minikube/pull/18213" target="_blank">#18213</a></li>
+<li>ISO: Add CONFIG_BPF for arm64 <a href="https://github.com/kubernetes/minikube/pull/17206" target="_blank">#17206</a></li>
+</ul>
+
+<p>Bugs:</p>
+
+<ul>
+<li>Fix &ldquo;Failed to enable container runtime: sudo systemctl restart cri-docker&rdquo; <a href="https://github.com/kubernetes/minikube/pull/17907" target="_blank">#17907</a></li>
+<li>Fix containerd redownloading existing images on start <a href="https://github.com/kubernetes/minikube/pull/17671" target="_blank">#17671</a></li>
+<li>Fix kvm2 not detecting containerd preload <a href="https://github.com/kubernetes/minikube/pull/17658" target="_blank">#17658</a></li>
+<li>Fix modifying Docker binfmt config <a href="https://github.com/kubernetes/minikube/pull/17830" target="_blank">#17830</a></li>
+<li>Fix auto-pause addon <a href="https://github.com/kubernetes/minikube/pull/17866" target="_blank">#17866</a></li>
+<li>Fix not using preload with overlayfs storage driver <a href="https://github.com/kubernetes/minikube/pull/18333" target="_blank">#18333</a></li>
+<li>Fix image repositories not allowing subdomains with numbers <a href="https://github.com/kubernetes/minikube/pull/17496" target="_blank">#17496</a></li>
+<li>Fix stopping cluster when using kvm2 with containerd <a href="https://github.com/kubernetes/minikube/pull/17967" target="_blank">#17967</a></li>
+<li>Fix starting more than one cluster on kvm2 arm64 <a href="https://github.com/kubernetes/minikube/pull/18241" target="_blank">#18241</a></li>
+<li>Fix starting kvm2 clusters using Linux on arm64 Mac <a href="https://github.com/kubernetes/minikube/pull/18239" target="_blank">#18239</a></li>
+<li>Fix displaying error when deleting non-existing cluster <a href="https://github.com/kubernetes/minikube/pull/17713" target="_blank">#17713</a></li>
+<li>Fix no-limit not being respected on restart <a href="https://github.com/kubernetes/minikube/pull/17598" target="_blank">#17598</a></li>
+<li>Fix not applying <code>kubeadm.applyNodeLabels</code> label to nodes added after inital start <a href="https://github.com/kubernetes/minikube/pull/16416" target="_blank">#16416</a></li>
+<li>Fix logs delimiter output <a href="https://github.com/kubernetes/minikube/pull/17734" target="_blank">#17734</a></li>
+</ul>
+
+<p>Version Upgrades:</p>
+
+<ul>
+<li>Bump Kubernetes version default: v1.29.3 and latest: v1.30.0-beta.0 <a href="https://github.com/kubernetes/minikube/pull/17786" target="_blank">#17786</a></li>
+<li>Addon cloud-spanner: Update cloud-spanner-emulator/emulator image from 1.5.11 to 1.5.15 <a href="https://github.com/kubernetes/minikube/pull/17595" target="_blank">#17595</a> <a href="https://github.com/kubernetes/minikube/pull/17847" target="_blank">#17847</a> <a href="https://github.com/kubernetes/minikube/pull/18165" target="_blank">#18165</a> <a href="https://github.com/kubernetes/minikube/pull/18431" target="_blank">#18431</a></li>
+<li>Addon gcp-auth: Update k8s-minikube/gcp-auth-webhook image from v0.1.0 to v0.1.2 <a href="https://github.com/kubernetes/minikube/pull/18222" target="_blank">#18222</a> <a href="https://github.com/kubernetes/minikube/pull/18384" target="_blank">#18384</a></li>
+<li>Addon headlamp: Update headlamp-k8s/headlamp image from v0.20.1 to v0.23.0 <a href="https://github.com/kubernetes/minikube/pull/17586" target="_blank">#17586</a> <a href="https://github.com/kubernetes/minikube/pull/17846" target="_blank">#17846</a> <a href="https://github.com/kubernetes/minikube/pull/18320" target="_blank">#18320</a></li>
+<li>Addon ingress: Update ingress-nginx/controller image from v1.9.4 to v1.10.0 <a href="https://github.com/kubernetes/minikube/pull/17848" target="_blank">#17848</a> <a href="https://github.com/kubernetes/minikube/pull/18166" target="_blank">#18166</a> <a href="https://github.com/kubernetes/minikube/pull/18284" target="_blank">#18284</a></li>
+<li>Addon inspektor-gadget: Update inspektor-gadget/inspektor-gadget image from v0.22.0 to v0.26.0 <a href="https://github.com/kubernetes/minikube/pull/17740" target="_blank">#17740</a> <a href="https://github.com/kubernetes/minikube/pull/17885" target="_blank">#17885</a> <a href="https://github.com/kubernetes/minikube/pull/18169" target="_blank">#18169</a> <a href="https://github.com/kubernetes/minikube/pull/18358" target="_blank">#18358</a></li>
+<li>Addon istio-provisioner: Update istio/operator image from 1.19.3 to 1.21.0 <a href="https://github.com/kubernetes/minikube/pull/17651" target="_blank">#17651</a> <a href="https://github.com/kubernetes/minikube/pull/17777" target="_blank">#17777</a> <a href="https://github.com/kubernetes/minikube/pull/17957" target="_blank">#17957</a> <a href="https://github.com/kubernetes/minikube/pull/18168" target="_blank">#18168</a> <a href="https://github.com/kubernetes/minikube/pull/18429" target="_blank">#18429</a></li>
+<li>Addon kong: Update kong image from 3.4.2 to 3.6.1 <a href="https://github.com/kubernetes/minikube/pull/17605" target="_blank">#17605</a> <a href="https://github.com/kubernetes/minikube/pull/18200" target="_blank">#18200</a> <a href="https://github.com/kubernetes/minikube/pull/18350" target="_blank">#18350</a></li>
+<li>Addon kubevirt: Update bitnami/kubectl image from 1.24.7 to 1.29.3 <a href="https://github.com/kubernetes/minikube/pull/18170" target="_blank">#18170</a> <a href="https://github.com/kubernetes/minikube/pull/18187" target="_blank">#18187</a> <a href="https://github.com/kubernetes/minikube/pull/18427" target="_blank">#18427</a></li>
+<li>Addon metrics-server: Update metrics-server/metrics-server image from v0.6.4 to v0.7.0 <a href="https://github.com/kubernetes/minikube/pull/18051" target="_blank">#18051</a></li>
+<li>Addon nvidia-device-plugin: Update nvidia/k8s-device-plugin image from v0.14.2 to v0.14.5 <a href="https://github.com/kubernetes/minikube/pull/17623" target="_blank">#17623</a> <a href="https://github.com/kubernetes/minikube/pull/18171" target="_blank">#18171</a> <a href="https://github.com/kubernetes/minikube/pull/18283" target="_blank">#18283</a></li>
+<li>Addon registry: Update k8s-minikube/kube-registry-proxy image from 0.0.5 to 0.0.6 <a href="https://github.com/kubernetes/minikube/pull/18454" target="_blank">#18454</a></li>
+<li>CNI: Update calico from v3.26.3 to v3.27.0 <a href="https://github.com/kubernetes/minikube/pull/17644" target="_blank">#17644</a> <a href="https://github.com/kubernetes/minikube/pull/17824" target="_blank">#17824</a></li>
+<li>CNI: Update cilium from v1.12.3 to v1.15.1 <a href="https://github.com/kubernetes/minikube/pull/18259" target="_blank">#18259</a></li>
+<li>CNI: Update flannel from v0.22.3 to v0.24.4 <a href="https://github.com/kubernetes/minikube/pull/17837" target="_blank">#17837</a> <a href="https://github.com/kubernetes/minikube/pull/17975" target="_blank">#17975</a> <a href="https://github.com/kubernetes/minikube/pull/18014" target="_blank">#18014</a> <a href="https://github.com/kubernetes/minikube/pull/18500" target="_blank">#18500</a></li>
+<li>CNI: Update kindnetd from v20230809-80a64d96 to v20240202-8f1494ea <a href="https://github.com/kubernetes/minikube/pull/18167" target="_blank">#18167</a></li>
+<li>Kicbase/ISO: Update buildkit from v0.12.3 to v0.13.0 <a href="https://github.com/kubernetes/minikube/pull/17738" target="_blank">#17738</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase/ISO: Update cni-plugins from v1.3.0 to v1.4.1 <a href="https://github.com/kubernetes/minikube/pull/17761" target="_blank">#17761</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase/ISO: Update containerd from v1.7.8 to v1.7.14 <a href="https://github.com/kubernetes/minikube/pull/17634" target="_blank">#17634</a> <a href="https://github.com/kubernetes/minikube/pull/17711" target="_blank">#17711</a> <a href="https://github.com/kubernetes/minikube/pull/17765" target="_blank">#17765</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase/ISO: Update docker from 24.0.7 to 25.0.4 <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase/ISO: Update Go from 1.21.3 to 1.22.1 <a href="https://github.com/kubernetes/minikube/pull/17619" target="_blank">#17619</a> <a href="https://github.com/kubernetes/minikube/pull/17760" target="_blank">#17760</a> <a href="https://github.com/kubernetes/minikube/pull/17953" target="_blank">#17953</a> <a href="https://github.com/kubernetes/minikube/pull/18197" target="_blank">#18197</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase/ISO: Update nerdctl from 1.6.2 to 1.7.4 <a href="https://github.com/kubernetes/minikube/pull/17565" target="_blank">#17565</a> <a href="https://github.com/kubernetes/minikube/pull/17703" target="_blank">#17703</a> <a href="https://github.com/kubernetes/minikube/pull/17806" target="_blank">#17806</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase/ISO: Update runc from v1.1.9 to v1.1.12 <a href="https://github.com/kubernetes/minikube/pull/17581" target="_blank">#17581</a> <a href="https://github.com/kubernetes/minikube/pull/18020" target="_blank">#18020</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>Kicbase: Update nerdctld from 0.2.0 to 0.5.1 <a href="https://github.com/kubernetes/minikube/pull/17764" target="_blank">#17764</a> <a href="https://github.com/kubernetes/minikube/pull/17857" target="_blank">#17857</a></li>
+<li>Kicbase: Update ubuntu:jammy from 20231004 to 20240227 <a href="https://github.com/kubernetes/minikube/pull/17719" target="_blank">#17719</a> <a href="https://github.com/kubernetes/minikube/pull/17822" target="_blank">#17822</a> <a href="https://github.com/kubernetes/minikube/pull/18244" target="_blank">#18244</a> <a href="https://github.com/kubernetes/minikube/pull/18375" target="_blank">#18375</a></li>
+<li>ISO: Update cri-o from v1.24.1 to v1.29.1 <a href="https://github.com/kubernetes/minikube/pull/18020" target="_blank">#18020</a></li>
+</ul>
+
+<p>For a more detailed changelog, see <a href="https://github.com/kubernetes/minikube/blob/master/CHANGELOG.md" target="_blank">CHANGELOG.md</a>.</p>
+
+<p>Thank you to our contributors for this release!</p>
+
+<ul>
+<li>Alberto Faria</li>
+<li>Anders F Björklund</li>
+<li>Blaine Gardner</li>
+<li>Camille Clayton</li>
+<li>Chase, Justin M</li>
+<li>Dani</li>
+<li>Eng Zer Jun</li>
+<li>Francis Laniel</li>
+<li>Jan Klippel</li>
+<li>Jeff MAURY</li>
+<li>Jin Li</li>
+<li>Jongwoo Han</li>
+<li>Marc Nuri</li>
+<li>Marcell Martini</li>
+<li>Marcus Dunn</li>
+<li>Mark Moretto</li>
+<li>Martin Jirku</li>
+<li>Medya Ghazizadeh</li>
+<li>Nir Soffer</li>
+<li>Predrag Rogic</li>
+<li>Pris Nasrat</li>
+<li>Raiden Shogun</li>
+<li>Sandipan Panda</li>
+<li>Sonu Kumar Singh</li>
+<li>Steven Powell</li>
+<li>Tarishi Jain</li>
+<li>Timothée Ravier</li>
+<li>Yuri Astrakhan</li>
+<li>andy</li>
+<li>chahatjaink</li>
+<li>coderrick</li>
+<li>joaquimrocha</li>
+<li>lixin18</li>
+<li>ljtian</li>
+<li>mahmut</li>
+<li>mattrobinsonsre</li>
+<li>prnvkv</li>
+<li>shixiuguo</li>
+<li>sunyuxuan</li>
+<li>sunyuxuna</li>
+<li>syxunion</li>
+<li>tianlj</li>
+<li>zdxgs</li>
+<li>zjx20</li>
+</ul>
+
+<p>Thank you to our PR reviewers for this release!</p>
+
+<ul>
+<li>spowelljr (55 comments)</li>
+<li>medyagh (27 comments)</li>
+<li>afbjorklund (14 comments)</li>
+<li>liangyuanpeng (11 comments)</li>
+<li>prezha (4 comments)</li>
+<li>ComradeProgrammer (3 comments)</li>
+<li>acumino (2 comments)</li>
+<li>aiyijing (2 comments)</li>
+<li>Fenrur (1 comments)</li>
+<li>allenhaozi (1 comments)</li>
+<li>dharmit (1 comments)</li>
+<li>maximiliankolb (1 comments)</li>
+<li>neolit123 (1 comments)</li>
+</ul>
+
+<p>Thank you to our triage members for this release!</p>
+
+<ul>
+<li>afbjorklund (70 comments)</li>
+<li>caerulescens (37 comments)</li>
+<li>T-Lakshmi (31 comments)</li>
+<li>spowelljr (22 comments)</li>
+<li>kundan2707 (20 comments)</li>
+</ul>
+
+<p>Check out our <a href="https://minikube.sigs.k8s.io/docs/contrib/leaderboard/v1.33.0-beta.0/" target="_blank">contributions leaderboard</a> for this release!</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>See <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Getting Started</a></p>
+
+<h2 id="binary-checksums">Binary Checksums</h2>
+
+<p>darwin-amd64: <code>ba00e508d6694f8e792bf5f238f5609407f1862f4fd8c0e08d1de9319b7131d5</code>
+darwin-arm64: <code>7a672fa0a266d0c649d114b2135ee6222d8366bc0ac87e2fafb4c714e20b26a3</code>
+linux-amd64: <code>e1c32fb33b4fe35f719b52309f8d981392ad7672f9fef3307d188f004aee5a2d</code>
+linux-arm: <code>7724724767ba1f144605d4289c098e5fcd4fcc55be0876d77591d05f43f22876</code>
+linux-arm64: <code>fa09cb8e228711e557a0f933e819c2cea98bc96749a4c77635a341d0ed530163</code>
+linux-ppc64le: <code>6f013e03419d8c5149e1998a1f492e1693d780e883aeb37325f0cc42854cccd5</code>
+linux-s390x: <code>1ec274865030a0b13d191d41e53c66be3f047a34e30c8fa637e74aa7cff31c71</code>
+windows-amd64.exe: <code>74fbadfb00a7a1ecfa2a24ea2ee77997a41a6cb61e797b6c62a1d28558c61260</code></p>
+
+<h2 id="iso-checksums">ISO Checksums</h2>
+
+<p>amd64: <code>bd573e1185f33b0dded06f42afb00c63f8e55e4fe0af1a00570ab24e59899bec</code><br>
+arm64: <code>2947e46a26ae53c72d474a72c285c8833f545b630b8a98b268128d69c615fff4</code></p>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.5.13</h3><h4>2024-03-29</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.5.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.5/upgrades/upgrade_3_5.md" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://github.com/etcd-io/etcd/tree/master/Documentation#operating-etcd-clusters" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.5/op-guide/supported-platform.md" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.5.13
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<pre><code class="language-bash"># start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.5.13
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-bash">rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:v3.5.13 || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-v3.5.13 \
+  gcr.io/etcd-development/etcd:v3.5.13 \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-v3.5.13 /usr/local/bin/etcd --version
+docker exec etcd-gcr-v3.5.13 /usr/local/bin/etcdctl version
+docker exec etcd-gcr-v3.5.13 /usr/local/bin/etcdutl version
+docker exec etcd-gcr-v3.5.13 /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-v3.5.13 /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-v3.5.13 /usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v3.14.1</h3><h4>2024-03-30</h4><h1 id="v3-14-1">v3.14.1</h1>
+
+<p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v3.14.0" target="_blank">v3.14.0</a></strong></p>
+
+<h2 id="new-features">✨ New Features</h2>
+
+<ul>
+<li>(go/v4): Upgrade controller-runtime from v0.17.0 to v0.17.2 (#3827)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>(go/v4): Remove trailing whitespace from Readme which is scaffold for the project (#3813)</li>
+<li>(go/v4): Fix compatibility issues encountered while setting up EnvTest binaries by using the controller-runtime branch releases (#3824).</li>
+<li>(kustomize/v2, go/v4, deploy-image/v1-alpha): Fix labels according to conventions and conveys. app.kubernetes.io/name now have the ProjectName and the labels app.kubernetes.io/instance, app.kubernetes.io/component, app.kubernetes.io/created-by, app.kubernetes.io/part-of were removed (#3797)</li>
+<li>(go/v4): Fix makefile target build-installer to discarding the previous content (#3766)</li>
+<li>(go/v4): Fix scaffolding e2e template by adding missing errors checks (#3786)</li>
+<li>(go/v4): Fix makefile target <code>build-installer</code> to discarding the previous content (#3766)</li>
+<li>(go/v4): Fix rules to allow create new APIs by reverting the PR( <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3742" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3742</a> ) (#3787)</li>
+</ul>
+
+<p><strong>🎉 Thanks to all our contributors!</strong></p>
+
+<h2 id="what-s-changed-full-changelog">What&rsquo;s Changed (Full Changelog)</h2>
+
+<ul>
+<li>📖 docs updates for external types and submodule-layouts by @jakobmoellerdev in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3055" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3055</a></li>
+<li>:bug: (go/v4) Fix makefile target build-installer to discarding the previous content by @lukas016 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3766" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3766</a></li>
+<li>📖 Clean up getting started docs by @stmcginnis in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3758" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3758</a></li>
+<li>📖 Update Contrbuting.MD by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3769" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3769</a></li>
+<li>📖 Fix #the reference link by @wastelife in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3771" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3771</a></li>
+<li>📖 Simplify if condition in cronjob tutorial by @lpugoy in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3765" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3765</a></li>
+<li>📖 Typo multi-version tutorial deployment.md by @tatehanawalt in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3770" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3770</a></li>
+<li>📖 Fix typo in cronjob-tutorial by @awalvie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3773" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3773</a></li>
+<li>🌱 Bump sigs.k8s.io/kubebuilder/v3 from 3.13.0 to 3.14.0 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3774" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3774</a></li>
+<li>:seedling: Bump golangci/golangci-lint-action from 3 to 4 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3778" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3778</a></li>
+<li>📖 Add context to handler func by @vladfr in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3777" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3777</a></li>
+<li>🌱 Bump golang.org/x/tools from 0.17.0 to 0.18.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3779" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3779</a></li>
+<li>🐛 Revert &ldquo;:bug: Align CRD version validation with apiextensions&rdquo; by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3787" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3787</a></li>
+<li>🐛 scaffolding e2e template err check by @domcyrus in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3786" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3786</a></li>
+<li>📖  Specify what is run and deployed by @letthefireflieslive in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3788" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3788</a></li>
+<li>📖 Add the <code>Admission webhooks</code> link in <code>docs/book/src/reference/admisson-webhook.md</code> by @renormalize in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3799" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3799</a></li>
+<li>🐛(kustomize/v2, go/v4, deploy-image/v1-alpha): Fix labels according to conventions and conveys. app.kubernetes.io/name now have the ProjectName and the labels app.kubernetes.io/instance, app.kubernetes.io/component, app.kubernetes.io/created-by, app.kubernetes.io/part-of were removed by @sarthaksarthak9 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3797" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3797</a></li>
+<li>🌱  Bump github.com/onsi/gomega from 1.31.1 to 1.32.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3820" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3820</a></li>
+<li>🐛 Fix compatibility issues encountered while setting up envtest by using the controller-runtime branch releases (unblock CI) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3824" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3824</a></li>
+<li>📖 : (README) Fix slack channel access address by @uos-ljtian in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3818" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3818</a></li>
+<li>🐛 fix make build-installer command to remove CRD duplication by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3814" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3814</a></li>
+<li>🐛 fix: Remove empty line at beginning of generated files by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3815" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3815</a></li>
+<li>📖  Fix typo issue in the docs by @mcbenjemaa in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3803" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3803</a></li>
+<li>📖 Add missing basic-project-doc link by @semihbkgr in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3806" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3806</a></li>
+<li>🌱 Add prefix to bot PR title to respect community rule by @Kavinjsir in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3810" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3810</a></li>
+<li>🌱 Bump golang.org/x/tools from 0.18.0 to 0.19.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3817" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3817</a></li>
+<li>🌱 Bump github.com/onsi/ginkgo/v2 from 2.15.0 to 2.17.1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3822" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3822</a></li>
+<li>🌱  Remove trailing whitespace in readme gen by @bzub in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3813" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3813</a></li>
+<li>🌱  Remove trailing spaces in the docs and add check as automate fix to the make generate by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3826" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3826</a></li>
+<li>:sparkles: Upgrade controller-runtime from v0.17.0 to v0.17.2 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3827" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3827</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@stmcginnis made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3758" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3758</a></li>
+<li>@wastelife made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3771" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3771</a></li>
+<li>@lpugoy made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3765" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3765</a></li>
+<li>@tatehanawalt made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3770" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3770</a></li>
+<li>@awalvie made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3773" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3773</a></li>
+<li>@vladfr made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3777" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3777</a></li>
+<li>@domcyrus made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3786" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3786</a></li>
+<li>@letthefireflieslive made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3788" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3788</a></li>
+<li>@sarthaksarthak9 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3797" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3797</a></li>
+<li>@uos-ljtian made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3818" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3818</a></li>
+<li>@mcbenjemaa made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3803" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3803</a></li>
+<li>@bzub made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3813" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3813</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v3.14.0...v3.14.1" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v3.14.0&hellip;v3.14.1</a></p>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 2.51.1 / 2024-03-27</h3><h4>2024-03-28</h4><p>Bugfix release.</p>
+
+<ul>
+<li>[BUGFIX] PromQL: Re-instate validation of label_join destination label #13803</li>
+<li>[BUGFIX] Scraping (experimental native histograms): Fix handling of the min bucket factor on sync of targets #13846</li>
+<li>[BUGFIX] PromQL: Some queries could return the same series twice (library use only) #13845</li>
+</ul>
+<br>
+</body>
+
+</html>
