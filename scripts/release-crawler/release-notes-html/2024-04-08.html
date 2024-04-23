@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-04-08</h1><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for openstack-cloud-controller-manager-2.29.2</h3><h4>2024-04-12</h4><p>Openstack Cloud Controller Manager Helm Chart</p>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.63.0-pre1</h3><h4>2024-04-12</h4><p>This is a prerelease of gRPC Core 1.63.0 (giggle).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This prerelease contains refinements, improvements, and bug fixes.</p>
+<br><h2>containerd/nerdctl</h2> <h3>Release notes for v2.0.0-beta.4</h3><h4>2024-04-09</h4><h2 id="changes">Changes</h2>
+
+<p>nerdctl v2 enables &ldquo;detach-netns&rdquo; for Rootless mode by default (#2723).</p>
+
+<p>This will bring:</p>
+
+<ul>
+<li>Faster and more stable <code>nerdctl pull</code>, <code>nerdctl push</code>, <code>nerdctl build</code>, etc</li>
+<li>Proper support for <code>nerdctl pull 127.0.0.1:.../...</code></li>
+<li>Proper support for <code>nerdctl run --net=host</code></li>
+</ul>
+
+<p>Depends on RootlessKit v2 and BuildKit v0.13 (included in <code>nerdctl-full-*.tar.gz</code>).</p>
+
+<blockquote>
+<p>[!NOTE]
+After upgrading nerdctl (rootless mode) from v1.x to v2.x, it is highly recommended to
+re-install the systemd units and the configurations:</p>
+
+<pre><code>&gt; containerd-rootless-setuptool.sh uninstall
+&gt; rm -rf ~/.config/{nerdctl,buildkit}
+&gt; containerd-rootless-setuptool.sh install
+&gt; CONTAINERD_NAMESPACE=default containerd-rootless-setuptool.sh install-buildkit-containerd
+&gt; ```
+
+Other major changes:
+- `nerdctl run`:
+  - Add `--systemd` flag for running systemd in containers flag (#2785, thanks to @sazzy4o)
+  - Add`--ipc=(shareable|container:&lt;container&gt;)` flag (#2757, thanks to @minuk-dev)
+  - Add `--annotation` flag (#2906)
+     - Now `nerdctl run --label` is only set as a containerd label and not propagated as an OCI annotation. A label with the `nerdctl/` prefix can no longer be set manually, with an exception for `nerdctl/bypass4netns`. The `nerdctl/bypass4netns` label is still allowed and is propagated to an OCI annotation, for sake of compatibility.
+- `nerdctl build`:
+  - Add `--attest`, `--sbom`, and `--provenance` flags (#2786, thanks to @yankay)
+  - Support Windows (#2587, thanks to @TBBle)
+- `nerdctl compose up`:
+  - Add `--abort-on-container-exit` flag (#2873, thanks to @alegrey91)
+
+Full changes: https://github.com/containerd/nerdctl/milestone/37?closed=1
+Thanks to @Shubhranshu153 @TBBle @alegrey91 @djdongjin @dmcgowan @fahedouch @jmpargana @ktock @manugupt1 @minuk-dev @monirul @roman-kiselenko @sazzy4o  @sondavidb @testwill @yankay @zwpaper
+
+
+## Compatible containerd versions
+This release of nerdctl is expected to be used with containerd v1.6 or v1.7.
+
+## About the binaries
+- Minimal (`nerdctl-2.0.0-beta.4-linux-amd64.tar.gz`): nerdctl only
+- Full (`nerdctl-full-2.0.0-beta.4-linux-amd64.tar.gz`):    Includes dependencies such as containerd, runc, and CNI
+
+### Minimal
+Extract the archive to a path like `/usr/local/bin` or `~/bin` .
+&lt;details&gt;&lt;summary&gt;tar Cxzvvf /usr/local/bin nerdctl-2.0.0-beta.4-linux-amd64.tar.gz&lt;/summary&gt;
+&lt;p&gt;
+
+</code></pre>
+
+<p>-rwxr-xr-x root/root  25251840 2024-04-09 02:08 nerdctl
+-rwxr-xr-x root/root     22774 2024-04-09 02:08 containerd-rootless-setuptool.sh
+-rwxr-xr-x root/root      8640 2024-04-09 02:08 containerd-rootless.sh</p>
+
+<pre><code>&lt;/p&gt;
+&lt;/details&gt;
+
+### Full
+Extract the archive to a path like `/usr/local` or `~/.local` .
+
+&lt;details&gt;&lt;summary&gt;tar Cxzvvf /usr/local nerdctl-full-2.0.0-beta.4-linux-amd64.tar.gz&lt;/summary&gt;
+&lt;p&gt;
+
+</code></pre>
+
+<p>drwxr-xr-x 0/0               0 2024-04-09 02:16 bin/
+-rwxr-xr-x 0/0        30015045 2015-10-21 00:00 bin/buildctl
+-rwxr-xr-x 0/0        23724032 2022-09-05 09:52 bin/buildg
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-LICENSE -&gt; ../libexec/cni/LICENSE
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-README.md -&gt; ../libexec/cni/README.md
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-bandwidth -&gt; ../libexec/cni/bandwidth
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-bridge -&gt; ../libexec/cni/bridge
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-dhcp -&gt; ../libexec/cni/dhcp
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-dummy -&gt; ../libexec/cni/dummy
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-firewall -&gt; ../libexec/cni/firewall
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-host-device -&gt; ../libexec/cni/host-device
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-host-local -&gt; ../libexec/cni/host-local
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-ipvlan -&gt; ../libexec/cni/ipvlan
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-loopback -&gt; ../libexec/cni/loopback
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-macvlan -&gt; ../libexec/cni/macvlan
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-portmap -&gt; ../libexec/cni/portmap
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-ptp -&gt; ../libexec/cni/ptp
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-sbr -&gt; ../libexec/cni/sbr
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-static -&gt; ../libexec/cni/static
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-tap -&gt; ../libexec/cni/tap
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-tuning -&gt; ../libexec/cni/tuning
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-vlan -&gt; ../libexec/cni/vlan
+lrwxrwxrwx 0/0               0 2024-04-09 02:15 bin/buildkit-cni-vrf -&gt; ../libexec/cni/vrf
+-rwxr-xr-x 0/0        57529541 2015-10-21 00:00 bin/buildkitd
+-rwxr-xr-x 0/0        14636760 2024-04-09 02:14 bin/bypass4netns
+-rwxr-xr-x 0/0         5312512 2024-04-09 02:14 bin/bypass4netnsd
+-rwxr-xr-x 0/0        38978936 2024-04-09 02:15 bin/containerd
+-rwxr-xr-x 0/0         9474048 2023-11-02 17:34 bin/containerd-fuse-overlayfs-grpc
+-rwxr-xr-x 0/0           22774 2024-04-09 02:13 bin/containerd-rootless-setuptool.sh
+-rwxr-xr-x 0/0            8640 2024-04-09 02:13 bin/containerd-rootless.sh
+-rwxr-xr-x 0/0        12161024 2024-04-09 02:15 bin/containerd-shim-runc-v2
+-rwxr-xr-x 0/0        45903872 2023-10-31 08:57 bin/containerd-stargz-grpc
+-rwxr-xr-x 0/0        20630617 2024-04-09 02:16 bin/ctd-decoder
+-rwxr-xr-x 0/0        18866176 2024-04-09 02:14 bin/ctr
+-rwxr-xr-x 0/0        29671743 2024-04-09 02:16 bin/ctr-enc
+-rwxr-xr-x 0/0        19931136 2023-10-31 08:58 bin/ctr-remote
+-rwxr-xr-x 0/0         1785448 2024-04-09 02:16 bin/fuse-overlayfs
+-rwxr-xr-x 0/0        65589641 2024-04-09 02:15 bin/ipfs
+-rwxr-xr-x 0/0        25223168 2024-04-09 02:13 bin/nerdctl
+-rwxr-xr-x 0/0        10666181 2024-03-05 22:20 bin/rootlessctl
+-rwxr-xr-x 0/0        12358373 2024-03-05 22:20 bin/rootlesskit
+-rwxr-xr-x 0/0        15074072 2024-04-09 02:14 bin/runc
+-rwxr-xr-x 0/0         2346328 2024-04-09 02:16 bin/slirp4netns
+-rwxr-xr-x 0/0          870496 2024-04-09 02:16 bin/tini
+drwxr-xr-x 0/0               0 2024-04-09 02:15 lib/
+drwxr-xr-x 0/0               0 2024-04-09 02:15 lib/systemd/
+drwxr-xr-x 0/0               0 2024-04-09 02:15 lib/systemd/system/
+-rw-r&ndash;r&ndash; 0/0            1475 2024-04-09 02:15 lib/systemd/system/buildkit.service
+-rw-r&ndash;r&ndash; 0/0            1414 2024-04-09 02:13 lib/systemd/system/containerd.service
+-rw-r&ndash;r&ndash; 0/0             312 2024-04-09 02:15 lib/systemd/system/stargz-snapshotter.service
+drwxr-xr-x 0/0               0 2024-04-09 02:15 libexec/
+drwxr-xr-x 0/0               0 2024-04-09 02:15 libexec/cni/
+-rw-r&ndash;r&ndash; 0/0           11357 2024-03-12 10:56 libexec/cni/LICENSE
+-rw-r&ndash;r&ndash; 0/0            2343 2024-03-12 10:56 libexec/cni/README.md
+-rwxr-xr-x 0/0         4119661 2024-03-12 10:56 libexec/cni/bandwidth
+-rwxr-xr-x 0/0         4662227 2024-03-12 10:56 libexec/cni/bridge
+-rwxr-xr-x 0/0        11065251 2024-03-12 10:56 libexec/cni/dhcp
+-rwxr-xr-x 0/0         4306546 2024-03-12 10:56 libexec/cni/dummy
+-rwxr-xr-x 0/0         4751593 2024-03-12 10:56 libexec/cni/firewall
+-rwxr-xr-x 0/0         4198427 2024-03-12 10:56 libexec/cni/host-device
+-rwxr-xr-x 0/0         3560496 2024-03-12 10:56 libexec/cni/host-local
+-rwxr-xr-x 0/0         4324636 2024-03-12 10:56 libexec/cni/ipvlan
+-rwxr-xr-x 0/0         3651038 2024-03-12 10:56 libexec/cni/loopback
+-rwxr-xr-x 0/0         4355073 2024-03-12 10:56 libexec/cni/macvlan
+-rwxr-xr-x 0/0         4095898 2024-03-12 10:56 libexec/cni/portmap
+-rwxr-xr-x 0/0         4476535 2024-03-12 10:56 libexec/cni/ptp
+-rwxr-xr-x 0/0         3861176 2024-03-12 10:56 libexec/cni/sbr
+-rwxr-xr-x 0/0         3120090 2024-03-12 10:56 libexec/cni/static
+-rwxr-xr-x 0/0         4381887 2024-03-12 10:56 libexec/cni/tap
+-rwxr-xr-x 0/0         3743844 2024-03-12 10:56 libexec/cni/tuning
+-rwxr-xr-x 0/0         4319235 2024-03-12 10:56 libexec/cni/vlan
+-rwxr-xr-x 0/0         4008392 2024-03-12 10:56 libexec/cni/vrf
+drwxr-xr-x 0/0               0 2024-04-09 02:13 share/
+drwxr-xr-x 0/0               0 2024-04-09 02:13 share/doc/
+drwxr-xr-x 0/0               0 2024-04-09 02:13 share/doc/nerdctl/
+-rw-r&ndash;r&ndash; 0/0           12395 2024-04-09 02:08 share/doc/nerdctl/README.md
+drwxr-xr-x 0/0               0 2024-04-09 02:08 share/doc/nerdctl/docs/
+-rw-r&ndash;r&ndash; 0/0            3953 2024-04-09 02:08 share/doc/nerdctl/docs/build.md
+-rw-r&ndash;r&ndash; 0/0            2570 2024-04-09 02:08 share/doc/nerdctl/docs/builder-debug.md
+-rw-r&ndash;r&ndash; 0/0            3749 2024-04-09 02:08 share/doc/nerdctl/docs/cni.md
+-rw-r&ndash;r&ndash; 0/0           75969 2024-04-09 02:08 share/doc/nerdctl/docs/command-reference.md
+-rw-r&ndash;r&ndash; 0/0            1814 2024-04-09 02:08 share/doc/nerdctl/docs/compose.md
+-rw-r&ndash;r&ndash; 0/0            5329 2024-04-09 02:08 share/doc/nerdctl/docs/config.md
+-rw-r&ndash;r&ndash; 0/0            9128 2024-04-09 02:08 share/doc/nerdctl/docs/cosign.md
+-rw-r&ndash;r&ndash; 0/0            5660 2024-04-09 02:08 share/doc/nerdctl/docs/cvmfs.md
+-rw-r&ndash;r&ndash; 0/0            2435 2024-04-09 02:08 share/doc/nerdctl/docs/dir.md
+-rw-r&ndash;r&ndash; 0/0             906 2024-04-09 02:08 share/doc/nerdctl/docs/experimental.md
+-rw-r&ndash;r&ndash; 0/0           14217 2024-04-09 02:08 share/doc/nerdctl/docs/faq.md
+-rw-r&ndash;r&ndash; 0/0             884 2024-04-09 02:08 share/doc/nerdctl/docs/freebsd.md
+-rw-r&ndash;r&ndash; 0/0            3273 2024-04-09 02:08 share/doc/nerdctl/docs/gpu.md
+drwxr-xr-x 0/0               0 2024-04-09 02:08 share/doc/nerdctl/docs/images/
+-rw-r&ndash;r&ndash; 0/0          684421 2024-04-09 02:08 share/doc/nerdctl/docs/images/rootlessKit-network-design.png
+-rw-r&ndash;r&ndash; 0/0           14462 2024-04-09 02:08 share/doc/nerdctl/docs/ipfs.md
+-rw-r&ndash;r&ndash; 0/0            1748 2024-04-09 02:08 share/doc/nerdctl/docs/multi-platform.md
+-rw-r&ndash;r&ndash; 0/0            2960 2024-04-09 02:08 share/doc/nerdctl/docs/notation.md
+-rw-r&ndash;r&ndash; 0/0            2596 2024-04-09 02:08 share/doc/nerdctl/docs/nydus.md
+-rw-r&ndash;r&ndash; 0/0            3277 2024-04-09 02:08 share/doc/nerdctl/docs/ocicrypt.md
+-rw-r&ndash;r&ndash; 0/0            1876 2024-04-09 02:08 share/doc/nerdctl/docs/overlaybd.md
+-rw-r&ndash;r&ndash; 0/0           15657 2024-04-09 02:08 share/doc/nerdctl/docs/registry.md
+-rw-r&ndash;r&ndash; 0/0            8760 2024-04-09 02:08 share/doc/nerdctl/docs/rootless.md
+-rw-r&ndash;r&ndash; 0/0            2015 2024-04-09 02:08 share/doc/nerdctl/docs/soci.md
+-rw-r&ndash;r&ndash; 0/0           10312 2024-04-09 02:08 share/doc/nerdctl/docs/stargz.md
+drwxr-xr-x 0/0               0 2024-04-09 02:16 share/doc/nerdctl-full/
+-rw-r&ndash;r&ndash; 0/0            1161 2024-04-09 02:16 share/doc/nerdctl-full/README.md
+-rw-r&ndash;r&ndash; 0/0            8552 2024-04-09 02:16 share/doc/nerdctl-full/SHA256SUMS</p>
+
+<pre><code>&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;&lt;summary&gt;Included components&lt;/summary&gt;
+&lt;p&gt;
+
+See `share/doc/nerdctl-full/README.md`:
+```markdown
+# nerdctl (full distribution)
+- nerdctl: v2.0.0-beta.4
+- containerd: v1.7.15
+- runc: v1.1.12
+- CNI plugins: v1.4.1
+- BuildKit: v0.13.1
+- Stargz Snapshotter: v0.15.1
+- imgcrypt: v1.1.10
+- RootlessKit: v2.0.2
+- slirp4netns: v1.2.3
+- bypass4netns: v0.4.1
+- fuse-overlayfs: v1.13
+- containerd-fuse-overlayfs: v1.0.8
+- Kubo (IPFS): v0.27.0
+- Tini: v0.19.0
+- buildg: v0.4.1
+
+## License
+- bin/slirp4netns:    [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/rootless-containers/slirp4netns/blob/v1.2.3/COPYING)
+- bin/fuse-overlayfs: [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/containers/fuse-overlayfs/blob/v1.13/COPYING)
+- bin/ipfs: [Combination of MIT-only license and dual MIT/Apache-2.0 license](https://github.com/ipfs/kubo/blob/v0.27.0/LICENSE)
+- bin/{runc,bypass4netns,bypass4netnsd}: Apache License 2.0, statically linked with libseccomp ([LGPL 2.1](https://github.com/seccomp/libseccomp/blob/main/LICENSE), source code available at https://github.com/seccomp/libseccomp/)
+- bin/tini: [MIT License](https://github.com/krallin/tini/blob/v0.19.0/LICENSE)
+- Other files: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+</code></pre>
+
+<p></p>
+</details></p>
+</blockquote>
+
+<h2 id="quick-start">Quick start</h2>
+
+<h3 id="rootful">Rootful</h3>
+
+<pre><code class="language-console">$ sudo systemctl enable --now containerd
+$ sudo nerdctl run -d --name nginx -p 80:80 nginx:alpine
+</code></pre>
+
+<h3 id="rootless">Rootless</h3>
+
+<pre><code class="language-console">$ containerd-rootless-setuptool.sh install
+$ nerdctl run -d --name nginx -p 8080:80 nginx:alpine
+</code></pre>
+
+<p>Enabling cgroup v2 is highly recommended for rootless mode, see <a href="https://rootlesscontaine.rs/getting-started/common/cgroup2/" target="_blank">https://rootlesscontaine.rs/getting-started/common/cgroup2/</a> .</p>
+
+<hr>
+
+<p>The binaries were built automatically on GitHub Actions.
+The build log is available for 90 days: <a href="https://github.com/containerd/nerdctl/actions/runs/8609098845" target="_blank">https://github.com/containerd/nerdctl/actions/runs/8609098845</a></p>
+
+<p>The sha256sum of the SHA256SUMS file itself is <code>dfc9b122fea81a661f33a4013662b5def8a98fce84c257b8ad60e4279d11183e</code> .</p>
+
+<hr>
+
+<p>Release manager: <a href="@[ADD YOUR GITHUB ID HERE]" target="_blank">ADD YOUR NAME HERE</a></p>
+<br>
+</body>
+
+</html>
