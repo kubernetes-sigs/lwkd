@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-05-20</h1><h2>containerd/containerd</h2> <h3>Release notes for containerd 1.6.32</h3><h4>2024-05-22</h4><p>Welcome to the v1.6.32 release of containerd!</p>
+
+<p>The thirty-second patch release for containerd 1.6 contains various fixes and updates.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Handle unsupported config versions (<a href="https://github.com/containerd/containerd/pull/10234" target="_blank">#10234</a>)</li>
+<li>Preserve CL_UNPRIVILEGED locked flags during remount of bind mounts (<a href="https://github.com/containerd/containerd/pull/10212" target="_blank">#10212</a>)</li>
+<li>Update metadata snapshotter to lease on already exists (<a href="https://github.com/containerd/containerd/pull/10199" target="_blank">#10199</a>)</li>
+<li>Update apparmor template to allow confined runc to kill containers (<a href="https://github.com/containerd/containerd/pull/10130" target="_blank">#10130</a>)</li>
+<li>Prevent GC from schedule itself with 0 period. (<a href="https://github.com/containerd/containerd/pull/10103" target="_blank">#10103</a>)</li>
+<li>Configure otel from env instead of config.toml (<a href="https://github.com/containerd/containerd/pull/9993" target="_blank">#9993</a>)</li>
+</ul>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Fix snapshotter root path when not under containerd root (<a href="https://github.com/containerd/containerd/pull/10127" target="_blank">#10127</a>)</li>
+<li>Fix CreatedAt time set to 269 years ago if create network failed (<a href="https://github.com/containerd/containerd/pull/10119" target="_blank">#10119</a>)</li>
+<li>Fix unexpected order of mounts (<a href="https://github.com/containerd/containerd/pull/10045" target="_blank">#10045</a>)</li>
+</ul>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Update HTTP fallback to better account for TLS timeout and previous attempts (<a href="https://github.com/containerd/containerd/pull/10113" target="_blank">#10113</a>)</li>
+<li>Fix use of invalid token on retry fetching layer (<a href="https://github.com/containerd/containerd/pull/10064" target="_blank">#10064</a>)</li>
+</ul>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<ul>
+<li>Configure otel from env instead of config.toml (<a href="https://github.com/containerd/containerd/pull/9993" target="_blank">#9993</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Stefan Berger</li>
+<li>Derek McGowan</li>
+<li>Austin Vazquez</li>
+<li>Kazuyoshi Kato</li>
+<li>Phil Estes</li>
+<li>Brian Goff</li>
+<li>Akihiro Suda</li>
+<li>Maksym Pavlenko</li>
+<li>Danny Canter</li>
+<li>Samuel Karp</li>
+<li>Alexandru Matei</li>
+<li>Bin Tang</li>
+<li>Brandon Lum</li>
+<li>Bryant Biggs</li>
+<li>Jimmy Hsiao</li>
+<li>Kirill A. Korinsky</li>
+<li>Paweł Gronowski</li>
+<li>Sebastiaan van Stijn</li>
+<li>Swagat Bora</li>
+<li>Tomáš Virtus</li>
+<li>Tony Fang</li>
+<li>张钰</li>
+<li>沈陵</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>53 commits</summary>
+<p>
+
+* Prepare release notes for v1.6.32 ([#10255](https://github.com/containerd/containerd/pull/10255))
+  * [`085dc4c0d`](https://github.com/containerd/containerd/commit/085dc4c0d617e6cc145c8b663ba74c5cb84aa305) Prepare release notes for v1.6.32
+* Bump hcsshim and go-winio for go1.22 compat ([#10245](https://github.com/containerd/containerd/pull/10245))
+  * [`06724baad`](https://github.com/containerd/containerd/commit/06724baad6be5b669ca84cc236692961c221075f) Bump go-winio to fix struct alignment on go1.22
+  * [`b2fdf63b7`](https://github.com/containerd/containerd/commit/b2fdf63b7ebd8841806d2377ebf095b15d197b3a) Update hcsshim for go1.22 fixes
+* Handle unsupported config versions ([#10234](https://github.com/containerd/containerd/pull/10234))
+  * [`38607b59c`](https://github.com/containerd/containerd/commit/38607b59c1a308b406c2bdfe4520a302cf65ef9e) Add check for unsupported config versions
+* Preserve CL_UNPRIVILEGED locked flags during remount of bind mounts ([#10212](https://github.com/containerd/containerd/pull/10212))
+  * [`c65da6997`](https://github.com/containerd/containerd/commit/c65da69970d3747fa6bc22c2bc1fce2fb7d48905) Preserve CL_UNPRIVILEGED locked flags during remount of bind mounts
+* vendor: github.com/containerd/imgcrypt@v1.1.8 ([#10216](https://github.com/containerd/containerd/pull/10216))
+  * [`6951203b1`](https://github.com/containerd/containerd/commit/6951203b18499c792062578d391bd6711787f68f) vendor: github.com/containerd/imgcrypt@v1.1.8
+* vendor: golang.org/x/net@v0.23.0 ([#10214](https://github.com/containerd/containerd/pull/10214))
+  * [`a14e5ec8b`](https://github.com/containerd/containerd/commit/a14e5ec8b8bc2f80d145daab997faae2daac00f6) vendor: golang.org/x/net@v0.23.0
+  * [`fd21d7818`](https://github.com/containerd/containerd/commit/fd21d781876f761a32fa4c41d0f5997a03dbde79) vendor: golang.org/x/net@v0.21.0
+  * [`d276debb0`](https://github.com/containerd/containerd/commit/d276debb01cccc17ce15298996fe7340b0f2d58b) vendor: golang.org/x/net@v0.20.0
+  * [`f82033dcf`](https://github.com/containerd/containerd/commit/f82033dcf434ddef4ce052e831aee82e1757193a) vendor: golang.org/x/net@v0.19.0
+  * [`411c5e5e5`](https://github.com/containerd/containerd/commit/411c5e5e5d325ffc1a2f1f01b18b745766cd081a) vendor: golang.org/x/term@v0.17.0
+  * [`6f053bd1f`](https://github.com/containerd/containerd/commit/6f053bd1f08e60db3c390a05752edbc49c7d1c6e) vendor: golang.org/x/sys@v0.18.0
+  * [`cfd8443cb`](https://github.com/containerd/containerd/commit/cfd8443cb113e4536cec4b99e1431d0a8b55dab9) vendor: golang.org/x/sys@v0.17.0
+* Update tooling to Go 1.21.10, 1.22.3 for net/http bug fixes ([#10208](https://github.com/containerd/containerd/pull/10208))
+  * [`5b4facbd6`](https://github.com/containerd/containerd/commit/5b4facbd663a5ead60f20cc914014edc2a6d5a2a) Update toolchain to Go 1.21.10 and 1.22.3
+* Update metadata snapshotter to lease on already exists ([#10199](https://github.com/containerd/containerd/pull/10199))
+  * [`57860c1b6`](https://github.com/containerd/containerd/commit/57860c1b617852b0b60993035ec8a6d4798a720c) Add lease test for metadata snapshotter
+  * [`b095401df`](https://github.com/containerd/containerd/commit/b095401dfb6c846117c219ff2d1e4add7ea392a1) Update metadata snapshotter to lease on exists
+* Update image-spec ([#10185](https://github.com/containerd/containerd/pull/10185))
+  * [`fd8d35752`](https://github.com/containerd/containerd/commit/fd8d35752b1a86d251aa9464f94a83750494a68d) Update image-spec to v1.1.0
+  * [`89b975d81`](https://github.com/containerd/containerd/commit/89b975d8146d01415b1f5da0036fdd6587e8fe8b) go.mod: github.com/opencontainers/image-spec v1.1.0-rc3
+* Fix snapshotter root path when not under containerd root ([#10127](https://github.com/containerd/containerd/pull/10127))
+  * [`f3e8b2ca1`](https://github.com/containerd/containerd/commit/f3e8b2ca199ea760e5f574544ab0ec7da89c9484) CRI: "Fix" imageFSPath behavior
+  * [`68db74d19`](https://github.com/containerd/containerd/commit/68db74d191f0bb6d8bb279c6d8c336a5683f19c0) Snapshotters: Export the root path
+  * [`cd9b74640`](https://github.com/containerd/containerd/commit/cd9b7464045eb7bad9506b6579caa558c868dc95) Add exports to proxy plugin config
+  * [`83cf026b2`](https://github.com/containerd/containerd/commit/83cf026b261e83b10c1c724991669d6d298997b4) Add platform config to proxy plugins
+* Update apparmor template to allow confined runc to kill containers ([#10130](https://github.com/containerd/containerd/pull/10130))
+  * [`63c41d003`](https://github.com/containerd/containerd/commit/63c41d0038a7120dbb6e664c6b3dee0220977c4a) apparmor: Allow confined runc to kill containers
+* Update HTTP fallback to better account for TLS timeout and previous attempts ([#10113](https://github.com/containerd/containerd/pull/10113))
+  * [`b12c3b0c8`](https://github.com/containerd/containerd/commit/b12c3b0c8b4885fb200619f99dd716aff330c6a3) Add deprecated HTTPFallback for package compatibility
+  * [`239955890`](https://github.com/containerd/containerd/commit/2399558900d9836b1a7cabb97e17901fb85c566a) Update HTTPFallback to handle tls handshake timeout
+  * [`b2a0ac0b4`](https://github.com/containerd/containerd/commit/b2a0ac0b480afd2f9eb7a43f1c5234e22fb5cc9b) Remove empty default tls configuration in ctr
+* update to go1.21.9, go1.22.2 ([#10117](https://github.com/containerd/containerd/pull/10117))
+  * [`ea9a8c608`](https://github.com/containerd/containerd/commit/ea9a8c608404d421c481d9bddd4f9a56c20762f0) update to go1.21.9, go1.22.2
+* Fix CreatedAt time set to 269 years ago if create network failed ([#10119](https://github.com/containerd/containerd/pull/10119))
+  * [`c809fa268`](https://github.com/containerd/containerd/commit/c809fa26864cf14b0ae2b4c842e57832c115b541) pod: CreatedAt time will be 269 years ago while creating cri network failed.
+* Prevent GC from schedule itself with 0 period. ([#10103](https://github.com/containerd/containerd/pull/10103))
+  * [`6ddec44bd`](https://github.com/containerd/containerd/commit/6ddec44bd25708281e1717cf0dfae86dcc1f4710) Prevent GC from schedule itself with 0 period.
+* Configure otel from env instead of config.toml ([#9993](https://github.com/containerd/containerd/pull/9993))
+  * [`86a1a3a82`](https://github.com/containerd/containerd/commit/86a1a3a828afeb281a266171e4090d12d6c26f06) vendor: revendor OTEL
+  * [`e15d4a8b8`](https://github.com/containerd/containerd/commit/e15d4a8b8c9c3edcf6754520c64c7419e9aa57d3) Changes to configuring otel from env only
+  * [`2fda262a9`](https://github.com/containerd/containerd/commit/2fda262a943f7a86b13e52c47b6e70a553cf422a) Deprecate otel configs
+  * [`c80347ec5`](https://github.com/containerd/containerd/commit/c80347ec5839b45259d57bd544cd38bf69d30095) Adding unit tests to opentelemetry tracing
+* Fix use of invalid token on retry fetching layer ([#10064](https://github.com/containerd/containerd/pull/10064))
+  * [`f1a14a12a`](https://github.com/containerd/containerd/commit/f1a14a12ac5574095a3d81bb9941971a5af0ffd2) fix bug that using invalid token to retry fetching layer
+* Fix unexpected order of mounts ([#10045](https://github.com/containerd/containerd/pull/10045))
+  * [`9701cf998`](https://github.com/containerd/containerd/commit/9701cf998f6f86d14072a44bc922e4c82aee4684) fix(cri): fix unexpected order of mounts since go 1.19
+</p>
+</details>
+
+<h3 id="changes-from-containerd-imgcrypt">Changes from containerd/imgcrypt</h3>
+
+<details><summary>89 commits</summary>
+<p>
+
+* CHANGES: Updated CHANGES document for 1.1.8 release ([containerd/imgcrypt#122](https://github.com/containerd/imgcrypt/pull/122))
+  * [`956b4d3`](https://github.com/containerd/imgcrypt/commit/956b4d3fe3ed647032725bf1585f68b2a38b2b13) CHANGES: Updated CHANGES document for 1.1.8 release
+* Synchronize enc-ctr with upstream ctr from containerd v1.6.23 and use containerd v1.6.23 in dependency ([containerd/imgcrypt#120](https://github.com/containerd/imgcrypt/pull/120))
+  * [`9e8e1c1`](https://github.com/containerd/imgcrypt/commit/9e8e1c1df3660f869c7fbd49135a8cd6bf91fe7c) ctr: Sync code with containerd v1.6.23 ctr
+  * [`7d2cca5`](https://github.com/containerd/imgcrypt/commit/7d2cca5efde78e5c5bce11e831d61077cf9166e1) build(deps): bump containerd from 1.6.20 to 1.6.23
+* Synchronize enc-ctr with upstream ctr from containerd v1.6.20 ([containerd/imgcrypt#119](https://github.com/containerd/imgcrypt/pull/119))
+  * [`0f2559e`](https://github.com/containerd/imgcrypt/commit/0f2559e3c9bb4c80ea422560af2bdb1334d70f88) ctr: Sync code with containerd v1.6.20 ctr
+  * [`c48dd78`](https://github.com/containerd/imgcrypt/commit/c48dd787005e197c12e924727ea2b0be75a6e66b) cmd: Copy IntToInt32Array into img package and use it
+* Update to ocicrypt 1.1.8 and minimum go 1.20 ([containerd/imgcrypt#118](https://github.com/containerd/imgcrypt/pull/118))
+  * [`6d48a4e`](https://github.com/containerd/imgcrypt/commit/6d48a4ecc325e1aaf531110b5aa9beece4eafc4c) build(deps): bump ocicrypt from 1.1.7 to 1.1.8
+  * [`1bc94a2`](https://github.com/containerd/imgcrypt/commit/1bc94a206e90d4f79dbb137c922b32b71662c78b) github: Use golangci-lint v1.54.1 and adjust config file
+  * [`9065f1d`](https://github.com/containerd/imgcrypt/commit/9065f1da9e4f607df34eff64d6e24530f7b3a136) github: Test with go 1.21 and go 1.20
+  * [`74986f3`](https://github.com/containerd/imgcrypt/commit/74986f3687f84523a4612bd7c6975463b68b3b10) go.mod: Require go 1.20
+* build(deps): bump google.golang.org/grpc from 1.47.0 to 1.53.0 ([containerd/imgcrypt#117](https://github.com/containerd/imgcrypt/pull/117))
+  * [`a2a8273`](https://github.com/containerd/imgcrypt/commit/a2a82731875004f0dd33dff929201456e3f702e1) build(deps): bump google.golang.org/grpc from 1.47.0 to 1.53.0
+* test: Test creating and running of container with key file missing ([containerd/imgcrypt#116](https://github.com/containerd/imgcrypt/pull/116))
+  * [`286470a`](https://github.com/containerd/imgcrypt/commit/286470a95699ac0cb19a3de79a7a215cafc8f2c7) test: Test creating and running of container with key file missing
+* Fix some issues in the test script ([containerd/imgcrypt#115](https://github.com/containerd/imgcrypt/pull/115))
+  * [`aa517cc`](https://github.com/containerd/imgcrypt/commit/aa517cc77654cf517cc7bba5529b07da92f033dc) test: Fix order of parameters and remove unnecessary key parameter
+  * [`ec72311`](https://github.com/containerd/imgcrypt/commit/ec7231185e276feb10f5b4b974ade62a81d5e9ad) test: Add comments to test case
+  * [`2959ec0`](https://github.com/containerd/imgcrypt/commit/2959ec0ec47786956223715812f40eb9e7301786) test: To be able to run testLocalKeys alone add missing env variable
+* build(deps): upgrade github.com/containerd/containerd from 1.6.18 to … ([containerd/imgcrypt#112](https://github.com/containerd/imgcrypt/pull/112))
+  * [`a7f2760`](https://github.com/containerd/imgcrypt/commit/a7f2760c719863cc015e4638090db4ef23daecd1) build(deps): upgrade github.com/containerd/containerd from 1.6.18 to 1.6.20
+* ci: Update golangci-lint to v1.52.2 ([containerd/imgcrypt#113](https://github.com/containerd/imgcrypt/pull/113))
+  * [`002abac`](https://github.com/containerd/imgcrypt/commit/002abac5a58aebef74a13bb7e30302b01f07b419) images: Change 'any' to 'anything' to avoid clash with built-in type 'any'
+  * [`5780ecc`](https://github.com/containerd/imgcrypt/commit/5780ecc88b4b08c4f1d8e6372869e39ab1fcbf35) images: Replace unused function parameters with '_'
+  * [`7dc8592`](https://github.com/containerd/imgcrypt/commit/7dc85928e244990cb3371c63d2a8caae5189b757) ci: Update golangci-lint to v1.52.2
+* build(deps): bump github.com/opencontainers/runc from 1.1.2 to 1.1.5 ([containerd/imgcrypt#109](https://github.com/containerd/imgcrypt/pull/109))
+  * [`90e4f77`](https://github.com/containerd/imgcrypt/commit/90e4f77bdc085a6f6d426380fa7cf0227ea03173) build(deps): bump github.com/opencontainers/runc from 1.1.2 to 1.1.5
+* Abandon go 1.18 (end-of-life) and use 1.19 and 1.20 in tests ([containerd/imgcrypt#110](https://github.com/containerd/imgcrypt/pull/110))
+  * [`8fc037f`](https://github.com/containerd/imgcrypt/commit/8fc037fd2de0e6106a3e8da655be22a1d4da719c) tests: Upgrade toml written by test case to version 2
+  * [`0b31beb`](https://github.com/containerd/imgcrypt/commit/0b31beb1c7b6391b50ff44d9a71bed452bcebf2d) ci: Run tests with go 1.19 and 1.20 (abandon 1.18)
+  * [`523674c`](https://github.com/containerd/imgcrypt/commit/523674c781c15e461afe52d8086deb4dd0d61466) build(deps): Update to minimum required go v1.19
+* Update to golang.org/x/net@v0.7.0 and github.com/containers/ocicrypt@v1.1.7 ([containerd/imgcrypt#107](https://github.com/containerd/imgcrypt/pull/107))
+  * [`96a2314`](https://github.com/containerd/imgcrypt/commit/96a2314e83ba412568800a7dd84789f59f1310ec) build(deps): Upgrade to github.com/containers/ocicrypt@v1.1.7
+  * [`1c50555`](https://github.com/containerd/imgcrypt/commit/1c5055514add4b6715cb4da0a127f8200d0d190a) bulid(deps): Update to golang.org/x/net@v0.7.0
+  * [`9645d39`](https://github.com/containerd/imgcrypt/commit/9645d39f070c7f6728ec4e1831fbede7ebd512ec) build(deps): Update to minimum required go v1.18
+* build(deps): bump github.com/containerd/containerd from 1.6.12 to 1.6.18 ([containerd/imgcrypt#106](https://github.com/containerd/imgcrypt/pull/106))
+  * [`8daaa45`](https://github.com/containerd/imgcrypt/commit/8daaa45a63100dc95430fc22eb2b5e95772b245f) build(deps): bump github.com/containerd/containerd from 1.6.12 to 1.6.18
+* README: Fix a typo ([containerd/imgcrypt#105](https://github.com/containerd/imgcrypt/pull/105))
+  * [`12e84f5`](https://github.com/containerd/imgcrypt/commit/12e84f51fb70e1fb2bcc624206f707b48671b352) README: Fix a typo
+* build(deps): bump github.com/containerd/containerd from 1.6.8 to 1.6.12 ([containerd/imgcrypt#103](https://github.com/containerd/imgcrypt/pull/103))
+  * [`4e5a73e`](https://github.com/containerd/imgcrypt/commit/4e5a73e393254df6091fc9b3bf54371be778060f) build(deps): bump github.com/containerd/containerd from 1.6.8 to 1.6.12
+* Update golangci-lint to v1.50.1 ([containerd/imgcrypt#101](https://github.com/containerd/imgcrypt/pull/101))
+  * [`16a071b`](https://github.com/containerd/imgcrypt/commit/16a071b983f1777ff6391be0d44e80370fd58bf9) Update golangci-lint to v1.50.1
+* Remove references to package io/ioutil ([containerd/imgcrypt#100](https://github.com/containerd/imgcrypt/pull/100))
+  * [`981a3fd`](https://github.com/containerd/imgcrypt/commit/981a3fdd5a755a1521337010bec47874753508cb) Remove references to package io/ioutil
+* Update GitHub actions CI workflow ([containerd/imgcrypt#99](https://github.com/containerd/imgcrypt/pull/99))
+  * [`06827a1`](https://github.com/containerd/imgcrypt/commit/06827a1d8664a277fed24a41cd1566c197f58814) Update containerd project checks package in CI
+  * [`f6a39e1`](https://github.com/containerd/imgcrypt/commit/f6a39e1bcd21af406254aa5da1e7f89f26e914cd) Update GitHub actions packages in CI workflow
+  * [`6383351`](https://github.com/containerd/imgcrypt/commit/6383351756ec706b0f6aeea1a9dfc737c71bece7) Update GitHub actions CI workflow OS runner images
+* CI/CD: Run CodeQL on PRs and once a month ([containerd/imgcrypt#98](https://github.com/containerd/imgcrypt/pull/98))
+  * [`b6e16db`](https://github.com/containerd/imgcrypt/commit/b6e16db881eef08e0bb58d0885bfad8339c97f2f) CI/CD: Run CodeQL on PRs and once a month
+* CHANGES: Updated CHANGES document for 1.1.7 release ([containerd/imgcrypt#97](https://github.com/containerd/imgcrypt/pull/97))
+  * [`17e5e7f`](https://github.com/containerd/imgcrypt/commit/17e5e7f7909b4e6a295e2dbef7b534339df84707) CHANGES: Updated CHANGES document for 1.1.7 release
+* Update to ocicrypt 1.1.6 and add support for zstd type of compressed layers  ([containerd/imgcrypt#96](https://github.com/containerd/imgcrypt/pull/96))
+  * [`06da359`](https://github.com/containerd/imgcrypt/commit/06da359b7360e9b70590cf25998511774b3f375c) Add support for zstd type of compressed layers
+  * [`4a51045`](https://github.com/containerd/imgcrypt/commit/4a51045e4c2c4aeacad5915c8dcc9b2dc5076495) build(deps): Update to ocicrypt 1.1.6
+  * [`2c93cef`](https://github.com/containerd/imgcrypt/commit/2c93cef1eb0b48263d16f5f2289a1a3f49a17d39) ctr: Document that import of encrypted image requires decryption key
+  * [`44f4e18`](https://github.com/containerd/imgcrypt/commit/44f4e187e213680151e657fcd9924de800dac356) ctr: Add support for --all-platforms to encrypt command
+  * [`d9fccdc`](https://github.com/containerd/imgcrypt/commit/d9fccdc4639f4a309e23adaf17ed5460ad385c2c) ctr: Sync with upstream ctr and add --skip-digest-for-named opt to import
+  * [`b8f807f`](https://github.com/containerd/imgcrypt/commit/b8f807f68aefbd292ab45f855b6905c77272d521) ctr: Sync with upstream ctr and add --platform option to import
+* build(deps): Update to containerd 1.6.8 ([containerd/imgcrypt#92](https://github.com/containerd/imgcrypt/pull/92))
+  * [`07dd48d`](https://github.com/containerd/imgcrypt/commit/07dd48dc69766f965c9d73d5c257c05c869be71d) build(deps): Update to containerd 1.6.8
+* tests: Add -traditional to OpenSSL command line when OSSL v3 is used ([containerd/imgcrypt#90](https://github.com/containerd/imgcrypt/pull/90))
+  * [`67b7b5d`](https://github.com/containerd/imgcrypt/commit/67b7b5dd3b2783cdfefcb483bf8718b4df305f5e) tests: Add -traditional to OpenSSL command line when OSSL v3 is used
+* chore: fix readme typo ([containerd/imgcrypt#87](https://github.com/containerd/imgcrypt/pull/87))
+  * [`98e43be`](https://github.com/containerd/imgcrypt/commit/98e43be32177a4dbfce2d4ecaab8bb301f311d20) chore: fix readme typo
+* Update to min golang 1.18 ([containerd/imgcrypt#88](https://github.com/containerd/imgcrypt/pull/88))
+  * [`554ec9b`](https://github.com/containerd/imgcrypt/commit/554ec9bc51ae03a8f7226677ae543630942ee3b9) Update to min golang 1.18
+* CHANGES: Updated CHANGES document for 1.1.6 release ([containerd/imgcrypt#85](https://github.com/containerd/imgcrypt/pull/85))
+  * [`ec7aae5`](https://github.com/containerd/imgcrypt/commit/ec7aae54455d172bc155a226234cb849c559e6a7) CHANGES: Updated CHANGES document for 1.1.6 release
+* build(deps): bump github.com/containerd/containerd from 1.6.1 to 1.6.6 ([containerd/imgcrypt#83](https://github.com/containerd/imgcrypt/pull/83))
+  * [`5959e8c`](https://github.com/containerd/imgcrypt/commit/5959e8cf6db81b1be0bc112f10a9bebcf7cd5980) build(deps): bump github.com/containerd/containerd from 1.6.1 to 1.6.6
+* CI: Upgrade to golangci-lint v1.46.2 ([containerd/imgcrypt#84](https://github.com/containerd/imgcrypt/pull/84))
+  * [`ef8596e`](https://github.com/containerd/imgcrypt/commit/ef8596ecba1f5e9e815ea6b86159da4acd2f7f80) CI: Upgrade to golangci-lint v1.46.2
+  * [`715ba8c`](https://github.com/containerd/imgcrypt/commit/715ba8c513d753e96afc0bb2f13a2eeede1b1def) Update to ocicrypt 1.1.5 to get yaml.v3
+  * [`4f79bd6`](https://github.com/containerd/imgcrypt/commit/4f79bd6774334325ef7ed534721a7475ce9c5d4c) CHANGES: Updated CHANGES document for 1.1.5 release
+  * [`4c38f10`](https://github.com/containerd/imgcrypt/commit/4c38f1094be27e56b0856eded996a021ccc82fcf) Bump ocicrypt to 1.1.4
+* CICD: Rename master branch to main ([containerd/imgcrypt#79](https://github.com/containerd/imgcrypt/pull/79))
+  * [`8abd19d`](https://github.com/containerd/imgcrypt/commit/8abd19d902ec878d0fe6f53daa20ceccbacb842d) CICD: Rename master branch to main
+* Rename any to pbAny ([containerd/imgcrypt#78](https://github.com/containerd/imgcrypt/pull/78))
+  * [`0e5d997`](https://github.com/containerd/imgcrypt/commit/0e5d9970419eb2300438bc62a5f9ae0282aa5b1d) Rename any to pbAny
+  * [`cb14b45`](https://github.com/containerd/imgcrypt/commit/cb14b455fec922ba2d70083d3b498748ff37f708) Test with Go 1.18
+* Use reflect to support diff.ApplyConfig with/without gogo's types.Any ([containerd/imgcrypt#75](https://github.com/containerd/imgcrypt/pull/75))
+  * [`9f08722`](https://github.com/containerd/imgcrypt/commit/9f08722adedb188e4ad6e482c0641203f8e04334) Use reflect to support diff.ApplyConfig with/without gogo's types.Any
+* Upgrade golangci-lint-action and golangci-lint ([containerd/imgcrypt#76](https://github.com/containerd/imgcrypt/pull/76))
+  * [`6eaeb4a`](https://github.com/containerd/imgcrypt/commit/6eaeb4a586fe906fe9dff943c68b9ced0d16619d) Add build tags to make gofmt happy
+  * [`9cba55f`](https://github.com/containerd/imgcrypt/commit/9cba55fc43560a29686864ad6eb00c815593c890) Upgrade golangci-lint-action and golangci-lint
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/Microsoft/go-winio</strong>         v0.5.2 -&gt; v0.5.3</li>
+<li><strong>github.com/Microsoft/hcsshim</strong>          v0.9.10 -&gt; v0.9.11</li>
+<li><strong>github.com/containerd/imgcrypt</strong>        v1.1.4 -&gt; v1.1.8</li>
+<li><strong>github.com/containers/ocicrypt</strong>        v1.1.3 -&gt; v1.1.10</li>
+<li><strong>github.com/go-jose/go-jose/v3</strong>         v3.0.3 <strong><em>new</em></strong></li>
+<li><strong>github.com/opencontainers/image-spec</strong>  3a7f492d3f1b -&gt; v1.1.0</li>
+<li><strong>github.com/stefanberger/go-pkcs11uri</strong>  78d3cae3a980 -&gt; 78284954bff6</li>
+<li><strong>golang.org/x/crypto</strong>                   v0.18.0 -&gt; v0.21.0</li>
+<li><strong>golang.org/x/net</strong>                      v0.18.0 -&gt; v0.23.0</li>
+<li><strong>golang.org/x/sys</strong>                      v0.16.0 -&gt; v0.18.0</li>
+<li><strong>golang.org/x/term</strong>                     v0.16.0 -&gt; v0.18.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.6.31" target="_blank">v1.6.31</a></p>
+<br><h2>kubernetes/cloud-provider-vsphere</h2> <h3>Release notes for v1.30.1</h3><h4>2024-05-20</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>:seedling:[release-1.30]: Bump github.com/vmware/govmomi from 0.37.0 to 0.37.1 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/986" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/986</a></li>
+<li>[release-1.30] Add additional members to maintainers alias by @christianang in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1005" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1005</a></li>
+<li>:seedling:[release-1.30]: Bump github.com/onsi/ginkgo/v2 from 2.17.1 to 2.17.2 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1000" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1000</a></li>
+<li>[release-1.30] Add skriss owner release 1.30 by @christianang in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1007" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1007</a></li>
+<li>:seedling:[release-1.30]: Bump sigs.k8s.io/controller-runtime from 0.17.3 to 0.17.5 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1013" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1013</a></li>
+<li>:seedling:[release-1.30]: Bump github.com/vmware/govmomi from 0.37.1 to 0.37.2 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1021" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1021</a></li>
+<li>:seedling:[release-1.30]: Bump github.com/onsi/gomega from 1.33.0 to 1.33.1 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1015" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1015</a></li>
+<li>:seedling:[release-1.30]: Bump github.com/onsi/ginkgo/v2 from 2.17.2 to 2.17.3 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1014" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1014</a></li>
+<li>:seedling:[release-1.30]: Bump the kubernetes group across 1 directory with 3 updates by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1027" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1027</a></li>
+<li>fix virtual machine service can&rsquo;t be created issue by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1029" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1029</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.30.0...v1.30.1" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.30.0&hellip;v1.30.1</a></p>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.0.0</h3><h4>2024-05-24</h4><h1 id="v4-0-0">v4.0.0</h1>
+
+<p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v3.15.1" target="_blank">v3.15.1</a></strong></p>
+
+<h2 id="overview-and-key-guidelines">Overview and Key Guidelines</h2>
+
+<p>It is a <a href="https://semver.org/" target="_blank">MAJOR</a> release because all deprecated features were removed from the project. However, for those with projects scaffolded using the <a href="https://book.kubebuilder.io/plugins/go-v4-plugin" target="_blank">go/v4</a> plugin layout, there should mainly <strong>not</strong> be impacted by. To know the layout version of your project, check the <a href="https://book.kubebuilder.io/reference/project-config" target="_blank">Project Config</a>, see the <code>PROJECT</code> file (<a href="https://github.com/kubernetes-sigs/kubebuilder/blob/6c08ed1db5804042509a360edd971ebdc4ae04d8/testdata/project-v4/PROJECT#L6-L7" target="_blank">example</a>).</p>
+
+<h3 id="general-guidance-you-might-be-impact-by">(General guidance) You might be impact by:</h3>
+
+<ul>
+<li>Bug fix to ensure consistent spacing in marker annotations (#3904). In this case, just find <code>//+</code> and replace it with <code>// +</code>.</li>
+<li>Discontinue usage of <a href="https://github.com/brancz/kube-rbac-proxy" target="_blank">kube-rbac-proxy</a> in the default scaffolding (<a href="https://github.com/kubernetes-sigs/kubebuilder/issues/3899" target="_blank">#3899</a>), the change is part of the <code>3.15.0</code> release since the change is applied only for new projects but you should be aware of and take action. For further information, see: <a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3907" target="_blank">🚨 Action Required: Ensure that you no longer use gcr.io/kubebuilder images</a>.</li>
+</ul>
+
+<h3 id="for-who-are-using-go-v2-or-go-v3-upgrading-layouts">(For who are using <code>go/v2</code> or <code>go/v3</code>) Upgrading Layouts:</h3>
+
+<p>If your project is currently using <code>go/v2</code> or <code>go/v3</code>, you must upgrade to <code>go/v4</code> to be compatible with this release and future updates. To know how to upgrade, check the <a href="https://book.kubebuilder.io/migration/v3vsv4" target="_blank">migration documentation</a>.</p>
+
+<h4 id="tips">💡 Tips</h4>
+
+<blockquote>
+<p>You can add the changes manually, but unless your project is too big or deviated too much from the proposed layout the recommended process to upgrade a project usually involves re-scaffolding and then comparing the new base with your project code changes and re-adding all on top. IDEs usually can help you out in this process since you can re-scaffold all in a branch and easily compare it with your main branch published in the repository of your project to add the code back again.</p>
+
+<ul>
+<li>Kubebuilder provides and <a href="https://book.kubebuilder.io/reference/rescaffold" target="_blank">Upgrade Assistance</a> for those who have been using the CLI to do all scaffolds and does not deviated from the layout proposed.</li>
+<li>You can follow the same process to ensure that your scaffold has all changes and bug fixes introduced from MINOR releases.</li>
+<li>You can also always check the project scaffolds under the <code>testdata</code> directory as a base and compare them across tag releases to check the changes made: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v3.14.1...v3.15.1" target="_blank">Example: Compare <code>testdata/project-v4</code> between tags <code>v3.14.1</code> and <code>v3.15.1</code></a>.</li>
+<li>Avoiding unnecessary deviations from the proposed layout can help you keep your project maintained and aligned with the latest changes with a lower effort. <a href="https://book.kubebuilder.io/migration/v3vsv4#project-customizations" target="_blank">Please, see the info</a>.</li>
+</ul>
+</blockquote>
+
+<h2 id="warning-breaking-changes">:warning: Breaking Changes</h2>
+
+<ul>
+<li>Removal of <a href="https://book-v3.book.kubebuilder.io/component-config-tutorial/tutorial#component-config-is-deprecated" target="_blank">ComponentConfig</a> since it is no longer supported by controller-runtime release version <a href="https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.15.0" target="_blank">0.15.0</a> and was removed from <a href="https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.18.0" target="_blank">v0.18.0</a> (#3764). (<a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3469" target="_blank">More info</a>)</li>
+<li>Removal of the <a href="https://book-v3.book.kubebuilder.io/plugins/go-v2-plugin" target="_blank">go/v2</a> which was kept only to ensure backwards compatibility from Kubebuilder release 2x to 3x and is deprecated since <strong>Apr 28, 2021</strong>. The <code>go/v2</code> plugin cannot scaffold projects in which CRDs and/or Webhooks have a <code>v1</code> API version. Be aware that v1beta1 API for CRDs and Webhooks was deprecated on Kubernetes <code>1.16</code> and were removed in the Kubernetes <code>1.22+</code> release. Go versions higher than <code>1.13+</code> are not supported within. (#3763) (#3915)  (<a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3622" target="_blank">More info</a>).</li>
+<li>Removal of the <a href="https://book-v3.book.kubebuilder.io/plugins/go-v3-plugin" target="_blank">go/v3</a> which is deprecated since <strong>Mar 11, 2023</strong>. Be aware that <code>go/v3</code> plugin cannot scaffold projects using kustomize versions <code>v4x+</code> and cannot fully support Kubernetes <code>1.25+</code> and go versions higher than <code>1.19+</code>. (#3763) (#3915)  (<a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3622" target="_blank">More info</a>)</li>
+<li>Removal of the <a href="https://book-v3.book.kubebuilder.io/plugins/kustomize-v1" target="_blank">kustomize/v1</a> which is deprecated since <strong>Mar 11, 2023</strong>. (#3763) (#3915)  (<a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3622" target="_blank">More info</a>)</li>
+<li>Removal of the <a href="https://book-v3.book.kubebuilder.io/plugins/declarative-v1" target="_blank">Declarative Plugin</a>. (#3922) (<a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3598" target="_blank">More info</a>)</li>
+<li><strong>(For who consume Kubebuilder as lib):</strong> Removal of deprecated APIs. The methods <code>NewBundle</code>, <code>GetShortName</code>, <code>IsLegacyLayout</code> are no longer available for those that consumes Kubebuilder as lib. (#3929)</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>Add support for go <code>1.22</code> (#3910)</li>
+<li>Add support for Kubernetes version <code>1.30</code>. Upgrade controller-runtime from <code>v0.17.3</code> to <code>v0.18.2</code> (#3912)</li>
+<li>Upgrade kustomize from <code>v5.3.0</code> to <code>v5.4.1</code> by (#3911)</li>
+<li>Upgrade controller-tools from <code>v0.14.0</code> to <code>v0.15.0</code> (#3913)</li>
+<li>Upgrade EnvTest from <code>1.29.0</code> to <code>1.30.0</code> (#3914)</li>
+<li>Add new  GolangCI linter to check the tests scaffolded with ginkgo (#3894)</li>
+<li><strong>(For who consume Kubebuilder as lib):</strong> Add <code>sigs.k8s.io/kubebuilder/v4</code> module (#3924)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Fix typo issue in the flag description (#3954)</li>
+<li>Fix in the makefile target <code>docker-buildx</code> to use the project name instead of fix value (#3928)</li>
+<li>Fix in the makefile to remove invalid comment (#3816)</li>
+<li>Fix to ensure consistent spacing in marker annotations. Ensure that you replace all markers to add the space by <code>s/\//+/\// +/</code>. (#3904)</li>
+</ul>
+
+<p><em>Thanks to all our contributors!</em></p>
+
+<h2 id="what-s-changed-full-changelog">What&rsquo;s Changed (Full Changelog)</h2>
+
+<ul>
+<li>:warning: remove component config since it is no longer supported by controller-runtime and is deprecated by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3764" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3764</a></li>
+<li>:warning: remove kustomize/v1, go/v2 and go/v3, and configurations for Project Config v2 related to legacy Kubebuilder CLI version &lt; 3 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3763" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3763</a></li>
+<li>:sparkles: Add support for go 1.22 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3910" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3910</a></li>
+<li>✨ Upgrade kustomize from v5.3.0 to v5.4.1 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3911" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3911</a></li>
+<li>✨ Upgrade controller-tools from v0.14.0 to v0.15.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3913" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3913</a></li>
+<li>:sparkles: Upgrade envtest from 1.29.0 to 1.30.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3914" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3914</a></li>
+<li>⚠️ (Follow UP: 3763) - remove kustomize/v1, go/v2 and go/v3, and configurations for Project Config v2 related to legacy Kubebuilder CLI version &lt; 3 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3915" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3915</a></li>
+<li>⚠️ remove component config by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3916" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3916</a></li>
+<li>🌱 Began to test getting start sample in the CI by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3918" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3918</a></li>
+<li>📖 Add note to clarify that kube-rbac-proxy images are no longer released by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3919" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3919</a></li>
+<li>:sparkles: Upgrade controller-runtime from v0.17.3 to v0.18.2 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3912" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3912</a></li>
+<li>🌱 Remove CRD and Webwhook versions options since they are no longer useful by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3920" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3920</a></li>
+<li>🐛 makefile: remove invalid comment  by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3816" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3816</a></li>
+<li>📖 extending-cli: remove ref of deprecated plugins by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3923" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3923</a></li>
+<li>⚠️ remove declarative plugin by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3922" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3922</a></li>
+<li>📖 Update RELEASE.md - Make clear the build of artifacts are deprecated by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3926" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3926</a></li>
+<li>📖 (plugin deploy-image and envtest): use ref of project-v4  instead of v3 in the examples by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3927" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3927</a></li>
+<li>🐛 fix: makefile: target docker-buildx should use the project name instead of fix value by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3928" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3928</a></li>
+<li>⚠️ Remove api deprecations: The methods NewBundle, GetShortName, IsLegacyLayout are no longer available by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3929" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3929</a></li>
+<li>📖 Update roadmap_2024.md - Latest status - 18 May by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3925" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3925</a></li>
+<li>📖 doc/cleanup: remove reference of legacy plugins by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3930" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3930</a></li>
+<li>📖 Update CONTRIBUTING.md - Clarify book-v3 docs publish status and blocker faced by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3932" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3932</a></li>
+<li>📖 doc: small nits for the migration section by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3933" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3933</a></li>
+<li>⚠️ Kubebuilder CLI Major Bump: Move module from v3 to v4 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3924" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3924</a></li>
+<li>:seedling: Bump sigs.k8s.io/kubebuilder/v3 from 3.14.2 to 3.15.0 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3940" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3940</a></li>
+<li>🌱 cleanup testdata generate.sh by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3943" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3943</a></li>
+<li>🐛 fix: preserve existing flags when applying metrics patch by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3937" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3937</a></li>
+<li>🐛 fix place where metrics service is scaffolded by moving from config/rbac to config/default by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3945" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3945</a></li>
+<li>📖 Prepare docs for 4x release by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3952" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3952</a></li>
+<li>:bug: fix typo issue in the flag description by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3954" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3954</a></li>
+<li>📖 Update multiversion-tutorial with latest changes by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3955" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3955</a></li>
+<li>:bug: (CLI, deploy-image/v1alpha1, go/v4) Ensure consistent spacing in marker annotations by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3904" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3904</a></li>
+<li>✨ chore: add ginkgolinter by @PG2000 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3894" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3894</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@PG2000 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3894" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3894</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v3.15.0...v4.0.0" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v3.15.0&hellip;v4.0.0</a></p>
+<br><h3>Release notes for v3.15.1</h3><h4>2024-05-23</h4><h1 id="v3-15-1">v3.15.1</h1>
+
+<p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v3.15.0" target="_blank">v3.15.0</a></strong></p>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>(go/v4,kustomize/v2): - fix to preserve existing flags when applying metrics patch (#3947)</li>
+<li>(go/v4,kustomize/v2): - fix the place where metrics service is scaffolded by moving from config/rbac to config/default (#3948)</li>
+</ul>
+
+<p><strong>🎉 Thanks to all our contributors!</strong></p>
+
+<h2 id="what-s-changed-full-changelog">What&rsquo;s Changed (Full Changelog)</h2>
+
+<ul>
+<li>🐛 (cherry-pick #3937) - fix: preserve existing flags when applying metrics patch by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3947" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3947</a></li>
+<li>:bug: (cherry-pick #3945) fix place where metrics service is scaffolded by moving from config/rbac to config/default by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3948" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3948</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v3.15.0...v3.15.1" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v3.15.0&hellip;v3.15.1</a></p>
+<br><h2>kubernetes-sigs/kustomize</h2> <h3>Release notes for kyaml/v0.17.1</h3><h4>2024-05-22</h4><h2 id="dependencies">Dependencies</h2>
+
+<p>#5672: chore(deps): bump dependencies of kustomize + sync go workspace
+#5680: chore: restore version for github.com/asaskevich/govalidator</p>
+<br><h3>Release notes for kustomize/v5.4.2</h3><h4>2024-05-22</h4><h2 id="feature">Feature</h2>
+
+<p>#5294: feat: localize absolute paths
+#5556: feat: support labels key in transformer configuration</p>
+
+<h2 id="chore">chore</h2>
+
+<p>#5671: refactor: string in slice is now part of stdlib
+#5681: chore: remove unused function
+#5688: refactor: function in stdlib now</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5672: chore(deps): bump dependencies of kustomize + sync go workspace
+#5680: chore: restore version for github.com/asaskevich/govalidator
+#5702: Update kyaml to v0.17.1
+#5703: Update cmd/config to v0.14.1
+#5704: Update api to v0.17.2</p>
+<br><h3>Release notes for cmd/config/v0.14.1</h3><h4>2024-05-22</h4><h2 id="dependencies">Dependencies</h2>
+
+<p>#5672: chore(deps): bump dependencies of kustomize + sync go workspace
+#5680: chore: restore version for github.com/asaskevich/govalidator
+#5702: Update kyaml to v0.17.1</p>
+<br><h3>Release notes for api/v0.17.2</h3><h4>2024-05-22</h4><h2 id="feature">Feature</h2>
+
+<p>#5294: feat: localize absolute paths
+#5556: feat: support labels key in transformer configuration</p>
+
+<h2 id="bug-fixes-performance-improvements">Bug fixes/Performance improvements</h2>
+
+<p>#5079: perf: improve applyOrdering by avoid call to GetByCurrentId
+#5500: add testcase that check yield malformed yaml errors</p>
+
+<h2 id="chore">chore</h2>
+
+<p>#5625: fix: return error instead of log.Fatalf()
+#5651: fix: use <code>fmt.Errorf</code> instead of non-existing <code>errors.New</code></p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5672: chore(deps): bump dependencies of kustomize + sync go workspace
+#5680: chore: restore version for github.com/asaskevich/govalidator
+#5702: Update kyaml to v0.17.1</p>
+<br><h2>kubernetes-sigs/kubespray</h2> <h3>Release notes for v2.25.0</h3><h4>2024-05-21</h4><h2 id="deprecation-removal">Deprecation / Removal</h2>
+
+<ul>
+<li>Remove support for Kubernetes 1.26.x (move min version to 1.27.x) (#10817, @KubeKyrie)</li>
+<li>Remove documentation for removed in-tree openstack provider (#10889, @LarssonOliver)</li>
+</ul>
+
+<h2 id="feature-major-changes">Feature / Major Changes</h2>
+
+<ul>
+<li>A check is introduced to fail the playbook if cgroups are not enabled on the node (#11165, @franznemeth)</li>
+<li>Add Calico v3.27.3 and make it default (#11141, @pomland-94)</li>
+<li>Add extra_vars support to vagrant setup (#10932, @VannTen)</li>
+<li>Add kube-vip LeaderElection variables <code>vip_leaseduration,  vip_renewdeadline, vip_retryperiod</code> options for kube-vip (#11021, @KubeKyrie)</li>
+<li>Add new option <code>remove_anonymous_access</code> to prevent granting RBAC permissions to anonymous users. (#11016, @nicolas-goudry)</li>
+<li>Add scheduler plugins support (<code>scheduler_plugins_enabled</code> enable or disable the installation scheduler plugins / <code>scheduler_plugins_enabled_plugins</code> describe the enabled plugins / <code>scheduler_plugins_diabled_plugins</code> describe the disabled plugins / <code>scheduler_plugins_plugin_config</code> set the custom config for enabled plugins) (#10747, @tu1h)</li>
+<li>Added a config option to filter ntp interfaces (#11066, @Pavan-Gunda)</li>
+<li>Adding egress IPv6 for node-local-dns queries (<code>k8s_allowed_egress_ipv6_ips</code>) (#10396, @raviranjanelastisys)</li>
+<li>Bump docker version for kylin linux (#11203, @ErikJiang)</li>
+<li>Bump docker version for openeuler linux (#11206, @ErikJiang)</li>
+<li>Update almalinux-8 base image to 8.9 (#10918, @VannTen)</li>
+<li>Bumping checksums and various versions (#10999, @MrFreezeex)</li>
+<li>Containerd: allow to configure fallback server (#10988, @sathieu)</li>
+<li>Docker upgrade from 24.0 to 26.1 (#11198, @tico88612)</li>
+<li>Download hash script: auto discover versions (#10849, @VannTen)</li>
+<li>Enable configuring mountOptions, reclaimPolicy and volumeBindingMode for cinder-csi StorageClasses. (#10450, @Payback159)</li>
+<li>Make containerd v1.7.15 default (#11083, @Payback159)</li>
+<li>Make kubernetes v1.28.6 default (#10810, @mzaian)</li>
+<li>Make kubernetes v1.29.1 default
+Remove SecCompDefault feature gate from hardening configuration for kubernetes 1.29 (#10820, @tmurakam)</li>
+<li>Make kubernetes v1.29.2 default (#10919, @mzaian)</li>
+<li>Make kubernetes v1.29.3 default (#11035, @mzaian)</li>
+<li>Make kubernetes v1.29.4 default (#11108, @mzaian)</li>
+<li>Make kubernetes v1.29.5 default (#11196, @mzaian)</li>
+<li>Metallb: added metallb_namespace variable to parameterize namespace (#11136, @oik741)</li>
+<li>OpenStack Cloud Controller Manager upgrade to 1.28.2 (#11174, @tico88612)</li>
+<li>Opensuse deployment is now tested in CI. (#11159, @VannTen)</li>
+<li>Add <code>selinux-ng</code> repo in Amazon Linux to install <code>container-selinux</code> (#11182, @yankay)</li>
+<li>Add CI Image for Ubuntu 24.04 (#11167, @yankay)</li>
+<li>Allows .vagrant folder location to be configured (#10718, @kri5)</li>
+<li>Prevent nodelocaldns to be OOM-killed (#11056, @sathieu)</li>
+<li>Support Node Feature Discovery (#10861, @yankay)</li>
+<li>Support Ubuntu 24.04 (#11132, @tico88612)</li>
+<li>Support following k8s version selection pause image (#10756, @my-git9)</li>
+<li>The variable <code>old_dns_domains</code> (list) can be used for backward compatibility when changing <code>dns_domain</code> (#10630, @VannTen)</li>
+<li>Update external huawei cloud controller to 0.26.6 (#10824, @dabeck)</li>
+<li>Update external huawei cloud controller to 0.26.8 (#11172, @dabeck)</li>
+<li>Update kube-vip to v0.8.0 (#11156, @jisnardo)</li>
+<li>Update metrics server to v0.7.0 (#10856, @mzaian)</li>
+<li>Updated ingress controller version to 1.9.6 (#10868, @kundan2707)</li>
+<li>User has a possibility to modify Service type with &ldquo;ingress_nginx_service_type&rdquo; property in addons. (#10925, @chrxmvtik)</li>
+<li>[Terraform-openstack] Added possibility to build an octavia loadbalancer for the Kubernetes Api. (#10924, @jaszil)</li>
+<li>[containerd] added distributed tracing config variables for containerd (<code>containerd_tracing_enabled</code>,<code>containerd_tracing_endpoint</code>,<code>containerd_tracing_protocol</code>, <code>containerd_tracing_sampling_ratio</code>,<code>containerd_tracing_service_name</code> ); it is disabled by default. (#11103, @ugur99)</li>
+<li>[download] add capability to specify alternative download mirrors for files (#8474, @cristicalin)</li>
+<li>[etcd] Default version to 3.5.12 for k8s 1.27 , 1.28 , 1.29 (#11036, @mzaian)</li>
+<li>Minimum ansible-core version is now 2.16.4 (#10984, @VannTen)</li>
+<li>Remove the archived debian apt repository when installing docker-engine (#11088, @yankay)</li>
+<li>Change <code>dependbot</code> interval to weekly (#11189, @yankay)</li>
+<li>Allow specifying CPU Manager Policy options through kubelet_cpu_manager_policy_options (#11023, @derselbst)</li>
+<li>[kube-apiserver] added distributed tracing config variables for kube-apiserver (<code>kube_apiserver_tracing</code>,<code>kube_apiserver_tracing_endpoint</code>,<code>kube_apiserver_tracing_sampling_rate_per_million</code>); it is disabled by default.
+[kubelet] added distributed tracing config variables for kubelet (<code>kubelet_tracing</code>,<code>kubelet_tracing_endpoint</code>,<code>kubelet_tracing_sampling_rate_per_million</code>); it is disabled by default. (#10795, @ugur99)</li>
+</ul>
+
+<h2 id="applications">Applications</h2>
+
+<ul>
+<li>[argocd] update argocd to v2.11.0 (#11193, @mzaian)</li>
+<li>[helm] Upgrade to v3.14.2 (#10967, @cleman95)</li>
+<li>Bump coredns version to 1.11.1 (#10719, @batazor)</li>
+<li>Support CoreDNS use host network &amp; config CoreDNS port (#10617, @liuxu623)</li>
+<li>Fix secondary coredns missing var (#10821, @VannTen)</li>
+<li>Revert &ldquo;support CoreDNS use host network and config dns port (#10617)&rdquo; (#11185, @VannTen)</li>
+<li><code>dns_mode: coredns_dual</code> is now tested in CI. (#10903, @VannTen)</li>
+</ul>
+
+<h2 id="network">Network</h2>
+
+<ul>
+<li>Adds support for cilium v1.15
+
+<ul>
+<li>Adds support for <code>cilium_l2announcements</code> to replace metallb with cilium l2 announcements, defaults to <code>false</code></li>
+<li>Adds support for <code>cilium_loadbalancer_mode</code> to switch bpf-lb-mode between snat, dsr or hybrid, default to <code>snat</code> (#11106, @deveshk0)</li>
+</ul></li>
+<li>Adds the option to install calico 3.27.3 (#11059, @danielfrg)</li>
+<li>[calico] Update default calico to v3.27.2 (#10960, @mzaian)</li>
+</ul>
+
+<h2 id="container-managers">Container-Managers</h2>
+
+<ul>
+<li>crictl stop container grace period, cri_stop_containers_grace_period: 0 (#10651, @krembu)</li>
+<li>Update the docker default version to 24.0 (#10873, @yankay)</li>
+<li>[Containerd] Enable by default <code>discard_unpacked_layers</code> to save some space (see <a href="https://github.com/containerd/containerd/discussions/6295" target="_blank">https://github.com/containerd/containerd/discussions/6295</a>) (#10905, @VannTen)</li>
+<li>[Nerdctl] Upgrade to version 1.7.4 (#10968, @cleman95)</li>
+<li>[containerd] Make containerd 1.7.13 default
+[runc] Upgrade to v1.1.12 (#10862, @KubeKyrie)</li>
+<li>[containerd] Make containerd 1.7.16 default (#11142, @mzaian)</li>
+</ul>
+
+<h2 id="api-change">API Change</h2>
+
+<ul>
+<li>Make proxy protocol in Upcloud LB configurable (#10971, @davidumea)</li>
+</ul>
+
+<h2 id="design">Design</h2>
+
+<ul>
+<li>Merge stop and remove systemd service task in reset/tasks/main.yml (#10902, @kimsehwan96)</li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+<li>Add documentation for configuring nat outgoing ipv6 (#10866, @anders-elastisys)</li>
+<li>Add new OpenStack Cloud for terraform (#10910, @DragomirAlin)</li>
+<li>BREAKING CHANGE: This script is introduced to facilitate living documentation and its administration. This leads to a restructuring in the documentation at <a href="https://kubespray.io/#/" target="_blank">https://kubespray.io/#/</a> to simplify the automatic creation of links, as the structure in the sidebar changes. (#11128, @Payback159)</li>
+<li>Change a task name <code>Ensure kube-bench parameters are set</code> into <code>Ensure kubelet expected parameters are set</code>  in <code>roles/kubernetes/preinstall/tasks/0080-system-configurations.yml</code> for a clearer understanding of its operation (#11171, @kimsehwan96)</li>
+<li>Do not disable SELinux surreptitiously (#10920, @rptaylor)</li>
+<li>Doc clarification: skipping patches releases is OK (#10850, @VannTen)</li>
+<li>Docs: vagrant-libvirt is tested in CI (#10847, @VannTen)</li>
+<li>Explicit private/public nature of *ip vars (#10904, @VannTen)</li>
+<li>Fix typo in vagrant.md (#10836, @kundan2707)</li>
+<li>Fix typo mistake in roles/kubernetes/control-plane/tasks/define-first-kube-control.yml (#10835, @kimsehwan96)</li>
+<li>Fixed typos in inventory/sample/group_vars/k8s_cluster (#10911, @arahmangulov)</li>
+<li>Kubespray used as a collection will have the correct collection version (#10727, @VannTen)</li>
+<li>Make large-deployments.md link to downloads.md (#10840, @spantaleev)</li>
+<li>Removed not needed graduated feature gates. (#10448, @Smidra)</li>
+<li>Update upgrades.md with serial=1 for rolling updates (#10837, @titansmc)</li>
+<li>Variable cilium_ipsec_key must be base64 encoded (#10781, @ledroide)</li>
+</ul>
+
+<h2 id="bug-or-regression">Bug or Regression</h2>
+
+<ul>
+<li>Added an optional variable (<code>cni_bin_owner</code>) to allow the user to set a different owner for <code>/opt/cni/bin/</code> and it&rsquo;s contents. (#10929, @Rickkwa)</li>
+<li>Change the position of the containerd_extra_args parameter to enhance its universality. (#11013, @qcu266)</li>
+<li>Configure crio container runtime to use kube reserved cgroup (#11028, @pedro-peter)</li>
+<li>Don&rsquo;t overwrite changes to openstack allowed_address_pairs #10760 (#10760, @rptaylor)</li>
+<li>Download cache directory permissions are no longer reset recursively (#10900, @VannTen)</li>
+<li>Fix ClusterRole for Calico &gt;=v1.26.x with Calico API Server installed (#11089, @RaSerge)</li>
+<li>Fix ansible parameter ssh_args in ansible.cfg file not work (#10981, @joy717)</li>
+<li>Fix boostrap for Amazon Linux (#11139, @VannTen)</li>
+<li>Fix crio registries config file when using slashes in the registry path (#11030, @pedro-peter)</li>
+<li>Fix file loss during download (#10779, @ErikJiang)</li>
+<li>Fix kubespray-defaults: Check for boostrap-os FQCN (#11073, @KubeKyrie)</li>
+<li>Fix local path provisioner image repo in sample inventory. (#11180, @tico88612)</li>
+<li>Fix logical error when checking for boostrap-os (#10867, @VannTen)</li>
+<li>Fix lsattr command error when kubelet has symbolic link (#11074, @KubeKyrie)</li>
+<li>Fix network manage service of Debian 12 (#11058, @KubeKyrie)</li>
+<li>Fix nginx controller leader election RBAC (#10913, @VannTen)</li>
+<li>Fix python regex matching problem when finding docker packages (#11075, @KubeKyrie)</li>
+<li>Fix waiting for MetalLB controller (#10858, @flxbwr)</li>
+<li>Fix(kubernetes): taint nodes on cluster upgrade (#10705, @maxime1907)</li>
+<li>Fix: config hostname as string type in kubeadmConfig rendering (#10997, @ErikJiang)</li>
+<li>Fixes running <code>recover-control-plane.yml</code> with offline broken etcd nodes. (#10660, @yuha0)</li>
+<li>Revert OCCM standard dnsPolicy to ClusterFirst to fix #10914 which was introduced with #10618 and make dnsPolicy configurable to furthermore support #10618 (#11168, @Payback159)</li>
+<li>Force update helm repo if exists on host (#11043, @LuckySB)</li>
+<li>Kubespray ansible version checks are now performed even when running with <code>--limit</code> (#10908, @VannTen)</li>
+<li>None. (#11061, @bmelbourne)</li>
+<li>Revert crictl version (#11042, @ErikJiang)</li>
+<li>The script <code>manage-offline-container-images.sh</code> now supports additional environment variables, e.g. it is now possible use the script to pull images listed in a file instead of checking images in a running cluster. (#10857, @anders-elastisys)</li>
+<li>Update Snapshot Controller to 7.0.2 for all supported Kubernetes versions. (#11041, @jess-sol)</li>
+<li>Workaround for terraform bug related to no_floating and extra_groups (#10764, @rptaylor)</li>
+<li>[etcd] fixes wrong distributed tracing flag for etcd (#11175, @ugur99)</li>
+<li>Correct the POLY1305 cipher suites by adding the suffix _SHA256 (#10641, @yckaolalala)</li>
+</ul>
+
+<h2 id="other-cleanup-or-flake">Other (Cleanup or Flake)</h2>
+
+<ul>
+<li>Allow scripts/download_hash.sh to complete if new versions locations are changed of certain binaries (#10998, @MrFreezeex)</li>
+<li>Ddownload: Remove deleted kubeadm config field (#10931, @VannTen)</li>
+<li>Download_file playbook - Incorrect description of a task (#10875, @gianmarco-mameli)</li>
+<li>EventRecordQPS (in kubelet config) now uses Kubernetes default value (50) (#10826, @VannTen)</li>
+<li>Fixup galaxy.yml (#10906, @VannTen)</li>
+<li>Ipaddr deprecation cleanup (using fqdn ansible.utils) (#10822, @VannTen)</li>
+<li>Kubeadm images are now only downloaded where needed (#10899, @VannTen)</li>
+<li>Move perma failing jobs in CI to manual run (#10886, @VannTen)</li>
+<li>Remove dead link in README for debian jessie (#10827, @VannTen)</li>
+<li>Remove mirwan from approvers (#10930, @VannTen)</li>
+<li>Update KUBESPRAY_VERSION for v2.24.0 (#10811, @yankay)</li>
+<li>Update KUBESPRAY_VERSION for v2.24.1 (#10962, @yankay)</li>
+<li>Update cinder-csi from 1.22.0 to 1.29.0</li>
+<li>Use the new container registry for cinder-csi (#10894, @Krast76)</li>
+</ul>
+
+<h2 id="supported-components">Supported Components</h2>
+
+<ul>
+<li>Core
+
+<ul>
+<li><a href="https://github.com/kubernetes/kubernetes" target="_blank">kubernetes</a> v1.29.5</li>
+<li><a href="https://github.com/etcd-io/etcd" target="_blank">etcd</a> v3.5.12</li>
+<li><a href="https://www.docker.com/" target="_blank">docker</a> v24.0 (see <a href="#container-runtime-notes">Note</a>)</li>
+<li><a href="https://containerd.io/" target="_blank">containerd</a> v1.7.16</li>
+<li><a href="http://cri-o.io/" target="_blank">cri-o</a> v1.29.1 (experimental: see <a href="docs/CRI/cri-o.md" target="_blank">CRI-O Note</a>. Only on fedora, ubuntu and centos based OS)</li>
+</ul></li>
+<li>Network Plugin
+
+<ul>
+<li><a href="https://github.com/containernetworking/plugins" target="_blank">cni-plugins</a> v1.2.0</li>
+<li><a href="https://github.com/projectcalico/calico" target="_blank">calico</a> v3.27.3</li>
+<li><a href="https://github.com/cilium/cilium" target="_blank">cilium</a> v1.15.4</li>
+<li><a href="https://github.com/flannel-io/flannel" target="_blank">flannel</a> v0.22.0</li>
+<li><a href="https://github.com/alauda/kube-ovn" target="_blank">kube-ovn</a> v1.11.5</li>
+<li><a href="https://github.com/cloudnativelabs/kube-router" target="_blank">kube-router</a> v2.0.0</li>
+<li><a href="https://github.com/k8snetworkplumbingwg/multus-cni" target="_blank">multus</a> v3.8</li>
+<li><a href="https://github.com/weaveworks/weave" target="_blank">weave</a> v2.8.1</li>
+<li><a href="https://github.com/kube-vip/kube-vip" target="_blank">kube-vip</a> v0.8.0</li>
+</ul></li>
+<li>Application
+
+<ul>
+<li><a href="https://github.com/jetstack/cert-manager" target="_blank">cert-manager</a> v1.13.2</li>
+<li><a href="https://github.com/coredns/coredns" target="_blank">coredns</a> v1.11.1</li>
+<li><a href="https://github.com/kubernetes/ingress-nginx" target="_blank">ingress-nginx</a> v1.10.1</li>
+<li><a href="https://github.com/kubernetes-sigs/krew" target="_blank">krew</a> v0.4.4</li>
+<li><a href="https://argoproj.github.io/" target="_blank">argocd</a> v2.11.0</li>
+<li><a href="https://helm.sh/" target="_blank">helm</a> v3.14.2</li>
+<li><a href="https://metallb.universe.tf/" target="_blank">metallb</a>  v0.13.9</li>
+<li><a href="https://github.com/distribution/distribution" target="_blank">registry</a> v2.8.1</li>
+</ul></li>
+<li>Storage Plugin
+
+<ul>
+<li><a href="https://github.com/kubernetes-incubator/external-storage" target="_blank">cephfs-provisioner</a> v2.1.0-k8s1.11</li>
+<li><a href="https://github.com/kubernetes-incubator/external-storage" target="_blank">rbd-provisioner</a> v2.1.1-k8s1.11</li>
+<li><a href="https://github.com/kubernetes-sigs/aws-ebs-csi-driver" target="_blank">aws-ebs-csi-plugin</a> v0.5.0</li>
+<li><a href="https://github.com/kubernetes-sigs/azuredisk-csi-driver" target="_blank">azure-csi-plugin</a> v1.10.0</li>
+<li><a href="https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/cinder-csi-plugin/using-cinder-csi-plugin.md" target="_blank">cinder-csi-plugin</a> v1.29.0</li>
+<li><a href="https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver" target="_blank">gcp-pd-csi-plugin</a> v1.9.2</li>
+<li><a href="https://github.com/rancher/local-path-provisioner" target="_blank">local-path-provisioner</a> v0.0.24</li>
+<li><a href="https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner" target="_blank">local-volume-provisioner</a> v2.5.0</li>
+<li><a href="https://github.com/kubernetes-sigs/node-feature-discovery" target="_blank">node-feature-discovery</a> v0.14.2</li>
+</ul></li>
+</ul>
+
+<h2 id="known-issues">Known issues</h2>
+
+<p>N/A</p>
+<br>
+</body>
+
+</html>
