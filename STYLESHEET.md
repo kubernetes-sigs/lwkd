@@ -178,3 +178,27 @@ Patch releases [1.28.4](https://groups.google.com/g/kubernetes-announce/c/k5HaLt
 ```
 
 * Remember to report any versions which are about to be, or are already, EOL.
+
+### Version Updates and Subproject Updates
+
+There's two very similar sections in LWKD, one called `Version Updates` and one called `Subproject and Dependency Updates`. While there is some flexibility in which section a particular news item goes in, here are the guidelines:
+
+**Version Updates**: New versions of build dependencies and some minor subprojects of Kubernetes.  Usually the news is not about a release, but rather which version is included with/required for/supported by Kubernetes.  Examples would be updates to our required version of golang or etcd.  We also usually put update releases from minor subprojects here, such as cri-tools or cadvisor.  
+
+Generally these items come from PRs in k/k repository, or announcements on the Dev list. A good rule is: "If you're not going to say anything about the update, it probably goes in Version Updates rather than subprojects."
+
+Accordingly, this is the format for Version Updates:
+
+```
+* [library to v#.#.#](link to PR or release announcement)
+```
+
+**Subproject and Dependency Updates**: This section holds update summaries for closely related projects from [a short list](https://github.com/kubernetes-sigs/lwkd/blob/main/scripts/release-crawler/README.md).  These are links to full release announcements, generally gathered by the Subprojects Bot.
+
+The format template for these announcements is:
+
+```
+* [projectname v#.#.#](link to release announcement): change 1, change 2; also [v#.#.#](link)
+```
+
+The changes listed are 2-4 word summaries of major changes in that release (e.g. "fix CVE 2024-0576").  The "also" portion is for listing any backported update releases at the same time.
