@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-06-24</h1><h2>containerd/containerd</h2> <h3>Release notes for containerd API 1.7.19</h3><h4>2024-06-26</h4><p>Welcome to the api/v1.7.19 release of containerd!</p>
+
+<p>The first dedicated release for the containerd 1.7 API. This release is
+separately tagged from the main 1.7.x releases after the v1.7.18
+release but follows the versioning.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Add API go module (<a href="https://github.com/containerd/containerd/pull/10189" target="_blank">#10189</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Akhil Mohan</li>
+<li>Phil Estes</li>
+<li>Sebastiaan van Stijn</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>8 commits</summary>
+<p>
+
+* Prepare release notes for api v1.7.19 ([#10386](https://github.com/containerd/containerd/pull/10386))
+  * [`436feeb0d`](https://github.com/containerd/containerd/commit/436feeb0ddcf8188c84c616b97b34cc8acd1aa9f) Prepare api release for v1.7.19
+* : api: update github.com/containerd/ttrpc v1.2.5 to align with containerd 1.7 module ([#10364](https://github.com/containerd/containerd/pull/10364))
+  * [`2a6aa6ddf`](https://github.com/containerd/containerd/commit/2a6aa6ddf1f09bedc8b86f33a277f2cf6852eedd) [release/1.7] api: update github.com/containerd/ttrpc v1.2.5
+* Add API go module ([#10189](https://github.com/containerd/containerd/pull/10189))
+  * [`3be919f3c`](https://github.com/containerd/containerd/commit/3be919f3c023f776e5db1b162f642d79a36312a8) Add support for 1.8 interfaces
+  * [`a3a7431bc`](https://github.com/containerd/containerd/commit/a3a7431bc3151a5d0a8c6d9e36a6430a76418f81) Add api go submodule
+  * [`4b82470f6`](https://github.com/containerd/containerd/commit/4b82470f6939ab951334105cf0b10ca9167964ea) refactor: move plugin/fieldpath to api/types/
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/containerd/ttrpc</strong>                v1.2.4 -&gt; v1.2.5</li>
+<li><strong>github.com/golang/protobuf</strong>                 v1.5.4 -&gt; v1.5.3</li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>  d307bd883b97 -&gt; b8732ec3820d</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.18" target="_blank">v1.7.18</a></p>
+<br><h2>containerd/nerdctl</h2> <h3>Release notes for v2.0.0-rc.0</h3><h4>2024-06-26</h4><h2 id="changes">Changes</h2>
+
+<p>nerdctl v2 enables &ldquo;detach-netns&rdquo; for Rootless mode by default (#2723).</p>
+
+<p>This will bring:</p>
+
+<ul>
+<li>Faster and more stable <code>nerdctl pull</code>, <code>nerdctl push</code>, <code>nerdctl build</code>, etc</li>
+<li>Proper support for <code>nerdctl pull 127.0.0.1:.../...</code></li>
+<li>Proper support for <code>nerdctl run --net=host</code></li>
+</ul>
+
+<p>Depends on RootlessKit &gt;= v2.0 and BuildKit &gt;= v0.13 (included in <code>nerdctl-full-*.tar.gz</code>).</p>
+
+<blockquote>
+<p>[!NOTE]
+After upgrading nerdctl (rootless mode) from v1.x to v2.x, it is highly recommended to
+re-install the systemd units and the configurations:</p>
+
+<pre><code>&gt; containerd-rootless-setuptool.sh uninstall
+&gt; rm -rf ~/.config/{nerdctl,buildkit}
+&gt; containerd-rootless-setuptool.sh install
+&gt; CONTAINERD_NAMESPACE=default containerd-rootless-setuptool.sh install-buildkit-containerd
+&gt; ```
+
+Other major changes:
+- `nerdctl run`:
+  - Add `--systemd` flag for running systemd in containers flag (#2785, thanks to @sazzy4o)
+  - Add`--ipc=(shareable|container:&lt;container&gt;)` flag (#2757, thanks to @minuk-dev)
+  - Add `--annotation` flag (#2906)
+     - Now `nerdctl run --label` is only set as a containerd label and not propagated as an OCI annotation. A label with the `nerdctl/` prefix can no longer be set manually, with an exception for `nerdctl/bypass4netns`. The `nerdctl/bypass4netns` label is still allowed and is propagated to an OCI annotation, for sake of compatibility.
+  - Add `--sig-proxy` flag (#3043, thanks to @CodeChanning)
+  - Propagate image labels to container labels (not to container annotations) (#3023, thanks to @yankay)
+- `nerdctl build`:
+  - Add `--attest`, `--sbom`, and `--provenance` flags (#2786, thanks to @yankay)
+  - Add `--pull` flag (#3074, thanks to @sondavidb)
+  - Support Windows (#2587, thanks to @TBBle)
+- `nerdctl ps`:
+  - JSON type of `--format=json` is changed for better Docker compatibility (#2987, #3058, thanks to @apostasie and @yankay)
+- `nerdctl inspect`:
+  - Add `--size` flag (#3021, thanks to @apostasie)
+- `nerdctl network`:
+  - The networks are now aware of containerd namespaces. i.e., `nerdctl --namespace=foo network list` no longer shows networks created with `nerdctl --namespace=bar network create` (#3096, thanks to @apostasie)
+  - Enhanced support for DHCP (#3001, thanks to @apostasie)
+- `nerdctl compose up`:
+  - Add `--abort-on-container-exit` flag (#2873, thanks to @alegrey91)
+- nerdct-full:
+  - (See the `Included components` below)
+- And more!
+
+Full changes: https://github.com/containerd/nerdctl/milestone/37?closed=1
+Thanks to @CodeChanning @Shubhranshu153 @TBBle @abitrolly @alegrey91 @apostasie @baijia @djdongjin @dmcgowan @fahedouch @fwilhe2 @jmpargana @kebe7jun @ktock @manugupt1 @minuk-dev @monirul @qianxi0410 @roman-kiselenko @sazzy4o @sondavidb @testwill @yankay @zjumoon01 @zwpaper
+
+## Compatible containerd versions
+This release of nerdctl is expected to be used with containerd v1.6, v1.7, or v2.0.
+
+## About the binaries
+- Minimal (`nerdctl-2.0.0-rc.0-linux-amd64.tar.gz`): nerdctl only
+- Full (`nerdctl-full-2.0.0-rc.0-linux-amd64.tar.gz`):    Includes dependencies such as containerd, runc, and CNI
+
+### Minimal
+Extract the archive to a path like `/usr/local/bin` or `~/bin` .
+&lt;details&gt;&lt;summary&gt;tar Cxzvvf /usr/local/bin nerdctl-2.0.0-rc.0-linux-amd64.tar.gz&lt;/summary&gt;
+&lt;p&gt;
+
+</code></pre>
+
+<p>-rwxr-xr-x root/root  25972888 2024-06-26 02:06 nerdctl
+-rwxr-xr-x root/root     22774 2024-06-26 02:06 containerd-rootless-setuptool.sh
+-rwxr-xr-x root/root      8644 2024-06-26 02:06 containerd-rootless.sh</p>
+
+<pre><code>&lt;/p&gt;
+&lt;/details&gt;
+
+### Full
+Extract the archive to a path like `/usr/local` or `~/.local` .
+
+&lt;details&gt;&lt;summary&gt;tar Cxzvvf /usr/local nerdctl-full-2.0.0-rc.0-linux-amd64.tar.gz&lt;/summary&gt;
+&lt;p&gt;
+
+</code></pre>
+
+<p>drwxr-xr-x 0/0               0 2024-06-26 02:13 bin/
+-rwxr-xr-x 0/0        29131037 2015-10-21 00:00 bin/buildctl
+-rwxr-xr-x 0/0        23724032 2022-09-05 09:52 bin/buildg
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-LICENSE -&gt; ../libexec/cni/LICENSE
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-README.md -&gt; ../libexec/cni/README.md
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-bandwidth -&gt; ../libexec/cni/bandwidth
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-bridge -&gt; ../libexec/cni/bridge
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-dhcp -&gt; ../libexec/cni/dhcp
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-dummy -&gt; ../libexec/cni/dummy
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-firewall -&gt; ../libexec/cni/firewall
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-host-device -&gt; ../libexec/cni/host-device
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-host-local -&gt; ../libexec/cni/host-local
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-ipvlan -&gt; ../libexec/cni/ipvlan
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-loopback -&gt; ../libexec/cni/loopback
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-macvlan -&gt; ../libexec/cni/macvlan
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-portmap -&gt; ../libexec/cni/portmap
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-ptp -&gt; ../libexec/cni/ptp
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-sbr -&gt; ../libexec/cni/sbr
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-static -&gt; ../libexec/cni/static
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-tap -&gt; ../libexec/cni/tap
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-tuning -&gt; ../libexec/cni/tuning
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-vlan -&gt; ../libexec/cni/vlan
+lrwxrwxrwx 0/0               0 2024-06-26 02:13 bin/buildkit-cni-vrf -&gt; ../libexec/cni/vrf
+-rwxr-xr-x 0/0        57973271 2015-10-21 00:00 bin/buildkitd
+-rwxr-xr-x 0/0        14938456 2024-06-26 02:11 bin/bypass4netns
+-rwxr-xr-x 0/0         5501080 2024-06-26 02:11 bin/bypass4netnsd
+-rwxr-xr-x 0/0        37396984 2024-06-26 02:12 bin/containerd
+-rwxr-xr-x 0/0         9474048 2023-11-02 17:34 bin/containerd-fuse-overlayfs-grpc
+-rwxr-xr-x 0/0           22774 2024-06-26 02:11 bin/containerd-rootless-setuptool.sh
+-rwxr-xr-x 0/0            8644 2024-06-26 02:11 bin/containerd-rootless.sh
+-rwxr-xr-x 0/0        12726424 2024-06-26 02:12 bin/containerd-shim-runc-v2
+-rwxr-xr-x 0/0        45903872 2023-10-31 08:57 bin/containerd-stargz-grpc
+-rwxr-xr-x 0/0        21182999 2024-06-26 02:13 bin/ctd-decoder
+-rwxr-xr-x 0/0        18587800 2024-06-26 02:12 bin/ctr
+-rwxr-xr-x 0/0        30334663 2024-06-26 02:13 bin/ctr-enc
+-rwxr-xr-x 0/0        19931136 2023-10-31 08:58 bin/ctr-remote
+-rwxr-xr-x 0/0         1785448 2024-06-26 02:13 bin/fuse-overlayfs
+-rwxr-xr-x 0/0        66714127 2024-06-26 02:12 bin/ipfs
+-rwxr-xr-x 0/0        25944216 2024-06-26 02:11 bin/nerdctl
+-rwxr-xr-x 0/0        10663123 2024-04-26 01:36 bin/rootlessctl
+-rwxr-xr-x 0/0        12363757 2024-04-26 01:36 bin/rootlesskit
+-rwxr-xr-x 0/0        15407256 2024-06-26 02:11 bin/runc
+-rwxr-xr-x 0/0         2354520 2024-06-26 02:13 bin/slirp4netns
+-rwxr-xr-x 0/0          870496 2024-06-26 02:13 bin/tini
+drwxr-xr-x 0/0               0 2024-06-26 02:12 lib/
+drwxr-xr-x 0/0               0 2024-06-26 02:12 lib/systemd/
+drwxr-xr-x 0/0               0 2024-06-26 02:13 lib/systemd/system/
+-rw-r&ndash;r&ndash; 0/0            1312 2024-06-26 02:13 lib/systemd/system/buildkit.service
+-rw-r&ndash;r&ndash; 0/0            1251 2024-06-26 02:10 lib/systemd/system/containerd.service
+-rw-r&ndash;r&ndash; 0/0             312 2024-06-26 02:13 lib/systemd/system/stargz-snapshotter.service
+drwxr-xr-x 0/0               0 2024-06-26 02:12 libexec/
+drwxr-xr-x 0/0               0 2024-06-26 02:12 libexec/cni/
+-rw-r&ndash;r&ndash; 0/0           11357 2024-06-17 15:51 libexec/cni/LICENSE
+-rw-r&ndash;r&ndash; 0/0            2343 2024-06-17 15:51 libexec/cni/README.md
+-rwxr-xr-x 0/0         4272898 2024-06-17 15:51 libexec/cni/bandwidth
+-rwxr-xr-x 0/0         4788191 2024-06-17 15:51 libexec/cni/bridge
+-rwxr-xr-x 0/0        11419738 2024-06-17 15:51 libexec/cni/dhcp
+-rwxr-xr-x 0/0         4424930 2024-06-17 15:51 libexec/cni/dummy
+-rwxr-xr-x 0/0         4943846 2024-06-17 15:51 libexec/cni/firewall
+-rwxr-xr-x 0/0         4345300 2024-06-17 15:51 libexec/cni/host-device
+-rwxr-xr-x 0/0         3679575 2024-06-17 15:51 libexec/cni/host-local
+-rwxr-xr-x 0/0         4443729 2024-06-17 15:51 libexec/cni/ipvlan
+-rwxr-xr-x 0/0         3750882 2024-06-17 15:51 libexec/cni/loopback
+-rwxr-xr-x 0/0         4480422 2024-06-17 15:51 libexec/cni/macvlan
+-rwxr-xr-x 0/0         4228332 2024-06-17 15:51 libexec/cni/portmap
+-rwxr-xr-x 0/0         4602833 2024-06-17 15:51 libexec/cni/ptp
+-rwxr-xr-x 0/0         3957166 2024-06-17 15:51 libexec/cni/sbr
+-rwxr-xr-x 0/0         3223947 2024-06-17 15:51 libexec/cni/static
+-rwxr-xr-x 0/0         4503742 2024-06-17 15:51 libexec/cni/tap
+-rwxr-xr-x 0/0         3838043 2024-06-17 15:51 libexec/cni/tuning
+-rwxr-xr-x 0/0         4440528 2024-06-17 15:51 libexec/cni/vlan
+-rwxr-xr-x 0/0         4103500 2024-06-17 15:51 libexec/cni/vrf
+drwxr-xr-x 0/0               0 2024-06-26 02:11 share/
+drwxr-xr-x 0/0               0 2024-06-26 02:11 share/doc/
+drwxr-xr-x 0/0               0 2024-06-26 02:11 share/doc/nerdctl/
+-rw-r&ndash;r&ndash; 0/0           12556 2024-06-26 02:06 share/doc/nerdctl/README.md
+drwxr-xr-x 0/0               0 2024-06-26 02:06 share/doc/nerdctl/docs/
+-rw-r&ndash;r&ndash; 0/0            3953 2024-06-26 02:06 share/doc/nerdctl/docs/build.md
+-rw-r&ndash;r&ndash; 0/0            2570 2024-06-26 02:06 share/doc/nerdctl/docs/builder-debug.md
+-rw-r&ndash;r&ndash; 0/0            4779 2024-06-26 02:06 share/doc/nerdctl/docs/cni.md
+-rw-r&ndash;r&ndash; 0/0           76391 2024-06-26 02:06 share/doc/nerdctl/docs/command-reference.md
+-rw-r&ndash;r&ndash; 0/0            1814 2024-06-26 02:06 share/doc/nerdctl/docs/compose.md
+-rw-r&ndash;r&ndash; 0/0            5329 2024-06-26 02:06 share/doc/nerdctl/docs/config.md
+-rw-r&ndash;r&ndash; 0/0            9128 2024-06-26 02:06 share/doc/nerdctl/docs/cosign.md
+-rw-r&ndash;r&ndash; 0/0            5660 2024-06-26 02:06 share/doc/nerdctl/docs/cvmfs.md
+-rw-r&ndash;r&ndash; 0/0            2776 2024-06-26 02:06 share/doc/nerdctl/docs/dir.md
+-rw-r&ndash;r&ndash; 0/0             906 2024-06-26 02:06 share/doc/nerdctl/docs/experimental.md
+-rw-r&ndash;r&ndash; 0/0           14217 2024-06-26 02:06 share/doc/nerdctl/docs/faq.md
+-rw-r&ndash;r&ndash; 0/0             884 2024-06-26 02:06 share/doc/nerdctl/docs/freebsd.md
+-rw-r&ndash;r&ndash; 0/0            3273 2024-06-26 02:06 share/doc/nerdctl/docs/gpu.md
+drwxr-xr-x 0/0               0 2024-06-26 02:06 share/doc/nerdctl/docs/images/
+-rw-r&ndash;r&ndash; 0/0          684421 2024-06-26 02:06 share/doc/nerdctl/docs/images/rootlessKit-network-design.png
+-rw-r&ndash;r&ndash; 0/0           14462 2024-06-26 02:06 share/doc/nerdctl/docs/ipfs.md
+-rw-r&ndash;r&ndash; 0/0            1755 2024-06-26 02:06 share/doc/nerdctl/docs/multi-platform.md
+-rw-r&ndash;r&ndash; 0/0            2960 2024-06-26 02:06 share/doc/nerdctl/docs/notation.md
+-rw-r&ndash;r&ndash; 0/0            2596 2024-06-26 02:06 share/doc/nerdctl/docs/nydus.md
+-rw-r&ndash;r&ndash; 0/0            3277 2024-06-26 02:06 share/doc/nerdctl/docs/ocicrypt.md
+-rw-r&ndash;r&ndash; 0/0            1876 2024-06-26 02:06 share/doc/nerdctl/docs/overlaybd.md
+-rw-r&ndash;r&ndash; 0/0           15657 2024-06-26 02:06 share/doc/nerdctl/docs/registry.md
+-rw-r&ndash;r&ndash; 0/0            8707 2024-06-26 02:06 share/doc/nerdctl/docs/rootless.md
+-rw-r&ndash;r&ndash; 0/0            2015 2024-06-26 02:06 share/doc/nerdctl/docs/soci.md
+-rw-r&ndash;r&ndash; 0/0           10312 2024-06-26 02:06 share/doc/nerdctl/docs/stargz.md
+drwxr-xr-x 0/0               0 2024-06-26 02:13 share/doc/nerdctl-full/
+-rw-r&ndash;r&ndash; 0/0            1163 2024-06-26 02:13 share/doc/nerdctl-full/README.md
+-rw-r&ndash;r&ndash; 0/0            8552 2024-06-26 02:13 share/doc/nerdctl-full/SHA256SUMS</p>
+
+<pre><code>&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;&lt;summary&gt;Included components&lt;/summary&gt;
+&lt;p&gt;
+
+See `share/doc/nerdctl-full/README.md`:
+```markdown
+# nerdctl (full distribution)
+- nerdctl: v2.0.0-rc.0
+- containerd: v2.0.0-rc.3
+- runc: v1.1.13
+- CNI plugins: v1.5.1
+- BuildKit: v0.14.1
+- Stargz Snapshotter: v0.15.1
+- imgcrypt: v1.1.11
+- RootlessKit: v2.1.0
+- slirp4netns: v1.3.1
+- bypass4netns: v0.4.1
+- fuse-overlayfs: v1.13
+- containerd-fuse-overlayfs: v1.0.8
+- Kubo (IPFS): v0.29.0
+- Tini: v0.19.0
+- buildg: v0.4.1
+
+## License
+- bin/slirp4netns:    [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/rootless-containers/slirp4netns/blob/v1.3.1/COPYING)
+- bin/fuse-overlayfs: [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/containers/fuse-overlayfs/blob/v1.13/COPYING)
+- bin/ipfs: [Combination of MIT-only license and dual MIT/Apache-2.0 license](https://github.com/ipfs/kubo/blob/v0.29.0/LICENSE)
+- bin/{runc,bypass4netns,bypass4netnsd}: Apache License 2.0, statically linked with libseccomp ([LGPL 2.1](https://github.com/seccomp/libseccomp/blob/main/LICENSE), source code available at https://github.com/seccomp/libseccomp/)
+- bin/tini: [MIT License](https://github.com/krallin/tini/blob/v0.19.0/LICENSE)
+- Other files: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+</code></pre>
+
+<p></p>
+</details></p>
+</blockquote>
+
+<h2 id="quick-start">Quick start</h2>
+
+<h3 id="rootful">Rootful</h3>
+
+<pre><code class="language-console">$ sudo systemctl enable --now containerd
+$ sudo nerdctl run -d --name nginx -p 80:80 nginx:alpine
+</code></pre>
+
+<h3 id="rootless">Rootless</h3>
+
+<pre><code class="language-console">$ containerd-rootless-setuptool.sh install
+$ nerdctl run -d --name nginx -p 8080:80 nginx:alpine
+</code></pre>
+
+<p>Enabling cgroup v2 is highly recommended for rootless mode, see <a href="https://rootlesscontaine.rs/getting-started/common/cgroup2/" target="_blank">https://rootlesscontaine.rs/getting-started/common/cgroup2/</a> .</p>
+
+<hr>
+
+<p>The binaries were built automatically on GitHub Actions.
+The build log is available for 90 days: <a href="https://github.com/containerd/nerdctl/actions/runs/9672401204" target="_blank">https://github.com/containerd/nerdctl/actions/runs/9672401204</a></p>
+
+<p>The sha256sum of the SHA256SUMS file itself is <code>afecaae3c412b38e045e1ce0250bdc893f21d22985b23bb8b90512ae52268bce</code> .</p>
+
+<hr>
+
+<p>Release manager: Akihiro Suda (@AkihiroSuda)</p>
+<br><h2>kubernetes/kops</h2> <h3>Release notes for v1.30.0-beta.1</h3><h4>2024-06-28</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>build(deps): bump actions/checkout from 4.1.4 to 4.1.5 by @dependabot in <a href="https://github.com/kubernetes/kops/pull/16565" target="_blank">https://github.com/kubernetes/kops/pull/16565</a></li>
+<li>Update dependencies by @github-actions in <a href="https://github.com/kubernetes/kops/pull/16566" target="_blank">https://github.com/kubernetes/kops/pull/16566</a></li>
+<li>fix KOPS_AWS_ROLE_ARN assume behaviour by @zetaab in <a href="https://github.com/kubernetes/kops/pull/16568" target="_blank">https://github.com/kubernetes/kops/pull/16568</a></li>
+<li>azure: Limit VMSS scope to specific storage account by @hakman in <a href="https://github.com/kubernetes/kops/pull/16567" target="_blank">https://github.com/kubernetes/kops/pull/16567</a></li>
+<li>tests: use version from go.mod in github actions by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16550" target="_blank">https://github.com/kubernetes/kops/pull/16550</a></li>
+<li>Upgrade node-termination-handler to 1.22.0 by @jim-barber-he in <a href="https://github.com/kubernetes/kops/pull/16572" target="_blank">https://github.com/kubernetes/kops/pull/16572</a></li>
+<li>add service account issuer migration doc by @elliotdobson in <a href="https://github.com/kubernetes/kops/pull/16541" target="_blank">https://github.com/kubernetes/kops/pull/16541</a></li>
+<li>fix service account issuer migration doc nav by @elliotdobson in <a href="https://github.com/kubernetes/kops/pull/16573" target="_blank">https://github.com/kubernetes/kops/pull/16573</a></li>
+<li>docs: Update release notes to reflect release of 1.29 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16574" target="_blank">https://github.com/kubernetes/kops/pull/16574</a></li>
+<li>aws: Use EndpointResolverV2 for enabling dual-stack by @hakman in <a href="https://github.com/kubernetes/kops/pull/16575" target="_blank">https://github.com/kubernetes/kops/pull/16575</a></li>
+<li>Update dependencies by @github-actions in <a href="https://github.com/kubernetes/kops/pull/16576" target="_blank">https://github.com/kubernetes/kops/pull/16576</a></li>
+<li>build(deps): bump actions/checkout from 4.1.5 to 4.1.6 by @dependabot in <a href="https://github.com/kubernetes/kops/pull/16579" target="_blank">https://github.com/kubernetes/kops/pull/16579</a></li>
+<li>aws: Experiment with Adaptive retry mode by @hakman in <a href="https://github.com/kubernetes/kops/pull/16580" target="_blank">https://github.com/kubernetes/kops/pull/16580</a></li>
+<li>aws node handshake: support both v1 and v2 signatures, default to v1 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16577" target="_blank">https://github.com/kubernetes/kops/pull/16577</a></li>
+<li>tests: add mock for STS to better test node handshake by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16578" target="_blank">https://github.com/kubernetes/kops/pull/16578</a></li>
+<li>Enabling statefulsets without pvs for load tests. by @hakuna-matatah in <a href="https://github.com/kubernetes/kops/pull/16598" target="_blank">https://github.com/kubernetes/kops/pull/16598</a></li>
+<li>[DOCS] Add docs for Debian 12 on AWS by @dannyeuu in <a href="https://github.com/kubernetes/kops/pull/16600" target="_blank">https://github.com/kubernetes/kops/pull/16600</a></li>
+<li>Make ASG Warmpool depend on ASG Lifecycle hook by @jim-barber-he in <a href="https://github.com/kubernetes/kops/pull/16583" target="_blank">https://github.com/kubernetes/kops/pull/16583</a></li>
+<li>Update dependencies by @hakman in <a href="https://github.com/kubernetes/kops/pull/16607" target="_blank">https://github.com/kubernetes/kops/pull/16607</a></li>
+<li>feat(components): permit to define kube-controller-manager and kube-scheduler resources by @chubchubsancho in <a href="https://github.com/kubernetes/kops/pull/16605" target="_blank">https://github.com/kubernetes/kops/pull/16605</a></li>
+<li>chore: Bump alpha channel with June releases by @hakman in <a href="https://github.com/kubernetes/kops/pull/16611" target="_blank">https://github.com/kubernetes/kops/pull/16611</a></li>
+<li>Update dependencies by @github-actions in <a href="https://github.com/kubernetes/kops/pull/16614" target="_blank">https://github.com/kubernetes/kops/pull/16614</a></li>
+<li>Update aws-iam-authenticator image by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16615" target="_blank">https://github.com/kubernetes/kops/pull/16615</a></li>
+<li>chore: Promote alpha channel to stable by @hakman in <a href="https://github.com/kubernetes/kops/pull/16617" target="_blank">https://github.com/kubernetes/kops/pull/16617</a></li>
+<li>chore: Update Go to v1.21.4 by @hakman in <a href="https://github.com/kubernetes/kops/pull/16618" target="_blank">https://github.com/kubernetes/kops/pull/16618</a></li>
+<li>Add support for Rocky 9 by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16620" target="_blank">https://github.com/kubernetes/kops/pull/16620</a></li>
+<li>Dont install libcgroup on Rocky 9 by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16621" target="_blank">https://github.com/kubernetes/kops/pull/16621</a></li>
+<li>build(deps): bump actions/checkout from 4.1.6 to 4.1.7 by @dependabot in <a href="https://github.com/kubernetes/kops/pull/16622" target="_blank">https://github.com/kubernetes/kops/pull/16622</a></li>
+<li>tests: Add test for dl.k8s.io kubernetes version parsing by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16624" target="_blank">https://github.com/kubernetes/kops/pull/16624</a></li>
+<li>Raise errors earlier if we cannot parse the kube version by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16625" target="_blank">https://github.com/kubernetes/kops/pull/16625</a></li>
+<li>Update dependencies by @github-actions in <a href="https://github.com/kubernetes/kops/pull/16626" target="_blank">https://github.com/kubernetes/kops/pull/16626</a></li>
+<li>Upgrade Cilium to v1.15.6 by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16627" target="_blank">https://github.com/kubernetes/kops/pull/16627</a></li>
+<li>Release 1.30.0-beta.1 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16629" target="_blank">https://github.com/kubernetes/kops/pull/16629</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@elliotdobson made their first contribution in <a href="https://github.com/kubernetes/kops/pull/16541" target="_blank">https://github.com/kubernetes/kops/pull/16541</a></li>
+<li>@dannyeuu made their first contribution in <a href="https://github.com/kubernetes/kops/pull/16600" target="_blank">https://github.com/kubernetes/kops/pull/16600</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kops/compare/v1.30.0-alpha.1...v1.30.0-beta.1" target="_blank">https://github.com/kubernetes/kops/compare/v1.30.0-alpha.1&hellip;v1.30.0-beta.1</a></p>
+<br><h2>kubernetes/cloud-provider-aws</h2> <h3>Release notes for v1.30.2</h3><h4>2024-06-28</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Update k8s dependencies to 0.30.1 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/943" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/943</a></li>
+<li>Bump golang version to 1.22.4 for release-1.30 branch by @dims in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/948" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/948</a></li>
+<li>Automated cherry pick of #917: extract fargate into a standalone file by @dims in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/946" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/946</a></li>
+<li>[release-1.30] Add kmala to the owners file by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/955" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/955</a></li>
+<li>Automated cherry pick of #981: add support for new aws partitions in credential provider by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/985" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/985</a></li>
+<li>Release 1.30.2 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/989" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/989</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-aws/compare/v1.30.1...v1.30.2" target="_blank">https://github.com/kubernetes/cloud-provider-aws/compare/v1.30.1&hellip;v1.30.2</a></p>
+<br><h3>Release notes for v1.29.5</h3><h4>2024-06-28</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Automated cherry pick of #981: add support for new aws partitions in credential provider by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/984" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/984</a></li>
+<li>Release 1.29.5 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/988" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/988</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-aws/compare/v1.29.4...v1.29.5" target="_blank">https://github.com/kubernetes/cloud-provider-aws/compare/v1.29.4&hellip;v1.29.5</a></p>
+<br><h3>Release notes for v1.28.8</h3><h4>2024-06-28</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Automated cherry pick of #981: add support for new aws partitions in credential provider by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/983" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/983</a></li>
+<li>Release 1.28.8 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/987" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/987</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-aws/compare/v1.28.7...v1.28.8" target="_blank">https://github.com/kubernetes/cloud-provider-aws/compare/v1.28.7&hellip;v1.28.8</a></p>
+<br><h3>Release notes for v1.27.9</h3><h4>2024-06-28</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Automated cherry pick of #981: add support for new aws partitions in credential provider by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/982" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/982</a></li>
+<li>Release 1.27.9 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/986" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/986</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-aws/compare/v1.27.8...v1.27.9" target="_blank">https://github.com/kubernetes/cloud-provider-aws/compare/v1.27.8&hellip;v1.27.9</a></p>
+<br><h3>Release notes for v1.29.4</h3><h4>2024-06-26</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Update k8s dependencies to 0.29.5 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/940" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/940</a></li>
+<li>Bump golang version to 1.21.11 for release-1.29 branch by @dims in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/949" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/949</a></li>
+<li>Automated cherry pick of #917: extract fargate into a standalone file by @dims in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/945" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/945</a></li>
+<li>[release-1.29] Add kmala to the owners file by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/962" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/962</a></li>
+<li>Update aws sdk go to support new partiton by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/971" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/971</a></li>
+<li>Release 1.29.4 by @kmala in <a href="https://github.com/kubernetes/cloud-provider-aws/pull/978" target="_blank">https://github.com/kubernetes/cloud-provider-aws/pull/978</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-aws/compare/v1.29.3...v1.29.4" target="_blank">https://github.com/kubernetes/cloud-provider-aws/compare/v1.29.3&hellip;v1.29.4</a></p>
+<br><h2>containernetworking/cni</h2> <h3>Release notes for libcni v1.2.2</h3><h4>2024-06-24</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>libcni: remove use of Masterminds/semver by @squeed in <a href="https://github.com/containernetworking/cni/pull/1100" target="_blank">https://github.com/containernetworking/cni/pull/1100</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/containernetworking/cni/compare/v1.2.1...v1.2.2" target="_blank">https://github.com/containernetworking/cni/compare/v1.2.1&hellip;v1.2.2</a></p>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.65.0</h3><h4>2024-06-28</h4><p>This is release gRPC Core 1.65.0 (gnarly).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes.</p>
+
+<p>This is release 1.65.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gnarly</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[OTPlugin] Per-channel OpenTelemetry plugin. (<a href="https://github.com/grpc/grpc/pull/36729" target="_blank">#36729</a>)</li>
+<li>[Gpr_To_Absl_Logging] Migrating from gpr to absl logging - gpr_set_log_function. (<a href="https://github.com/grpc/grpc/pull/36844" target="_blank">#36844</a>)</li>
+<li>[grpc][Gpr_To_Absl_Logging] Supporting verbosity flag. (<a href="https://github.com/grpc/grpc/pull/36798" target="_blank">#36798</a>)</li>
+<li>[build] Support clang-cl for Windows builds (best effort). (<a href="https://github.com/grpc/grpc/pull/36831" target="_blank">#36831</a>)</li>
+<li>[grpc][Gpr_To_Absl_Logging] Disable the ConfigVar because it wont work anymore. (<a href="https://github.com/grpc/grpc/pull/36761" target="_blank">#36761</a>)</li>
+<li>[BoringSSL] Update third_party/boringssl-with-bazel. (<a href="https://github.com/grpc/grpc/pull/36716" target="_blank">#36716</a>)</li>
+<li>[http2] Add experiment to modify behavior of GRPC_ARG_HTTP2_MAX_PINGS_WITHOUT_DATA to throttle pings instead of blocking. (<a href="https://github.com/grpc/grpc/pull/36374" target="_blank">#36374</a>)</li>
+<li>[xDS] fix &ldquo;tls&rdquo; channel cred in bootstrap to actually work. (<a href="https://github.com/grpc/grpc/pull/36726" target="_blank">#36726</a>)</li>
+<li>[StatsPlugin] Fix use-after-free issue. (<a href="https://github.com/grpc/grpc/pull/36664" target="_blank">#36664</a>)</li>
+<li>[EventEngine] Enable the EventEngine DNS Resolver on Windows. (<a href="https://github.com/grpc/grpc/pull/36286" target="_blank">#36286</a>)</li>
+</ul>
+
+<h2 id="c">C++</h2>
+
+<ul>
+<li>[OTel] Generate pkg-config file for grpcpp_otel_plugin. (<a href="https://github.com/grpc/grpc/pull/36686" target="_blank">#36686</a>)</li>
+<li>[OTel] Add find_package call for OTel dependency in installed gRPC configuration. (<a href="https://github.com/grpc/grpc/pull/36674" target="_blank">#36674</a>)</li>
+<li>[OTel C++] Deprecate SetTargetAttributeFilter method on OpenTelemetryPluginBuilder. (<a href="https://github.com/grpc/grpc/pull/36567" target="_blank">#36567</a>)</li>
+<li>[security] Add notices for functions we will be removing. (<a href="https://github.com/grpc/grpc/pull/36488" target="_blank">#36488</a>)</li>
+</ul>
+
+<h2 id="objective-c">Objective-C</h2>
+
+<ul>
+<li>Replace bind() targets with alias() ones. (<a href="https://github.com/grpc/grpc/pull/35272" target="_blank">#35272</a>)</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Python O11y] Implement CSM observability for Python. (<a href="https://github.com/grpc/grpc/pull/36557" target="_blank">#36557</a>)</li>
+<li>[Python AIO] Return EOF from UnaryStreamCall.read() as documented. (<a href="https://github.com/grpc/grpc/pull/36660" target="_blank">#36660</a>)</li>
+<li>[Python Otel] Deprecate target_attribute_filter. (<a href="https://github.com/grpc/grpc/pull/36697" target="_blank">#36697</a>)</li>
+<li>[Python Server] Remove abstractmethod notation for add_registered_method_handlers. (<a href="https://github.com/grpc/grpc/pull/36684" target="_blank">#36684</a>)</li>
+</ul>
+
+<h2 id="ruby">Ruby</h2>
+
+<ul>
+<li>[ruby] backport &ldquo;Update google-protobuf dep to allow 3.x and 4.x versions (#36982)&rdquo; to 1.65.x. (<a href="https://github.com/grpc/grpc/pull/37001" target="_blank">#37001</a>)</li>
+<li>[ruby] backport &ldquo;[ruby] improve the way completion queue pluck operations handle signals and process shutdown #36903&rdquo;. (<a href="https://github.com/grpc/grpc/pull/36916" target="_blank">#36916</a>)</li>
+</ul>
+<br>
+</body>
+
+</html>
