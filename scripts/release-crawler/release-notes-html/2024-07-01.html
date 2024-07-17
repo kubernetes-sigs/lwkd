@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-07-01</h1><h2>cri-o/cri-o</h2> <h3>Release notes for v1.30.3</h3><h4>2024-07-01</h4><ul>
+<li><a href="#cri-o-v1303">CRI-O v1.30.3</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1302">Changelog since v1.30.2</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-30-3">CRI-O v1.30.3</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.30.2...v1.30.3" target="_blank">v1.30.2&hellip;v1.30.3</a> on Mon, 01 Jul 2024 11:19:22 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz" target="_blank">cri-o.amd64.v1.30.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.30.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz.sig" target="_blank">cri-o.amd64.v1.30.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz.cert" target="_blank">cri-o.amd64.v1.30.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz.spdx" target="_blank">cri-o.amd64.v1.30.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.30.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.3.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.30.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz" target="_blank">cri-o.arm64.v1.30.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.30.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz.sig" target="_blank">cri-o.arm64.v1.30.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz.cert" target="_blank">cri-o.arm64.v1.30.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz.spdx" target="_blank">cri-o.arm64.v1.30.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.30.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.3.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.30.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.3.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.30.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz" target="_blank">cri-o.s390x.v1.30.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.30.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz.sig" target="_blank">cri-o.s390x.v1.30.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz.cert" target="_blank">cri-o.s390x.v1.30.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz.spdx" target="_blank">cri-o.s390x.v1.30.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.30.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.3.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.30.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.30.3.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.30.3 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.30.3 \
+    --signature cri-o.amd64.v1.30.3.tar.gz.sig \
+    --certificate cri-o.amd64.v1.30.3.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.30.3.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.30.3.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-30-2">Changelog since v1.30.2</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Reload config should remove pinned images when an empty list is provided (#8323, @sohankunkerkar)</li>
+<li>Remove a container after it fails to start, to prevent copies of it from piling up until it succeeds. (#8297, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/google/go-containerregistry: <a href="https://github.com/google/go-containerregistry/compare/v0.18.0...v0.19.1" target="_blank">v0.18.0 → v0.19.1</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.29.6</h3><h4>2024-07-01</h4><ul>
+<li><a href="#cri-o-v1296">CRI-O v1.29.6</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1295">Changelog since v1.29.5</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-29-6">CRI-O v1.29.6</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.29.5...v1.29.6" target="_blank">v1.29.5&hellip;v1.29.6</a> on Mon, 01 Jul 2024 11:19:26 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz" target="_blank">cri-o.amd64.v1.29.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.29.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz.sig" target="_blank">cri-o.amd64.v1.29.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz.cert" target="_blank">cri-o.amd64.v1.29.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz.spdx" target="_blank">cri-o.amd64.v1.29.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.29.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.6.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.29.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz" target="_blank">cri-o.arm64.v1.29.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.29.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz.sig" target="_blank">cri-o.arm64.v1.29.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz.cert" target="_blank">cri-o.arm64.v1.29.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz.spdx" target="_blank">cri-o.arm64.v1.29.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.29.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.6.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.29.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.6.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.29.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz" target="_blank">cri-o.s390x.v1.29.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.29.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz.sig" target="_blank">cri-o.s390x.v1.29.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz.cert" target="_blank">cri-o.s390x.v1.29.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz.spdx" target="_blank">cri-o.s390x.v1.29.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.29.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.29.6.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.29.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.29.6.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.29.6 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.29.6 \
+    --signature cri-o.amd64.v1.29.6.tar.gz.sig \
+    --certificate cri-o.amd64.v1.29.6.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.29.6.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.29.6.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-29-5">Changelog since v1.29.5</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Remove a container after it fails to start, to prevent copies of it from piling up until it succeeds. (#8299, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.28.8</h3><h4>2024-07-01</h4><ul>
+<li><a href="#cri-o-v1288">CRI-O v1.28.8</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1287">Changelog since v1.28.7</a></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-28-8">CRI-O v1.28.8</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.28.7...v1.28.8" target="_blank">v1.28.7&hellip;v1.28.8</a> on Mon, 01 Jul 2024 11:19:26 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz" target="_blank">cri-o.amd64.v1.28.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.28.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz.sig" target="_blank">cri-o.amd64.v1.28.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz.cert" target="_blank">cri-o.amd64.v1.28.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz.spdx" target="_blank">cri-o.amd64.v1.28.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.28.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.8.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.28.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz" target="_blank">cri-o.arm64.v1.28.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.28.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz.sig" target="_blank">cri-o.arm64.v1.28.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz.cert" target="_blank">cri-o.arm64.v1.28.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz.spdx" target="_blank">cri-o.arm64.v1.28.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.28.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.8.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.28.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.28.8.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.28.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz" target="_blank">cri-o.s390x.v1.28.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.28.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz.sig" target="_blank">cri-o.s390x.v1.28.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz.cert" target="_blank">cri-o.s390x.v1.28.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz.spdx" target="_blank">cri-o.s390x.v1.28.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.28.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.28.8.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.28.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.28.8.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.28.8 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.28.8 \
+    --signature cri-o.amd64.v1.28.8.tar.gz.sig \
+    --certificate cri-o.amd64.v1.28.8.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.28.8.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.28.8.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-28-7">Changelog since v1.28.7</h2>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/containers/image/v5: <a href="https://github.com/containers/image/compare/3e133cb...942a222" target="_blank">3e133cb → 942a222</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.27.8</h3><h4>2024-07-01</h4><ul>
+<li><a href="#cri-o-v1278">CRI-O v1.27.8</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1277">Changelog since v1.27.7</a></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-27-8">CRI-O v1.27.8</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.27.7...v1.27.8" target="_blank">v1.27.7&hellip;v1.27.8</a> on Mon, 01 Jul 2024 11:19:39 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz" target="_blank">cri-o.amd64.v1.27.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.27.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz.sig" target="_blank">cri-o.amd64.v1.27.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz.cert" target="_blank">cri-o.amd64.v1.27.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz.spdx" target="_blank">cri-o.amd64.v1.27.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.27.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.8.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.27.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz" target="_blank">cri-o.arm64.v1.27.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.27.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz.sig" target="_blank">cri-o.arm64.v1.27.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz.cert" target="_blank">cri-o.arm64.v1.27.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz.spdx" target="_blank">cri-o.arm64.v1.27.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.27.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.8.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.27.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.27.8.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.27.8 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.27.8 \
+    --signature cri-o.amd64.v1.27.8.tar.gz.sig \
+    --certificate cri-o.amd64.v1.27.8.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.27.8.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.27.8.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-27-7">Changelog since v1.27.7</h2>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/containers/image/v5: <a href="https://github.com/containers/image/compare/67ee9a0...cbfda54" target="_blank">67ee9a0 → cbfda54</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h2>containerd/containerd</h2> <h3>Release notes for containerd 1.7.19</h3><h4>2024-07-02</h4><p>Welcome to the v1.7.19 release of containerd!</p>
+
+<p>The nineteenth patch release for containerd 1.7 contains various updates and
+splits the main module from the api module in preparation for the same change
+in containerd 2.0. Splitting the modules will allow 1.7 and 2.x to both exist
+as transitive dependencies without running into API registration errors.
+Projects should use this version as the minimum 1.7 version in preparing to
+use containerd 2.0 or to be imported alongside it.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Fix support for OTLP config (<a href="https://github.com/containerd/containerd/pull/10360" target="_blank">#10360</a>)</li>
+<li>Add API go module (<a href="https://github.com/containerd/containerd/pull/10189" target="_blank">#10189</a>)</li>
+<li>Remove overlayfs volatile option on temp mounts (<a href="https://github.com/containerd/containerd/pull/10332" target="_blank">#10332</a>)</li>
+<li>Update runc binary to v1.1.13 (<a href="https://github.com/containerd/containerd/pull/10336" target="_blank">#10336</a>)</li>
+<li>Migrate platforms package to github.com/containerd/platforms (<a href="https://github.com/containerd/containerd/pull/10292" target="_blank">#10292</a>)</li>
+<li>Migrate reference/docker package to github.com/distribution/reference (<a href="https://github.com/containerd/containerd/pull/10316" target="_blank">#10316</a>)</li>
+</ul>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Fix panic in NRI from nil CRI reference (<a href="https://github.com/containerd/containerd/pull/10406" target="_blank">#10406</a>)</li>
+<li>Fix Windows HPC working directory (<a href="https://github.com/containerd/containerd/pull/10306" target="_blank">#10306</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Sebastiaan van Stijn</li>
+<li>Wei Fu</li>
+<li>Phil Estes</li>
+<li>Akhil Mohan</li>
+<li>Akihiro Suda</li>
+<li>Brian Goff</li>
+<li>Kirtana Ashok</li>
+<li>Maksym Pavlenko</li>
+<li>Samuel Karp</li>
+<li>Austin Vazquez</li>
+<li>Danny Canter</li>
+<li>Kazuyoshi Kato</li>
+<li>Maksim An</li>
+<li>Yuanyuan Lei</li>
+<li>krglosse</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>70 commits</summary>
+<p>
+
+* Prepare release notes for v1.7.19 ([#10391](https://github.com/containerd/containerd/pull/10391))
+  * [`74a3d2901`](https://github.com/containerd/containerd/commit/74a3d29017d780a06601e9015958a162c86f44f4) Prepare release notes for v1.7.19
+* Fix panic in NRI from nil CRI reference ([#10406](https://github.com/containerd/containerd/pull/10406))
+  * [`7f5d3c5f4`](https://github.com/containerd/containerd/commit/7f5d3c5f4d5325265f3dfe76f9cc4c17859a6e8a) cri: ensure NRI API never has nil CRI
+* Windows: Supply windows shim version via file ([#10403](https://github.com/containerd/containerd/pull/10403))
+  * [`6efc5bb89`](https://github.com/containerd/containerd/commit/6efc5bb89621afab16ff7aaeb83460fd27d1c4c1) update runhcs binary to v0.11.7
+  * [`945ae09fd`](https://github.com/containerd/containerd/commit/945ae09fd30a421f108993d7e04f9a6c0b5aa989) Windows: Supply windows shim version via file
+* reference: deprecate SplitObject ([#10397](https://github.com/containerd/containerd/pull/10397))
+  * [`dba53578c`](https://github.com/containerd/containerd/commit/dba53578c2b8d5db159295371a6aa9fd0d1ee79f) pkg/reference: deprecate SplitObject
+* Updating hcsshim vendoring to 0.11.7 to include an important backported fix ([#10396](https://github.com/containerd/containerd/pull/10396))
+  * [`415dd74a8`](https://github.com/containerd/containerd/commit/415dd74a81ad3a5ed5cc416ad16cfe3cbb09aec3) updating hcsshim to 0.11.7
+* reference: reduce allocations and improve GoDoc ([#10395](https://github.com/containerd/containerd/pull/10395))
+  * [`5ad1d2e75`](https://github.com/containerd/containerd/commit/5ad1d2e7592e2a38e5d67eaec5501164f57c7fa2) pkg/reference: Spec.Digest(): inline SplitObject code
+  * [`57ce09b42`](https://github.com/containerd/containerd/commit/57ce09b4284cc090af68fdd3f19f4f92125c5b94) pkg/reference: SplitObject: add proper GoDoc
+  * [`78ac93fed`](https://github.com/containerd/containerd/commit/78ac93fed415d2d9246cf53cf646e939de955cc9) pkg/reference: SplitObject: zero allocations
+  * [`b074e3a7c`](https://github.com/containerd/containerd/commit/b074e3a7ce4dae91324da1ec0f7a619ced0a5e37) pkg/reference: Spec.String(): use string-concatenation instead of sprintf
+* Update api version to v1.7.19 ([#10387](https://github.com/containerd/containerd/pull/10387))
+  * [`0eb786de6`](https://github.com/containerd/containerd/commit/0eb786de6692db09ee8b3492f6b6df4c011603e8) Update api version to v1.7.19
+* Prepare release notes for api v1.7.19 ([#10386](https://github.com/containerd/containerd/pull/10386))
+  * [`436feeb0d`](https://github.com/containerd/containerd/commit/436feeb0ddcf8188c84c616b97b34cc8acd1aa9f) Prepare api release for v1.7.19
+  * [`83822d144`](https://github.com/containerd/containerd/commit/83822d144695458892cc04c237132653e54ca183) Add api release action
+* : api: update github.com/containerd/ttrpc v1.2.5 to align with containerd 1.7 module ([#10364](https://github.com/containerd/containerd/pull/10364))
+  * [`2a6aa6ddf`](https://github.com/containerd/containerd/commit/2a6aa6ddf1f09bedc8b86f33a277f2cf6852eedd) [release/1.7] api: update github.com/containerd/ttrpc v1.2.5
+* vendor: github.com/containerd/ttrpc v1.2.5 ([#10373](https://github.com/containerd/containerd/pull/10373))
+  * [`37926b10d`](https://github.com/containerd/containerd/commit/37926b10d0dc14cd068dc35dd18190bd38ef9a01) vendor: github.com/containerd/ttrpc v1.2.5
+* golangci-lint fix typo in depguard message ([#10371](https://github.com/containerd/containerd/pull/10371))
+  * [`a522e267e`](https://github.com/containerd/containerd/commit/a522e267e8b3312fa1a8679a7dee0c28b208a474) golangci-lint fix typo in depguard message
+* Fix support for OTLP config ([#10360](https://github.com/containerd/containerd/pull/10360))
+  * [`1ce1c8f3e`](https://github.com/containerd/containerd/commit/1ce1c8f3e6d36202dab28fe910bf9282fafc2aab) 1.7: Add back support for OTLP config from toml
+* remove imports of errdefs package, and add depguard linter ([#10367](https://github.com/containerd/containerd/pull/10367))
+  * [`136e1b72d`](https://github.com/containerd/containerd/commit/136e1b72d8330d43b9cedf051a0b745cf70df9ee) golangci-lint: enable depguard for packages that moved
+  * [`f5ce2f204`](https://github.com/containerd/containerd/commit/f5ce2f2049204e1792756b156299eb3470379692) remove imports of errdefs package
+* Add API go module ([#10189](https://github.com/containerd/containerd/pull/10189))
+  * [`3be919f3c`](https://github.com/containerd/containerd/commit/3be919f3c023f776e5db1b162f642d79a36312a8) Add support for 1.8 interfaces
+  * [`5b87eb502`](https://github.com/containerd/containerd/commit/5b87eb502c705dba767a203b64dfdc3ad0bda109) Add go mod replace when proto changes happen
+  * [`a3a7431bc`](https://github.com/containerd/containerd/commit/a3a7431bc3151a5d0a8c6d9e36a6430a76418f81) Add api go submodule
+  * [`61b3e2261`](https://github.com/containerd/containerd/commit/61b3e226104ccb52aff9230617750bddd046b76d) Alias protobuf plugin to new api types package
+  * [`4b82470f6`](https://github.com/containerd/containerd/commit/4b82470f6939ab951334105cf0b10ca9167964ea) refactor: move plugin/fieldpath to api/types/
+* Remove overlayfs volatile option on temp mounts ([#10332](https://github.com/containerd/containerd/pull/10332))
+  * [`24ce9e431`](https://github.com/containerd/containerd/commit/24ce9e4315aa0b1215d1ed0c52df13691e7ff523) integration: backport upgrade testsuite's utils
+  * [`79500d5cb`](https://github.com/containerd/containerd/commit/79500d5cb24d2ce7189857ec3322970ff61817c7) *: export RemoveVolatileOption for CRI image volumes
+  * [`bb80bd768`](https://github.com/containerd/containerd/commit/bb80bd7681ce22e8bd11aa5aa285a61ef1ac19c2) strip-volatile-option-tmp-mounts
+* Update runc binary to v1.1.13 ([#10336](https://github.com/containerd/containerd/pull/10336))
+  * [`6dce90b15`](https://github.com/containerd/containerd/commit/6dce90b1586903a60d84028c7b4a643ac5472fbb) update runc binary to v1.1.13
+* Fail integration test early when a plugin load fails ([#10311](https://github.com/containerd/containerd/pull/10311))
+  * [`884094be8`](https://github.com/containerd/containerd/commit/884094be857fd0d72edc716f0791b44b14861a53) devmapper plugin: skip plugin when not configured
+  * [`40012b644`](https://github.com/containerd/containerd/commit/40012b6445f6275aabf10be78f2a7a9b6ec6b927) Fail integration test early when a plugin load fails
+* Migrate platforms package to github.com/containerd/platforms ([#10292](https://github.com/containerd/containerd/pull/10292))
+  * [`869b78677`](https://github.com/containerd/containerd/commit/869b7867724e10f285f2f26f358b98d4ef0bd310) vendor: github.com/containerd/platforms v0.2.1
+  * [`6ccdf6977`](https://github.com/containerd/containerd/commit/6ccdf697711dc9c8915e2c1c8da5f60c2472df5e) platforms: mark aliases as deprecated
+  * [`19a056163`](https://github.com/containerd/containerd/commit/19a056163cc37077c33f4e11f8c60d52c14d9a8f) adjust default platform for backward-compatibility
+  * [`6ff3e09d2`](https://github.com/containerd/containerd/commit/6ff3e09d201c82839be50f176895656d2bbcffec) migrate platforms package to github.com/containerd/platforms
+* go.mod: github.com/klauspost/compress v1.16.7 ([#10326](https://github.com/containerd/containerd/pull/10326))
+  * [`327a3ac61`](https://github.com/containerd/containerd/commit/327a3ac61d9eb30a37a8227ca19fa3ce9ab26545) go.mod: github.com/klauspost/compress v1.16.7
+  * [`d0d1264a6`](https://github.com/containerd/containerd/commit/d0d1264a65c522283b938179ab0d9b529952125b) vendor: github.com/klauspost/compress v1.16.5
+* Use Github Actions to run Vagrant CI ([#10325](https://github.com/containerd/containerd/pull/10325))
+  * [`02b8dd5ff`](https://github.com/containerd/containerd/commit/02b8dd5ffcb552521d1e6589a488cdf401845a40) Remove cirrus configuration
+  * [`31d951bf5`](https://github.com/containerd/containerd/commit/31d951bf5b6a2fc0cd0ee2d7388e52e6b73aba8f) Run vagrant integration tests as github actions
+* Migrate reference/docker package to github.com/distribution/reference ([#10316](https://github.com/containerd/containerd/pull/10316))
+  * [`97abbe9cb`](https://github.com/containerd/containerd/commit/97abbe9cba96592987e5accc4951c89059ced51b) build(deps): bump github.com/distribution/reference from 0.5.0 to 0.6.0
+  * [`a00a2d20a`](https://github.com/containerd/containerd/commit/a00a2d20a367cf6b906b63cef18dbbbf4157bfb8) reference/docker: remove deprecated SplitHostname
+  * [`b38c0f2ef`](https://github.com/containerd/containerd/commit/b38c0f2ef8c887ba2ebdaf186d94115934a2bbbb) replace reference/docker for github.com/distribution/reference v0.5.0
+* build(deps): bump go.etcd.io/bbolt from 1.3.9 to 1.3.10 ([#10315](https://github.com/containerd/containerd/pull/10315))
+  * [`fef432bfe`](https://github.com/containerd/containerd/commit/fef432bfebd3e0ce813e4f05230649ba22af99e6) build(deps): bump go.etcd.io/bbolt from 1.3.9 to 1.3.10
+  * [`487c61bfb`](https://github.com/containerd/containerd/commit/487c61bfbbbaccce4154a335c6a5cb97d1f08381) vendor: go.etcd.io/bbolt v1.3.9
+  * [`7211f87c4`](https://github.com/containerd/containerd/commit/7211f87c4874b9d09af4545c7c9570a0f406b79c) build(deps): bump golang.org/x/sync from 0.4.0 to 0.5.0
+  * [`e908c3e6f`](https://github.com/containerd/containerd/commit/e908c3e6fcc5e23d44fd9581bdcdd33868c5cd5b) vendor: golang.org/x/sync v0.4.0
+  * [`d814be5ce`](https://github.com/containerd/containerd/commit/d814be5ce8194934b12e87fe2c50223bf8f38e60) build(deps): bump go.etcd.io/bbolt from 1.3.7 to 1.3.8
+* Fix Windows HPC working directory ([#10306](https://github.com/containerd/containerd/pull/10306))
+  * [`33b62936e`](https://github.com/containerd/containerd/commit/33b62936ea56c85183331ad2b1d9cb3c76dce8da) [release/1.7]: HPC working directory fix in pkg/cri/server code
+</p>
+</details>
+
+<h3 id="changes-from-containerd-platforms">Changes from containerd/platforms</h3>
+
+<details><summary>21 commits</summary>
+<p>
+
+* Remove hcsshim import from repo ([containerd/platforms#10](https://github.com/containerd/platforms/pull/10))
+  * [`f680838`](https://github.com/containerd/platforms/commit/f6808384daf3b725b61bc23fd40fac5e3a85168f) Remove hcsshim import from repo
+* Fix windows matching when os version is empty ([containerd/platforms#11](https://github.com/containerd/platforms/pull/11))
+  * [`983ba15`](https://github.com/containerd/platforms/commit/983ba156b67be3c9597b773bd1f509f0ba693c3d) Update windows matcher to not compare empty os version
+  * [`17c859f`](https://github.com/containerd/platforms/commit/17c859f02e8008cc3a4fba44314aa35c947e3f7f) Add tests for osversion matching with no version
+* Add format for platform string ([containerd/platforms#6](https://github.com/containerd/platforms/pull/6))
+  * [`38a74d2`](https://github.com/containerd/platforms/commit/38a74d209d3bd4091fa83db35061ce32da31b5c3) Add grammar for platform string
+* downgrade minimum required version of hcsshim to v0.10.0 ([containerd/platforms#5](https://github.com/containerd/platforms/pull/5))
+  * [`724b9f8`](https://github.com/containerd/platforms/commit/724b9f89557de4d6e70a9d68882afb1b27e5ac57) downgrade minimum required version of hcsshim to v0.10.0
+* enable linter on windows ([containerd/platforms#4](https://github.com/containerd/platforms/pull/4))
+  * [`f6dd384`](https://github.com/containerd/platforms/commit/f6dd3842706b19a665ff27854f12bc8a7f808eb6) enable linter on windows
+* fix grammar and highlights in README ([containerd/platforms#3](https://github.com/containerd/platforms/pull/3))
+  * [`cb03428`](https://github.com/containerd/platforms/commit/cb034281bd28d792528b116680b2bbabac7bef75) fix grammar and highlights in README
+* Fix link in README ([containerd/platforms#1](https://github.com/containerd/platforms/pull/1))
+  * [`5b937b0`](https://github.com/containerd/platforms/commit/5b937b0167e6bbe5c715dc03e0d37a00f6e833f2) Fix link in README
+* Update Windows linter version ([containerd/platforms#2](https://github.com/containerd/platforms/pull/2))
+  * [`129b256`](https://github.com/containerd/platforms/commit/129b256bd216ea5f2fe6f6a78be0ec548c51c9ee) Update linter to skip Windows
+  * [`18e3da6`](https://github.com/containerd/platforms/commit/18e3da61205bc54fe188a5a78c0cb83070c48a2c) Add Github actions CI
+  * [`ed29dfd`](https://github.com/containerd/platforms/commit/ed29dfd2f71167ddc59cbb096fc28b173023f2ea) Remove space at end of readme
+  * [`b3f80ee`](https://github.com/containerd/platforms/commit/b3f80ee8ee3f73aac75070feb14614cdfc2f8be4) Add go module
+  * [`8ff004c`](https://github.com/containerd/platforms/commit/8ff004cf820d1b3fbe8d100fef3adb0e50ded133) Add license and readme
+</p>
+</details>
+
+<h3 id="changes-from-containerd-ttrpc">Changes from containerd/ttrpc</h3>
+
+<details><summary>4 commits</summary>
+<p>
+
+* switch to github.com/containerd/log for logs ([containerd/ttrpc#169](https://github.com/containerd/ttrpc/pull/169))
+  * [`4785c70`](https://github.com/containerd/ttrpc/commit/4785c70883bf1729151379b3b5c4674ed2101c61) switch to github.com/containerd/log for logs
+* Fix CI build status badge in readme ([containerd/ttrpc#162](https://github.com/containerd/ttrpc/pull/162))
+  * [`e0f3ead`](https://github.com/containerd/ttrpc/commit/e0f3eadca58efdd8f24904d02ba8e1d8a561ec37) Fix CI build status badge in readme
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/Microsoft/hcsshim</strong>          v0.11.5 -&gt; v0.11.7</li>
+<li><strong>github.com/containerd/containerd/api</strong>  v1.7.19 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/platforms</strong>       v0.2.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/ttrpc</strong>           v1.2.4 -&gt; v1.2.5</li>
+<li><strong>github.com/distribution/reference</strong>     v0.6.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/klauspost/compress</strong>         v1.16.0 -&gt; v1.16.7</li>
+<li><strong>go.etcd.io/bbolt</strong>                      v1.3.7 -&gt; v1.3.10</li>
+<li><strong>golang.org/x/sync</strong>                     v0.3.0 -&gt; v0.5.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.18" target="_blank">v1.7.18</a></p>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.1.0</h3><h4>2024-07-05</h4><h1 id="v4-1-0">v4.1.0</h1>
+
+<p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v4.0.0" target="_blank">v4.0.0</a></strong></p>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>Re-introduces authn/authz protection for the metrics endpoint using <a href="https://github.com/kubernetes-sigs/controller-runtime/blob/v0.18.4/pkg/metrics/filters/filters.go#L35" target="_blank"><code>WithAuthenticationAndAuthorization</code></a> provided by controller-runtime. (#4003)
+&gt; <em>This protection is similar to what was previously done via <a href="https://github.com/brancz/kube-rbac-proxy" target="_blank"><code>kube-rbac-proxy</code></a>, which usage was <a href="https://github.com/kubernetes-sigs/kubebuilder/discussions/3907" target="_blank">discontinued in the project</a>. Please, ensure that you no longer use the image <code>gcr.io/kubebuilder/kube-rbac-proxy</code>.  ⚠️ Images provided under <code>gcr.io/kubebuilder/</code> will be unavailable from <strong>March 18, 2025</strong>.</em></li>
+<li>Upgrade controller-runtime from v0.18.2 to v0.18.4 (#3957) (#3972)</li>
+<li>Add revive golangci linter with comment-spacings rule (#3960)</li>
+<li>(Only relevant for users of Kubebuilder as a library) Allow usage of custom marker names (#3993)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Corrected the <code>generate</code> command to respect the <code>--namespaced=false</code> flag for APIs. (#3970)</li>
+</ul>
+
+<p>🎉  <em>Thanks to all our contributors!</em></p>
+
+<h2 id="what-s-changed-full-changelog">What&rsquo;s Changed (Full Changelog)</h2>
+
+<ul>
+<li>✨ Upgrade controller-runtime from v0.18.2 to v0.18.3 - k8s version from  1.30.0 to 1.30.1 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3957" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3957</a></li>
+<li>🌱 Cleanup e2e tests for deploy image by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3959" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3959</a></li>
+<li>✨ Add revive golangci linter with comment-spacings rule by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3960" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3960</a></li>
+<li>🌱 cleanup:  run-test-e2e-for-project-v4-sample workflow by remove unnecessary steps by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3961" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3961</a></li>
+<li>🌱 cleanup e2e tests for go/v4 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3958" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3958</a></li>
+<li>📖  Update CONTRIBUTING.md - Add steps about how to debug e2e tests locally by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3962" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3962</a></li>
+<li>🌱 Bump github.com/onsi/ginkgo/v2 from 2.17.3 to 2.19.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3963" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3963</a></li>
+<li>🌱 Bump sigs.k8s.io/kubebuilder/v3 from 3.15.0 to 3.15.1 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3965" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3965</a></li>
+<li>📖 fix: documentation links by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3967" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3967</a></li>
+<li>🐛 fix generate command not respecting &ndash;namespaced=false of APIs by @antonincms in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3970" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3970</a></li>
+<li>✨ Upgrade controller-runtime from v0.18.3 to v0.18.4 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3972" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3972</a></li>
+<li>📖 fix error in documentation Watching Externally Managed Resources by @Uburro in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3973" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3973</a></li>
+<li>🌱 Bump golang.org/x/tools from 0.21.0 to 0.22.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3975" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3975</a></li>
+<li>🌱 Bump goreleaser/goreleaser-action from 5 to 6 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3977" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3977</a></li>
+<li>📖 fix: book v3 link by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3978" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3978</a></li>
+<li>📖 Adding lost v2 vs v3 page. by @Tomlmmrs in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3983" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3983</a></li>
+<li>🌱 ci: fix testdata due golang module changes by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3985" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3985</a></li>
+<li>🌱 Bump github.com/spf13/cobra from 1.8.0 to 1.8.1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3987" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3987</a></li>
+<li>📖 Fix typo in plugins.md by @dudo in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3994" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3994</a></li>
+<li>📖 Update using_an_external_type.md by @davidxia in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3997" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3997</a></li>
+<li>📖 Update using_an_external_type.md by @davidxia in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3998" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3998</a></li>
+<li>✨ (Only valid for those who consume Kubebuilder as a lib) - Allow usage of custom marker names by @beatrausch in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3993" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3993</a></li>
+<li>📖 docs: clarify English prose in CONTRIBUTING.md by @davidxia in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4002" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4002</a></li>
+<li>📖 Update quick-start.md by @Hrugved in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4001" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4001</a></li>
+<li>✨ Add protection to metrics endpoint using authn/authz via controller-runtime feature by @joelanford and @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4003" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4003</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@Uburro made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3973" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3973</a></li>
+<li>@Tomlmmrs made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3983" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3983</a></li>
+<li>@dudo made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3994" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3994</a></li>
+<li>@beatrausch made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3993" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3993</a></li>
+<li>@Hrugved made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4001" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4001</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v4.0.0...v4.1.0" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v4.0.0&hellip;v4.1.0</a></p>
+<br>
+</body>
+
+</html>
