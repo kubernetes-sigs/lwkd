@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-07-15</h1><h2>etcd-io/etcd</h2> <h3>Release notes for v3.5.15</h3><h4>2024-07-19</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.5.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.5/upgrades/upgrade_3_5.md" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://github.com/etcd-io/etcd/tree/master/Documentation#operating-etcd-clusters" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.5/op-guide/supported-platform.md" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.5.15
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<pre><code class="language-bash"># start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.5.15
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-bash">rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:v3.5.15 || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-v3.5.15 \
+  gcr.io/etcd-development/etcd:v3.5.15 \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-v3.5.15 /usr/local/bin/etcd --version
+docker exec etcd-gcr-v3.5.15 /usr/local/bin/etcdctl version
+docker exec etcd-gcr-v3.5.15 /usr/local/bin/etcdutl version
+docker exec etcd-gcr-v3.5.15 /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-v3.5.15 /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-v3.5.15 /usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h2>kubernetes-csi/csi-driver-nfs</h2> <h3>Release notes for v4.8.0 release</h3><h4>2024-07-18</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v4.7.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/662" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/662</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.33.0 to 1.33.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/665" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/665</a></li>
+<li>chore(deps): bump golangci/golangci-lint-action from 5 to 6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/666" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/666</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.34.0 to 1.34.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/667" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/667</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.24.0 to 0.25.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/670" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/670</a></li>
+<li>test: fix stdlib CVE due to golang v1.22.2 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/671" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/671</a></li>
+<li>fix: wrong chart intent when using multiple mountOptions by @efficacy38 in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/669" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/669</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.17.2 to 2.17.3 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/672" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/672</a></li>
+<li>fix: remove stale archived volume copy before rename by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/673" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/673</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.63.2 to 1.64.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/675" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/675</a></li>
+<li>chore(deps): bump k8s.io/client-go from 0.28.9 to 0.28.10 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/676" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/676</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.17.3 to 2.18.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/677" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/677</a></li>
+<li>chore: update release-tools to fix spelling error by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/681" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/681</a></li>
+<li>fix: revert readOnlyRootFilesystem for nfs container by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/685" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/685</a></li>
+<li>chore(deps): bump k8s.io/mount-utils from 0.29.4 to 0.29.6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/691" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/691</a></li>
+<li>Adding annotations to set default storage class by @cccsss01 in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/688" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/688</a></li>
+<li>chore: use go 1.22 in go.mod by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/693" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/693</a></li>
+<li>chore(deps): bump k8s.io/kubernetes from 1.28.9 to 1.28.11 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/692" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/692</a></li>
+<li>fix: shield guard issues by @umagnus in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/689" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/689</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.18.0 to 2.19.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/694" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/694</a></li>
+<li>fix: shield guard issue on CSI node by @umagnus in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/695" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/695</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.25.0 to 0.27.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/699" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/699</a></li>
+<li>test: fix trivy action failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/700" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/700</a></li>
+<li>fix: storage class mountOptions indent by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/701" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/701</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.34.1 to 1.34.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/702" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/702</a></li>
+<li>chore(deps): bump k8s.io/klog/v2 from 2.120.1 to 2.130.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/703" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/703</a></li>
+<li>chore(deps): bump k8s.io/apimachinery from 0.28.10 to 0.28.11 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/704" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/704</a></li>
+<li>fix: GHSA-xr7q-jx4m-x55m by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/705" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/705</a></li>
+<li>chore(deps): bump k8s.io/client-go from 0.28.10 to 0.28.11 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/706" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/706</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/697" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/697</a></li>
+<li>Fix org name in links to snapshot resources by @jonasrdl in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/708" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/708</a></li>
+<li>chore(deps): bump k8s.io/mount-utils from 0.29.6 to 0.29.7 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/709" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/709</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@efficacy38 made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/669" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/669</a></li>
+<li>@cccsss01 made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/688" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/688</a></li>
+<li>@jonasrdl made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/708" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/708</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-nfs/compare/v4.7.0...v4.8.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/compare/v4.7.0&hellip;v4.8.0</a></p>
+<br><h2>kubernetes-csi/csi-driver-smb</h2> <h3>Release notes for v1.15.0 release</h3><h4>2024-07-18</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v1.14.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/725" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/725</a></li>
+<li>chore(deps): bump k8s.io/apimachinery from 0.28.5 to 0.28.6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/731" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/731</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/729" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/729</a></li>
+<li>chore(deps): bump k8s.io/client-go from 0.28.5 to 0.28.6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/734" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/734</a></li>
+<li>chore(deps): bump k8s.io/component-base from 0.28.5 to 0.28.6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/736" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/736</a></li>
+<li>chore(deps): bump k8s.io/mount-utils from 0.29.0 to 0.29.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/738" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/738</a></li>
+<li>chore(deps): bump k8s.io/pod-security-admission from 0.28.5 to 0.28.6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/740" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/740</a></li>
+<li>fix: do not use /var/lib/kubelet, use .Values.linux.kubelet instead by @slaesh in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/739" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/739</a></li>
+<li>fix: incorrect kubelet path setting on v1.14 chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/741" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/741</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.0 to bookworm-v1.0.1 in /cmd/smbplugin by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/742" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/742</a></li>
+<li>doc: add this repo to ArtifactHub by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/744" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/744</a></li>
+<li>fix: delete volume failure in archive mode when subDir contains / by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/743" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/743</a></li>
+<li>test: fix github action test failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/748" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/748</a></li>
+<li>fix: change node-driver-registrar image version to 2.10.0 (deploy/v1.14.0 manifests) by @moonek in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/745" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/745</a></li>
+<li>chore(deps): bump golangci/golangci-lint-action from 3 to 4 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/749" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/749</a></li>
+<li>cleanup: remove integration test by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/750" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/750</a></li>
+<li>test: fix goveralls by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/751" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/751</a></li>
+<li>chore(deps): bump k8s.io/component-base from 0.28.6 to 0.28.7 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/752" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/752</a></li>
+<li>chore(deps): bump k8s.io/pod-security-admission from 0.28.6 to 0.28.7 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/753" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/753</a></li>
+<li>chore(deps): bump k8s.io/mount-utils from 0.29.1 to 0.29.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/756" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/756</a></li>
+<li>chore(deps): bump github.com/golang/protobuf from 1.5.3 to 1.5.4 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/759" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/759</a></li>
+<li>doc: fix kerberos auth doc by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/760" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/760</a></li>
+<li>chore(deps): bump k8s.io/mount-utils from 0.29.2 to 0.29.3 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/761" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/761</a></li>
+<li>chore(deps): bump k8s.io/client-go from 0.28.7 to 0.28.8 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/763" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/763</a></li>
+<li>chore(deps): bump k8s.io/pod-security-admission from 0.28.7 to 0.28.8 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/764" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/764</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.1 to bookworm-v1.0.2 in /cmd/smbplugin by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/765" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/765</a></li>
+<li>feat: use new restricted liveness probe endpoint by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/766" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/766</a></li>
+<li>fix: revert http-endpoint change on windows daemonset by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/768" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/768</a></li>
+<li>fix: incorrect http endpoint port num in v1.14.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/769" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/769</a></li>
+<li>fix: CVE-2023-45288, CVE-2024-3177 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/771" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/771</a></li>
+<li>chore(deps): bump golangci/golangci-lint-action from 4 to 5 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/770" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/770</a></li>
+<li>chore(deps): bump golangci/golangci-lint-action from 5 to 6 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/774" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/774</a></li>
+<li>test: use env var for smb server configuration by @Phaow in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/773" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/773</a></li>
+<li>test: fix stdlib CVE due to golang v1.22.2 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/776" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/776</a></li>
+<li>fix: Remove stale archived volume copy before Rename by @mpatlasov in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/777" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/777</a></li>
+<li>test: fix storageclass uncleaned by @Phaow in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/779" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/779</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.2 to bookworm-v1.0.3 in /cmd/smbplugin by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/780" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/780</a></li>
+<li>doc: cut v1.15.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/778" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/778</a></li>
+<li>fix: windows image 1809 build failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/785" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/785</a></li>
+<li>cleanup: remove v1.15.0 release since windows image build is broken by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/787" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/787</a></li>
+<li>fix: Remove excessive recursive variable expansions by @mpatlasov in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/781" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/781</a></li>
+<li>Update index.yaml - remove 1.15.0 from index.yaml by @RedBlackThunder in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/788" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/788</a></li>
+<li>chore: update release-tools to fix spelling error by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/789" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/789</a></li>
+<li>chore: use go 1.22 in go.mod by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/791" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/791</a></li>
+<li>fix: shield guard issues by @umagnus in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/790" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/790</a></li>
+<li>fix: shield guard issue on csi node by @umagnus in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/794" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/794</a></li>
+<li>test: fix trivy action failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/798" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/798</a></li>
+<li>fix: GHSA-xr7q-jx4m-x55m by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/799" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/799</a></li>
+<li>fix: PRISMA-2022-0227 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/802" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/802</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/796" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/796</a></li>
+<li>make image.*.repository variables relative by default by @amarkevich in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/797" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/797</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@slaesh made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/739" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/739</a></li>
+<li>@moonek made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/745" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/745</a></li>
+<li>@Phaow made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/773" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/773</a></li>
+<li>@mpatlasov made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/777" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/777</a></li>
+<li>@RedBlackThunder made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/788" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/788</a></li>
+<li>@amarkevich made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/797" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/797</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.14.0...v1.15.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.14.0&hellip;v1.15.0</a></p>
+<br><h2>containerd/containerd</h2> <h3>Release notes for containerd 1.7.20</h3><h4>2024-07-18</h4><p>Welcome to the v1.7.20 release of containerd!</p>
+
+<p>The twentieth patch release for containerd 1.7 contains various fixes
+and updates.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Support for dropping inheritable capabilities (<a href="https://github.com/containerd/containerd/pull/10469" target="_blank">#10469</a>)</li>
+</ul>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Make PodSandboxStatus friendlier to shim crashes (<a href="https://github.com/containerd/containerd/pull/10461" target="_blank">#10461</a>)</li>
+<li>Handle empty DNSConfig differently than unspecified (<a href="https://github.com/containerd/containerd/pull/10462" target="_blank">#10462</a>)</li>
+<li>Fix for <code>[cri] ttrpc: closed</code> during ListPodSandboxStats (<a href="https://github.com/containerd/containerd/pull/10423" target="_blank">#10423</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Akihiro Suda</li>
+<li>Phil Estes</li>
+<li>Akhil Mohan</li>
+<li>Bryant Biggs</li>
+<li>Danny Canter</li>
+<li>Davanum Srinivas</li>
+<li>Mike Brown</li>
+<li>Samuel Karp</li>
+<li>Tim Hockin</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>16 commits</summary>
+<p>
+
+* Prepare release notes for v1.7.20 ([#10481](https://github.com/containerd/containerd/pull/10481))
+  * [`7f2d4cd97`](https://github.com/containerd/containerd/commit/7f2d4cd978f602bc5f68c3a3f7123a834150fe1d) Prepare release notes for v1.7.20
+* deps: Update otelgrpc ([#10413](https://github.com/containerd/containerd/pull/10413))
+  * [`3a02c523d`](https://github.com/containerd/containerd/commit/3a02c523d07fd8636b72ba8de6fd21d6c3ffa042) deps: Update otelgrpc
+* Make PodSandboxStatus friendlier to shim crashes ([#10461](https://github.com/containerd/containerd/pull/10461))
+  * [`df86bdd5d`](https://github.com/containerd/containerd/commit/df86bdd5dc6a9948e65fe8a8a296052b19734286) CRI Sbserver: Make PodSandboxStatus friendlier to shim crashes
+* Handle empty DNSConfig differently than unspecified ([#10462](https://github.com/containerd/containerd/pull/10462))
+  * [`209ee4f10`](https://github.com/containerd/containerd/commit/209ee4f107af61f1385bb77770c9ae0568add13e) CRI: An empty DNSConfig != unspecified
+* Support for dropping inheritable capabilities ([#10469](https://github.com/containerd/containerd/pull/10469))
+  * [`ce65228af`](https://github.com/containerd/containerd/commit/ce65228afd0b0fce6f5ef3dd0d7ec312b2c552b0) Support for dropping inheritable capabilities
+* Fix for `[cri] ttrpc: closed` during ListPodSandboxStats ([#10423](https://github.com/containerd/containerd/pull/10423))
+  * [`610498df7`](https://github.com/containerd/containerd/commit/610498df750c3b30b137ddb4ab236e5b0a84ceda) Fix for `[cri] ttrpc: closed` during ListPodSandboxStats
+* update to go1.21.12 / go1.22.5 ([#10426](https://github.com/containerd/containerd/pull/10426))
+  * [`e61c7932e`](https://github.com/containerd/containerd/commit/e61c7932efc40f7246eaffb00b19fd697c0447f8) update to go1.21.12 / go1.22.5
+* errdefs: denote deprecation as a godoc comment ([#10424](https://github.com/containerd/containerd/pull/10424))
+  * [`c7d5e430a`](https://github.com/containerd/containerd/commit/c7d5e430a4dc9e7fb3a0241adfb5477466f09c59) errdefs: denote deprecation as a godoc comment
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/go-logr/logr</strong>                                                      v1.2.4 -&gt; v1.3.0</li>
+<li><strong>github.com/google/go-cmp</strong>                                                     v0.5.9 -&gt; v0.6.0</li>
+<li><strong>github.com/google/uuid</strong>                                                       v1.3.1 -&gt; v1.4.0</li>
+<li><strong>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc</strong>  v0.45.0 -&gt; v0.46.1</li>
+<li><strong>go.opentelemetry.io/otel</strong>                                                     v1.19.0 -&gt; v1.21.0</li>
+<li><strong>go.opentelemetry.io/otel/metric</strong>                                              v1.19.0 -&gt; v1.21.0</li>
+<li><strong>go.opentelemetry.io/otel/sdk</strong>                                                 v1.19.0 -&gt; v1.21.0</li>
+<li><strong>go.opentelemetry.io/otel/trace</strong>                                               v1.19.0 -&gt; v1.21.0</li>
+<li><strong>google.golang.org/genproto</strong>                                                   e6e6cdab5c13 -&gt; 989df2bf70f3</li>
+<li><strong>google.golang.org/genproto/googleapis/api</strong>                                    007df8e322eb -&gt; 83a465c0220f</li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>                                    d307bd883b97 -&gt; 995d672761c0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.19" target="_blank">v1.7.19</a></p>
+<br><h3>Release notes for containerd 1.6.34</h3><h4>2024-07-18</h4><p>Welcome to the v1.6.34 release of containerd!</p>
+
+<p>The thirty-fourth patch release for containerd 1.6 contains various fixes
+and updates.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Remove overlayfs volatile option on temp mounts (<a href="https://github.com/containerd/containerd/pull/10333" target="_blank">#10333</a>)</li>
+<li>Update runc binary to v1.1.13 (<a href="https://github.com/containerd/containerd/pull/10335" target="_blank">#10335</a>)</li>
+</ul>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Handle empty DNSConfig differently than unspecified (<a href="https://github.com/containerd/containerd/pull/10463" target="_blank">#10463</a>)</li>
+<li>Fix HPC working directory in pkg/cri/server code (<a href="https://github.com/containerd/containerd/pull/10361" target="_blank">#10361</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Prepare release notes for v1.6.34 (<a href="https://github.com/containerd/containerd/pull/10480" target="_blank">#10480</a>)</li>
+<li>Support for dropping inheritable capabilities (<a href="https://github.com/containerd/containerd/pull/10470" target="_blank">#10470</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Akihiro Suda</li>
+<li>Sebastiaan van Stijn</li>
+<li>Wei Fu</li>
+<li>Akhil Mohan</li>
+<li>Maksim An</li>
+<li>Maksym Pavlenko</li>
+<li>Mike Brown</li>
+<li>Phil Estes</li>
+<li>Samuel Karp</li>
+<li>Tim Hockin</li>
+<li>Yuanyuan Lei</li>
+<li>krglosse</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>26 commits</summary>
+<p>
+
+* Prepare release notes for v1.6.34 ([#10480](https://github.com/containerd/containerd/pull/10480))
+  * [`b2863e9e7`](https://github.com/containerd/containerd/commit/b2863e9e712c07af8141aefddc052dc9e9a90bf6) Prepare release notes for v1.6.34
+* Handle empty DNSConfig differently than unspecified ([#10463](https://github.com/containerd/containerd/pull/10463))
+  * [`b7d06a619`](https://github.com/containerd/containerd/commit/b7d06a619215bd1972ef19c4870e8e7f81c6dc6f) CRI: An empty DNSConfig != unspecified
+* Support for dropping inheritable capabilities ([#10470](https://github.com/containerd/containerd/pull/10470))
+  * [`8d2739857`](https://github.com/containerd/containerd/commit/8d27398577471912762bb1aa53d68c6e315bbe54) Support for dropping inheritable capabilities
+* errdefs: denote deprecation as a godoc comment ([#10425](https://github.com/containerd/containerd/pull/10425))
+  * [`ce685376f`](https://github.com/containerd/containerd/commit/ce685376f06d6bd6c9ba9c1581f4487930964dff) errdefs: denote deprecation as a godoc comment
+* update to go1.21.12 / go1.22.5 ([#10427](https://github.com/containerd/containerd/pull/10427))
+  * [`634ae543d`](https://github.com/containerd/containerd/commit/634ae543d4df4a0fd73cc5d6a4163027be220010) update to go1.21.12 / go1.22.5
+* Updating hcsshim vendoring to 0.9.12 to include an important backported fix ([#10398](https://github.com/containerd/containerd/pull/10398))
+  * [`a0adb2933`](https://github.com/containerd/containerd/commit/a0adb29333f7d2b4b5afe389105b35a4cfcf946a) Updating hcsshim to 0.9.12
+* golangci-lint: enable depguard for packages that moved ([#10368](https://github.com/containerd/containerd/pull/10368))
+  * [`3ea0c4983`](https://github.com/containerd/containerd/commit/3ea0c498361e40a23b5e5c3781efe4cc7baf1725) golangci-lint: enable depguard for packages that moved
+* Fix HPC working directory in pkg/cri/server code ([#10361](https://github.com/containerd/containerd/pull/10361))
+  * [`086e1f56e`](https://github.com/containerd/containerd/commit/086e1f56e446740466b113a04f201e2040ae5a22) [release/1.7]: HPC working directory fix in pkg/cri/server code
+* Remove overlayfs volatile option on temp mounts ([#10333](https://github.com/containerd/containerd/pull/10333))
+  * [`166283a34`](https://github.com/containerd/containerd/commit/166283a34d6060d9c569673423440a2b1cf0ad85) integration: backport upgrade testsuite's utils
+  * [`990a05d0a`](https://github.com/containerd/containerd/commit/990a05d0a851f2b188d97a884554b809e0361462) *: export RemoveVolatileOption for CRI image volumes
+  * [`a894b5f81`](https://github.com/containerd/containerd/commit/a894b5f810756a3cbcc6d5d2b544a2a5e836e954) strip-volatile-option-tmp-mounts
+* Update runc binary to v1.1.13 ([#10335](https://github.com/containerd/containerd/pull/10335))
+  * [`f6ef0071b`](https://github.com/containerd/containerd/commit/f6ef0071b487e3db7ad8c1ebc4ca0c50ac4698f4) update runc binary to v1.1.13
+* Update Fedora and EL linux version in vagrant ([#10339](https://github.com/containerd/containerd/pull/10339))
+  * [`89bb437f8`](https://github.com/containerd/containerd/commit/89bb437f8b25840a2efbd2278d0f0b1b06025b13) Remove rocklinux 9
+  * [`01fa3d0d7`](https://github.com/containerd/containerd/commit/01fa3d0d77f487e64a1a3f9760277fd16fa0289b) Backport version from box string in Vagrantfile
+  * [`0be3788f5`](https://github.com/containerd/containerd/commit/0be3788f52f8e5889a018006b002f00cca63e4dd) Update Fedora and EL linux version
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/Microsoft/hcsshim</strong>  v0.9.11 -&gt; v0.9.12</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.6.33" target="_blank">v1.6.33</a></p>
+<br><h2>kubernetes/kops</h2> <h3>Release notes for v1.28.7</h3><h4>2024-07-21</h4><p>(Note that v1.28.6 was not released, due to an problem in the release process)</p>
+
+<h2 id="what-s-changed-since-v1-28-5">What&rsquo;s Changed (since v1.28.5)</h2>
+
+<ul>
+<li>Support definition of kube-controller-manager by @chubchubsancho in <a href="https://github.com/kubernetes/kops/pull/16609" target="_blank">https://github.com/kubernetes/kops/pull/16609</a></li>
+<li>Update Calico to v3.27.3 by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16613" target="_blank">https://github.com/kubernetes/kops/pull/16613</a></li>
+<li>Update golang to 1.22.5 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16652" target="_blank">https://github.com/kubernetes/kops/pull/16652</a></li>
+<li>Create a dedicated staging bucket for kops builds by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16678" target="_blank">https://github.com/kubernetes/kops/pull/16678</a></li>
+<li>Fix cluster-autoscaler priority expander config by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16673" target="_blank">https://github.com/kubernetes/kops/pull/16673</a></li>
+<li>Bump cloudbuild to go 1.22.5 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16683" target="_blank">https://github.com/kubernetes/kops/pull/16683</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kops/compare/v1.28.5...v1.28.7" target="_blank">https://github.com/kubernetes/kops/compare/v1.28.5&hellip;v1.28.7</a></p>
+<br><h2>kubernetes/cloud-provider-vsphere</h2> <h3>Release notes for v1.31.0-beta.0</h3><h4>2024-07-18</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>:seedling: Bump github.com/onsi/gomega from 1.32.0 to 1.33.0 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/983" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/983</a></li>
+<li>update dependent bot by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/985" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/985</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.36.3 to 0.37.1 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/992" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/992</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.37.0 to 0.37.1 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/987" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/987</a></li>
+<li>Add additional members to maintainers alias by @sunjayBhatia in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/943" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/943</a></li>
+<li>:seedling: Bump github.com/onsi/gomega from 1.33.0 to 1.33.1 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1002" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1002</a></li>
+<li>add skriss to maintainers alias by @skriss in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1004" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1004</a></li>
+<li>Fix node name didn&rsquo;t get deleted from node map when node deleted by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/997" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/997</a></li>
+<li>Add gcp cloud build configuration for vsphere cloud provider by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/999" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/999</a></li>
+<li>Add nightly cloud build yaml by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1016" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1016</a></li>
+<li>Add pull request cloudbuild configuration for cloud provider vsphere by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1017" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1017</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.37.1 to 0.37.2 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1020" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1020</a></li>
+<li>change vsphere cpi image path by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1018" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1018</a></li>
+<li>Add kpromo script by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1024" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1024</a></li>
+<li>Add kpromo action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1025" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1025</a></li>
+<li>:seedling: Bump github.com/onsi/ginkgo/v2 from 2.17.2 to 2.17.3 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1012" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1012</a></li>
+<li>fix kpromo action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1026" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1026</a></li>
+<li>fix virtual machine service can&rsquo;t be created issue by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1028" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1028</a></li>
+<li>:seedling: Bump the kubernetes group with 6 updates by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1031" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1031</a></li>
+<li>test: remove helm go dependency in e2e test by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1046" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1046</a></li>
+<li>test: use a daemonset and kubectl exec to provide images for ci test by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1045" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1045</a></li>
+<li>test: Update e2e test to run against 1.30 and latest 1.31 by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1047" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1047</a></li>
+<li>Add hack/tools module to dependabot config by @sunjayBhatia in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1051" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1051</a></li>
+<li>:seedling: Bump github.com/onsi/ginkgo/v2 from 2.17.3 to 2.19.0 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1055" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1055</a></li>
+<li>:seedling: Bump sigs.k8s.io/kind from 0.11.0 to 0.23.0 in /hack/tools by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1052" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1052</a></li>
+<li>:seedling: Bump github.com/onsi/ginkgo/v2 from 2.11.0 to 2.19.0 in /hack/tools by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1053" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1053</a></li>
+<li>automatic generate release notes by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1056" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1056</a></li>
+<li>clean up scripts to push image for vmware registry by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1049" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1049</a></li>
+<li>fix integration test by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1061" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1061</a></li>
+<li>test/e2e: Bump k8s 0.30.1 by @sunjayBhatia in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1050" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1050</a></li>
+<li>update all the image registry related document by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1060" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1060</a></li>
+<li>fix helm chart release by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1062" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1062</a></li>
+<li>verify generate release note github action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1058" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1058</a></li>
+<li>🌱 Use absolute paths in tests by @sbueringer in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1063" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1063</a></li>
+<li>add github action to auto sync doc changes to gh-pages by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1059" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1059</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.37.2 to 0.37.3 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1068" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1068</a></li>
+<li>⚙️ Add a script to auto change all the docs, helm chart and readme by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1066" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1066</a></li>
+<li>:seedling: Bump sigs.k8s.io/controller-runtime from 0.18.3 to 0.18.4 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1076" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1076</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.37.2 to 0.37.3 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1077" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1077</a></li>
+<li>test/e2e: use vSphere projects from Boskos by @sbueringer in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1067" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1067</a></li>
+<li>fix kpromo action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1091" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1091</a></li>
+<li>fix update docs script by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1094" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1094</a></li>
+<li>fix generate release notes github action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1096" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1096</a></li>
+<li>fix release github action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1099" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1099</a></li>
+<li>:seedling:(deps) Bump the Kubernetes group to  by @github-actions in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1101" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1101</a></li>
+<li>:seedling: Bump the kubernetes group in /test/e2e with 4 updates by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1115" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1115</a></li>
+<li>:seedling: Bump github.com/spf13/cobra from 1.8.0 to 1.8.1 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1109" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1109</a></li>
+<li>:seedling: Bump the kubernetes group with 6 updates by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1108" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1108</a></li>
+<li>fix generate release note action by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1117" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1117</a></li>
+<li>:seedling:(deps)test: Bump the kubernetes group to v2.130.1 for e2e test by @github-actions in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1121" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1121</a></li>
+<li>:seedling:(deps) Bump the Kubernetes group to  by @github-actions in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1122" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1122</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.37.3 to 0.38.0 in /test/e2e by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1124" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1124</a></li>
+<li>⚙️ CI: remove VSPHERE_TLS_THUMBPRINT default value and switch to sha256 by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1127" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1127</a></li>
+<li>✨ vm-operator: migrate to vm-operator v1alpha2 api by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1126" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1126</a></li>
+<li>:seedling: Bump github.com/vmware/govmomi from 0.37.3 to 0.38.0 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1130" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1130</a></li>
+<li>Fix the unknown revision error by @DanielXiao in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1139" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1139</a></li>
+<li>⚙️ fix: downgrade vm op api to fix ci by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1140" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1140</a></li>
+<li>✨  Update daemonset.yaml to remove deprecated master selector by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1144" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1144</a></li>
+<li>⚙️  change ci tooling related image to cloud provider vsphere own registry by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1143" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1143</a></li>
+<li>🌱(deps) Bump the Kubernetes group to v0.31.0-beta.0 by @XudongLiuHarold in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1150" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1150</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@sunjayBhatia made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/943" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/943</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.30.1...v1.31.0-beta.0" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.30.1&hellip;v1.31.0-beta.0</a></p>
+<br><h2>kubernetes-sigs/kustomize</h2> <h3>Release notes for kyaml/v0.17.2</h3><h4>2024-07-19</h4><h2 id="chore">chore</h2>
+
+<p>#5413: chore(docs): fix grammar error in comment
+#5506: fix some comments</p>
+<br><h3>Release notes for kustomize/v5.4.3</h3><h4>2024-07-19</h4><h1 id="caution">Caution</h1>
+
+<p>The <code>kustomize localize</code> subcommand(this subcommand is now in the <code>beta</code> stage) now verifies the success of <code>kustomize build</code> when executed.
+If you are using the missing manifests, maybe you failed to download them with the <code>localize</code> subcommand. Please use the <code>--no-verify</code> flag to skip validation steps.
+#5544: Run kustomize build with kustomize localize and add a no-verify flag.</p>
+
+<h2 id="fix-bugs">Fix Bugs</h2>
+
+<p>#5682: fix: include label in templates when adding by cli
+#5689: Fix sortOptions removal when running edit command</p>
+
+<h2 id="chore">chore</h2>
+
+<p>#5506: fix some comments
+#5718: fix lint error in kustomizationfile_test.go</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5734: Update kyaml to v0.17.2
+#5735: Update cmd/config to v0.14.2
+#5736: Update api to v0.17.3</p>
+<br><h3>Release notes for cmd/config/v0.14.2</h3><h4>2024-07-19</h4><h2 id="dependencies">Dependencies</h2>
+
+<p>#5734: Update kyaml to v0.17.2</p>
+
+<h2 id="chore">chore</h2>
+
+<p>#5506: fix some comments
+#5707: fix:kustomize cfg grep with no arguments causes panic</p>
+<br><h3>Release notes for api/v0.17.3</h3><h4>2024-07-19</h4><h2 id="chore">chore</h2>
+
+<p>#5506: fix some comments
+#5693: fix: always show accumulation errors
+#5699: chore: add deprecation comment to commonLabels
+#5698: fix(namereference): add configuration for new admission API</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5734: Update kyaml to v0.17.2</p>
+<br><h2>kubernetes-sigs/kubespray</h2> <h3>Release notes for v2.24.2</h3><h4>2024-07-17</h4><h2 id="changes-by-kind">Changes by Kind</h2>
+
+<h3 id="feature">Feature</h3>
+
+<ul>
+<li>Make kubernetes v1.28.10 default (#11269, @mzaian)</li>
+<li>Revert &lsquo;Support CoreDNS use host network &amp; config CoreDNS port&rsquo; (#10617, @liuxu623)</li>
+<li>User has a possibility to modify Service type with &ldquo;ingress_nginx_service_type&rdquo; property in addons. (#11330, @mochizuki875)</li>
+</ul>
+
+<h3 id="bug-or-regression">Bug or Regression</h3>
+
+<ul>
+<li><p>Ingress-nginx-controller admission service is automatically created when <code>ingress_nginx_webhook_enabled: true</code> (#11331, @mochizuki875)</p></li>
+
+<li><p>Fix CentOS 7 yum repo baseurl update (#11364, @tico88612 )</p></li>
+
+<li>
+<h3 id="other-cleanup-or-flake">Other (Cleanup or Flake)</h3></li>
+
+<li><p>Remove the archived debian apt repository when installing docker-engine (#11215, @VannTen )</p></li>
+
+<li><p>Update KUBESPRAY_VERSION in galaxy.yml  v2.24.1 (#10961, @yankay)</p></li>
+</ul>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.65.1</h3><h4>2024-07-16</h4><p>This is release gRPC Core 1.65.1 (gnarly).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes.</p>
+<br>
+</body>
+
+</html>
