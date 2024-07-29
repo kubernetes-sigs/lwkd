@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-07-22</h1><h2>grpc/grpc</h2> <h3>Release notes for Release v1.65.2</h3><h4>2024-07-26</h4><p>This is release gRPC Core 1.65.2 (gnarly).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes.</p>
+<br><h2>kubernetes/kops</h2> <h3>Release notes for v1.29.2</h3><h4>2024-07-24</h4><p>(Note that v1.29.1 was not released, due to an problem in the release process)</p>
+
+<h2 id="what-s-changed-since-v1-29-0">What&rsquo;s Changed (since v1.29.0)</h2>
+
+<ul>
+<li>Upgrade node-termination-handler to 1.22.0 by @jim-barber-he in <a href="https://github.com/kubernetes/kops/pull/16595" target="_blank">https://github.com/kubernetes/kops/pull/16595</a></li>
+<li>Make ASG Warmpool depend on ASG Lifecycle hook by @jim-barber-he in <a href="https://github.com/kubernetes/kops/pull/16603" target="_blank">https://github.com/kubernetes/kops/pull/16603</a></li>
+<li>Support kube-controller-manager component by @chubchubsancho in <a href="https://github.com/kubernetes/kops/pull/16608" target="_blank">https://github.com/kubernetes/kops/pull/16608</a></li>
+<li>Update aws-iam-authenticator image by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16616" target="_blank">https://github.com/kubernetes/kops/pull/16616</a></li>
+<li>Update Go to v1.21.4 by @hakman in <a href="https://github.com/kubernetes/kops/pull/16619" target="_blank">https://github.com/kubernetes/kops/pull/16619</a></li>
+<li>Upgrade cilium to v1.15.6 by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16628" target="_blank">https://github.com/kubernetes/kops/pull/16628</a></li>
+<li>Update golang to 1.22.5 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16653" target="_blank">https://github.com/kubernetes/kops/pull/16653</a></li>
+<li>Fix cluster-autoscaler priority expander config by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16672" target="_blank">https://github.com/kubernetes/kops/pull/16672</a></li>
+<li>Bump cloudbuild to go 1.22.5 by @justinsb in <a href="https://github.com/kubernetes/kops/pull/16684" target="_blank">https://github.com/kubernetes/kops/pull/16684</a></li>
+<li>Add the hubble-metrics service for cilium by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16687" target="_blank">https://github.com/kubernetes/kops/pull/16687</a></li>
+<li>Add new API field for VPC CNI&rsquo;s network policy agent by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/16689" target="_blank">https://github.com/kubernetes/kops/pull/16689</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kops/compare/v1.29.0...v1.29.2" target="_blank">https://github.com/kubernetes/kops/compare/v1.29.0&hellip;v1.29.2</a></p>
+<br><h2>containernetworking/cni</h2> <h3>Release notes for libcni v1.2.3</h3><h4>2024-07-22</h4><p>This is a minor release to correct a divergence between the specification and libcni. In this case, the specification was updated, as it concerns a new feature, GC, that is not yet deployed.</p>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>SPEC, libcni: harmonize GC valid-attachment key by @squeed in <a href="https://github.com/containernetworking/cni/pull/1103" target="_blank">https://github.com/containernetworking/cni/pull/1103</a></li>
+</ul>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.1.1</h3><h4>2024-07-23</h4><p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v4.1.0" target="_blank">v4.1.0</a></strong></p>
+
+<h3 id="new-features">✨ New Features</h3>
+
+<ul>
+<li><strong>(go/v4)</strong>: Upgrade golangci-lint from <code>v1.57.2</code> to <code>v1.59.1</code> (#4030)</li>
+<li><strong>(go/v4)</strong>: makefile: create unversioned symlinks for configurable binaries tools (#4013)</li>
+<li><strong>(kustomize/v2, go/v4)</strong>: upgrade kustomize version from <code>v5.4.1</code> to <code>v5.4.2</code> (#4029)</li>
+<li><strong>(Only relevant for users of Kubebuilder as a library)</strong>: Add new CLI option and allow access to underlying CLI command (#4011)</li>
+</ul>
+
+<h3 id="bug-fixes">🐛 Bug Fixes</h3>
+
+<ul>
+<li><strong>(go/v4)</strong>: Fix security concerns by only enabling FilterProvider to protect the metrics endpoint with authn/authz when secureMetrics is true (#4022)</li>
+<li><strong>(go/v4)</strong>: Align Go Version in go.mod Template to 1.22.0 (#4012)</li>
+<li><strong>(go/v4)</strong>: Small cleanup in the main.go to keep all variables used defined on top of the file (#4036)</li>
+<li><strong>(go/v4)</strong>: Fix golang documentation of the method LoadImageToKindClusterWithName scaffold in the e2e tests (#4034)</li>
+<li><strong>(go/v4)</strong>: Fix validation used to ensure Kind versions pattern (#3986)</li>
+<li><strong>(kustomize/v2, go/v4)</strong>: Add missing labels for config/default/manager_webhook_patch.yaml (#4028)</li>
+</ul>
+
+<blockquote>
+<p><strong>Note</strong> <em>Based on the changes, it seems appropriate to release these updates as version <strong>4.1.1</strong> rather than <strong>4.2.0</strong>. The new features are minor improvements which only affect new projects and do not introduce breaking changes or significant new functionality for existing users.</em></p>
+</blockquote>
+
+<h2 id="what-s-changed-full-changelog">What&rsquo;s Changed (Full Changelog)</h2>
+
+<ul>
+<li>🌱  Bump golang.org/x/tools from 0.22.0 to 0.23.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4007" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4007</a></li>
+<li>✨ (Only relevant for users of Kubebuilder as a library) - Add new cli option and allow access to underlying cli command by @beatrausch in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4011" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4011</a></li>
+<li>🐛 Align Go Version in go.mod Template to 1.22.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4012" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4012</a></li>
+<li>📖 Upgrade controller-gen used to generated the docs and remove redirects for artefact images  by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4010" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4010</a></li>
+<li>✨ Makefile: Create Version-Agnostic Symlinks for Specified Versioned Binaries by @schrej in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4013" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4013</a></li>
+<li>📖 docs: correct typo in migration guide by @Gearheads in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4015" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4015</a></li>
+<li>📖 clarify in note that metrics are protected by default via controller-runtime feature by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4026" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4026</a></li>
+<li>📖 Update roadmap_2024.md - with the latest changes and by order the tasks adding what was done at the bottom of the page by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4027" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4027</a></li>
+<li>🐛 (kustomize/v2,go/v4): add missing labels for config/default/manager_webhook_patch.yaml by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4028" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4028</a></li>
+<li>✨ (kustomize/v2,go/v4): upgrade kustomize version from v5.4.1 to v5.4.2 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4029" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4029</a></li>
+<li>✨ Upgrade golangci-lint from v1.57.2 to v1.59.1 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4030" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4030</a></li>
+<li>🌱 Update release.yml - Update goreleaser from 1.11.2 to v2.1.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4031" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4031</a></li>
+<li>🌱 Update Makefile - Remove makefile target to test legacy project no longer supported by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4032" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4032</a></li>
+<li>📖 Update test examples not to set Status on create by @hsadoyan in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4016" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4016</a></li>
+<li>🐛 Fix validation used to ensure Kind versions pattern by @Kavinjsir in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/3986" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/3986</a></li>
+<li>🐛 Fix golang documentation of the method LoadImageToKindClusterWithName  scaffold in the e2e tests by @fengshunli in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4034" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4034</a></li>
+<li>🐛 Fix security concerns by only enabling FilterProvider to protect the metrics endpoint with authn/authz when secureMetrics is true by @alex-kattathra-johnson in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4022" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4022</a></li>
+<li>🐛 cleanup/enhancement: keep all variables used defined on top of<code>main.go</code> by @fengshunli in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4036" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4036</a></li>
+<li>🌱 fix error faced during release process by ensuring dist directory is cleaned before running GoReleaser by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4040" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4040</a></li>
+<li>🌱 Upgrade goreleaser by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4041" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4041</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@schrej made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4013" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4013</a></li>
+<li>@hsadoyan made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4016" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4016</a></li>
+<li>@fengshunli made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4034" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4034</a></li>
+<li>@alex-kattathra-johnson made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4022" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4022</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v4.1.0...v4.1.1" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v4.1.0&hellip;v4.1.1</a></p>
+<br>
+</body>
+
+</html>
