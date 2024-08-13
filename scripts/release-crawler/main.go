@@ -157,10 +157,10 @@ func main() {
 
 	var mdContent string
 	var htmlContent string
-	htmlContent += "<h1>Latest Releases for " + oneWeekAgo.Format("2006-01-02") + "</h1>"
-	mdContent += "# Latest Releases for " + oneWeekAgo.Format("2006-01-02") + "  \n"
+	htmlContent += "<h1>Latest Releases for the week " + oneWeekAgo.Format("2006-01-02") + " - " + now.Format("2006-01-02") + "</h1>"
+	mdContent += "# Latest Releases for the week " + oneWeekAgo.Format("2006-01-02") + " - " + now.Format("2006-01-02") + "   \n"
 
-	weekfile := oneWeekAgo.Format("2006-01-02")
+	weekfile := now.Format("2006-01-02")
 
 	for p, rs := range repos {
 		for _, r := range rs {
@@ -185,6 +185,7 @@ func main() {
 						htmlContent += "<h4>" + release.GetPublishedAt().Format("2006-01-02") + "</h4>"
 
 						mdContent += "### Release notes for " + release.GetName() + "  \n"
+						mdContent += "#### [" + r + " " + release.GetTagName() + "](" + release.GetHTMLURL() + ")  \n"
 						mdContent += "#### " + release.GetPublishedAt().Format("2006-01-02") + "  \n"
 
 						content := []byte(release.GetBody())
