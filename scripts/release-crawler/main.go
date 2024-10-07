@@ -47,6 +47,7 @@ var repos map[string][]string = map[string][]string{
 		"cloud-provider-alibaba-cloud",
 	},
 	"kubernetes-sigs": {
+		"cluster-api-provider-vsphere",
 		"cluster-api",
 		"kind",
 		"kubebuilder",
