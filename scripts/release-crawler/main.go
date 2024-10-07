@@ -36,7 +36,6 @@ var repos map[string][]string = map[string][]string{
 		"kops",
 		"kubeadm",
 		"ngninx-ingress",
-		"cluster-api",
 		"cloud-provider",
 		"cloud-provider-aws",
 		"cloud-provider-gcp",
@@ -49,6 +48,7 @@ var repos map[string][]string = map[string][]string{
 	},
 	"kubernetes-sigs": {
 		"cluster-api-provider-vsphere",
+		"cluster-api",
 		"kind",
 		"kubebuilder",
 		"kustomize",
