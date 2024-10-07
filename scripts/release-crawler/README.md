@@ -39,7 +39,7 @@ The collected release notes are stored as html and as MD format to be an easy us
 |kubernetes|kops           |[kops](https://github.com/kubernetes/kops)|
 |kubernetes|kubeadm           |[kubeADM](https://github.com/kubernetes/kubeadm)|
 |kubernetes|ngninx-ingress           |[NGINX Ingress](https://github.com/kubernetes/ngninx-ingress )|
-|kubernetes|cluster-api           |[ClusterAPI](https://github.com/kubernetes/cluster-api)|
+|kubernetes|cluster-api           |[Cluster API](https://github.com/kubernetes-sigs/cluster-api)|
 |kubernetes|cluster-api-provider-vsphere|[Cluster API Provider vSphere](https://github.com/kubernetes-sigs/cluster-api-provider-vsphere)|
 |kubernetes-sigs|kubespray          |[Kubespray](https://github.com/kubernetes-sigs/kubespray)|
 |etcd-io|etcd           |[ETCD](https://github.com/etcd-io/etcd)|
