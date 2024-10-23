@@ -12,9 +12,6 @@ Editors:
 
 * [Josh Berkus](https://github.com/jberkus)
 * [Sreeram Venkitesh](https://github.com/sreeram-venkitesh)
-
-Tech Lead:
-
 * [Noah Kantrowitz](https://github.com/coderanger)
 
 LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our regular contributors in 2024 are:
@@ -41,7 +38,7 @@ You can reach the maintainers of this project at:
 
 ## Logo
 
-* The LWKD logo was designed and donated by [GraphArtgency](https://www.graphartgency.com/). Contact them for community-friendly graphic design!
+* The LWKD logo was designed and donated by **GraphArtgency**.
 
 ### Code of conduct
 
