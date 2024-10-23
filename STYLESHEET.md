@@ -174,10 +174,16 @@ Patch releases are expected for all supported versions this week.
 * The week after patch releases come out, report that, including anything notable (particularly CVEs) fixed in that patch release.
 
 ```
-Patch releases [1.28.4](https://groups.google.com/g/kubernetes-announce/c/k5HaLtE8jnM), [1.27.8](https://groups.google.com/g/kubernetes-announce/c/GLQ2R0e9OaE), [1.26.11](https://groups.google.com/g/kubernetes-announce/c/iHSD1DMNjd8) and [1.25.16](https://groups.google.com/g/kubernetes-announce/c/CNZH-8Cn_n8) came out last week, including golang updates.
+Patch releases [1.30.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.30.md), [1.29.5](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md), [1.28.10](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md), and [1.27.14](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.27.md) are available. This is largely a bigfix release, including patch some 1.30 regressions, and an golang update.
 ```
 
+Note the link to the CHANGELOG entries, rather than to the email announcements or the specific branch releases.  This allows us to skip updating the links every month.
+
 * Remember to report any versions which are about to be, or are already, EOL.
+
+```
+This will be the last update for version 1.26. if you are still using 1.26, start planning your upgrade now.
+```
 
 ### Version Updates and Subproject Updates
 
