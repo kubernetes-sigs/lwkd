@@ -12,9 +12,6 @@ Editors:
 
 * [Josh Berkus](https://github.com/jberkus)
 * [Sreeram Venkitesh](https://github.com/sreeram-venkitesh)
-
-Tech Lead:
-
 * [Noah Kantrowitz](https://github.com/coderanger)
 
 LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our regular contributors in 2024 are:
