@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2024-10-21 - 2024-10-28</h1><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.3.0</h3><h4>2024-10-22</h4><h2 id="important-notice">⚠️ Important Notice:</h2>
+
+<p><strong>(Only projects using webhooks are impacted by)</strong></p>
+
+<p>Controller runtime has deprecated the <code>webhook.Validator</code> and <code>webhook.Defaulter</code> interfaces, and they will no longer be provided in future versions. Therefore, projects must adopt the new <code>CustomValidator</code> and <code>CustomDefaulter</code> interfaces to remain compatible with <a href="https://github.com/kubernetes-sigs/controller-runtime" target="_blank">controller-runtime</a> <code>v0.20.0</code> and upper versions. For more details, refer to <a href="https://github.com/kubernetes-sigs/controller-runtime/issues/2641" target="_blank">controller-runtime/issues/2641</a>.</p>
+
+<p><strong>Furthermore, webhooks should no longer reside under the <code>api</code> directory. Instead, they should be relocated to <code>internal/webhook</code>. For now, you can scaffold webhooks in the legacy path (under <code>api</code>) by using the command <code>kubebuilder create webhook [OPTIONS] --legacy=true</code>, which scaffolds using the <code>CustomValidator</code> and <code>CustomDefaulter</code> interfaces. However, please note that this flag is deprecated and will be removed in upcoming releases.</strong></p>
+
+<h3 id="steps-to-migrate">Steps to Migrate:</h3>
+
+<ol>
+<li><strong>Move Webhook Files to the Internal Directory:</strong></li>
+</ol>
+
+<p>Depending on your project structure, move the webhook files:</p>
+
+<ul>
+<li><p><strong>Single Group Layout:</strong> Move from <code>api/&lt;version&gt;</code> to <code>internal/webhook/&lt;version&gt;</code>.</p>
+
+<p><strong>Before:</strong></p>
+
+<pre><code> api/
+ ├── &lt;version&gt;/
+ │   ├── &lt;kind&gt;_webhook.go
+ │   ├── &lt;kind&gt;_webhook_test.go
+ │   └── webhook_suite_test.go
+</code></pre>
+<p><strong>After:</strong></p>
+
+<pre><code> internal/
+ ├── webhook/
+ │   └── &lt;version&gt;/
+ │       ├── &lt;kind&gt;_webhook.go
+ │       ├── &lt;kind&gt;_webhook_test.go
+ │       └── webhook_suite_test.go
+</code></pre></li>
+
+<li><p><strong>Multigroup Layout:</strong> Move from <code>api/&lt;group&gt;/&lt;version&gt;</code> to <code>internal/webhook/&lt;group&gt;/&lt;version&gt;</code>.</p>
+
+<p><strong>Before:</strong></p>
+
+<pre><code> api/
+ ├── &lt;group&gt;/
+ │   └── &lt;version&gt;/
+ │       ├── &lt;kind&gt;_webhook.go
+ │       ├── &lt;kind&gt;_webhook_test.go
+ │       └── webhook_suite_test.go
+</code></pre>
+<p><strong>After:</strong></p>
+
+<pre><code> internal/
+ ├── webhook/
+ │   └── &lt;group&gt;/
+ │       └── &lt;version&gt;/
+ │           ├── &lt;kind&gt;_webhook.go
+ │           ├── &lt;kind&gt;_webhook_test.go
+ │           └── webhook_suite_test.go
+</code></pre></li>
+</ul>
+
+<ol>
+<li><strong>Update Imports:</strong></li>
+</ol>
+
+<p>After moving the files, ensure that all references to webhooks are updated in your <code>main.go</code> and other files. For example, update the import:</p>
+
+<ul>
+<li><p><strong>Before:</strong></p>
+
+<pre><code class="language-go"> import &quot;your_project/api/v1&quot;
+</code></pre></li>
+
+<li><p><strong>After:</strong></p>
+
+<pre><code class="language-go"> import &quot;your_project/internal/webhook/v1&quot;
+</code></pre></li>
+</ul>
+
+<ol>
+<li><strong>Replace Deprecated Interfaces with Custom Ones:</strong></li>
+</ol>
+
+<p>Replace <code>webhook.Validator</code> and <code>webhook.Defaulter</code> with the new <code>CustomValidator</code> and <code>CustomDefaulter</code> interfaces:</p>
+
+<ul>
+<li><p><strong>Before:</strong></p>
+
+<pre><code class="language-go"> var _ webhook.Validator = &amp;MyResource{}
+
+
+ func (r *MyResource) ValidateCreate() error { ... }
+ func (r *MyResource) ValidateUpdate() error { ... }
+ func (r *MyResource) ValidateDelete() error { ... }
+
+
+ var _ webhook.Defaulter = &amp;MyResource{}
+
+
+ func (r *MyResource) Default() { ... }
+</code></pre></li>
+
+<li><p><strong>After:</strong></p>
+
+<pre><code class="language-go"> var _ webhook.CustomValidator = &amp;MyResource{}
+
+
+ func (v *MyResource) ValidateCreate(ctx context.Context, obj runtime.Object) (admission.Warnings, error) {
+     myResource, ok := obj.(*MyResource)
+     if !ok { return nil, fmt.Errorf(&quot;expected MyResource, got %T&quot;, obj) }
+     return nil, validateMyResource(myResource)
+ }
+
+
+ func (v *MyResource) ValidateUpdate(ctx context.Context, oldObj, newObj runtime.Object) (admission.Warnings, error) {
+     myResource, ok := newObj.(*MyResource)
+     if !ok { return nil, fmt.Errorf(&quot;expected MyResource, got %T&quot;, newObj) }
+     return nil, validateMyResource(myResource)
+ }
+
+
+ func (v *MyResource) ValidateDelete(ctx context.Context, obj runtime.Object) (admission.Warnings, error) {
+     myResource, ok := obj.(*MyResource)
+     if !ok { return nil, fmt.Errorf(&quot;expected MyResource, got %T&quot;, obj) }
+     return nil, nil
+ }
+
+
+ var _ webhook.CustomDefaulter = &amp;MyResource{}
+
+
+ func (d *MyResource) Default(ctx context.Context, obj runtime.Object) error {
+     myResource, ok := obj.(*MyResource)
+     if !ok { return fmt.Errorf(&quot;expected MyResource, got %T&quot;, obj) }
+     // Defaulting logic
+     return nil
+ }
+</code></pre></li>
+</ul>
+
+<p><strong>Example:</strong> See the tutorial: <a href="https://github.com/kubernetes-sigs/kubebuilder/tree/master/docs/book/src/cronjob-tutorial/testdata/project/internal/webhook/v1" target="_blank">CronJob Webhook Example</a>.</p>
+
+<p><strong>Note:</strong> You might want to use the <a href="https://book.kubebuilder.io/reference/rescaffold" target="_blank">Upgrade Assistance</a> to re-scaffold your project and then apply your code changes on top, ensuring that all necessary updates are addressed. Also,</p>
+
+<h2 id="breaking-changes">⚠️ Breaking Changes</h2>
+
+<ul>
+<li><strong>(Only projects using webhooks are impacted by)</strong> <strong>(go/v4):</strong> Replaced the deprecated <code>webhook.Validator</code> and <code>webhook.Defaulter</code> interfaces with <code>CustomValidator</code> and <code>CustomDefaulter</code>. Projects using the old interfaces must migrate to ensure compatibility with future versions. (#4060)</li>
+<li><strong>(Only projects using webhooks are impacted by)</strong> <strong>(go/v4):</strong> Webhooks are now decoupled from the API directory. Webhook files should be moved from <code>api/&lt;version&gt;</code> or <code>api/&lt;group&gt;/&lt;version&gt;</code> to <code>internal/webhook/&lt;version&gt;</code> or <code>internal/webhook/&lt;group&gt;/&lt;version&gt;</code>. This restructuring improves project organization. (#4150)</li>
+<li><strong>(Impact only for library users):</strong> Removed the <code>APIPackagePathLegacy</code> method, which has been obsolete since release 4.0.0. This change cleans up unused code. (#4182)</li>
+<li><strong>(Impact only for library users):</strong> cleanup/refactor: Alpha Generate command. Move code source implementation to internal since this alpha feature is not designed to be imported by other tools (#4180)</li>
+<li><strong>(Impact only for library users):</strong> Removed the redundant <code>HasFragment</code> method, favoring <code>HasFileContentWith</code> to reduce duplication and simplify the codebase. (#4191)</li>
+</ul>
+
+<h2 id="new-features">✨ New Features</h2>
+
+<ul>
+<li><strong>(go/v4):</strong> Added DevContainer support, making development in environments like GitHub Workspaces easier by removing the need for local setup. (#4078)</li>
+<li><strong>(go/v4):</strong> The e2e test scaffolding has been improved with a comprehensive set of tests under <code>e2e/tests</code>, covering the manager and webhooks. These tests are designed to fail when not run against clusters using <a href="https://kind.sigs.k8s.io/" target="_blank">Kind</a>, and they avoid re-installing Prometheus and Cert-Manager if already present. See the final scaffolded tests in the samples under testdata <a href="https://github.com/kubernetes-sigs/kubebuilder/blob/master/testdata/project-v4/test/e2e/e2e_test.go" target="_blank">here</a>. Key improvements include:
+
+<ul>
+<li>Added checks to detect existing Prometheus and Cert-Manager installations to prevent re-installation. (#4117)</li>
+<li>Enhanced e2e tests to ensure proper execution with Kind and clarified usage. (#4106)</li>
+<li>Ensured <code>make manifests</code> and <code>make generate</code> are run as part of the e2e tests. (#4122)</li>
+<li>Aligned <code>make test-e2e</code> with <code>make test</code> for consistent behavior. (#4125)</li>
+<li>Improved tests to validate metrics endpoints and ensure proper metric exposure, including guidance for using metrics in reconciliation validation. (#4131)</li>
+<li>Added support for scaffolded e2e webhook tests with the <code>+kubebuilder:scaffold:e2e-webhooks-checks</code> marker. (#4121)</li>
+<li>Simplified Gomega assertions for better readability and improved error handling and logging in <code>e2e/test.go</code>. (#4141, #4158, #4166, #4175)</li>
+</ul></li>
+<li><strong>(go/v4):</strong> Improved the webhook tests by adding examples. Also, enhanced the CronJob tutorial to clarify usage and validate changes. (#4130)</li>
+<li><strong>(deploy-image/v1alpha):</strong> Improved the tests scaffolded for controllers to ensure better coverage. (#4197)</li>
+<li><strong>(go/v4):</strong> Added support for scaffolding controllers and webhooks for External Types, making it easier to work with external resources in projects. (#4171, #4203, #4217)</li>
+<li><strong>(go/v4):</strong> Add Support for Scaffolding Webhooks for Core Types (#4210)</li>
+<li><strong>(go/v4):</strong> Upgraded the cert-manager version used in tests from <code>v1.14.4</code> to <code>v1.16.0</code> for better compatibility and features. (#4209)</li>
+<li><strong>(deploy-image/v1-alpha1):</strong> Added comments to clarify how resource watching and reconciliation logic works in the scaffolded code. (#4102)</li>
+<li><strong>(go/v4):</strong> Upgrade controller-tools version from v0.16.1 to v0.16.4 (#4215)</li>
+<li><strong>(go/v4):</strong> Upgrade Prometheus Operator version used on the tests from v0.72.0 to 0.77.1 (#4212)</li>
+</ul>
+
+<h2 id="bug-fixes">🐛 Bug Fixes</h2>
+
+<ul>
+<li><strong>(deploy-image/v1-alpha1):</strong> Corrected a typo, replacing <code>typeNamespaceName</code> with <code>typeNamespacedName</code> to ensure accurate variable naming. (#4100)</li>
+<li><strong>(deploy-image/v1-alpha1):</strong> Fixed sample code to apply correct labels to resources, improving consistency in the scaffolded examples. (#4101)</li>
+<li><strong>(go/v4):</strong> Resolved linter issues in the scaffold, adding <code>nolint</code> where necessary to prevent failures for specific cases that should not fail during checks. (#4111)</li>
+<li><strong>(deploy-image/v1-alpha1):</strong> Addressed additional linter issues to enhance code quality. (#4112)</li>
+<li><strong>(go/v4):</strong> Fixed linter issues to pass stricter checks like <code>godot</code>, <code>gofumpt</code>, and <code>nlreturn</code>, ensuring better code formatting and style. (#4133)</li>
+<li><strong>(go/v4):</strong> Removed duplicate webhook names in multi-version APIs, resolving conflicts when using the same webhook names across different API versions. (#4145)</li>
+<li><strong>(go/v4):</strong> Improved webhook test templates by adding examples, providing clearer guidance for testing webhooks. (#4151)</li>
+<li><strong>(go/v4):</strong> Ensured unique controller names to fix naming conflicts in multigroup layouts, improving support for projects with multiple groups. (#4162)</li>
+<li><strong>(go/v4):</strong> Fixed the <code>HasResource</code> package method to stop once a match is found, improving performance and accuracy in resource handling. (#4190)</li>
+<li><strong>(go/v4, kustomize/v2):</strong> Simplified scaffold by removing <code>webhookcainjection_patch</code> and clarified the use of cert-manager as a replacement. (#4123)</li>
+<li><strong>(go/v4, kustomize/v2):</strong> fixed Duplicate Webhook Patch Entries when Creating Multiple Versions (#4220)</li>
+</ul>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>✨ (go/v4): Added DevContainer support for seamless development in environments like GitHub Workspaces without local setup. by @TAM360 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4078" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4078</a></li>
+<li>:book: Update docs support by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4058" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4058</a></li>
+<li>:book: update the next step from quick start accordingly by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4092" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4092</a></li>
+<li>:book: provide better info about usage of kind by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4091" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4091</a></li>
+<li>:book: Minor Documentation Improvements: Add Links, Fix Typos, and Clarify Instructions by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4093" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4093</a></li>
+<li>🌱 (ci) - Fix the job to check the PR title and no longer use deprecated github action by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4095" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4095</a></li>
+<li>🌱 ci: Normalize text-based emoji codes to actual emojis in PR title checker by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4097" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4097</a></li>
+<li>🌱 move pr title checker to be under test with ther others checks by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4099" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4099</a></li>
+<li>:bug: (deploy-image/v1-alpha1): Fix typo issue by replacing typeNamespaceName with typeNamespacedName by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4100" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4100</a></li>
+<li>:book: remove warning note which was valid for old k8s versions by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4098" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4098</a></li>
+<li>:bug: (deploy-image/v1-alpha1): Fix sample by ensuring the right labels by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4101" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4101</a></li>
+<li>:book: remove notes about crd-version and webhook-version flags which are no longer supported and provided  by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4104" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4104</a></li>
+<li>:book: fix link for reference doc to manager and crd scopes by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4105" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4105</a></li>
+<li>:seedling: Bump actions/checkout from 3 to 4 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4108" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4108</a></li>
+<li>:seedling: Bump github.com/onsi/ginkgo/v2 from 2.20.0 to 2.20.1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4107" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4107</a></li>
+<li>🐛  (go/v4): Fix linter issues in the scaffold  by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4111" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4111</a></li>
+<li>🐛 (deployimage/v1apha1): fix linter issues by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4112" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4112</a></li>
+<li>🌱 ci: fix e2e tests for samples by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4114" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4114</a></li>
+<li>:sparkles: (go/v4) e2e tests: improve e2e tests and make test-e2e target by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4106" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4106</a></li>
+<li>🌱 ci: no longer call github actions for changes which are only made in the docs files (<em>/</em>.md) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4115" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4115</a></li>
+<li>🌱  ci- cleanup lint samples by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4113" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4113</a></li>
+<li>🐛 (go/v4): fix test e2e by ensuring that make manifests and generate are executed as part of the tests by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4122" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4122</a></li>
+<li>🌱 ci: fix GitHub action to test make test-e2e for deploy-image by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4118" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4118</a></li>
+<li>✨ (go/v4):Added checks in the e2e test scaffolds to determine if Prometheus and/or CertManager are already installed on the cluster and avoid re-installation. by @Adembc in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4117" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4117</a></li>
+<li>🐛 fix: ensure that make test-e2e call the same targets of make test by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4125" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4125</a></li>
+<li>:sparkles: (deploy-image/v1-alpha1): Add comments to clarify resource watching and reconciliation logic by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4102" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4102</a></li>
+<li>⚠️ : (go/v4): Replace usage of deprecated webhook.Validator and webhook.Defaulter interfaces by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4060" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4060</a></li>
+<li>:seedling: Bump github.com/onsi/ginkgo/v2 from 2.20.1 to 2.20.2 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4127" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4127</a></li>
+<li>📖 Improve and Simplify the Getting Started Guide by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4094" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4094</a></li>
+<li>📖  update and supplement webhook documentation with example to work with core types by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4061" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4061</a></li>
+<li>:seedling: Bump github.com/onsi/gomega from 1.34.1 to 1.34.2 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4128" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4128</a></li>
+<li>🌱 fix testdata/project-v4 samples by removing call to generate Lakers controller without resource by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4129" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4129</a></li>
+<li>:sparkles: (go/v4) Add Metrics Validation and Helper Functions to E2E Tests by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4131" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4131</a></li>
+<li>🐛 (go/v4): fix linter issues to allow pass in the stricter linter checks such as; godot, gofumpt, nlreturn by @pgaxatte in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4133" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4133</a></li>
+<li>✨ (go/v4): improve the webhook tests by adding examples. Also, improve cronjob tutorial to clarify its usage and validate the changes by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4130" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4130</a></li>
+<li>:sparkles: (go/v4) Add scaffold for e2e webhook checks by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4121" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4121</a></li>
+<li>🌱 cleanup: Replace &ldquo;-m=64&rdquo; with &ldquo;&ndash;memory-limit=64&rdquo; by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4136" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4136</a></li>
+<li>:book: update multi-version with the latest changes and address fixes by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4139" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4139</a></li>
+<li>🌱 cleanup plugin_cluster-test.go by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4137" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4137</a></li>
+<li>✨ (go/v4): cleanup: in e2e/test.go, make Gomega assertions more concise by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4141" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4141</a></li>
+<li>📖 cleanup: improves cronjob_controller_test.go gomega assertions by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4142" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4142</a></li>
+<li>🐛 (go/v4) resolve duplicate webhook name issue in multi-version API by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4145" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4145</a></li>
+<li>🌱 Automatically update the multiversion tutorial by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4138" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4138</a></li>
+<li>🌱 ci: add ci job to run the e2e tests for the samples used in the tutor… by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4147" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4147</a></li>
+<li>:seedling: Bump golang.org/x/text from 0.17.0 to 0.18.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4152" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4152</a></li>
+<li>:seedling: Bump golang.org/x/tools from 0.24.0 to 0.25.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4153" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4153</a></li>
+<li>🐛 Enhances the webhook test template. by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4151" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4151</a></li>
+<li>🌱 cleanup: simplify and consolidate testdata samples by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4126" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4126</a></li>
+<li>🌱 cleanup: simplify and consolidate testdata samples #4126 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4157" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4157</a></li>
+<li>📖 fix marker for webhook server in the tutorial samples and position of explanations by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4155" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4155</a></li>
+<li>🌱 add better coverage to pkg/machinery/marker by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4156" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4156</a></li>
+<li>:bug: (go/v4): Refactor e2e-tests for clearer error handling and readable logs by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4158" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4158</a></li>
+<li>:bug: fix: ensure unique controller names to fix name conflicts in multigroup setup by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4162" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4162</a></li>
+<li>🌱 ci:  add e2e tests for multigroup testdata layout and rename sample by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4154" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4154</a></li>
+<li>📖 Simplify event recording example by @rkosegi in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4165" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4165</a></li>
+<li>:sparkles: (go/v4) Add GitHub Actions by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4110" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4110</a></li>
+<li>🐛 (go/v4): Follow -up: Refactor e2e-tests for clearer error handling and readable logs by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4166" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4166</a></li>
+<li>🌱 e2e-tests: fix/cleanup and add test to validate webhooks outside of the manager namespace by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4167" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4167</a></li>
+<li>:book: remove from getting started the link for watching resources since this doc acctually document predicates by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4169" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4169</a></li>
+<li>📖 Add new documentation explaining the usage of Pprof by @TAM360 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4160" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4160</a></li>
+<li>📖 : add documentation about kubebuilder:scaffold  marker by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4173" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4173</a></li>
+<li>✨ (go/v4): e2e tests: add data collection on failures and code simplification by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4175" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4175</a></li>
+<li>📖 Revamp &ldquo;Watching Resources&rdquo; documentation for accuracy and clarifty by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4170" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4170</a></li>
+<li>:book: Update README.md - Clarify that monthly Kubebuilder sync meetings are scheduled but most syncing happens offline via Slack by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4172" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4172</a></li>
+<li>📖 add note to clarify markers in the doc by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4174" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4174</a></li>
+<li>🐛 cleanup: remove func APIPackagePathLegacy which is no longer used since release 4.0.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4182" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4182</a></li>
+<li>📖 (doc) remove from menu Appendix: The TODO Landing Page by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4186" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4186</a></li>
+<li>📖 (doc): remove section in the platform documentation which says that kube-rbac-proxy is an image provided by default by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4187" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4187</a></li>
+<li>🌱 add to be ignored .DS_Store by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4189" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4189</a></li>
+<li>⚠️ 🐛fix: remove duplicate HasFragment method, replaced by HasFileContentWith by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4191" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4191</a></li>
+<li>🐛 Fix HasResource pkg method to properly stop when a match is found by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4190" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4190</a></li>
+<li>🌱cleanup/refactor: Implement and refactor e2e tests for &lsquo;alpha generate&rsquo; command by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4181" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4181</a></li>
+<li>📖 (doc): remove Makefile Helpers by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4184" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4184</a></li>
+<li>:seedling: Bump github.com/gobuffalo/flect from 1.0.2 to 1.0.3 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4194" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4194</a></li>
+<li>✨ (deploy-image/v1alpha): Improve tests scaffolded for the controllers by @mogsie in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4197" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4197</a></li>
+<li>:warning:  (go/v4) decouple webhooks from APIs (Move Webhooks from <code>api/&lt;version&gt;</code> or <code>api/&lt;group&gt;/&lt;version&gt;</code> to <code>internal/webhook/&lt;version&gt;</code> or <code>internal/webhook/&lt;group&gt;/&lt;version&gt;</code>) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4150" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4150</a></li>
+<li>✨ Add support to scaffold controllers for External Types by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4171" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4171</a></li>
+<li>📖 docs: update migration_guide_gov3_to_gov4.md by @lorenzofelletti in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4204" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4204</a></li>
+<li>🌱 fix: replace references to v3 package with v4 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4206" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4206</a></li>
+<li>:seedling: Bump golang.org/x/tools from 0.25.0 to 0.26.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4207" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4207</a></li>
+<li>✨ Upgrade cert-manager  version used on the tests from v1.14.4 to v1.16.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4209" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4209</a></li>
+<li>📖  small fixes for the doc Using External Resources by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4211" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4211</a></li>
+<li>📖 (doc) - refactory and clenup the Plugin section by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4185" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4185</a></li>
+<li>✨ Upgrade controller-tools version from v0.16.1 to v0.16.4 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4215" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4215</a></li>
+<li>⚠️ cleanup/refactor: Alpha Generate command by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4180" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4180</a></li>
+<li>🐛 (go/v4,kustomize/v2): Fix problems by simplify scaffold and removing webhookcainjection_patch. Clarifying replacements for cert-manager by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4123" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4123</a></li>
+<li>✨ Upgrade Prometheus Operator version used on the tests from v0.72.0 to 0.77.1 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4212" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4212</a></li>
+<li>📖 Update roadmap_2024.md - Complete goal to align webhook scaffold with the latest changes in controller-runtime by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4216" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4216</a></li>
+<li>📖 (doc) - Fix typo issues in the tutorial scaffolded samples (replace  indicies with indices) by @monteiro-renato in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4219" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4219</a></li>
+<li>🐛 fixed Duplicate Webhook Patch Entries when Creating Multiple Ver… by @Bharadwajshivam28 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4220" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4220</a></li>
+<li>✨ Add support to scaffold webhooks for External Types by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4203" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4203</a></li>
+<li>✨ Add Support for Scaffolding Webhooks for Core Types by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4210" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4210</a></li>
+<li>🐛 fix support for external types by allowing the domain be empty, and properly generate the sample for cert-manager. by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4217" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4217</a></li>
+<li>🌱 fix GoReleaser by adding permission to write content by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4226" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4226</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@TAM360 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4078" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4078</a></li>
+<li>@Adembc made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4117" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4117</a></li>
+<li>@pgaxatte made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4133" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4133</a></li>
+<li>@rkosegi made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4165" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4165</a></li>
+<li>@lorenzofelletti made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4204" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4204</a></li>
+<li>@monteiro-renato made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4219" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4219</a></li>
+<li>@Bharadwajshivam28 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4220" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4220</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v4.2.0...v4.3.0" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v4.2.0&hellip;v4.3.0</a></p>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 2.55.0 / 2024-10-22</h3><h4>2024-10-22</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>[FEATURE] PromQL: Add experimental <code>info</code> function. #14495</li>
+<li>[FEATURE] Support UTF-8 characters in label names - feature flag <code>utf8-names</code>. #14482, #14880, #14736, #14727</li>
+<li>[FEATURE] Scraping: Add the ability to set custom <code>http_headers</code> in config. #14817</li>
+<li>[FEATURE] Scraping: Support feature flag <code>created-timestamp-zero-ingestion</code> in OpenMetrics. #14356, #14815</li>
+<li>[FEATURE] Scraping: <code>scrape_failure_log_file</code> option to log failures to a file. #14734</li>
+<li>[FEATURE] OTLP receiver: Optional promotion of resource attributes to series labels. #14200</li>
+<li>[FEATURE] Remote-Write: Support Google Cloud Monitoring authorization. #14346</li>
+<li>[FEATURE] Promtool: <code>tsdb create-blocks</code> new option to add labels. #14403</li>
+<li>[FEATURE] Promtool: <code>promtool test</code> adds <code>--junit</code> flag to format results. #14506</li>
+<li>[FEATURE] TSDB: Add <code>delayed-compaction</code> feature flag, for people running many Prometheus to randomize timing. #12532</li>
+<li>[ENHANCEMENT] OTLP receiver: Warn on exponential histograms with zero count and non-zero sum. #14706</li>
+<li>[ENHANCEMENT] OTLP receiver: Interrupt translation on context cancellation/timeout. #14612</li>
+<li>[ENHANCEMENT] Remote Read client: Enable streaming remote read if the server supports it. #11379</li>
+<li>[ENHANCEMENT] Remote-Write: Don&rsquo;t reshard if we haven&rsquo;t successfully sent a sample since last update. #14450</li>
+<li>[ENHANCEMENT] PromQL: Delay deletion of <code>__name__</code> label to the end of the query evaluation. This is <strong>experimental</strong> and enabled under the feature-flag <code>promql-delayed-name-removal</code>. #14477</li>
+<li>[ENHANCEMENT] PromQL: Experimental <code>sort_by_label</code> and <code>sort_by_label_desc</code> sort by all labels when label is equal. #14655, #14985</li>
+<li>[ENHANCEMENT] PromQL: Clarify error message logged when Go runtime panic occurs during query evaluation. #14621</li>
+<li>[ENHANCEMENT] PromQL: Use Kahan summation for better accuracy in <code>avg</code> and <code>avg_over_time</code>. #14413</li>
+<li>[ENHANCEMENT] Tracing: Improve PromQL tracing, including showing the operation performed for aggregates, operators, and calls. #14816</li>
+<li>[ENHANCEMENT] API: Support multiple listening addresses. #14665</li>
+<li>[ENHANCEMENT] TSDB: Backward compatibility with upcoming index v3. #14934</li>
+<li>[PERF] TSDB: Query in-order and out-of-order series together. #14354, #14693, #14714, #14831, #14874, #14948, #15120</li>
+<li>[PERF] TSDB: Streamline reading of overlapping out-of-order head chunks. #14729</li>
+<li>[BUGFIX] PromQL: make sort_by_label stable. #14985</li>
+<li>[BUGFIX] SD: Fix dropping targets (with feature flag <code>new-service-discovery-manager</code>). #13147</li>
+<li>[BUGFIX] SD: Stop storing stale targets (with feature flag <code>new-service-discovery-manager</code>). #13622</li>
+<li>[BUGFIX] Scraping: exemplars could be dropped in protobuf scraping. #14810</li>
+<li>[BUGFIX] Remote-Write: fix metadata sending for experimental Remote-Write V2. #14766</li>
+<li>[BUGFIX] Remote-Write: Return 4xx not 5xx when timeseries has duplicate label. #14716</li>
+<li>[BUGFIX] Experimental Native Histograms: many fixes for incorrect results, panics, warnings. #14513, #14575, #14598, #14609, #14611, #14771, #14821</li>
+<li>[BUGFIX] TSDB: Only count unknown record types in <code>record_decode_failures_total</code> metric. #14042</li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@maxamins made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14346" target="_blank">https://github.com/prometheus/prometheus/pull/14346</a></li>
+<li>@cuiweiyuan made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14626" target="_blank">https://github.com/prometheus/prometheus/pull/14626</a></li>
+<li>@harshitasao made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14690" target="_blank">https://github.com/prometheus/prometheus/pull/14690</a></li>
+<li>@patilsuraj767 made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14403" target="_blank">https://github.com/prometheus/prometheus/pull/14403</a></li>
+<li>@riskrole made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14751" target="_blank">https://github.com/prometheus/prometheus/pull/14751</a></li>
+<li>@jcreixell made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14477" target="_blank">https://github.com/prometheus/prometheus/pull/14477</a></li>
+<li>@kevinrawal made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14765" target="_blank">https://github.com/prometheus/prometheus/pull/14765</a></li>
+<li>@electron0zero made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14650" target="_blank">https://github.com/prometheus/prometheus/pull/14650</a></li>
+<li>@shandongzhejiang made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14700" target="_blank">https://github.com/prometheus/prometheus/pull/14700</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/prometheus/prometheus/compare/v2.54.1...v2.55.0" target="_blank">https://github.com/prometheus/prometheus/compare/v2.54.1&hellip;v2.55.0</a></p>
+<br><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.0.0-rc.6</h3><h4>2024-10-24</h4><p>Welcome to the v2.0.0-rc.6 release of containerd!
+<em>This is a pre-release of containerd</em></p>
+
+<p>The first major release of containerd 2.x focuses on the continued stability of
+containerd&rsquo;s core feature set with an easy upgrade from containerd 1.x. This
+release includes the stabilization of new features added in the last 1.x release
+as well as the removal of features which were deprecated in 1.x. The goal is to
+support the vast community of containerd users well into the future along with
+their ever increasing deployment footprints and variety of use cases.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Allow sections of Plugins to be merged, and not overwritten as entire sections. (<a href="https://github.com/containerd/containerd/pull/9982" target="_blank">#9982</a>)</li>
+<li>Add Update API for sandbox controller (<a href="https://github.com/containerd/containerd/pull/9903" target="_blank">#9903</a>)</li>
+<li>Configure otel from env instead of config.toml (<a href="https://github.com/containerd/containerd/pull/8970" target="_blank">#8970</a>)</li>
+<li>Enable NRI by default (<a href="https://github.com/containerd/containerd/pull/9744" target="_blank">#9744</a>)</li>
+<li>Add PluginInfo to introspection API (<a href="https://github.com/containerd/containerd/pull/9442" target="_blank">#9442</a>)</li>
+<li>Remove overlayfs volatile option on temp mounts (<a href="https://github.com/containerd/containerd/pull/9555" target="_blank">#9555</a>)</li>
+<li>Expose usage of deprecated features (<a href="https://github.com/containerd/containerd/pull/9258" target="_blank">#9258</a>)</li>
+<li>Use Intel ISA-L&rsquo;s igzip if available (<a href="https://github.com/containerd/containerd/pull/9200" target="_blank">#9200</a>)</li>
+<li>Introduce top level config migration (<a href="https://github.com/containerd/containerd/pull/9223" target="_blank">#9223</a>)</li>
+<li>Add image delete target (<a href="https://github.com/containerd/containerd/pull/8989" target="_blank">#8989</a>)</li>
+<li>Remove <code>LimitNOFILE</code> from <code>containerd.service</code> (<a href="https://github.com/containerd/containerd/pull/8924" target="_blank">#8924</a>)</li>
+<li>Add support for image expiration during garbage collection (<a href="https://github.com/containerd/containerd/pull/9022" target="_blank">#9022</a>)</li>
+<li>Reduce the contention between ref lock and boltdb lock in content store (<a href="https://github.com/containerd/containerd/pull/8792" target="_blank">#8792</a>)</li>
+<li>Remove &ldquo;containerd.io/restart.logpath&rdquo; label (<a href="https://github.com/containerd/containerd/pull/8264" target="_blank">#8264</a>)</li>
+<li>Remove <code>aufs</code> snapshotter (<a href="https://github.com/containerd/containerd/pull/8263" target="_blank">#8263</a>)</li>
+<li>Fix deadlock during NRI plugin registration (<a href="https://github.com/containerd/nri/pull/79" target="_blank">containerd/nri#79</a>)</li>
+<li>Fix deadlock when writing to pipe blocks (<a href="https://github.com/containerd/ttrpc/pull/168" target="_blank">containerd/ttrpc#168</a>)</li>
+</ul>
+
+<h4 id="build-and-release-toolchain">Build and Release Toolchain</h4>
+
+<ul>
+<li>Generate attestation for artifacts during release (<a href="https://github.com/containerd/containerd/pull/10543" target="_blank">#10543</a>)</li>
+<li>Remove <code>cri-containerd-*.tar.gz</code> release bundles (<a href="https://github.com/containerd/containerd/pull/9096" target="_blank">#9096</a>)</li>
+</ul>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Use &lsquo;UserSpecifiedImage&rsquo; from CRI to set the image-name annotation (<a href="https://github.com/containerd/containerd/pull/10747" target="_blank">#10747</a>)</li>
+<li>Fine-grained SupplementalGroups control (<a href="https://github.com/containerd/containerd/pull/9737" target="_blank">#9737</a>)</li>
+<li>Add support to set loopback to up (<a href="https://github.com/containerd/containerd/pull/10238" target="_blank">#10238</a>)</li>
+<li>Add support for multiple subscribers to CRI container events (<a href="https://github.com/containerd/containerd/pull/9661" target="_blank">#9661</a>)</li>
+<li>Enable CDI by default (<a href="https://github.com/containerd/containerd/pull/9621" target="_blank">#9621</a>)</li>
+<li>Remove non-sandboxed CRI implementation (<a href="https://github.com/containerd/containerd/pull/9228" target="_blank">#9228</a>)</li>
+<li>Add support for userns in stateless and stateful pods with idmap mounts (KEP-127, k8s &gt;= 1.27) (<a href="https://github.com/containerd/containerd/pull/8287" target="_blank">#8287</a>)</li>
+<li>Use sandboxed CRI by default (<a href="https://github.com/containerd/containerd/pull/8994" target="_blank">#8994</a>)</li>
+<li>Implement RuntimeConfig CRI call (<a href="https://github.com/containerd/containerd/pull/8722" target="_blank">#8722</a>)</li>
+<li>Add support for user namespaces (KEP-127) (<a href="https://github.com/containerd/containerd/pull/8803" target="_blank">#8803</a>)</li>
+<li>Remove CRI v1alpha2 (<a href="https://github.com/containerd/containerd/pull/8276" target="_blank">#8276</a>)</li>
+</ul>
+
+<h4 id="go-client">Go client</h4>
+
+<ul>
+<li>Add api Go module and move all protos under api (<a href="https://github.com/containerd/containerd/pull/10151" target="_blank">#10151</a>)</li>
+<li>Move packages based on contributing guide (<a href="https://github.com/containerd/containerd/pull/9365" target="_blank">#9365</a>)</li>
+<li>Generalize plugin library (<a href="https://github.com/containerd/containerd/pull/9214" target="_blank">#9214</a>)</li>
+<li>Use github.com/containerd/log (<a href="https://github.com/containerd/containerd/pull/9086" target="_blank">#9086</a>)</li>
+</ul>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Support to syncfs after pull by using diff plugin (<a href="https://github.com/containerd/containerd/pull/10284" target="_blank">#10284</a>)</li>
+<li>Skip &ldquo;unknown&rdquo; in image platform listing (<a href="https://github.com/containerd/containerd/pull/10257" target="_blank">#10257</a>)</li>
+<li>Update unpacker to fetch all provided content (<a href="https://github.com/containerd/containerd/pull/10202" target="_blank">#10202</a>)</li>
+<li>Enable Transfer service API to support plain HTTP (<a href="https://github.com/containerd/containerd/pull/10024" target="_blank">#10024</a>)</li>
+<li>Enable Transfer service to use registry configuration directory (<a href="https://github.com/containerd/containerd/pull/9908" target="_blank">#9908</a>)</li>
+<li>Disable the support for Schema 1 images (<a href="https://github.com/containerd/containerd/pull/9765" target="_blank">#9765</a>)</li>
+<li>Update Transfer service to add OCI descriptors to Progress structure (<a href="https://github.com/containerd/containerd/pull/9630" target="_blank">#9630</a>)</li>
+<li>Update import and export to allow references to missing content  (<a href="https://github.com/containerd/containerd/pull/9554" target="_blank">#9554</a>)</li>
+<li>Add option to perform syncfs after pull (<a href="https://github.com/containerd/containerd/pull/9401" target="_blank">#9401</a>)</li>
+<li>Add image verifier transfer service plugin system based on a binary directory (<a href="https://github.com/containerd/containerd/pull/8493" target="_blank">#8493</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Implement  RuntimeStatus.features.supplemental_groups_policy from KEP-3619 (<a href="https://github.com/containerd/containerd/pull/10410" target="_blank">#10410</a>)</li>
+<li>Add pprof to runc-shim (<a href="https://github.com/containerd/containerd/pull/10242" target="_blank">#10242</a>)</li>
+<li>Provide runtime options in plugin info (<a href="https://github.com/containerd/containerd/pull/10251" target="_blank">#10251</a>)</li>
+<li>Store bootstrap parameters in sandbox metadata (<a href="https://github.com/containerd/containerd/pull/9736" target="_blank">#9736</a>)</li>
+<li>Update apparmor to allow confined runc to kill containers (<a href="https://github.com/containerd/containerd/pull/10123" target="_blank">#10123</a>)</li>
+<li>Support vsock connection to task api (<a href="https://github.com/containerd/containerd/pull/9738" target="_blank">#9738</a>)</li>
+<li>Update RuntimeDefault seccomp profile to disallow io_uring related syscalls (<a href="https://github.com/containerd/containerd/pull/9320" target="_blank">#9320</a>)</li>
+<li>Switch runc shim to task service v3 and fix restore (<a href="https://github.com/containerd/containerd/pull/9233" target="_blank">#9233</a>)</li>
+<li>Add sandboxer configuration and move sandbox controllers to plugins (<a href="https://github.com/containerd/containerd/pull/8268" target="_blank">#8268</a>)</li>
+<li>Add annotations to CreateSandbox request (<a href="https://github.com/containerd/containerd/pull/8960" target="_blank">#8960</a>)</li>
+<li>Add SandboxMetrics (<a href="https://github.com/containerd/containerd/pull/8680" target="_blank">#8680</a>)</li>
+<li>Publish sandbox events (<a href="https://github.com/containerd/containerd/pull/8602" target="_blank">#8602</a>)</li>
+<li>Remove the CriuPath field from runc&rsquo;s options (<a href="https://github.com/containerd/containerd/pull/8279" target="_blank">#8279</a>)</li>
+<li>Remove <code>io.containerd.runtime.v1.linux</code> and <code>io.containerd.runc.v1</code> (<a href="https://github.com/containerd/containerd/pull/8262" target="_blank">#8262</a>)</li>
+</ul>
+
+<h4 id="security-advisories">Security Advisories</h4>
+
+<ul>
+<li>[medium] RAPL accessible to a container <a href="https://github.com/containerd/containerd/security/advisories/GHSA-7ww5-4wqc-m92c" target="_blank">GHSA-7ww5-4wqc-m92c</a></li>
+</ul>
+
+<h4 id="breaking">Breaking</h4>
+
+<ul>
+<li>Remove <code>disable_cgroup</code> from CRI config (<a href="https://github.com/containerd/containerd/pull/10594" target="_blank">#10594</a>)</li>
+<li>Disable the support for Schema 1 images (<a href="https://github.com/containerd/containerd/pull/9765" target="_blank">#9765</a>)</li>
+<li>Update RuntimeDefault seccomp profile to disallow io_uring related syscalls (<a href="https://github.com/containerd/containerd/pull/9320" target="_blank">#9320</a>)</li>
+<li>Move client to subpackage (<a href="https://github.com/containerd/containerd/pull/9316" target="_blank">#9316</a>)</li>
+<li>Remove <code>LimitNOFILE</code> from <code>containerd.service</code> (<a href="https://github.com/containerd/containerd/pull/8924" target="_blank">#8924</a>)</li>
+<li>Remove CRI v1alpha2 (<a href="https://github.com/containerd/containerd/pull/8276" target="_blank">#8276</a>)</li>
+<li>Remove <code>io.containerd.runtime.v1.linux</code> and <code>io.containerd.runc.v1</code> (<a href="https://github.com/containerd/containerd/pull/8262" target="_blank">#8262</a>)</li>
+<li>Remove &ldquo;containerd.io/restart.logpath&rdquo; label (<a href="https://github.com/containerd/containerd/pull/8264" target="_blank">#8264</a>)</li>
+<li>Remove <code>aufs</code> snapshotter (<a href="https://github.com/containerd/containerd/pull/8263" target="_blank">#8263</a>)</li>
+</ul>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<ul>
+<li>Update warnings for deprecated CRI config fields (<a href="https://github.com/containerd/containerd/pull/10509" target="_blank">#10509</a>)</li>
+<li>Add type alias for event Envelope (<a href="https://github.com/containerd/containerd/pull/10279" target="_blank">#10279</a>)</li>
+<li>Postpone removal of deprecated CRI config properties (<a href="https://github.com/containerd/containerd/pull/9966" target="_blank">#9966</a>)</li>
+<li>Deprecate go-plugin configuration option (<a href="https://github.com/containerd/containerd/pull/9238" target="_blank">#9238</a>)</li>
+<li>CNI conf_template in CRI is no longer deprecated (<a href="https://github.com/containerd/containerd/pull/8637" target="_blank">#8637</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Akihiro Suda</li>
+<li>Maksym Pavlenko</li>
+<li>Wei Fu</li>
+<li>Phil Estes</li>
+<li>Sebastiaan van Stijn</li>
+<li>Samuel Karp</li>
+<li>Stefan Berger</li>
+<li>Krisztian Litkey</li>
+<li>Kazuyoshi Kato</li>
+<li>Rodrigo Campos</li>
+<li>Austin Vazquez</li>
+<li>Danny Canter</li>
+<li>Abel Feng</li>
+<li>Mike Brown</li>
+<li>Akhil Mohan</li>
+<li>Kirtana Ashok</li>
+<li>Iceber Gu</li>
+<li>Gabriel Adrian Samfira</li>
+<li>Jin Dong</li>
+<li>Kohei Tokunaga</li>
+<li>Bjorn Neergaard</li>
+<li>Brian Goff</li>
+<li>Justin Chadwell</li>
+<li>rongfu.leng</li>
+<li>James Sturtevant</li>
+<li>Davanum Srinivas</li>
+<li>Paul &ldquo;TBBle&rdquo; Hampson</li>
+<li>Henry Wang</li>
+<li>Enrico Weigelt</li>
+<li>Laura Brehm</li>
+<li>Marat Radchenko</li>
+<li>Paweł Gronowski</li>
+<li>Shingo Omura</li>
+<li>Hsing-Yu (David) Chen</li>
+<li>Ilya Hanov</li>
+<li>Cardy.Tang</li>
+<li>Swagat Bora</li>
+<li>Aditi Sharma</li>
+<li>Amit Barve</li>
+<li>Bryant Biggs</li>
+<li>Evan Lezar</li>
+<li>James Jenkins</li>
+<li>Jordan Liggitt</li>
+<li>Kay Yan</li>
+<li>Markus Lehtonen</li>
+<li>Nashwan Azhari</li>
+<li>Shuaiyi Zhang</li>
+<li>Vinayak Goyal</li>
+<li>helen</li>
+<li>Alexandru Matei</li>
+<li>Anthony Nandaa</li>
+<li>Avi Deitcher</li>
+<li>Charity Kathure</li>
+<li>Cory Snider</li>
+<li>Ed Bartosh</li>
+<li>Etienne Champetier</li>
+<li>Kevin Parsons</li>
+<li>Michael Zappa</li>
+<li>Milas Bowman</li>
+<li>lengrongfu</li>
+<li>ningmingxiao</li>
+<li>yanggang</li>
+<li>zounengren</li>
+<li>Aditya Ramani</li>
+<li>Adrian Reber</li>
+<li>Amir M. Ghazanfari</li>
+<li>Artem Khramov</li>
+<li>Brad Davidson</li>
+<li>Chen Yiyang</li>
+<li>Christian Muehlhaeuser</li>
+<li>Djordje Lukic</li>
+<li>Edgar Lee</li>
+<li>Eric Lin</li>
+<li>Ethan Lowman</li>
+<li>Jiang Liu</li>
+<li>June Rhodes</li>
+<li>Kern Walster</li>
+<li>Lei Jitang</li>
+<li>Lucas Rattz</li>
+<li>Mahamed Ali</li>
+<li>Maksim An</li>
+<li>Michael Crosby</li>
+<li>Peteris Rudzusiks</li>
+<li>Ray Burgemeestre</li>
+<li>Sam Edwards</li>
+<li>Samruddhi Khandale</li>
+<li>Sascha Grunert</li>
+<li>Steve Griffith</li>
+<li>Tony Fang</li>
+<li>VERNOU Cédric</li>
+<li>Vishal Reddy Gurrala</li>
+<li>Xiaojin Zhang</li>
+<li>hang.jiang</li>
+<li>harshitasao</li>
+<li>jerryzhuang</li>
+<li>roman-kiselenko</li>
+<li>zhanluxianshen</li>
+<li>Aaron Lehmann</li>
+<li>AbdelrahmanElawady</li>
+<li>Adrien Delorme</li>
+<li>Alex Couture-Beil</li>
+<li>Alex Ellis</li>
+<li>Alex Rodriguez</li>
+<li>Angelos Kolaitis</li>
+<li>Antonio Huete Jimenez</li>
+<li>Antonio Ojea</li>
+<li>Antti Kervinen</li>
+<li>Arash Haghighat</li>
+<li>Ben Foster</li>
+<li>Benjamin Peterson</li>
+<li>Bin Tang</li>
+<li>Bin Xin</li>
+<li>BinBin He</li>
+<li>Brennan Kinney</li>
+<li>Changqing Li</li>
+<li>ChengenH</li>
+<li>ChengyuZhu6</li>
+<li>Christian Stewart</li>
+<li>Colin O&rsquo;Dell</li>
+<li>Craig Ingram</li>
+<li>Daisy Rong</li>
+<li>David Porter</li>
+<li>Derek Nola</li>
+<li>Eng Zer Jun</li>
+<li>Erikson Tung</li>
+<li>Fabiano Fidêncio</li>
+<li>Fahed Dorgaa</li>
+<li>Gabriela Cervantes</li>
+<li>Gary McDonald</li>
+<li>Iain Macdonald</li>
+<li>James Lakin</li>
+<li>Jan Dubois</li>
+<li>Jaroslav Jindrak</li>
+<li>Javier Maestro</li>
+<li>Jian Wang</li>
+<li>Jiongchi Yu</li>
+<li>Julien Balestra</li>
+<li>Kir Kolyshkin</li>
+<li>Kirill A. Korinsky</li>
+<li>Konstantin Khlebnikov</li>
+<li>Lei Liu</li>
+<li>Matteo Pulcini</li>
+<li>Mauri de Souza Meneguzzo</li>
+<li>Mike Baynton</li>
+<li>Pan Yibo</li>
+<li>Paul Meyer</li>
+<li>Qasim Sarfraz</li>
+<li>Qiutong Song</li>
+<li>Reinhard Tartler</li>
+<li>Robbie Buxton</li>
+<li>Robert-André Mauchin</li>
+<li>Ruihua Wen</li>
+<li>Saket Jajoo</li>
+<li>Sameer</li>
+<li>Shengjing Zhu</li>
+<li>Shiming Zhang</li>
+<li>Shukui Yang</li>
+<li>StepSecurity Bot</li>
+<li>Talon</li>
+<li>Tariq Ibrahim</li>
+<li>Tianon Gravi</li>
+<li>Tim Hockin</li>
+<li>TinaMor</li>
+<li>Tobias Klauser</li>
+<li>Tomáš Virtus</li>
+<li>Tõnis Tiigi</li>
+<li>Wang Xinwen</li>
+<li>William Chen</li>
+<li>Xinyang Ge</li>
+<li>Yang Yang</li>
+<li>Yibo Zhuang</li>
+<li>Yuhang Wei</li>
+<li>Yury Gargay</li>
+<li>Zechun Chen</li>
+<li>Zhang Tianyang</li>
+<li>Zoe</li>
+<li>baijia</li>
+<li>bo.jiang</li>
+<li>bzsuni</li>
+<li>charles-chenzz</li>
+<li>chschumacher1994</li>
+<li>cormick</li>
+<li>guangli.bao</li>
+<li>guangwu</li>
+<li>jinda.ljd</li>
+<li>jingtao.liang</li>
+<li>krglosse</li>
+<li>pigletfly</li>
+<li>rokkiter</li>
+<li>wangxiang</li>
+<li>zhangpeng</li>
+<li>zhaojizhuang</li>
+<li>吴小白</li>
+<li>张钰</li>
+<li>沈陵</li>
+<li>谭九鼎</li>
+</ul>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>dario.cat/mergo</strong>                                                              v1.0.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/AdaLogics/go-fuzz-headers</strong>                                         1f10f66a31bf -&gt; ced1acdcaa24</li>
+<li><strong>github.com/AdamKorcz/go-118-fuzz-build</strong>                                       5330a85ea652 -&gt; 8075edf89bb0</li>
+<li><strong>github.com/Microsoft/go-winio</strong>                                                v0.6.0 -&gt; v0.6.2</li>
+<li><strong>github.com/Microsoft/hcsshim</strong>                                                 v0.10.0-rc.7 -&gt; v0.12.8</li>
+<li><strong>github.com/cenkalti/backoff/v4</strong>                                               v4.2.0 -&gt; v4.3.0</li>
+<li><strong>github.com/cespare/xxhash/v2</strong>                                                 v2.2.0 -&gt; v2.3.0</li>
+<li><strong>github.com/checkpoint-restore/checkpointctl</strong>                                  v1.2.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/checkpoint-restore/go-criu/v7</strong>                                     v7.2.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/cilium/ebpf</strong>                                                       v0.9.1 -&gt; v0.11.0</li>
+<li><strong>github.com/containerd/cgroups/v3</strong>                                             v3.0.1 -&gt; v3.0.3</li>
+<li><strong>github.com/containerd/console</strong>                                                v1.0.3 -&gt; v1.0.4</li>
+<li><strong>github.com/containerd/containerd/api</strong>                                         v1.8.0-rc.4 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/continuity</strong>                                             v0.3.0 -&gt; v0.4.3</li>
+<li><strong>github.com/containerd/errdefs</strong>                                                v0.3.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/errdefs/pkg</strong>                                            v0.3.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/go-cni</strong>                                                 v1.1.9 -&gt; v1.1.10</li>
+<li><strong>github.com/containerd/go-runc</strong>                                                v1.0.0 -&gt; v1.1.0</li>
+<li><strong>github.com/containerd/imgcrypt</strong>                                               v1.1.7 -&gt; v1.2.0-rc1</li>
+<li><strong>github.com/containerd/log</strong>                                                    v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/nri</strong>                                                    v0.3.0 -&gt; v0.7.0</li>
+<li><strong>github.com/containerd/otelttrpc</strong>                                              ea5083fda723 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/platforms</strong>                                              v0.2.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/plugin</strong>                                                 v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/ttrpc</strong>                                                  v1.2.1 -&gt; b5cd6e4b3287</li>
+<li><strong>github.com/containerd/typeurl/v2</strong>                                             v2.1.0 -&gt; v2.2.0</li>
+<li><strong>github.com/containernetworking/cni</strong>                                           v1.1.2 -&gt; v1.2.3</li>
+<li><strong>github.com/containernetworking/plugins</strong>                                       v1.2.0 -&gt; v1.5.1</li>
+<li><strong>github.com/containers/ocicrypt</strong>                                               v1.1.6 -&gt; v1.2.0</li>
+<li><strong>github.com/cpuguy83/go-md2man/v2</strong>                                             v2.0.2 -&gt; v2.0.5</li>
+<li><strong>github.com/davecgh/go-spew</strong>                                                   v1.1.1 -&gt; d8f796af33cc</li>
+<li><strong>github.com/distribution/reference</strong>                                            v0.6.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/emicklei/go-restful/v3</strong>                                            v3.10.1 -&gt; v3.11.0</li>
+<li><strong>github.com/felixge/httpsnoop</strong>                                                 v1.0.4 <strong><em>new</em></strong></li>
+<li><strong>github.com/fsnotify/fsnotify</strong>                                                 v1.6.0 -&gt; v1.7.0</li>
+<li><strong>github.com/fxamacker/cbor/v2</strong>                                                 v2.7.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/go-jose/go-jose/v4</strong>                                                v4.0.2 <strong><em>new</em></strong></li>
+<li><strong>github.com/go-logr/logr</strong>                                                      v1.2.3 -&gt; v1.4.2</li>
+<li><strong>github.com/golang/protobuf</strong>                                                   v1.5.2 -&gt; v1.5.4</li>
+<li><strong>github.com/google/go-cmp</strong>                                                     v0.5.9 -&gt; v0.6.0</li>
+<li><strong>github.com/google/uuid</strong>                                                       v1.3.0 -&gt; v1.6.0</li>
+<li><strong>github.com/gorilla/websocket</strong>                                                 v1.5.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus</strong>            v1.0.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/grpc-ecosystem/go-grpc-middleware/v2</strong>                              v2.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/grpc-ecosystem/grpc-gateway/v2</strong>                                    v2.7.0 -&gt; v2.22.0</li>
+<li><strong>github.com/intel/goresctrl</strong>                                                   v0.3.0 -&gt; v0.8.0</li>
+<li><strong>github.com/klauspost/compress</strong>                                                v1.16.0 -&gt; v1.17.11</li>
+<li><strong>github.com/mdlayher/socket</strong>                                                   v0.4.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/mdlayher/vsock</strong>                                                    v1.2.1 <strong><em>new</em></strong></li>
+<li><strong>github.com/moby/spdystream</strong>                                                   v0.2.0 -&gt; v0.4.0</li>
+<li><strong>github.com/moby/sys/mountinfo</strong>                                                v0.6.2 -&gt; v0.7.2</li>
+<li><strong>github.com/moby/sys/sequential</strong>                                               v0.5.0 -&gt; v0.6.0</li>
+<li><strong>github.com/moby/sys/signal</strong>                                                   v0.7.0 -&gt; v0.7.1</li>
+<li><strong>github.com/moby/sys/symlink</strong>                                                  v0.2.0 -&gt; v0.3.0</li>
+<li><strong>github.com/moby/sys/user</strong>                                                     v0.3.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/moby/sys/userns</strong>                                                   v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/munnerz/goautoneg</strong>                                                 a7dc8b61c822 <strong><em>new</em></strong></li>
+<li><strong>github.com/mxk/go-flowrate</strong>                                                   cca7078d478f <strong><em>new</em></strong></li>
+<li><strong>github.com/opencontainers/image-spec</strong>                                         3a7f492d3f1b -&gt; v1.1.0</li>
+<li><strong>github.com/opencontainers/runtime-spec</strong>                                       v1.1.0-rc.1 -&gt; v1.2.0</li>
+<li><strong>github.com/opencontainers/runtime-tools</strong>                                      946c877fa809 -&gt; 2e043c6bd626</li>
+<li><strong>github.com/opencontainers/selinux</strong>                                            v1.11.0 -&gt; v1.11.1</li>
+<li><strong>github.com/pelletier/go-toml/v2</strong>                                              v2.2.3 <strong><em>new</em></strong></li>
+<li><strong>github.com/pmezard/go-difflib</strong>                                                v1.0.0 -&gt; 5d4384ee4fb2</li>
+<li><strong>github.com/prometheus/client_golang</strong>                                          v1.14.0 -&gt; v1.20.5</li>
+<li><strong>github.com/prometheus/client_model</strong>                                           v0.3.0 -&gt; v0.6.1</li>
+<li><strong>github.com/prometheus/common</strong>                                                 v0.37.0 -&gt; v0.55.0</li>
+<li><strong>github.com/prometheus/procfs</strong>                                                 v0.8.0 -&gt; v0.15.1</li>
+<li><strong>github.com/sirupsen/logrus</strong>                                                   v1.9.0 -&gt; v1.9.3</li>
+<li><strong>github.com/stefanberger/go-pkcs11uri</strong>                                         78d3cae3a980 -&gt; 78284954bff6</li>
+<li><strong>github.com/stretchr/testify</strong>                                                  v1.8.2 -&gt; v1.9.0</li>
+<li><strong>github.com/urfave/cli/v2</strong>                                                     v2.27.5 <strong><em>new</em></strong></li>
+<li><strong>github.com/vishvananda/netlink</strong>                                               v1.2.1-beta.2 -&gt; v1.3.0</li>
+<li><strong>github.com/vishvananda/netns</strong>                                                 2eb08e3e575f -&gt; v0.0.4</li>
+<li><strong>github.com/x448/float16</strong>                                                      v0.8.4 <strong><em>new</em></strong></li>
+<li><strong>github.com/xrash/smetrics</strong>                                                    686a1a2994c1 <strong><em>new</em></strong></li>
+<li><strong>go.etcd.io/bbolt</strong>                                                             v1.3.7 -&gt; v1.3.11</li>
+<li><strong>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc</strong>  v0.40.0 -&gt; v0.56.0</li>
+<li><strong>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp</strong>                v0.56.0 <strong><em>new</em></strong></li>
+<li><strong>go.opentelemetry.io/otel</strong>                                                     v1.14.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/otel/exporters/otlp/otlptrace</strong>                            v1.14.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc</strong>              v1.14.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp</strong>              v1.14.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/otel/metric</strong>                                              v0.37.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/otel/sdk</strong>                                                 v1.14.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/otel/trace</strong>                                               v1.14.0 -&gt; v1.31.0</li>
+<li><strong>go.opentelemetry.io/proto/otlp</strong>                                               v0.19.0 -&gt; v1.3.1</li>
+<li><strong>golang.org/x/crypto</strong>                                                          v0.1.0 -&gt; v0.28.0</li>
+<li><strong>golang.org/x/exp</strong>                                                             aacd6d4b4611 <strong><em>new</em></strong></li>
+<li><strong>golang.org/x/mod</strong>                                                             v0.7.0 -&gt; v0.21.0</li>
+<li><strong>golang.org/x/net</strong>                                                             v0.7.0 -&gt; v0.30.0</li>
+<li><strong>golang.org/x/oauth2</strong>                                                          v0.4.0 -&gt; v0.22.0</li>
+<li><strong>golang.org/x/sync</strong>                                                            v0.1.0 -&gt; v0.8.0</li>
+<li><strong>golang.org/x/sys</strong>                                                             v0.6.0 -&gt; v0.26.0</li>
+<li><strong>golang.org/x/term</strong>                                                            v0.5.0 -&gt; v0.25.0</li>
+<li><strong>golang.org/x/text</strong>                                                            v0.7.0 -&gt; v0.19.0</li>
+<li><strong>golang.org/x/time</strong>                                                            90d013bbcef8 -&gt; v0.3.0</li>
+<li><strong>google.golang.org/genproto/googleapis/api</strong>                                    5fefd90f89a9 <strong><em>new</em></strong></li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>                                    5fefd90f89a9 <strong><em>new</em></strong></li>
+<li><strong>google.golang.org/grpc</strong>                                                       v1.53.0 -&gt; v1.67.1</li>
+<li><strong>google.golang.org/protobuf</strong>                                                   v1.28.1 -&gt; v1.35.1</li>
+<li><strong>k8s.io/api</strong>                                                                   v0.26.2 -&gt; v0.31.1</li>
+<li><strong>k8s.io/apimachinery</strong>                                                          v0.26.2 -&gt; v0.31.1</li>
+<li><strong>k8s.io/apiserver</strong>                                                             v0.26.2 -&gt; v0.31.1</li>
+<li><strong>k8s.io/client-go</strong>                                                             v0.26.2 -&gt; v0.31.1</li>
+<li><strong>k8s.io/component-base</strong>                                                        v0.26.2 -&gt; v0.31.1</li>
+<li><strong>k8s.io/cri-api</strong>                                                               v0.26.2 -&gt; v0.32.0-alpha.0</li>
+<li><strong>k8s.io/klog/v2</strong>                                                               v2.90.1 -&gt; v2.130.1</li>
+<li><strong>k8s.io/kubelet</strong>                                                               v0.31.1 <strong><em>new</em></strong></li>
+<li><strong>k8s.io/utils</strong>                                                                 a5ecb0141aa5 -&gt; 18e509b52bc8</li>
+<li><strong>sigs.k8s.io/json</strong>                                                             f223a00ba0e2 -&gt; bc3834ca7abd</li>
+<li><strong>sigs.k8s.io/structured-merge-diff/v4</strong>                                         v4.2.3 -&gt; v4.4.1</li>
+<li><strong>sigs.k8s.io/yaml</strong>                                                             v1.3.0 -&gt; v1.4.0</li>
+<li><strong>tags.cncf.io/container-device-interface</strong>                                      v0.8.0 <strong><em>new</em></strong></li>
+<li><strong>tags.cncf.io/container-device-interface/specs-go</strong>                             v0.8.0 <strong><em>new</em></strong></li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.0" target="_blank">v1.7.0</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.31 (Ubuntu 20.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on non-glibc Linux distributions. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br><h3>Release notes for containerd API 1.8.0-rc.4</h3><h4>2024-10-23</h4><p>Welcome to the api/v1.8.0-rc.4 release of containerd!
+<em>This is a pre-release of containerd</em></p>
+
+<p>The first dedicated release for the containerd API. This release continues the 1.x
+line of API compatibility with the 9th minor release of the 1.x API.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Add Update API for sandbox controller (<a href="https://github.com/containerd/containerd/pull/9903" target="_blank">#9903</a>)</li>
+<li>Add PluginInfo to introspection API (<a href="https://github.com/containerd/containerd/pull/9442" target="_blank">#9442</a>)</li>
+<li>Expose usage of deprecated features (<a href="https://github.com/containerd/containerd/pull/9258" target="_blank">#9258</a>)</li>
+<li>Add image delete target (<a href="https://github.com/containerd/containerd/pull/8989" target="_blank">#8989</a>)</li>
+</ul>
+
+<h4 id="go-client">Go client</h4>
+
+<ul>
+<li>Add api Go module and move all protos under api (<a href="https://github.com/containerd/containerd/pull/10151" target="_blank">#10151</a>)</li>
+</ul>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Enable Transfer service API to support plain HTTP (<a href="https://github.com/containerd/containerd/pull/10024" target="_blank">#10024</a>)</li>
+<li>Enable Transfer service to use registry configuration directory (<a href="https://github.com/containerd/containerd/pull/9908" target="_blank">#9908</a>)</li>
+<li>Update Transfer service to add OCI descriptors to Progress structure (<a href="https://github.com/containerd/containerd/pull/9630" target="_blank">#9630</a>)</li>
+<li>Add option to perform syncfs after pull (<a href="https://github.com/containerd/containerd/pull/9401" target="_blank">#9401</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Store bootstrap parameters in sandbox metadata (<a href="https://github.com/containerd/containerd/pull/9736" target="_blank">#9736</a>)</li>
+<li>Add sandboxer configuration and move sandbox controllers to plugins (<a href="https://github.com/containerd/containerd/pull/8268" target="_blank">#8268</a>)</li>
+<li>Add annotations to CreateSandbox request (<a href="https://github.com/containerd/containerd/pull/8960" target="_blank">#8960</a>)</li>
+<li>Add SandboxMetrics (<a href="https://github.com/containerd/containerd/pull/8680" target="_blank">#8680</a>)</li>
+<li>Publish sandbox events (<a href="https://github.com/containerd/containerd/pull/8602" target="_blank">#8602</a>)</li>
+</ul>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<ul>
+<li>Add type alias for event Envelope (<a href="https://github.com/containerd/containerd/pull/10279" target="_blank">#10279</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Maksym Pavlenko</li>
+<li>Wei Fu</li>
+<li>Abel Feng</li>
+<li>Akihiro Suda</li>
+<li>Phil Estes</li>
+<li>Danny Canter</li>
+<li>Samuel Karp</li>
+<li>Kohei Tokunaga</li>
+<li>Sebastiaan van Stijn</li>
+<li>Akhil Mohan</li>
+<li>Brian Goff</li>
+<li>Bryant Biggs</li>
+<li>Davanum Srinivas</li>
+<li>Iceber Gu</li>
+<li>Kirtana Ashok</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>63 commits</summary>
+<p>
+
+* Clean up some dependency trees for runc shim ([#10757](https://github.com/containerd/containerd/pull/10757))
+  * [`2123855ee`](https://github.com/containerd/containerd/commit/2123855eeb399dfcbb152ca3502e8fb4322d06cb) Add build tag to omit grpc
+* Add Update API for sandbox controller ([#9903](https://github.com/containerd/containerd/pull/9903))
+  * [`15887d7ef`](https://github.com/containerd/containerd/commit/15887d7efc60e4bde9e65c87a0376d94e9f6eb04) sandbox: add update api for controller
+* api: update github.com/containerd/ttrpc v1.2.5 to be aligned with containerd ([#10366](https://github.com/containerd/containerd/pull/10366))
+  * [`cb38b1e2b`](https://github.com/containerd/containerd/commit/cb38b1e2be065ea9e248e03906ee893f954370d8) api: update github.com/containerd/ttrpc v1.2.5
+* Add type alias for event Envelope ([#10279](https://github.com/containerd/containerd/pull/10279))
+  * [`3e71ccafc`](https://github.com/containerd/containerd/commit/3e71ccafc48bc87a054f4ce3a67ecf2df91932c5) Add type alias for event Envelope
+* Update api minimum Go version to 1.21 ([#10276](https://github.com/containerd/containerd/pull/10276))
+  * [`359d84351`](https://github.com/containerd/containerd/commit/359d84351d53d335688ab96c1a3e1ae0151b3a2d) Update api minimum go version to 1.21
+* Prepare release notes for api/v1.8.0-rc.0 ([#10167](https://github.com/containerd/containerd/pull/10167))
+  * [`55fcebffc`](https://github.com/containerd/containerd/commit/55fcebffc76e642e9155eda5e097043f95109e4d) Prepare release notes for api/v1.8.0
+* Add api Go module and move all protos under api ([#10151](https://github.com/containerd/containerd/pull/10151))
+  * [`2ac2b9c90`](https://github.com/containerd/containerd/commit/2ac2b9c909fb64f4d06958a0ca2f556bec348d05) Make api a Go sub-module
+  * [`3e9cace72`](https://github.com/containerd/containerd/commit/3e9cace720cee5eb631c8291d8fb51928dc3fb3b) Move runtimeoptions to api directory
+  * [`4a4550777`](https://github.com/containerd/containerd/commit/4a455077722796fd6a63253bc30d2b4c0c379d1d) Move runc options to api directory
+* Store bootstrap parameters in sandbox metadata ([#9736](https://github.com/containerd/containerd/pull/9736))
+  * [`de38490ed`](https://github.com/containerd/containerd/commit/de38490ed6b8d9cb9cb6ea7cfcd0071e8f27d304) sandbox: merge address and protocol to one url
+  * [`f6e0cf189`](https://github.com/containerd/containerd/commit/f6e0cf1894b9211f07d801e1af3166f290969cd7) sandbox: add address info in Start and Status response
+* Enable Transfer service API to support plain HTTP ([#10024](https://github.com/containerd/containerd/pull/10024))
+  * [`433279438`](https://github.com/containerd/containerd/commit/4332794384253ad85a05a17fe42aa929f62fc72a) Transfer: Registry: Enable plain HTTP
+* Enable Transfer service to use registry configuration directory ([#9908](https://github.com/containerd/containerd/pull/9908))
+  * [`7a3b7fba5`](https://github.com/containerd/containerd/commit/7a3b7fba59a9ff9e8756976cf6f55117b1814a63) Transfer: Registry: Enable to use registry configuration diretory
+* Generate proto services with go-ttrpc ([#7609](https://github.com/containerd/containerd/pull/7609))
+  * [`f0e874941`](https://github.com/containerd/containerd/commit/f0e8749411301e99958e0caf545d85bf0112dda4) Add ttrpc generated services
+  * [`65031eade`](https://github.com/containerd/containerd/commit/65031eadec262d783db25456a8bbca1eed1956b7) Update protobuild to build ttrpc services
+* Add OSVersion to platform protobuf ([#9733](https://github.com/containerd/containerd/pull/9733))
+  * [`5aa05481d`](https://github.com/containerd/containerd/commit/5aa05481ddd40138eef79ec4bce2b0232adef354) Add OSVersion to platform protobuf
+* Move Message proto to types ([#9742](https://github.com/containerd/containerd/pull/9742))
+  * [`0facc8592`](https://github.com/containerd/containerd/commit/0facc85925a114edac4b3b05a871f4ad205f45f1) Fix proto formatting
+  * [`7f2d2c4f4`](https://github.com/containerd/containerd/commit/7f2d2c4f44afe090872301cc8614e8fc0d432e9e) Move Message proto to types
+* refactor: move plugin/fieldpath to api/types/ ([#9687](https://github.com/containerd/containerd/pull/9687))
+  * [`b16e3572a`](https://github.com/containerd/containerd/commit/b16e3572a308be0c58b3c810b1922ec8d444d1f7) refactor: move plugin/fieldpath to api/types/
+* Add PluginInfo to introspection API ([#9442](https://github.com/containerd/containerd/pull/9442))
+  * [`22d586e51`](https://github.com/containerd/containerd/commit/22d586e515654d3a901c40443fb2b4adcad65827) api/services/instrospection: add PluginInfo
+* Update Transfer service to add OCI descriptors to Progress structure ([#9630](https://github.com/containerd/containerd/pull/9630))
+  * [`a2472c0b5`](https://github.com/containerd/containerd/commit/a2472c0b5ab17e46ab3f3b000a6fa512a45d7f05) transfer: add OCI descriptors to Progress structure
+* Add option to perform syncfs after pull ([#9401](https://github.com/containerd/containerd/pull/9401))
+  * [`bd5c602c4`](https://github.com/containerd/containerd/commit/bd5c602c4dc91d19976f2dc222a337ab76716750) api: introduce sync_fs to diff.ApplyRequest
+* Containerd v2 module ([#9306](https://github.com/containerd/containerd/pull/9306))
+  * [`5fdf55e49`](https://github.com/containerd/containerd/commit/5fdf55e493d68079d22a08de1a7afe522e5838e5) Update go module to github.com/containerd/containerd/v2
+* Expose usage of deprecated features ([#9258](https://github.com/containerd/containerd/pull/9258))
+  * [`57c897f10`](https://github.com/containerd/containerd/commit/57c897f10df48556af799f71c85a91b889df2d70) api/introspection: deprecation warnings in server
+* Add sandboxer configuration and move sandbox controllers to plugins ([#8268](https://github.com/containerd/containerd/pull/8268))
+  * [`d2d434b7d`](https://github.com/containerd/containerd/commit/d2d434b7d6546842b1f791ef17392da99320265d) sandbox: add all sandbox information to Create method
+  * [`f372b3501`](https://github.com/containerd/containerd/commit/f372b3501b6096c8228203f9d5d5aae8ff998d61) sandbox: add sandboxer field of sandbox requests
+* Add image delete target ([#8989](https://github.com/containerd/containerd/pull/8989))
+  * [`f8fb2dad3`](https://github.com/containerd/containerd/commit/f8fb2dad39a4b45ce1de59f236e72ee72ad53cf7) api: update image service to support target in delete request
+* fix: Add `containerd` to the message type reference ([#9126](https://github.com/containerd/containerd/pull/9126))
+  * [`42eee8bf0`](https://github.com/containerd/containerd/commit/42eee8bf05c89524a29f064cb4ce0a460a8c0081) fix: Add `containerd` to the message type reference
+* platforms: isolate from errdefs and api dependencies ([#9095](https://github.com/containerd/containerd/pull/9095))
+  * [`e916d77c8`](https://github.com/containerd/containerd/commit/e916d77c81b8a61d7a37276e310b4a150b04f4ab) platforms: move ToProto, FromProto to api/types
+* Add annotations to CreateSandbox request ([#8960](https://github.com/containerd/containerd/pull/8960))
+  * [`939ccbed4`](https://github.com/containerd/containerd/commit/939ccbed427e81eaecd37777ddcb2eac792114e6) Sandbox: Add annotations to CreateSandbox surface
+* archive: use 1970-01-01 as the whiteout timestamp ([#8764](https://github.com/containerd/containerd/pull/8764))
+  * [`5dedb6d0d`](https://github.com/containerd/containerd/commit/5dedb6d0d2565507f0636254a18fdb7462a9eac3) archive: use 1970-01-01 as the whiteout timestamp
+* Add SandboxMetrics ([#8680](https://github.com/containerd/containerd/pull/8680))
+  * [`d278d37ca`](https://github.com/containerd/containerd/commit/d278d37caae501ef18fd919e611610c639ad471b) Sandbox: Add Metrics rpc for controller
+  * [`d56722ef2`](https://github.com/containerd/containerd/commit/d56722ef2a42953841728f5ed5666da776ce0d8f) Sandbox: Add SandboxMetrics rpc
+* Publish sandbox events ([#8602](https://github.com/containerd/containerd/pull/8602))
+  * [`65906335b`](https://github.com/containerd/containerd/commit/65906335bf086dfe4ed73fbddb90429047e8aa96) Add sandbox events protos
+* Cleanup protobuild config ([#8278](https://github.com/containerd/containerd/pull/8278))
+  * [`0bbca7f1b`](https://github.com/containerd/containerd/commit/0bbca7f1bcc29933dfd3cb3c463cc4fb8fbbe036) Cleanup protobuild config
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/containerd/log</strong>                  v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/containerd/ttrpc</strong>                v1.2.1 -&gt; v1.2.5</li>
+<li><strong>github.com/containerd/typeurl/v2</strong>           v2.1.0 -&gt; v2.1.1</li>
+<li><strong>github.com/golang/protobuf</strong>                 v1.5.2 -&gt; v1.5.3</li>
+<li><strong>github.com/opencontainers/image-spec</strong>       3a7f492d3f1b -&gt; v1.1.0</li>
+<li><strong>github.com/sirupsen/logrus</strong>                 v1.9.0 -&gt; v1.9.3</li>
+<li><strong>golang.org/x/net</strong>                           v0.7.0 -&gt; v0.23.0</li>
+<li><strong>golang.org/x/sys</strong>                           v0.6.0 -&gt; v0.18.0</li>
+<li><strong>golang.org/x/text</strong>                          v0.7.0 -&gt; v0.14.0</li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>  c3f982113cda <strong><em>new</em></strong></li>
+<li><strong>google.golang.org/grpc</strong>                     v1.53.0 -&gt; v1.59.0</li>
+<li><strong>google.golang.org/protobuf</strong>                 v1.28.1 -&gt; v1.33.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.0" target="_blank">v1.7.0</a></p>
+<br><h2>containerd/nerdctl</h2> <h3>Release notes for v2.0.0-rc.3</h3><h4>2024-10-24</h4><h2 id="changes">Changes</h2>
+
+<p>nerdctl v2 enables &ldquo;detach-netns&rdquo; for Rootless mode by default (#2723).</p>
+
+<p>This will bring:</p>
+
+<ul>
+<li>Faster and more stable <code>nerdctl pull</code>, <code>nerdctl push</code>, <code>nerdctl build</code>, etc</li>
+<li>Proper support for <code>nerdctl pull 127.0.0.1:.../...</code></li>
+<li>Proper support for <code>nerdctl run --net=host</code></li>
+</ul>
+
+<p>Depends on RootlessKit &gt;= v2.0 and BuildKit &gt;= v0.13 (included in <code>nerdctl-full-*.tar.gz</code>).</p>
+
+<blockquote>
+<p>[!NOTE]
+After upgrading nerdctl (rootless mode) from v1.x to v2.x, it is highly recommended to
+re-install the systemd units and the configurations:</p>
+
+<pre><code>&gt; containerd-rootless-setuptool.sh uninstall
+&gt; rm -rf ~/.config/{nerdctl,buildkit}
+&gt; containerd-rootless-setuptool.sh install
+&gt; CONTAINERD_NAMESPACE=default containerd-rootless-setuptool.sh install-buildkit-containerd
+&gt; ```
+
+Other major changes:
+- `nerdctl run`:
+  - Added `--systemd` flag for running systemd in containers flag (#2785, thanks to @sazzy4o)
+  - Added `--ipc=(shareable|container:&lt;container&gt;)` flag (#2757, thanks to @minuk-dev)
+  - Added `--annotation` flag (#2906)
+     - Now `nerdctl run --label` is only set as a containerd label and not propagated as an OCI annotation. A label with the `nerdctl/` prefix can no longer be set manually, with an exception for `nerdctl/bypass4netns`. The `nerdctl/bypass4netns` label is still allowed and is propagated to an OCI annotation, for sake of compatibility.
+  - Added `--sig-proxy` flag (#3043, thanks to @CodeChanning)
+  - Propagate image labels to container labels (not to container annotations) (#3023, thanks to @yankay)
+  - Added `--attach` flag (#3157, thanks to @CodeChanning)
+  - The restriction for `--name` is relaxed to support longer names (#3279, thanks to @Shubhranshu153)
+  - Added `--security-opt systempaths=unconfined` flag (#3533, thanks to @austinvazquez)
+  - Added `--network ns:&lt;PATH&gt;` flag (#3538, thanks to @dancavallaro)
+  - Added the support for oci-layout image references (#3537, thanks to @austinvazquez)
+- `nerdctl build`:
+  - Added `--attest`, `--sbom`, and `--provenance` flags (#2786, thanks to @yankay)
+  - Added `--pull` flag (#3074, thanks to @sondavidb)
+  - Added the support for Windows (#2587, thanks to @TBBle)
+  - Added the support for oci-layout build contexts (#3327, thanks to @austinvazquez)
+- `nerdctl ps`:
+  - JSON type of `--format=json` is changed for better Docker compatibility (#2987, #3058, thanks to @apostasie and @yankay)
+- `nerdctl inspect`:
+  - Added `--size` flag (#3021, thanks to @apostasie)
+- `nerdctl network`:
+  - The networks are now aware of containerd namespaces. i.e., `nerdctl --namespace=foo network list` no longer shows networks created with `nerdctl --namespace=bar network create` (#3096, thanks to @apostasie)
+  - Enhanced support for DHCP (#3001, thanks to @apostasie)
+- `nerdctl compose up`:
+  - Added `--abort-on-container-exit` flag (#2873, thanks to @alegrey91)
+- `nerdctl builder prune`:
+  - Added `--all` flag (#3316, thanks to @austinvazquez)
+  - Added `--force` flag (#3316, thanks to @austinvazquez)
+- `nerdctl image prune`:
+  - Added `--filter` flag (#3319, thanks to @austinvazquez)
+- `nerdctl image load`:
+  - Added `--quiet` flag (#3551, thanks to @austinvazquez)
+- nerdct-full:
+  - Updated the components. See the `Included components` below.
+  - Removed IPFS (Kubo). Can be still installed manually. (#3532, thanks to @yankay)
+- Misc:
+  - Refactoring and stability improvements (Many PRs, thanks to @apostasie et al.)
+- And more!
+
+Full changes: https://github.com/containerd/nerdctl/milestone/37?closed=1
+Thanks to @CerberusQc @CodeChanning @Iceber @Shikachuu @Shubhranshu153 @TBBle @THLIVSQAZ @TinaMor @abitrolly @alegrey91 @apostasie @austinvazquez @bobcallaway @cezar-r @chews93319 @curlwget @dancavallaro @djdongjin @dmcgowan @fahedouch @frits-v @fwilhe2 @haytok @jmpargana @kebe7jun @ktock @lingdie @manugupt1 @midnight-wonderer @minuk-dev @monirul @pendo324 @qianxi0410 @roman-kiselenko @sazzy4o @sondavidb @testwill @thaJeztah @xyz-li @yankay @zjumoon01 @zwpaper
+
+## Compatible containerd versions
+This release of nerdctl is expected to be used with containerd v1.6, v1.7, or v2.0.
+
+## About the binaries
+- Minimal (`nerdctl-2.0.0-rc.3-linux-amd64.tar.gz`): nerdctl only
+- Full (`nerdctl-full-2.0.0-rc.3-linux-amd64.tar.gz`):    Includes dependencies such as containerd, runc, and CNI
+
+### Minimal
+Extract the archive to a path like `/usr/local/bin` or `~/bin` .
+&lt;details&gt;&lt;summary&gt;tar Cxzvvf /usr/local/bin nerdctl-2.0.0-rc.3-linux-amd64.tar.gz&lt;/summary&gt;
+&lt;p&gt;
+
+</code></pre>
+
+<p>-rwxr-xr-x root/root  26316952 2024-10-24 12:51 nerdctl
+-rwxr-xr-x root/root     22657 2024-10-24 12:50 containerd-rootless-setuptool.sh
+-rwxr-xr-x root/root      8708 2024-10-24 12:50 containerd-rootless.sh</p>
+
+<pre><code>&lt;/p&gt;
+&lt;/details&gt;
+
+### Full
+Extract the archive to a path like `/usr/local` or `~/.local` .
+
+&lt;details&gt;&lt;summary&gt;tar Cxzvvf /usr/local nerdctl-full-2.0.0-rc.3-linux-amd64.tar.gz&lt;/summary&gt;
+&lt;p&gt;
+
+</code></pre>
+
+<p>drwxr-xr-x 0/0               0 2024-10-24 12:58 bin/
+-rwxr-xr-x 0/0        29866025 2015-10-21 00:00 bin/buildctl
+-rwxr-xr-x 0/0        23724032 2022-09-05 09:52 bin/buildg
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-LICENSE -&gt; ../libexec/cni/LICENSE
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-README.md -&gt; ../libexec/cni/README.md
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-bandwidth -&gt; ../libexec/cni/bandwidth
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-bridge -&gt; ../libexec/cni/bridge
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-dhcp -&gt; ../libexec/cni/dhcp
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-dummy -&gt; ../libexec/cni/dummy
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-firewall -&gt; ../libexec/cni/firewall
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-host-device -&gt; ../libexec/cni/host-device
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-host-local -&gt; ../libexec/cni/host-local
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-ipvlan -&gt; ../libexec/cni/ipvlan
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-loopback -&gt; ../libexec/cni/loopback
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-macvlan -&gt; ../libexec/cni/macvlan
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-portmap -&gt; ../libexec/cni/portmap
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-ptp -&gt; ../libexec/cni/ptp
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-sbr -&gt; ../libexec/cni/sbr
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-static -&gt; ../libexec/cni/static
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-tap -&gt; ../libexec/cni/tap
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-tuning -&gt; ../libexec/cni/tuning
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-vlan -&gt; ../libexec/cni/vlan
+lrwxrwxrwx 0/0               0 2024-10-24 12:57 bin/buildkit-cni-vrf -&gt; ../libexec/cni/vrf
+-rwxr-xr-x 0/0        59727892 2015-10-21 00:00 bin/buildkitd
+-rwxr-xr-x 0/0        15311568 2024-10-24 12:56 bin/bypass4netns
+-rwxr-xr-x 0/0         5882008 2024-10-24 12:56 bin/bypass4netnsd
+-rwxr-xr-x 0/0        38794352 2024-10-24 12:57 bin/containerd
+-rwxr-xr-x 0/0         9474048 2023-11-02 17:34 bin/containerd-fuse-overlayfs-grpc
+-rwxr-xr-x 0/0           22657 2024-10-24 12:56 bin/containerd-rootless-setuptool.sh
+-rwxr-xr-x 0/0            8708 2024-10-24 12:56 bin/containerd-rootless.sh
+-rwxr-xr-x 0/0         7708824 2024-10-24 12:57 bin/containerd-shim-runc-v2
+-rwxr-xr-x 0/0        45903872 2023-10-31 08:57 bin/containerd-stargz-grpc
+-rwxr-xr-x 0/0        21810318 2024-10-24 12:57 bin/ctd-decoder
+-rwxr-xr-x 0/0        19697816 2024-10-24 12:57 bin/ctr
+-rwxr-xr-x 0/0        31136840 2024-10-24 12:57 bin/ctr-enc
+-rwxr-xr-x 0/0        19931136 2023-10-31 08:58 bin/ctr-remote
+-rwxr-xr-x 0/0         1789968 2024-10-24 12:57 bin/fuse-overlayfs
+-rwxr-xr-x 0/0        26284184 2024-10-24 12:56 bin/nerdctl
+-rwxr-xr-x 0/0        11346380 2024-08-17 19:28 bin/rootlessctl
+-rwxr-xr-x 0/0        13089548 2024-08-17 19:28 bin/rootlesskit
+-rwxr-xr-x 0/0        15967360 2024-10-24 12:56 bin/runc
+-rwxr-xr-x 0/0         2354520 2024-10-24 12:57 bin/slirp4netns
+-rwxr-xr-x 0/0          870496 2024-10-24 12:57 bin/tini
+drwxr-xr-x 0/0               0 2024-10-24 12:57 lib/
+drwxr-xr-x 0/0               0 2024-10-24 12:57 lib/systemd/
+drwxr-xr-x 0/0               0 2024-10-24 12:57 lib/systemd/system/
+-rw-r&ndash;r&ndash; 0/0            1325 2024-10-24 12:57 lib/systemd/system/buildkit.service
+-rw-r&ndash;r&ndash; 0/0            1264 2024-10-24 12:55 lib/systemd/system/containerd.service
+-rw-r&ndash;r&ndash; 0/0             312 2024-10-24 12:57 lib/systemd/system/stargz-snapshotter.service
+drwxr-xr-x 0/0               0 2024-10-24 12:57 libexec/
+drwxr-xr-x 0/0               0 2024-10-24 12:57 libexec/cni/
+-rw-r&ndash;r&ndash; 0/0           11357 2024-10-15 09:37 libexec/cni/LICENSE
+-rw-r&ndash;r&ndash; 0/0            2343 2024-10-15 09:37 libexec/cni/README.md
+-rwxr-xr-x 0/0         4648054 2024-10-15 09:36 libexec/cni/bandwidth
+-rwxr-xr-x 0/0         5283567 2024-10-15 09:37 libexec/cni/bridge
+-rwxr-xr-x 0/0        12771199 2024-10-15 09:37 libexec/cni/dhcp
+-rwxr-xr-x 0/0         4843811 2024-10-15 09:37 libexec/cni/dummy
+-rwxr-xr-x 0/0         5312426 2024-10-15 09:36 libexec/cni/firewall
+-rwxr-xr-x 0/0         4784447 2024-10-15 09:37 libexec/cni/host-device
+-rwxr-xr-x 0/0         4047543 2024-10-15 09:37 libexec/cni/host-local
+-rwxr-xr-x 0/0         4860660 2024-10-15 09:37 libexec/cni/ipvlan
+-rwxr-xr-x 0/0         4107060 2024-10-15 09:37 libexec/cni/loopback
+-rwxr-xr-x 0/0         4896553 2024-10-15 09:37 libexec/cni/macvlan
+-rwxr-xr-x 0/0         4703145 2024-10-15 09:36 libexec/cni/portmap
+-rwxr-xr-x 0/0         5068216 2024-10-15 09:37 libexec/cni/ptp
+-rwxr-xr-x 0/0         4330463 2024-10-15 09:36 libexec/cni/sbr
+-rwxr-xr-x 0/0         3648356 2024-10-15 09:37 libexec/cni/static
+-rwxr-xr-x 0/0         4920887 2024-10-15 09:37 libexec/cni/tap
+-rwxr-xr-x 0/0         4195353 2024-10-15 09:36 libexec/cni/tuning
+-rwxr-xr-x 0/0         4854297 2024-10-15 09:37 libexec/cni/vlan
+-rwxr-xr-x 0/0         4481459 2024-10-15 09:36 libexec/cni/vrf
+drwxr-xr-x 0/0               0 2024-10-24 12:57 share/
+drwxr-xr-x 0/0               0 2024-10-24 12:57 share/doc/
+drwxr-xr-x 0/0               0 2024-10-24 12:57 share/doc/nerdctl/
+-rw-r&ndash;r&ndash; 0/0           12101 2024-10-24 12:50 share/doc/nerdctl/README.md
+drwxr-xr-x 0/0               0 2024-10-24 12:50 share/doc/nerdctl/docs/
+-rw-r&ndash;r&ndash; 0/0            3953 2024-10-24 12:50 share/doc/nerdctl/docs/build.md
+-rw-r&ndash;r&ndash; 0/0            2570 2024-10-24 12:50 share/doc/nerdctl/docs/builder-debug.md
+-rw-r&ndash;r&ndash; 0/0            4779 2024-10-24 12:50 share/doc/nerdctl/docs/cni.md
+-rw-r&ndash;r&ndash; 0/0           77544 2024-10-24 12:50 share/doc/nerdctl/docs/command-reference.md
+-rw-r&ndash;r&ndash; 0/0            1814 2024-10-24 12:50 share/doc/nerdctl/docs/compose.md
+-rw-r&ndash;r&ndash; 0/0            5329 2024-10-24 12:50 share/doc/nerdctl/docs/config.md
+-rw-r&ndash;r&ndash; 0/0            9128 2024-10-24 12:50 share/doc/nerdctl/docs/cosign.md
+-rw-r&ndash;r&ndash; 0/0            5660 2024-10-24 12:50 share/doc/nerdctl/docs/cvmfs.md
+drwxr-xr-x 0/0               0 2024-10-24 12:50 share/doc/nerdctl/docs/dev/
+-rw-r&ndash;r&ndash; 0/0            8587 2024-10-24 12:50 share/doc/nerdctl/docs/dev/store.md
+-rw-r&ndash;r&ndash; 0/0            2776 2024-10-24 12:50 share/doc/nerdctl/docs/dir.md
+-rw-r&ndash;r&ndash; 0/0             906 2024-10-24 12:50 share/doc/nerdctl/docs/experimental.md
+-rw-r&ndash;r&ndash; 0/0           14217 2024-10-24 12:50 share/doc/nerdctl/docs/faq.md
+-rw-r&ndash;r&ndash; 0/0             884 2024-10-24 12:50 share/doc/nerdctl/docs/freebsd.md
+-rw-r&ndash;r&ndash; 0/0            3273 2024-10-24 12:50 share/doc/nerdctl/docs/gpu.md
+drwxr-xr-x 0/0               0 2024-10-24 12:50 share/doc/nerdctl/docs/images/
+-rw-r&ndash;r&ndash; 0/0            1540 2024-10-24 12:50 share/doc/nerdctl/docs/images/nerdctl-white.svg
+-rw-r&ndash;r&ndash; 0/0            1462 2024-10-24 12:50 share/doc/nerdctl/docs/images/nerdctl.svg
+-rw-r&ndash;r&ndash; 0/0          684421 2024-10-24 12:50 share/doc/nerdctl/docs/images/rootlessKit-network-design.png
+-rw-r&ndash;r&ndash; 0/0           14462 2024-10-24 12:50 share/doc/nerdctl/docs/ipfs.md
+-rw-r&ndash;r&ndash; 0/0            1755 2024-10-24 12:50 share/doc/nerdctl/docs/multi-platform.md
+-rw-r&ndash;r&ndash; 0/0            2960 2024-10-24 12:50 share/doc/nerdctl/docs/notation.md
+-rw-r&ndash;r&ndash; 0/0            2596 2024-10-24 12:50 share/doc/nerdctl/docs/nydus.md
+-rw-r&ndash;r&ndash; 0/0            3277 2024-10-24 12:50 share/doc/nerdctl/docs/ocicrypt.md
+-rw-r&ndash;r&ndash; 0/0            1876 2024-10-24 12:50 share/doc/nerdctl/docs/overlaybd.md
+-rw-r&ndash;r&ndash; 0/0           15657 2024-10-24 12:50 share/doc/nerdctl/docs/registry.md
+-rw-r&ndash;r&ndash; 0/0            8707 2024-10-24 12:50 share/doc/nerdctl/docs/rootless.md
+-rw-r&ndash;r&ndash; 0/0            2015 2024-10-24 12:50 share/doc/nerdctl/docs/soci.md
+-rw-r&ndash;r&ndash; 0/0           10312 2024-10-24 12:50 share/doc/nerdctl/docs/stargz.md
+drwxr-xr-x 0/0               0 2024-10-24 12:50 share/doc/nerdctl/docs/testing/
+-rw-r&ndash;r&ndash; 0/0            4115 2024-10-24 12:50 share/doc/nerdctl/docs/testing/README.md
+-rw-r&ndash;r&ndash; 0/0           15068 2024-10-24 12:50 share/doc/nerdctl/docs/testing/tools.md
+drwxr-xr-x 0/0               0 2024-10-24 12:58 share/doc/nerdctl-full/
+-rw-r&ndash;r&ndash; 0/0            1010 2024-10-24 12:58 share/doc/nerdctl-full/README.md
+-rw-r&ndash;r&ndash; 0/0            9022 2024-10-24 12:58 share/doc/nerdctl-full/SHA256SUMS</p>
+
+<pre><code>&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;&lt;summary&gt;Included components&lt;/summary&gt;
+&lt;p&gt;
+
+See `share/doc/nerdctl-full/README.md`:
+```markdown
+# nerdctl (full distribution)
+- nerdctl: v2.0.0-rc.3
+- containerd: v2.0.0-rc.6
+- runc: v1.2.0
+- CNI plugins: v1.6.0
+- BuildKit: v0.16.0
+- Stargz Snapshotter: v0.15.1
+- imgcrypt: v1.1.11
+- RootlessKit: v2.3.1
+- slirp4netns: v1.3.1
+- bypass4netns: v0.4.1
+- fuse-overlayfs: v1.14
+- containerd-fuse-overlayfs: v1.0.8
+- Tini: v0.19.0
+- buildg: v0.4.1
+
+## License
+- bin/slirp4netns:    [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/rootless-containers/slirp4netns/blob/v1.3.1/COPYING)
+- bin/fuse-overlayfs: [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/containers/fuse-overlayfs/blob/v1.14/COPYING)
+- bin/{runc,bypass4netns,bypass4netnsd}: Apache License 2.0, statically linked with libseccomp ([LGPL 2.1](https://github.com/seccomp/libseccomp/blob/main/LICENSE), source code available at https://github.com/seccomp/libseccomp/)
+- bin/tini: [MIT License](https://github.com/krallin/tini/blob/v0.19.0/LICENSE)
+- Other files: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+</code></pre>
+
+<p></p>
+</details></p>
+</blockquote>
+
+<h2 id="quick-start">Quick start</h2>
+
+<h3 id="rootful">Rootful</h3>
+
+<pre><code class="language-console">$ sudo systemctl enable --now containerd
+$ sudo nerdctl run -d --name nginx -p 80:80 nginx:alpine
+</code></pre>
+
+<h3 id="rootless">Rootless</h3>
+
+<pre><code class="language-console">$ containerd-rootless-setuptool.sh install
+$ nerdctl run -d --name nginx -p 8080:80 nginx:alpine
+</code></pre>
+
+<p>Enabling cgroup v2 is highly recommended for rootless mode, see <a href="https://rootlesscontaine.rs/getting-started/common/cgroup2/" target="_blank">https://rootlesscontaine.rs/getting-started/common/cgroup2/</a> .</p>
+
+<hr>
+
+<p>The binaries were built automatically on GitHub Actions.
+The build log is available for 90 days: <a href="https://github.com/containerd/nerdctl/actions/runs/11499655077" target="_blank">https://github.com/containerd/nerdctl/actions/runs/11499655077</a></p>
+
+<p>The sha256sum of the SHA256SUMS file itself is <code>147010c5987e04e23e1275975a35b8f2f751760cce0b18a25a1f045df49bda0f</code> .</p>
+
+<hr>
+
+<p>Release manager: @AkihiroSuda</p>
+<br>
+</body>
+
+</html>
