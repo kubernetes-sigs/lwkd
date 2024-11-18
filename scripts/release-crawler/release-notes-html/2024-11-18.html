@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2024-11-11 - 2024-11-18</h1><h2>prometheus/prometheus</h2> <h3>Release notes for 3.0.0 / 2024-11-14</h3><h4>2024-11-14</h4><p>This release includes new features such as a brand new UI and UTF-8 support enabled by default. As this marks the first new major version in seven years, several breaking changes are introduced. The breaking changes are mainly around the removal of deprecated feature flags and CLI arguments, and the full list can be found below. For users that want to upgrade we recommend to read through our <a href="https://prometheus.io/docs/prometheus/3.0/migration/" target="_blank">migration guide</a>.</p>
+
+<ul>
+<li>[CHANGE] Set the <code>GOMAXPROCS</code> variable automatically to match the Linux CPU quota. Use <code>--no-auto-gomaxprocs</code> to disable it. The <code>auto-gomaxprocs</code> feature flag was removed. #15376</li>
+<li>[CHANGE] Set the <code>GOMEMLIMIT</code> variable automatically to match the Linux container memory limit. Use <code>--no-auto-gomemlimit</code> to disable it. The <code>auto-gomemlimit</code> feature flag was removed. #15373</li>
+<li>[CHANGE] Scraping: Remove implicit fallback to the Prometheus text format in case of invalid/missing Content-Type and fail the scrape instead. Add ability to specify a <code>fallback_scrape_protocol</code> in the scrape config. #15136</li>
+<li>[CHANGE] Remote-write: default enable_http2 to false. #15219</li>
+<li>[CHANGE] Scraping: normalize &ldquo;le&rdquo; and &ldquo;quantile&rdquo; label values upon ingestion. #15164</li>
+<li>[CHANGE] Scraping: config <code>scrape_classic_histograms</code> was renamed to <code>always_scrape_classic_histograms</code>. #15178</li>
+<li>[CHANGE] Config: remove expand-external-labels flag, expand external labels env vars by default. #14657</li>
+<li>[CHANGE] Disallow configuring AM with the v1 api. #13883</li>
+<li>[CHANGE] regexp <code>.</code> now matches all characters (performance improvement). #14505</li>
+<li>[CHANGE] <code>holt_winters</code> is now called <code>double_exponential_smoothing</code> and moves behind the <a href="https://prometheus.io/docs/prometheus/latest/feature_flags/#experimental-promql-functions" target="_blank">experimental-promql-functions feature flag</a>. #14930</li>
+<li>[CHANGE] API: The OTLP receiver endpoint can now be enabled using <code>--web.enable-otlp-receiver</code> instead of <code>--enable-feature=otlp-write-receiver</code>. #14894</li>
+<li>[CHANGE] Prometheus will not add or remove port numbers from the target address. <code>no-default-scrape-port</code> feature flag removed. #14160</li>
+<li>[CHANGE] Logging: the format of log lines has changed a little, along with the adoption of Go&rsquo;s Structured Logging package. #14906</li>
+<li>[CHANGE] Don&rsquo;t create extra <code>_created</code> timeseries if feature-flag <code>created-timestamp-zero-ingestion</code> is enabled. #14738</li>
+<li>[CHANGE] Float literals and time durations being the same is now a stable fetaure. #15111</li>
+<li>[CHANGE] UI: The old web UI has been replaced by a completely new one that is less cluttered and adds a few new features (PromLens-style tree view, better metrics explorer, &ldquo;Explain&rdquo; tab). However, it is still missing some features of the old UI (notably, exemplar display and heatmaps). To switch back to the old UI, you can use the feature flag <code>--enable-feature=old-ui</code> for the time being. #14872</li>
+<li>[CHANGE] PromQL: Range selectors and the lookback delta are now left-open, i.e. a sample coinciding with the lower time limit is excluded rather than included. #13904</li>
+<li>[CHANGE] Kubernetes SD: Remove support for <code>discovery.k8s.io/v1beta1</code> API version of EndpointSlice. This version is no longer served as of Kubernetes v1.25. #14365</li>
+<li>[CHANGE] Kubernetes SD: Remove support for <code>networking.k8s.io/v1beta1</code> API version of Ingress. This version is no longer served as of Kubernetes v1.22. #14365</li>
+<li>[CHANGE] UTF-8: Enable UTF-8 support by default. Prometheus now allows all UTF-8 characters in metric and label names. The corresponding <code>utf8-name</code> feature flag has been removed. #14705</li>
+<li>[CHANGE] Console: Remove example files for the console feature. Users can continue using the console feature by supplying their own JavaScript and templates. #14807</li>
+<li>[CHANGE] SD: Enable the new service discovery manager by default. This SD manager does not restart unchanged discoveries upon reloading. This makes reloads faster and reduces pressure on service discoveries&rsquo; sources. The corresponding <code>new-service-discovery-manager</code> feature flag has been removed. #14770</li>
+<li>[CHANGE] Agent mode has been promoted to stable. The feature flag <code>agent</code> has been removed. To run Prometheus in Agent mode, use the new <code>--agent</code> cmdline arg instead. #14747</li>
+<li>[CHANGE] Remove deprecated <code>remote-write-receiver</code>,<code>promql-at-modifier</code>, and <code>promql-negative-offset</code> feature flags. #13456, #14526</li>
+<li>[CHANGE] Remove deprecated <code>storage.tsdb.allow-overlapping-blocks</code>, <code>alertmanager.timeout</code>, and <code>storage.tsdb.retention</code> flags. #14640, #14643</li>
+<li>[FEATURE] OTLP receiver: Ability to skip UTF-8 normalization using <code>otlp.translation_strategy = NoUTF8EscapingWithSuffixes</code> configuration option. #15384</li>
+<li>[FEATURE] Support config reload automatically - feature flag <code>auto-reload-config</code>. #14769</li>
+<li>[ENHANCEMENT] Scraping, rules: handle targets reappearing, or rules moving group, when out-of-order is enabled. #14710</li>
+<li>[ENHANCEMENT] Tools: add debug printouts to promtool rules unit testing #15196</li>
+<li>[ENHANCEMENT] Scraping: support Created-Timestamp feature on native histograms. #14694</li>
+<li>[ENHANCEMENT] UI: Many fixes and improvements. #14898, #14899, #14907, #14908, #14912, #14913, #14914, #14931, #14940, #14945, #14946, #14972, #14981, #14982, #14994, #15096</li>
+<li>[ENHANCEMENT] UI: Web UI now displays notifications, e.g. when starting up and shutting down. #15082</li>
+<li>[ENHANCEMENT] PromQL: Introduce exponential interpolation for native histograms. #14677</li>
+<li>[ENHANCEMENT] TSDB: Add support for ingestion of out-of-order native histogram samples. #14850, #14546</li>
+<li>[ENHANCEMENT] Alerts: remove metrics for removed Alertmanagers. #13909</li>
+<li>[ENHANCEMENT] Kubernetes SD: Support sidecar containers in endpoint discovery. #14929</li>
+<li>[ENHANCEMENT] Consul SD: Support catalog filters. #11224</li>
+<li>[ENHANCEMENT] Move AM discovery page from &ldquo;Monitoring status&rdquo; to &ldquo;Server status&rdquo;. #14875</li>
+<li>[PERF] TSDB: Parallelize deletion of postings after head compaction. #14975</li>
+<li>[PERF] TSDB: Chunk encoding: shorten some write sequences. #14932</li>
+<li>[PERF] TSDB: Grow postings by doubling. #14721</li>
+<li>[PERF] Relabeling: Optimize adding a constant label pair. #12180</li>
+<li>[BUGFIX] Scraping: Don&rsquo;t log errors on empty scrapes. #15357</li>
+<li>[BUGFIX] UI: fix selector / series formatting for empty metric names. #15341</li>
+<li>[BUGFIX] PromQL: Fix stddev+stdvar aggregations to always ignore native histograms. #14941</li>
+<li>[BUGFIX] PromQL: Fix stddev+stdvar aggregations to treat Infinity consistently. #14941</li>
+<li>[BUGFIX] OTLP receiver: Preserve colons when generating metric names in suffix adding mode (this mode is always enabled, unless one uses Prometheus as a library). #15251</li>
+<li>[BUGFIX] Scraping: Unit was missing when using protobuf format. #15095</li>
+<li>[BUGFIX] PromQL: Only return &ldquo;possible non-counter&rdquo; annotation when <code>rate</code> returns points. #14910</li>
+<li>[BUGFIX] TSDB: Chunks could have one unnecessary zero byte at the end. #14854</li>
+<li>[BUGFIX] &ldquo;superfluous response.WriteHeader call&rdquo; messages in log. #14884</li>
+<li>[BUGFIX] PromQL: Unary negation of native histograms. #14821</li>
+<li>[BUGFIX] PromQL: Handle stale marker in native histogram series (e.g. if series goes away and comes back). #15025</li>
+<li>[BUGFIX] Autoreload: Reload invalid yaml files. #14947</li>
+<li>[BUGFIX] Scrape: Do not override target parameter labels with config params. #11029</li>
+</ul>
+
+<p><details>
+<summary>All commits since v2.55</summary></p>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>promql: make lookback and matrix selections left-open and right-closed by @KofClubs in <a href="https://github.com/prometheus/prometheus/pull/13904" target="_blank">https://github.com/prometheus/prometheus/pull/13904</a></li>
+<li>removed &ldquo;promql-at-modifier&rdquo; and &ldquo;promql-negative-offset&rdquo; features from flag list by @kartikaysaxena in <a href="https://github.com/prometheus/prometheus/pull/13456" target="_blank">https://github.com/prometheus/prometheus/pull/13456</a></li>
+<li>Sync release-3.0 with main by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14369" target="_blank">https://github.com/prometheus/prometheus/pull/14369</a></li>
+<li>feat (ui): Add Native Histogram rendering to new UI by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/14431" target="_blank">https://github.com/prometheus/prometheus/pull/14431</a></li>
+<li>3.0 main sync 24-07-09 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14445" target="_blank">https://github.com/prometheus/prometheus/pull/14445</a></li>
+<li>Minor style improvements for native histograms in table view by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14448" target="_blank">https://github.com/prometheus/prometheus/pull/14448</a></li>
+<li>3.0 main sync 24 07 18 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14488" target="_blank">https://github.com/prometheus/prometheus/pull/14488</a></li>
+<li>discovery(k8s): remove support for API versions no longer served by @simonpasquier in <a href="https://github.com/prometheus/prometheus/pull/14365" target="_blank">https://github.com/prometheus/prometheus/pull/14365</a></li>
+<li>3.0 main sync 24 08 01 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14543" target="_blank">https://github.com/prometheus/prometheus/pull/14543</a></li>
+<li>Remove unused flags by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14640" target="_blank">https://github.com/prometheus/prometheus/pull/14640</a></li>
+<li>Remove deprecated storage.tsdb.retention flag by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14643" target="_blank">https://github.com/prometheus/prometheus/pull/14643</a></li>
+<li>add v3 tags to action conditions by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14666" target="_blank">https://github.com/prometheus/prometheus/pull/14666</a></li>
+<li>remove deprecated and replaced remote-write-receiver flag from enable-feature by @pawarpranav83 in <a href="https://github.com/prometheus/prometheus/pull/14526" target="_blank">https://github.com/prometheus/prometheus/pull/14526</a></li>
+<li>3.0 main sync 24-08-21 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14703" target="_blank">https://github.com/prometheus/prometheus/pull/14703</a></li>
+<li>Promote Agent mode to it&rsquo;s own cmdline flag by @ArthurSens in <a href="https://github.com/prometheus/prometheus/pull/14747" target="_blank">https://github.com/prometheus/prometheus/pull/14747</a></li>
+<li>3.0 main sync 24-08-30 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14806" target="_blank">https://github.com/prometheus/prometheus/pull/14806</a></li>
+<li>Remove console static files by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14807" target="_blank">https://github.com/prometheus/prometheus/pull/14807</a></li>
+<li>chore(discovery): enable new-service-discovery-manager by default and drop legacymanager package by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14770" target="_blank">https://github.com/prometheus/prometheus/pull/14770</a></li>
+<li>Target parameter labels should not be overridden by config params by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/11029" target="_blank">https://github.com/prometheus/prometheus/pull/11029</a></li>
+<li>utf8: enable utf-8 support by default by @ywwg in <a href="https://github.com/prometheus/prometheus/pull/14705" target="_blank">https://github.com/prometheus/prometheus/pull/14705</a></li>
+<li>Limit memory usage Go tests with race detector by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14862" target="_blank">https://github.com/prometheus/prometheus/pull/14862</a></li>
+<li>Merge new UI branch for Prometheus 3.0 into main by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14872" target="_blank">https://github.com/prometheus/prometheus/pull/14872</a></li>
+<li>BUGFIX: TSDB: panic in chunk querier by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/14874" target="_blank">https://github.com/prometheus/prometheus/pull/14874</a></li>
+<li>[Comment] Correct the comment on Decbuf.UvarintBytes by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14767" target="_blank">https://github.com/prometheus/prometheus/pull/14767</a></li>
+<li>Move AM discovery page from &ldquo;Monitoring status&rdquo; -&gt; &ldquo;Server status&rdquo; by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14875" target="_blank">https://github.com/prometheus/prometheus/pull/14875</a></li>
+<li>Scrape: test for q-value compliance with RFC 9110 in Accept header by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14852" target="_blank">https://github.com/prometheus/prometheus/pull/14852</a></li>
+<li>3.0 main sync 24 09 09 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14879" target="_blank">https://github.com/prometheus/prometheus/pull/14879</a></li>
+<li>Bump @types/node from 22.5.2 to 22.5.4 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/14873" target="_blank">https://github.com/prometheus/prometheus/pull/14873</a></li>
+<li>Fix error flood by downgrading OTel dependencies by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14884" target="_blank">https://github.com/prometheus/prometheus/pull/14884</a></li>
+<li>remove rfratto as a tsdb/agent maintainer by @rfratto in <a href="https://github.com/prometheus/prometheus/pull/14881" target="_blank">https://github.com/prometheus/prometheus/pull/14881</a></li>
+<li>Mantine UI: Fix 404 on /discovered-alertmanagers by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14888" target="_blank">https://github.com/prometheus/prometheus/pull/14888</a></li>
+<li>Bring back documentation link in the form of an action button by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14882" target="_blank">https://github.com/prometheus/prometheus/pull/14882</a></li>
+<li>Mantine UI: Use actual lookback delta in explain by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14891" target="_blank">https://github.com/prometheus/prometheus/pull/14891</a></li>
+<li>fix(utf8): propagate validationScheme config to scraping options by @npazosmendez in <a href="https://github.com/prometheus/prometheus/pull/14880" target="_blank">https://github.com/prometheus/prometheus/pull/14880</a></li>
+<li>promql: correctly handle unary negation of native histograms and add tests for multiplication and division of native histograms by negative scalars by @charleskorn in <a href="https://github.com/prometheus/prometheus/pull/14821" target="_blank">https://github.com/prometheus/prometheus/pull/14821</a></li>
+<li>Update promci action by @SuperQ in <a href="https://github.com/prometheus/prometheus/pull/14885" target="_blank">https://github.com/prometheus/prometheus/pull/14885</a></li>
+<li>Explain: Use param scalars in aggregations description by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14893" target="_blank">https://github.com/prometheus/prometheus/pull/14893</a></li>
+<li>test: pass enable_npm to setup_environment by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14892" target="_blank">https://github.com/prometheus/prometheus/pull/14892</a></li>
+<li>Fix HTML rendering for aggregator Explain view by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14895" target="_blank">https://github.com/prometheus/prometheus/pull/14895</a></li>
+<li>Prepare release 3.0.0-beta.0 by @fionaliao in <a href="https://github.com/prometheus/prometheus/pull/14853" target="_blank">https://github.com/prometheus/prometheus/pull/14853</a></li>
+<li>Cut release 3.0 beta.0 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14896" target="_blank">https://github.com/prometheus/prometheus/pull/14896</a></li>
+<li>Bump actions/upload-artifact from 4.3.4 to 4.4.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/14775" target="_blank">https://github.com/prometheus/prometheus/pull/14775</a></li>
+<li>chore: Fix typos by @NathanBaulch in <a href="https://github.com/prometheus/prometheus/pull/14868" target="_blank">https://github.com/prometheus/prometheus/pull/14868</a></li>
+<li>Upgrade github.com/googleapis/enterprise-certificate-proxy to v0.3.4 by @aknuds1 in <a href="https://github.com/prometheus/prometheus/pull/14897" target="_blank">https://github.com/prometheus/prometheus/pull/14897</a></li>
+<li>TSDB: OOO native histograms: prep for multiple ooo head chunks by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/14850" target="_blank">https://github.com/prometheus/prometheus/pull/14850</a></li>
+<li>ui: drop readme from template by @SuperSandro2000 in <a href="https://github.com/prometheus/prometheus/pull/14899" target="_blank">https://github.com/prometheus/prometheus/pull/14899</a></li>
+<li>Fix border color for target pools with one target that is failing by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14898" target="_blank">https://github.com/prometheus/prometheus/pull/14898</a></li>
+<li>docs/feature_flags.md: drop <code>agent</code> feature flag by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14903" target="_blank">https://github.com/prometheus/prometheus/pull/14903</a></li>
+<li>UI improvements: Factor out common styles, fix tree node line rendering, always show full badge contents (no ellipsis) by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14907" target="_blank">https://github.com/prometheus/prometheus/pull/14907</a></li>
+<li>makefile: Add support for skipping UI build when prebuilt assets are provided by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14901" target="_blank">https://github.com/prometheus/prometheus/pull/14901</a></li>
+<li>Explain, vector-to-vector: Do not compute results for set operators by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14908" target="_blank">https://github.com/prometheus/prometheus/pull/14908</a></li>
+<li>build(deps): bump github.com/go-zookeeper/zk from 1.0.3 to 1.0.4 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/14531" target="_blank">https://github.com/prometheus/prometheus/pull/14531</a></li>
+<li>[DOCS] put back feature flag &lsquo;delayed-compaction&rsquo; and &lsquo;old-ui&rsquo; by @Nexucis in <a href="https://github.com/prometheus/prometheus/pull/14909" target="_blank">https://github.com/prometheus/prometheus/pull/14909</a></li>
+<li>PromQL explain view: Support set operators by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14913" target="_blank">https://github.com/prometheus/prometheus/pull/14913</a></li>
+<li>Add support for running govulncheck by @51n15t9r in <a href="https://github.com/prometheus/prometheus/pull/12654" target="_blank">https://github.com/prometheus/prometheus/pull/12654</a></li>
+<li>New UI: Better time formatting + tests, better styling by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14914" target="_blank">https://github.com/prometheus/prometheus/pull/14914</a></li>
+<li>storage: Document that LabelQuerier.LabelValues interface returns sorted values by @harry671003 in <a href="https://github.com/prometheus/prometheus/pull/14849" target="_blank">https://github.com/prometheus/prometheus/pull/14849</a></li>
+<li>tsdb: Add support for ingestion of out-of-order native histogram samples  by @carrieedwards in <a href="https://github.com/prometheus/prometheus/pull/14546" target="_blank">https://github.com/prometheus/prometheus/pull/14546</a></li>
+<li>TSDB: Simplify benchmark regexps by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14911" target="_blank">https://github.com/prometheus/prometheus/pull/14911</a></li>
+<li>Bump typescript from 5.5.4 to 5.6.2 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/14915" target="_blank">https://github.com/prometheus/prometheus/pull/14915</a></li>
+<li>fix(wlog/watcher_test.go): make TestRun_AvoidNotifyWhenBehind more resilient by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14724" target="_blank">https://github.com/prometheus/prometheus/pull/14724</a></li>
+<li>Adding configuration documentation changes for username_file support for basic auth http client config by @wasim-nihal in <a href="https://github.com/prometheus/prometheus/pull/12749" target="_blank">https://github.com/prometheus/prometheus/pull/12749</a></li>
+<li>fix(bstream/writeByte): ensure it appends only one byte by @fungiboletus in <a href="https://github.com/prometheus/prometheus/pull/14854" target="_blank">https://github.com/prometheus/prometheus/pull/14854</a></li>
+<li>build(deps): bump lru-cache from 7.18.3 to 11.0.1 in /web/ui by @arukiidou in <a href="https://github.com/prometheus/prometheus/pull/12829" target="_blank">https://github.com/prometheus/prometheus/pull/12829</a></li>
+<li>mantine UI: Distinguish between Not Ready and Stopping by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14912" target="_blank">https://github.com/prometheus/prometheus/pull/14912</a></li>
+<li>Fix remote write v2 <code>BuildWriteRequest</code> benchmark by @cstyan in <a href="https://github.com/prometheus/prometheus/pull/14925" target="_blank">https://github.com/prometheus/prometheus/pull/14925</a></li>
+<li>[CHANGE] regexp . to match \n and optimize performance by @marioferh in <a href="https://github.com/prometheus/prometheus/pull/14505" target="_blank">https://github.com/prometheus/prometheus/pull/14505</a></li>
+<li>Make rate possible non-counter annotation consistent by @jhesketh in <a href="https://github.com/prometheus/prometheus/pull/14910" target="_blank">https://github.com/prometheus/prometheus/pull/14910</a></li>
+<li>UI: Disallow sub-second zoom as this cause inconsistenices in the X axis in uPlot by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14940" target="_blank">https://github.com/prometheus/prometheus/pull/14940</a></li>
+<li>move holt_winters to the experimental functions and rename by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/14930" target="_blank">https://github.com/prometheus/prometheus/pull/14930</a></li>
+<li>promql(native histograms): Introduce exponential interpolation by @beorn7 in <a href="https://github.com/prometheus/prometheus/pull/14677" target="_blank">https://github.com/prometheus/prometheus/pull/14677</a></li>
+<li>UI/PromQL: autocomplete topk like aggregation function parameters by @Nexucis in <a href="https://github.com/prometheus/prometheus/pull/14931" target="_blank">https://github.com/prometheus/prometheus/pull/14931</a></li>
+<li>support v2 proto for BenchmarkSampleSend by @cstyan in <a href="https://github.com/prometheus/prometheus/pull/14935" target="_blank">https://github.com/prometheus/prometheus/pull/14935</a></li>
+<li>promqltest: use test expression format for histograms in assertion failure messages and include reset hint in the test expression by @charleskorn in <a href="https://github.com/prometheus/prometheus/pull/14820" target="_blank">https://github.com/prometheus/prometheus/pull/14820</a></li>
+<li>[BUGFIX] TSDB: Only query chunks up to truncation time by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14948" target="_blank">https://github.com/prometheus/prometheus/pull/14948</a></li>
+<li>refac: make typeRequiresCT private by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/14949" target="_blank">https://github.com/prometheus/prometheus/pull/14949</a></li>
+<li>[PERF] TSDB: Chunk encoding: shorten some write sequences by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14932" target="_blank">https://github.com/prometheus/prometheus/pull/14932</a></li>
+<li>fix(web): properly format sub-millisecond durations in target status page by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14945" target="_blank">https://github.com/prometheus/prometheus/pull/14945</a></li>
+<li>Mantine UI: removed unuse file by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14944" target="_blank">https://github.com/prometheus/prometheus/pull/14944</a></li>
+<li>chore: remove unused code by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/14950" target="_blank">https://github.com/prometheus/prometheus/pull/14950</a></li>
+<li>Neater string vs byte-slice conversions by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14425" target="_blank">https://github.com/prometheus/prometheus/pull/14425</a></li>
+<li>fix(autoreload): Reload invalid yaml files by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14947" target="_blank">https://github.com/prometheus/prometheus/pull/14947</a></li>
+<li>chore: bump client_golang from 1.20.3 to 1.20.4 by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/14963" target="_blank">https://github.com/prometheus/prometheus/pull/14963</a></li>
+<li>Merge 2.55 into main by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14959" target="_blank">https://github.com/prometheus/prometheus/pull/14959</a></li>
+<li>promql.Engine: Refactor vector selector evaluation into a method by @aknuds1 in <a href="https://github.com/prometheus/prometheus/pull/14900" target="_blank">https://github.com/prometheus/prometheus/pull/14900</a></li>
+<li>Optimize constant label pair adding with relabel.Replace by @damnever in <a href="https://github.com/prometheus/prometheus/pull/12180" target="_blank">https://github.com/prometheus/prometheus/pull/12180</a></li>
+<li>docs: Improve, clarify, and fix documentation on scrape limits by @beorn7 in <a href="https://github.com/prometheus/prometheus/pull/14970" target="_blank">https://github.com/prometheus/prometheus/pull/14970</a></li>
+<li>UI: Make mantime UI assets relative by @jesusvazquez in <a href="https://github.com/prometheus/prometheus/pull/14972" target="_blank">https://github.com/prometheus/prometheus/pull/14972</a></li>
+<li>[PERF] TSDB: Grow postings by doubling by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14721" target="_blank">https://github.com/prometheus/prometheus/pull/14721</a></li>
+<li>Docs: Refer to staleness in instant vector documentation by @ringerc in <a href="https://github.com/prometheus/prometheus/pull/12998" target="_blank">https://github.com/prometheus/prometheus/pull/12998</a></li>
+<li>[ENHANCEMENT] Alerts: remove metrics for removed Alertmanagers by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/13909" target="_blank">https://github.com/prometheus/prometheus/pull/13909</a></li>
+<li>Histogram CT Zero ingestion by @ArthurSens in <a href="https://github.com/prometheus/prometheus/pull/14694" target="_blank">https://github.com/prometheus/prometheus/pull/14694</a></li>
+<li>scrape/scrape_test.go: reduce the time it takes to reload the manager by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/14447" target="_blank">https://github.com/prometheus/prometheus/pull/14447</a></li>
+<li>Remove no-default-scrape-port featureFlag by @alex-kattathra-johnson in <a href="https://github.com/prometheus/prometheus/pull/14160" target="_blank">https://github.com/prometheus/prometheus/pull/14160</a></li>
+<li>Remove Query page alert close buttons that don&rsquo;t do anything by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14982" target="_blank">https://github.com/prometheus/prometheus/pull/14982</a></li>
+<li>Remove unnecessary pprof import by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14988" target="_blank">https://github.com/prometheus/prometheus/pull/14988</a></li>
+<li>Add notifications to the Web UI by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14946" target="_blank">https://github.com/prometheus/prometheus/pull/14946</a></li>
+<li>fix(test): adjust defer invocations by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14996" target="_blank">https://github.com/prometheus/prometheus/pull/14996</a></li>
+<li>Process <code>MemPostings.Delete()</code> with <code>GOMAXPROCS</code> workers by @colega in <a href="https://github.com/prometheus/prometheus/pull/14975" target="_blank">https://github.com/prometheus/prometheus/pull/14975</a></li>
+<li>Follow-up on notifications via SSE by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/14994" target="_blank">https://github.com/prometheus/prometheus/pull/14994</a></li>
+<li>fix(discovery): fix Configs&rsquo; custom unmarshalling/marshalling by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14993" target="_blank">https://github.com/prometheus/prometheus/pull/14993</a></li>
+<li>Calculate path prefix directly in initial settings Redux value by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/14981" target="_blank">https://github.com/prometheus/prometheus/pull/14981</a></li>
+<li>Remove LeviHarrison as a default maintainer by @LeviHarrison in <a href="https://github.com/prometheus/prometheus/pull/15005" target="_blank">https://github.com/prometheus/prometheus/pull/15005</a></li>
+<li>[REFACTOR] PromQL: remove label_join and label_replace stubs by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14992" target="_blank">https://github.com/prometheus/prometheus/pull/14992</a></li>
+<li>Support sidecar containers in k8s endpoint discovery by @fbs in <a href="https://github.com/prometheus/prometheus/pull/14929" target="_blank">https://github.com/prometheus/prometheus/pull/14929</a></li>
+<li>OTLP: Remove experimental word form OTLP receiver by @jesusvazquez in <a href="https://github.com/prometheus/prometheus/pull/14894" target="_blank">https://github.com/prometheus/prometheus/pull/14894</a></li>
+<li>MAINTAINERS: Add Arthur as an otlptranslator maintainer by @jesusvazquez in <a href="https://github.com/prometheus/prometheus/pull/15024" target="_blank">https://github.com/prometheus/prometheus/pull/15024</a></li>
+<li>api: Improve doc comments for v1.MinTime and v1.MaxTime by @beorn7 in <a href="https://github.com/prometheus/prometheus/pull/14986" target="_blank">https://github.com/prometheus/prometheus/pull/14986</a></li>
+<li>Bump @mantine/dates from 7.12.2 to 7.13.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15048" target="_blank">https://github.com/prometheus/prometheus/pull/15048</a></li>
+<li>Bump react-router-dom from 6.26.1 to 6.26.2 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15044" target="_blank">https://github.com/prometheus/prometheus/pull/15044</a></li>
+<li>Bump vitest from 2.0.5 to 2.1.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15041" target="_blank">https://github.com/prometheus/prometheus/pull/15041</a></li>
+<li>Bump @types/lodash from 4.17.7 to 4.17.9 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15051" target="_blank">https://github.com/prometheus/prometheus/pull/15051</a></li>
+<li>Bump eslint-plugin-react-refresh from 0.4.11 to 0.4.12 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15050" target="_blank">https://github.com/prometheus/prometheus/pull/15050</a></li>
+<li>Bump @codemirror/view from 6.33.0 to 6.34.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15047" target="_blank">https://github.com/prometheus/prometheus/pull/15047</a></li>
+<li>Bump actions/checkout from 4.1.7 to 4.2.0 in /scripts by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15066" target="_blank">https://github.com/prometheus/prometheus/pull/15066</a></li>
+<li>Bump github/codeql-action from 3.26.6 to 3.26.10 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15067" target="_blank">https://github.com/prometheus/prometheus/pull/15067</a></li>
+<li>Bump @uiw/react-codemirror from 4.23.1 to 4.23.3 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15052" target="_blank">https://github.com/prometheus/prometheus/pull/15052</a></li>
+<li>Bump jsdom from 25.0.0 to 25.0.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15037" target="_blank">https://github.com/prometheus/prometheus/pull/15037</a></li>
+<li>Bump bufbuild/buf-setup-action from 1.39.0 to 1.43.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15068" target="_blank">https://github.com/prometheus/prometheus/pull/15068</a></li>
+<li>Bump @mantine/notifications from 7.12.2 to 7.13.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15053" target="_blank">https://github.com/prometheus/prometheus/pull/15053</a></li>
+<li>Bump @tanstack/react-query from 5.53.2 to 5.59.0 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15054" target="_blank">https://github.com/prometheus/prometheus/pull/15054</a></li>
+<li>Bump @mantine/code-highlight from 7.12.2 to 7.13.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15060" target="_blank">https://github.com/prometheus/prometheus/pull/15060</a></li>
+<li>Bump @eslint/js from 9.9.1 to 9.11.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15062" target="_blank">https://github.com/prometheus/prometheus/pull/15062</a></li>
+<li>Bump @types/jest from 29.5.12 to 29.5.13 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15063" target="_blank">https://github.com/prometheus/prometheus/pull/15063</a></li>
+<li>Bump vite from 5.4.2 to 5.4.8 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15059" target="_blank">https://github.com/prometheus/prometheus/pull/15059</a></li>
+<li>Bump actions/setup-node from 4.0.3 to 4.0.4 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15065" target="_blank">https://github.com/prometheus/prometheus/pull/15065</a></li>
+<li>Bump @codemirror/autocomplete from 6.18.0 to 6.18.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15057" target="_blank">https://github.com/prometheus/prometheus/pull/15057</a></li>
+<li>Bump eslint from 9.9.1 to 9.11.1 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15056" target="_blank">https://github.com/prometheus/prometheus/pull/15056</a></li>
+<li>Bump @tabler/icons-react from 2.47.0 to 3.19.0 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15058" target="_blank">https://github.com/prometheus/prometheus/pull/15058</a></li>
+<li>Bump globals from 15.9.0 to 15.10.0 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15055" target="_blank">https://github.com/prometheus/prometheus/pull/15055</a></li>
+<li>Bump postcss from 8.4.44 to 8.4.47 in /web/ui by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15061" target="_blank">https://github.com/prometheus/prometheus/pull/15061</a></li>
+<li>[TEST] Scraping: Add microbenchmarks for OM CT parsing by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/14933" target="_blank">https://github.com/prometheus/prometheus/pull/14933</a></li>
+<li>CHANGELOG: Update changelog with API flag change for the otlp receiver by @jesusvazquez in <a href="https://github.com/prometheus/prometheus/pull/15073" target="_blank">https://github.com/prometheus/prometheus/pull/15073</a></li>
+<li>[CHANGE] No longer ingest OM _created as timeseries if feature-flag &lsquo;created-timestamp-zero-ingestion&rsquo; is enabled; fixed OM text CT conversion bug by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/14738" target="_blank">https://github.com/prometheus/prometheus/pull/14738</a></li>
+<li>Fix bug in rate vs float and histogram mixup by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15025" target="_blank">https://github.com/prometheus/prometheus/pull/15025</a></li>
+<li>Allow blank issue reports again by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/15069" target="_blank">https://github.com/prometheus/prometheus/pull/15069</a></li>
+<li>Add a mutex and used ports list to the tests random port generator to avoid port collisions by @jadolg in <a href="https://github.com/prometheus/prometheus/pull/15074" target="_blank">https://github.com/prometheus/prometheus/pull/15074</a></li>
+<li>Adds eval_info command to PromQL testing framework by @NeerajGartia21 in <a href="https://github.com/prometheus/prometheus/pull/14989" target="_blank">https://github.com/prometheus/prometheus/pull/14989</a></li>
+<li>Bump the go-opentelemetry-io group with 9 updates by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15032" target="_blank">https://github.com/prometheus/prometheus/pull/15032</a></li>
+<li>Bump github.com/prometheus/common from 0.57.0 to 0.60.0 in /documentation/examples/remote_storage by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15029" target="_blank">https://github.com/prometheus/prometheus/pull/15029</a></li>
+<li>Bump google.golang.org/api from 0.195.0 to 0.199.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15035" target="_blank">https://github.com/prometheus/prometheus/pull/15035</a></li>
+<li>Notify web UI when starting up and shutting down by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15082" target="_blank">https://github.com/prometheus/prometheus/pull/15082</a></li>
+<li>[BUGFIX] Scraping: Naive fixes and optimzations for <code>CreatedTimestamp</code> function by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/14965" target="_blank">https://github.com/prometheus/prometheus/pull/14965</a></li>
+<li>Fix flakiness of QueryLogTest by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15090" target="_blank">https://github.com/prometheus/prometheus/pull/15090</a></li>
+<li>Bump github.com/linode/linodego from 1.40.0 to 1.41.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15046" target="_blank">https://github.com/prometheus/prometheus/pull/15046</a></li>
+<li>Style cleanups, mostly for web notifications and startup alert by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/15096" target="_blank">https://github.com/prometheus/prometheus/pull/15096</a></li>
+<li>[TEST] use &ldquo;ErrorContains&rdquo; or &ldquo;EqualError&rdquo; instead of &ldquo;Contains(t, err.Error()&rdquo; and &ldquo;Equal(t, err.Error()&rdquo; by @mmorel-35 in <a href="https://github.com/prometheus/prometheus/pull/15094" target="_blank">https://github.com/prometheus/prometheus/pull/15094</a></li>
+<li>Bump actions/checkout from 4.1.6 to 4.2.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15064" target="_blank">https://github.com/prometheus/prometheus/pull/15064</a></li>
+<li>Bump go.uber.org/automaxprocs from 1.5.3 to 1.6.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15042" target="_blank">https://github.com/prometheus/prometheus/pull/15042</a></li>
+<li>textparse: Refactored benchmark by @bwplotka in <a href="https://github.com/prometheus/prometheus/pull/15083" target="_blank">https://github.com/prometheus/prometheus/pull/15083</a></li>
+<li>Add missing flag storage.tsdb.allow-overlapping-compaction by @yeya24 in <a href="https://github.com/prometheus/prometheus/pull/15113" target="_blank">https://github.com/prometheus/prometheus/pull/15113</a></li>
+<li>Bump google.golang.org/grpc from 1.66.0 to 1.67.1 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15039" target="_blank">https://github.com/prometheus/prometheus/pull/15039</a></li>
+<li>Bump golang.org/x/tools from 0.24.0 to 0.25.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15043" target="_blank">https://github.com/prometheus/prometheus/pull/15043</a></li>
+<li>build(deps): bump golang.org/x/tools from 0.25.0 to 0.26.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15117" target="_blank">https://github.com/prometheus/prometheus/pull/15117</a></li>
+<li>Bump github.com/gophercloud/gophercloud from 1.14.0 to 1.14.1 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15038" target="_blank">https://github.com/prometheus/prometheus/pull/15038</a></li>
+<li>textparse: Refactored main testing utils for reusability; fixed proto Units. by @bwplotka in <a href="https://github.com/prometheus/prometheus/pull/15095" target="_blank">https://github.com/prometheus/prometheus/pull/15095</a></li>
+<li>Document the notifications API by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15118" target="_blank">https://github.com/prometheus/prometheus/pull/15118</a></li>
+<li>chore!: adopt log/slog, remove go-kit/log by @tjhop in <a href="https://github.com/prometheus/prometheus/pull/14906" target="_blank">https://github.com/prometheus/prometheus/pull/14906</a></li>
+<li>Bump github.com/digitalocean/godo from 1.122.0 to 1.126.0 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15040" target="_blank">https://github.com/prometheus/prometheus/pull/15040</a></li>
+<li>Bump github.com/klauspost/compress from 1.17.9 to 1.17.10 by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15045" target="_blank">https://github.com/prometheus/prometheus/pull/15045</a></li>
+<li>Add a note for pre-built assets by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15127" target="_blank">https://github.com/prometheus/prometheus/pull/15127</a></li>
+<li>docs: Declare &ldquo;float literals are time durations&rdquo; as stable by @beorn7 in <a href="https://github.com/prometheus/prometheus/pull/15111" target="_blank">https://github.com/prometheus/prometheus/pull/15111</a></li>
+<li>consul: Initial implemenation of catalog filter support by @dekimsey in <a href="https://github.com/prometheus/prometheus/pull/11224" target="_blank">https://github.com/prometheus/prometheus/pull/11224</a></li>
+<li>Add additional basic nhcb unit tests by @fionaliao in <a href="https://github.com/prometheus/prometheus/pull/15086" target="_blank">https://github.com/prometheus/prometheus/pull/15086</a></li>
+<li>docs: Querying basics: remove what can be graphed by @hvnsweeting in <a href="https://github.com/prometheus/prometheus/pull/15084" target="_blank">https://github.com/prometheus/prometheus/pull/15084</a></li>
+<li>storage: require selectors to always return matching results by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15092" target="_blank">https://github.com/prometheus/prometheus/pull/15092</a></li>
+<li>Update chunk format docs with native histograms and OOO by @fionaliao in <a href="https://github.com/prometheus/prometheus/pull/14997" target="_blank">https://github.com/prometheus/prometheus/pull/14997</a></li>
+<li>docs: Update chunk layot for NHCB by @beorn7 in <a href="https://github.com/prometheus/prometheus/pull/15135" target="_blank">https://github.com/prometheus/prometheus/pull/15135</a></li>
+<li>fix: fix slice init length by @huochexizhan in <a href="https://github.com/prometheus/prometheus/pull/15026" target="_blank">https://github.com/prometheus/prometheus/pull/15026</a></li>
+<li>[PERF] textparse: further optimzations for OM <code>CreatedTimestamps</code> by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/15097" target="_blank">https://github.com/prometheus/prometheus/pull/15097</a></li>
+<li>fix(notifier): avoid dropping known alertmanagers after each ApplyConfig by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14987" target="_blank">https://github.com/prometheus/prometheus/pull/14987</a></li>
+<li>docs: extract HTTP client option documentation in their own sections by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15119" target="_blank">https://github.com/prometheus/prometheus/pull/15119</a></li>
+<li>Fix <code>MemPostings.Add</code> and <code>MemPostings.Get</code> data race by @colega in <a href="https://github.com/prometheus/prometheus/pull/15141" target="_blank">https://github.com/prometheus/prometheus/pull/15141</a></li>
+<li>Bump github.com/docker/docker from 27.2.0+incompatible to 27.3.1+incompatible by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15033" target="_blank">https://github.com/prometheus/prometheus/pull/15033</a></li>
+<li>Bump the k8s-io group with 3 updates by @dependabot in <a href="https://github.com/prometheus/prometheus/pull/15030" target="_blank">https://github.com/prometheus/prometheus/pull/15030</a></li>
+<li>discovery: Improve Azure test coverage to 50% by @mviswanathsai in <a href="https://github.com/prometheus/prometheus/pull/14586" target="_blank">https://github.com/prometheus/prometheus/pull/14586</a></li>
+<li>bugfix: data race in head.Appender.AppendHistogram and Commit by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15142" target="_blank">https://github.com/prometheus/prometheus/pull/15142</a></li>
+<li>[PERF] textparse: lightweight <code>p.isCreatedSeries()</code> by @Maniktherana in <a href="https://github.com/prometheus/prometheus/pull/15150" target="_blank">https://github.com/prometheus/prometheus/pull/15150</a></li>
+<li>model: move classic NHCB conversion into its own file by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15156" target="_blank">https://github.com/prometheus/prometheus/pull/15156</a></li>
+<li>Prepare 3.0.0-beta.1 by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/14976" target="_blank">https://github.com/prometheus/prometheus/pull/14976</a></li>
+<li>[BUGFIX] TSDB: Don&rsquo;t read in-order chunks from before head MinTime by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/15120" target="_blank">https://github.com/prometheus/prometheus/pull/15120</a></li>
+<li>Corrects the behaviour of binary opperators between histogram and float by @NeerajGartia21 in <a href="https://github.com/prometheus/prometheus/pull/14726" target="_blank">https://github.com/prometheus/prometheus/pull/14726</a></li>
+<li>convertnhcb: use CutSuffix instead of regex replace for histogram name by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15159" target="_blank">https://github.com/prometheus/prometheus/pull/15159</a></li>
+<li>discovery: aws/ec2 unit tests by @akunszt in <a href="https://github.com/prometheus/prometheus/pull/14364" target="_blank">https://github.com/prometheus/prometheus/pull/14364</a></li>
+<li>Fix stddev/stdvar when aggregating histograms, NaNs, and infinities by @jhesketh in <a href="https://github.com/prometheus/prometheus/pull/14941" target="_blank">https://github.com/prometheus/prometheus/pull/14941</a></li>
+<li>test(tsdb): add a reproducer for <a href="https://github.com/prometheus/prometheus/issues/14422" target="_blank">https://github.com/prometheus/prometheus/issues/14422</a> by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14599" target="_blank">https://github.com/prometheus/prometheus/pull/14599</a></li>
+<li>chore(deps): update client_golang from 1.20.4 to 1.20.5 by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15172" target="_blank">https://github.com/prometheus/prometheus/pull/15172</a></li>
+<li>config: remove expand-external-labels flag in release 3.0 by @jyz0309 in <a href="https://github.com/prometheus/prometheus/pull/14657" target="_blank">https://github.com/prometheus/prometheus/pull/14657</a></li>
+<li>s/scrape_classic_histograms/always_scrape_classic_histograms (3.0 breaking change) by @bwplotka in <a href="https://github.com/prometheus/prometheus/pull/15178" target="_blank">https://github.com/prometheus/prometheus/pull/15178</a></li>
+<li>fix(tsdb): populateWithDelChunkSeriesIterator corrupting chunk meta by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15180" target="_blank">https://github.com/prometheus/prometheus/pull/15180</a></li>
+<li>Merge release-2.55 into main (interim) by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/15173" target="_blank">https://github.com/prometheus/prometheus/pull/15173</a></li>
+<li>Disallowing configure AM with the v1 api by @alanprot in <a href="https://github.com/prometheus/prometheus/pull/13883" target="_blank">https://github.com/prometheus/prometheus/pull/13883</a></li>
+<li>feat: ProtobufParse.formatOpenMetricsFloat: improve float formatting … by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/15167" target="_blank">https://github.com/prometheus/prometheus/pull/15167</a></li>
+<li>scrape: provide a fallback format by @alexgreenbank in <a href="https://github.com/prometheus/prometheus/pull/15136" target="_blank">https://github.com/prometheus/prometheus/pull/15136</a></li>
+<li>fix(discovery): Handle cache.DeletedFinalStateUnknown in node informers&rsquo; DeleteFunc by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/15170" target="_blank">https://github.com/prometheus/prometheus/pull/15170</a></li>
+<li>feat: normalize &ldquo;le&rdquo; and &ldquo;quantile&rdquo; labels values upon ingestion by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/15164" target="_blank">https://github.com/prometheus/prometheus/pull/15164</a></li>
+<li>test(cmd/prometheus): speed up test execution by t.Parallel() when possible by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14618" target="_blank">https://github.com/prometheus/prometheus/pull/14618</a></li>
+<li>[FEATURE] rules: add labels at group level by @clwluvw in <a href="https://github.com/prometheus/prometheus/pull/11474" target="_blank">https://github.com/prometheus/prometheus/pull/11474</a></li>
+<li>Add paginated feature to list rules api by @qinxx108 in <a href="https://github.com/prometheus/prometheus/pull/14017" target="_blank">https://github.com/prometheus/prometheus/pull/14017</a></li>
+<li>feat: NHCB: convert classic histograms to nhcb in scrape MVP by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/14978" target="_blank">https://github.com/prometheus/prometheus/pull/14978</a></li>
+<li>feat(tools): add debug printouts to rules unit testing by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15196" target="_blank">https://github.com/prometheus/prometheus/pull/15196</a></li>
+<li>docs: add keep_firing_for in alerting rules by @alexgreenbank in <a href="https://github.com/prometheus/prometheus/pull/15197" target="_blank">https://github.com/prometheus/prometheus/pull/15197</a></li>
+<li>NHCB scrape: refactor state handling and speed up scrape test by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15193" target="_blank">https://github.com/prometheus/prometheus/pull/15193</a></li>
+<li>Round function should ignore native histograms by @jhesketh in <a href="https://github.com/prometheus/prometheus/pull/15176" target="_blank">https://github.com/prometheus/prometheus/pull/15176</a></li>
+<li>TSDB: Fix some edge cases when OOO is enabled by @Vanshikav123 in <a href="https://github.com/prometheus/prometheus/pull/14710" target="_blank">https://github.com/prometheus/prometheus/pull/14710</a></li>
+<li>feat(nhcb): implement created timestamp handling by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15198" target="_blank">https://github.com/prometheus/prometheus/pull/15198</a></li>
+<li>fix(nhcb): do not return nhcb from parse if exponential is present by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15209" target="_blank">https://github.com/prometheus/prometheus/pull/15209</a></li>
+<li>Docs: Remove experimental note on out of order feature by @jesusvazquez in <a href="https://github.com/prometheus/prometheus/pull/15215" target="_blank">https://github.com/prometheus/prometheus/pull/15215</a></li>
+<li>[CHANGE] Remote-write: default enable_http2 to false by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15219" target="_blank">https://github.com/prometheus/prometheus/pull/15219</a></li>
+<li>slog: various fixes by @tjhop in <a href="https://github.com/prometheus/prometheus/pull/15205" target="_blank">https://github.com/prometheus/prometheus/pull/15205</a></li>
+<li>3.0 migration guide by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15099" target="_blank">https://github.com/prometheus/prometheus/pull/15099</a></li>
+<li>prometheusremotewrite: support int exemplar value type by @CharlieTLe in <a href="https://github.com/prometheus/prometheus/pull/15217" target="_blank">https://github.com/prometheus/prometheus/pull/15217</a></li>
+<li>fix(storage/mergeQuerier): fix a data race by @machine424 in <a href="https://github.com/prometheus/prometheus/pull/14983" target="_blank">https://github.com/prometheus/prometheus/pull/14983</a></li>
+<li>Documented that WAL can still be written after memory-snapshot-on-shutdown by @Gopi-eng2202 in <a href="https://github.com/prometheus/prometheus/pull/15179" target="_blank">https://github.com/prometheus/prometheus/pull/15179</a></li>
+<li>Agent: allow for ingestion of CT samples by @pedro-stanaka in <a href="https://github.com/prometheus/prometheus/pull/15124" target="_blank">https://github.com/prometheus/prometheus/pull/15124</a></li>
+<li>fix(nhcb): created timestamp fails when keeping classic histograms by @krajorama in <a href="https://github.com/prometheus/prometheus/pull/15218" target="_blank">https://github.com/prometheus/prometheus/pull/15218</a></li>
+<li>refactor: reorder fields in defaultSDConfig initialization by @3Juhwan in <a href="https://github.com/prometheus/prometheus/pull/15225" target="_blank">https://github.com/prometheus/prometheus/pull/15225</a></li>
+<li>lezer-promql: fix missing types export in package.json by @jackw in <a href="https://github.com/prometheus/prometheus/pull/15161" target="_blank">https://github.com/prometheus/prometheus/pull/15161</a></li>
+<li>discovery/kubernetes: optimize resolvePodRef by @GiedriusS in <a href="https://github.com/prometheus/prometheus/pull/15230" target="_blank">https://github.com/prometheus/prometheus/pull/15230</a></li>
+<li>doc: fix formatting by @multani in <a href="https://github.com/prometheus/prometheus/pull/15206" target="_blank">https://github.com/prometheus/prometheus/pull/15206</a></li>
+<li>tsdb.CircularExemplarStorage: Avoid racing by @aknuds1 in <a href="https://github.com/prometheus/prometheus/pull/15231" target="_blank">https://github.com/prometheus/prometheus/pull/15231</a></li>
+<li>chore: fix function name in comment by @shenpengfeng in <a href="https://github.com/prometheus/prometheus/pull/15228" target="_blank">https://github.com/prometheus/prometheus/pull/15228</a></li>
+<li>[REFACTORY] simplify appender commit by @nicolastakashi in <a href="https://github.com/prometheus/prometheus/pull/15112" target="_blank">https://github.com/prometheus/prometheus/pull/15112</a></li>
+<li>Revert &ldquo;Process <code>MemPostings.Delete()</code> with <code>GOMAXPROCS</code> workers&rdquo; by @colega in <a href="https://github.com/prometheus/prometheus/pull/15239" target="_blank">https://github.com/prometheus/prometheus/pull/15239</a></li>
+<li>Prepare release 3.0.0 rc.0 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15223" target="_blank">https://github.com/prometheus/prometheus/pull/15223</a></li>
+<li>bugfix: Fix otlp translator for foreign characters by @ArthurSens in <a href="https://github.com/prometheus/prometheus/pull/15249" target="_blank">https://github.com/prometheus/prometheus/pull/15249</a></li>
+<li>tracing: add tcp events to remote store span by @jmichalek132 in <a href="https://github.com/prometheus/prometheus/pull/15222" target="_blank">https://github.com/prometheus/prometheus/pull/15222</a></li>
+<li>log last series labelset when hitting OOO series labels by @yeya24 in <a href="https://github.com/prometheus/prometheus/pull/15216" target="_blank">https://github.com/prometheus/prometheus/pull/15216</a></li>
+<li>Fix typos in tests by @ArthurSens in <a href="https://github.com/prometheus/prometheus/pull/15312" target="_blank">https://github.com/prometheus/prometheus/pull/15312</a></li>
+<li>bugfix: Fix otlp translator switching colons to underscores in suffix adding mode by @ArthurSens in <a href="https://github.com/prometheus/prometheus/pull/15251" target="_blank">https://github.com/prometheus/prometheus/pull/15251</a></li>
+<li>[BUILD] React-app: replace 0.55.0-rc.0 with 0.55.0 by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/15311" target="_blank">https://github.com/prometheus/prometheus/pull/15311</a></li>
+<li>otlptranslator: Harmonize non-UTF8 sanitization w/ naming rules. by @aknuds1 in <a href="https://github.com/prometheus/prometheus/pull/15314" target="_blank">https://github.com/prometheus/prometheus/pull/15314</a></li>
+<li>Revert &ldquo;Fix <code>MemPostings.Add</code> and <code>MemPostings.Get</code> data race (#15141)&rdquo; by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/15316" target="_blank">https://github.com/prometheus/prometheus/pull/15316</a></li>
+<li>Add hidden flag for the delayed compaction random time window by @ahurtaud in <a href="https://github.com/prometheus/prometheus/pull/14919" target="_blank">https://github.com/prometheus/prometheus/pull/14919</a></li>
+<li>Support UTF-8 metric names and labels in web UI by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/15244" target="_blank">https://github.com/prometheus/prometheus/pull/15244</a></li>
+<li>Merge main into 3.0 by @bboreham in <a href="https://github.com/prometheus/prometheus/pull/15325" target="_blank">https://github.com/prometheus/prometheus/pull/15325</a></li>
+<li>Release 3.0.0 rc.0 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15256" target="_blank">https://github.com/prometheus/prometheus/pull/15256</a></li>
+<li>Fix selector / series formatting for empty metric names by @juliusv in <a href="https://github.com/prometheus/prometheus/pull/15341" target="_blank">https://github.com/prometheus/prometheus/pull/15341</a></li>
+<li>docs: formatting and typo fixes to 3.0 migration guide by @fionaliao in <a href="https://github.com/prometheus/prometheus/pull/15353" target="_blank">https://github.com/prometheus/prometheus/pull/15353</a></li>
+<li>Update prometheus/common by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15355" target="_blank">https://github.com/prometheus/prometheus/pull/15355</a></li>
+<li>scrape: stop erroring on empty scrapes by @alexgreenbank in <a href="https://github.com/prometheus/prometheus/pull/15357" target="_blank">https://github.com/prometheus/prometheus/pull/15357</a></li>
+<li>Enable auto-gomemlimit by default by @SuperQ in <a href="https://github.com/prometheus/prometheus/pull/15373" target="_blank">https://github.com/prometheus/prometheus/pull/15373</a></li>
+<li>Enable auto-gomaxprocs by default by @SuperQ in <a href="https://github.com/prometheus/prometheus/pull/15376" target="_blank">https://github.com/prometheus/prometheus/pull/15376</a></li>
+<li>Update migration.md for TSDB storage upgrade by @bwplotka in <a href="https://github.com/prometheus/prometheus/pull/15382" target="_blank">https://github.com/prometheus/prometheus/pull/15382</a></li>
+<li>3.0 Port: Allow UTF-8 characters in metric and label names as opt-in feature (plus config entry) by @bwplotka in <a href="https://github.com/prometheus/prometheus/pull/15384" target="_blank">https://github.com/prometheus/prometheus/pull/15384</a></li>
+<li>Prep release 3.0.0 rc.1 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15375" target="_blank">https://github.com/prometheus/prometheus/pull/15375</a></li>
+<li>docs: additional formatting fixes to 3.0 migration guide by @fionaliao in <a href="https://github.com/prometheus/prometheus/pull/15379" target="_blank">https://github.com/prometheus/prometheus/pull/15379</a></li>
+<li>[cherry pick] Fix auto reload when a config file with a syntax error is reverted by @roidelapluie in <a href="https://github.com/prometheus/prometheus/pull/15388" target="_blank">https://github.com/prometheus/prometheus/pull/15388</a></li>
+<li>[BUGFIX] TSDB: Fix race on stale values in headAppender (#15322) by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15389" target="_blank">https://github.com/prometheus/prometheus/pull/15389</a></li>
+<li>Prep release 3.0.0 by @jan&ndash;f in <a href="https://github.com/prometheus/prometheus/pull/15393" target="_blank">https://github.com/prometheus/prometheus/pull/15393</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@KofClubs made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/13904" target="_blank">https://github.com/prometheus/prometheus/pull/13904</a></li>
+<li>@pawarpranav83 made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14526" target="_blank">https://github.com/prometheus/prometheus/pull/14526</a></li>
+<li>@NathanBaulch made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14868" target="_blank">https://github.com/prometheus/prometheus/pull/14868</a></li>
+<li>@51n15t9r made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/12654" target="_blank">https://github.com/prometheus/prometheus/pull/12654</a></li>
+<li>@fungiboletus made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14854" target="_blank">https://github.com/prometheus/prometheus/pull/14854</a></li>
+<li>@marioferh made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14505" target="_blank">https://github.com/prometheus/prometheus/pull/14505</a></li>
+<li>@ringerc made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/12998" target="_blank">https://github.com/prometheus/prometheus/pull/12998</a></li>
+<li>@alex-kattathra-johnson made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14160" target="_blank">https://github.com/prometheus/prometheus/pull/14160</a></li>
+<li>@fbs made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14929" target="_blank">https://github.com/prometheus/prometheus/pull/14929</a></li>
+<li>@jadolg made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15074" target="_blank">https://github.com/prometheus/prometheus/pull/15074</a></li>
+<li>@dekimsey made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/11224" target="_blank">https://github.com/prometheus/prometheus/pull/11224</a></li>
+<li>@hvnsweeting made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15084" target="_blank">https://github.com/prometheus/prometheus/pull/15084</a></li>
+<li>@huochexizhan made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15026" target="_blank">https://github.com/prometheus/prometheus/pull/15026</a></li>
+<li>@mviswanathsai made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14586" target="_blank">https://github.com/prometheus/prometheus/pull/14586</a></li>
+<li>@clwluvw made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/11474" target="_blank">https://github.com/prometheus/prometheus/pull/11474</a></li>
+<li>@Vanshikav123 made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/14710" target="_blank">https://github.com/prometheus/prometheus/pull/14710</a></li>
+<li>@CharlieTLe made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15217" target="_blank">https://github.com/prometheus/prometheus/pull/15217</a></li>
+<li>@Gopi-eng2202 made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15179" target="_blank">https://github.com/prometheus/prometheus/pull/15179</a></li>
+<li>@pedro-stanaka made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15124" target="_blank">https://github.com/prometheus/prometheus/pull/15124</a></li>
+<li>@3Juhwan made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15225" target="_blank">https://github.com/prometheus/prometheus/pull/15225</a></li>
+<li>@jackw made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15161" target="_blank">https://github.com/prometheus/prometheus/pull/15161</a></li>
+<li>@multani made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15206" target="_blank">https://github.com/prometheus/prometheus/pull/15206</a></li>
+<li>@shenpengfeng made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15228" target="_blank">https://github.com/prometheus/prometheus/pull/15228</a></li>
+<li>@jmichalek132 made their first contribution in <a href="https://github.com/prometheus/prometheus/pull/15222" target="_blank">https://github.com/prometheus/prometheus/pull/15222</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/prometheus/prometheus/compare/v2.55.0...v3.0.0" target="_blank">https://github.com/prometheus/prometheus/compare/v2.55.0&hellip;v3.0.0</a>
+</details></p>
+<br><h3>Release notes for 3.0.0-rc.1 / 2024-11-11</h3><h4>2024-11-12</h4><p>This is the next Release Candidate of Prometheus 3.0.0.</p>
+
+<p>Please test it out on non-critical environments; nothing further will be changed in 3.0.0 except to fix bugs.</p>
+
+<p>Prometheus 3.0.0 includes new features such as a brand new UI and UTF-8 support enabled by default.</p>
+
+<p>Migration guide is <a href="https://github.com/prometheus/prometheus/blob/release-3.0/docs/migration.md" target="_blank">here</a>.</p>
+
+<p>New changes since <a href="https://github.com/prometheus/prometheus/releases/tag/v3.0.0-rc.0" target="_blank">v3.0.0-rc.0</a>:</p>
+
+<ul>
+<li>[CHANGE] Set the <code>GOMAXPROCS</code> variable automatically to match the Linux CPU quota. Use <code>--no-auto-gomaxprocs</code> to disable it. The <code>auto-gomaxprocs</code> feature flag was removed. #15376</li>
+<li>[CHANGE] Set the <code>GOMEMLIMIT</code> variable automatically to match the Linux container memory limit. Use <code>--no-auto-gomemlimit</code> to disable it. The <code>auto-gomemlimit</code> feature flag was removed. #15373</li>
+<li>[FEATURE] OTLP receiver: Ability to skip UTF-8 normalization using <code>otlp.translation_strategy = NoUTF8EscapingWithSuffixes</code> configuration option. #15384</li>
+<li>[BUGFIX] Scraping: Don&rsquo;t log errors on empty scrapes. #15357</li>
+<li>[BUGFIX] UI: fix selector / series formatting for empty metric names. #15341</li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/prometheus/prometheus/compare/v2.55.0...v3.0.0-rc.1" target="_blank">https://github.com/prometheus/prometheus/compare/v2.55.0&hellip;v3.0.0-rc.1</a></p>
+<br><h2>coredns/coredns</h2> <h3>Release notes for v1.11.4</h3><h4>2024-11-13</h4><p>This release adds some new features and fixes some bugs.  New features of note:</p>
+
+<ul>
+<li>forward plugin: new option <code>next</code>, to try alternate upstreams when receiving specified response codes upstreams on (functions like the external plugin <em>alternate</em>)</li>
+<li>dnssec plugin: new option to load keys from AWS Secrets Manager</li>
+<li>rewrite plugin: new option to revert EDNS0 option rewrites in responses</li>
+</ul>
+
+<h2 id="brought-to-you-by">Brought to You By</h2>
+
+<p>AdamKorcz,
+Anifalak,
+Ben Kochie,
+Chris O&rsquo;Haver,
+Frederic Hemery,
+Grant Spence,
+Harshita Sao,
+Jason Joo,
+Jasper Bernhardt,
+Johnny Bergström,
+Keith Coleman,
+Kevin Lyda,
+Lan,
+Lin-1997,
+Manuel Rüger,
+Nathan Currier,
+Nicolai Søborg,
+Nikita Usatov,
+Paco Xu,
+Reinhard Nägele,
+Robbie Ostrow,
+TAKAHASHI Shuuji,
+Till Riedel,
+Tobias Klauser,
+YASH JAIN,
+cedar-gao,
+chenylh,
+wmkuipers,
+xinbenlv,
+zhangguanzhang</p>
+
+<h2 id="noteworthy-changes">Noteworthy Changes</h2>
+
+<ul>
+<li>core: set cache-control max-age as integer, not float (<a href="https://github.com/coredns/coredns/pull/6764" target="_blank">https://github.com/coredns/coredns/pull/6764</a>)</li>
+<li>plugin/metadata: evaluate metadata in plugin order (<a href="https://github.com/coredns/coredns/pull/6729" target="_blank">https://github.com/coredns/coredns/pull/6729</a>)</li>
+<li>plugin/dnssec: dnssec load keys from AWS Secrets Manager (<a href="https://github.com/coredns/coredns/pull/6618" target="_blank">https://github.com/coredns/coredns/pull/6618</a>)</li>
+<li>plugin/rewrite: Add &ldquo;revert&rdquo; parameter for EDNS0 options (<a href="https://github.com/coredns/coredns/pull/6893" target="_blank">https://github.com/coredns/coredns/pull/6893</a>)</li>
+<li>container: Restored backwards compatibility of Current Workdir (<a href="https://github.com/coredns/coredns/pull/6731" target="_blank">https://github.com/coredns/coredns/pull/6731</a>)</li>
+<li>plugin/auto: call OnShutdown() for each zone at its own OnShutdown() (<a href="https://github.com/coredns/coredns/pull/6705" target="_blank">https://github.com/coredns/coredns/pull/6705</a>)</li>
+<li>plugin/dnstap: log queue and buffer memory size configuration (<a href="https://github.com/coredns/coredns/pull/6591" target="_blank">https://github.com/coredns/coredns/pull/6591</a>)</li>
+<li>plugin/bind: add zone for link-local IPv6 instead of skipping (<a href="https://github.com/coredns/coredns/pull/6547" target="_blank">https://github.com/coredns/coredns/pull/6547</a>)</li>
+<li>plugin/kubernetes: only create PTR records for endpoints with hostname defined (<a href="https://github.com/coredns/coredns/pull/6898" target="_blank">https://github.com/coredns/coredns/pull/6898</a>)</li>
+<li>plugin/rewrite: execute the reversion in reversed order (<a href="https://github.com/coredns/coredns/pull/6872" target="_blank">https://github.com/coredns/coredns/pull/6872</a>)</li>
+<li>plugin/etcd: fix etcd connection leakage during reload (<a href="https://github.com/coredns/coredns/pull/6646" target="_blank">https://github.com/coredns/coredns/pull/6646</a>)</li>
+<li>plugi/kubernetes: Add useragent (<a href="https://github.com/coredns/coredns/pull/6484" target="_blank">https://github.com/coredns/coredns/pull/6484</a>)</li>
+<li>plugin/hosts: add hostsfile as label for coredns_hosts_entries (<a href="https://github.com/coredns/coredns/pull/6801" target="_blank">https://github.com/coredns/coredns/pull/6801</a>)</li>
+<li>plugin/file: Fix zone parser error handling (<a href="https://github.com/coredns/coredns/pull/6680" target="_blank">https://github.com/coredns/coredns/pull/6680</a>)</li>
+<li>plugin/forward: Add alternate option to forward plugin (<a href="https://github.com/coredns/coredns/pull/6681" target="_blank">https://github.com/coredns/coredns/pull/6681</a>)</li>
+<li>plugin/file: return error when parsing the file fails (<a href="https://github.com/coredns/coredns/pull/6699" target="_blank">https://github.com/coredns/coredns/pull/6699</a>)</li>
+<li>build: Generate zplugin.go correctly with third-party plugins (<a href="https://github.com/coredns/coredns/pull/6692" target="_blank">https://github.com/coredns/coredns/pull/6692</a>)</li>
+</ul>
+<br><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for openstack-cinder-csi-2.31.4</h3><h4>2024-11-14</h4><p>Cinder CSI Chart for OpenStack</p>
+<br><h2>kubernetes-sigs/cluster-api-provider-vsphere</h2> <h3>Release notes for v1.11.3</h3><h4>2024-11-12</h4><h2 id="changes-since-v1-11-2">Changes since v1.11.2</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>2 new commits merged</li>
+<li>1 feature addition ✨</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>Bump nsx-operator API mod for the SubnetSet change (#3255)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Switch to using ECR mirror for trivy DB repo (#3239)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/vmware-tanzu/nsx-operator/pkg/apis: <a href="https://github.com/vmware-tanzu/nsx-operator/compare/pkg/apis/8f09829...pkg/apis/9da8637" target="_blank">8f09829 → 9da8637</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.5.17</h3><h4>2024-11-12</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.5.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.5/upgrades/upgrade_3_5/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.5/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.5/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.17
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.17
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.17
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h3>Release notes for v3.4.35</h3><h4>2024-11-12</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.4.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.4/upgrades/upgrade_3_4/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.4/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.4/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.4.35
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.4.35
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.4.35
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER}/usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.68.0</h3><h4>2024-11-16</h4><p>This is release 1.68.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">groovy</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[XdsClient][Backport] Add missing authority to XdsClient metrics scope (#38009). (<a href="https://github.com/grpc/grpc/pull/38023" target="_blank">#38023</a>)</li>
+<li>[Release] Bump core version in preparation for 1.68 Branch Cut. (<a href="https://github.com/grpc/grpc/pull/37941" target="_blank">#37941</a>)</li>
+<li>[ConfigFetcher] Set HTTP2 error to NO_ERROR to do graceful GOAWAYs. (<a href="https://github.com/grpc/grpc/pull/37939" target="_blank">#37939</a>)</li>
+<li>[ruby] reduce INFO log for server CQ pluck registration to DEBUG. (<a href="https://github.com/grpc/grpc/pull/37633" target="_blank">#37633</a>)</li>
+<li>[EventEngine] Enable the PosixEventEngine client experiment. (<a href="https://github.com/grpc/grpc/pull/35985" target="_blank">#35985</a>)</li>
+<li>[chttp2_server] Fix race between connection starting and it being orphaned. (<a href="https://github.com/grpc/grpc/pull/37683" target="_blank">#37683</a>)</li>
+<li>[Chttp2Server] Fix race between connection manager updates and handshake. (<a href="https://github.com/grpc/grpc/pull/37772" target="_blank">#37772</a>)</li>
+<li>[xds] Fix XdsClient race between ResourceDoesNotExist timer and receiving resources. (<a href="https://github.com/grpc/grpc/pull/37678" target="_blank">#37678</a>)</li>
+</ul>
+
+<h2 id="c">C++</h2>
+
+<ul>
+<li>[Build] Minimum version of MSVC is now 2022. (<a href="https://github.com/grpc/grpc/pull/37687" target="_blank">#37687</a>)</li>
+<li>[Build] Bumped the minimum version of cmake. (<a href="https://github.com/grpc/grpc/pull/37702" target="_blank">#37702</a>)</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>Add templating and support for Python 3.13. (<a href="https://github.com/grpc/grpc/pull/37643" target="_blank">#37643</a>)</li>
+</ul>
+<br>
+</body>
+
+</html>
