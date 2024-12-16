@@ -38,3 +38,7 @@ slug: 2024-01-20-update
 ## Subprojects and Dependency Updates
 
 *
+
+## Shoutouts
+
+* 
