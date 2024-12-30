@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2024-12-23 - 2024-12-30</h1><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.9.3</h3><h4>2024-12-23</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.32.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.32.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-9-2">Changes since v1.9.2</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>2 new commits merged</li>
+<li>1 bug fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>ClusterClass: Export runtime.Client interface and cache package (#11612)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Dependency: Bump to golang.org/x/net v0.23.0 (#11618)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>golang.org/x/net: v0.32.0 → v0.33.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.8.8</h3><h4>2024-12-23</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.27.x -&gt; v1.31.x</li>
+<li>Workload Cluster: v1.25.x -&gt; v1.31.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-8-7">Changes since v1.8.7</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>2 new commits merged</li>
+<li>1 bug fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>ClusterClass: Export runtime.Client interface and cache package (#11613)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Dependency: Bump to golang.org/x/net v0.23.0 (#11619)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>golang.org/x/net: v0.27.0 → v0.33.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.69.0</h3><h4>2024-12-24</h4><p>This is release 1.69.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gridiron</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[Alarm] Fix Alarm reuse on cancellation. (<a href="https://github.com/grpc/grpc/pull/38114" target="_blank">#38114</a>)</li>
+<li>[xDS RBAC] Support string_match in HeaderMatcher. (<a href="https://github.com/grpc/grpc/pull/38185" target="_blank">#38185</a>)</li>
+<li>[pick_first] fix shutdown bug in new PF impl. (<a href="https://github.com/grpc/grpc/pull/38144" target="_blank">#38144</a>)</li>
+<li>[c-ares] Fix inverted length check in GrpcPolledFdWindows. (<a href="https://github.com/grpc/grpc/pull/38101" target="_blank">#38101</a>)</li>
+<li>[RetryFilter] Copy the SliceBuffer from RetryFilter&rsquo;s cache to batch payload. (<a href="https://github.com/grpc/grpc/pull/38069" target="_blank">#38069</a>)</li>
+<li>[EventEngine] Add stronger wording on Endpoint::Read contract. (<a href="https://github.com/grpc/grpc/pull/38036" target="_blank">#38036</a>)</li>
+<li>[chttp2] Fix channelz address. (<a href="https://github.com/grpc/grpc/pull/38022" target="_blank">#38022</a>)</li>
+<li>[XdsClient] Add missing authority to XdsClient metrics scope. (<a href="https://github.com/grpc/grpc/pull/38009" target="_blank">#38009</a>)</li>
+<li>[EventEngine] API contract: Endpoint::Read will provide either an error or data, but never both. (<a href="https://github.com/grpc/grpc/pull/38019" target="_blank">#38019</a>)</li>
+<li>[Build] Dropped Bazel 6.x support. (<a href="https://github.com/grpc/grpc/pull/37979" target="_blank">#37979</a>)</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Build] Override MACOSX_DEPLOYMENT_TARGET for gRPC Python. (<a href="https://github.com/grpc/grpc/pull/37997" target="_blank">#37997</a>)</li>
+</ul>
+<br>
+</body>
+
+</html>
