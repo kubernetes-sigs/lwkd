@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2024-12-30 - 2025-01-06</h1><h2>prometheus/prometheus</h2> <h3>Release notes for 3.1.0 / 2025-01-02</h3><h4>2025-01-02</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>[SECURITY] upgrade golang.org/x/crypto to address reported CVE-2024-45337. #15691</li>
+<li>[CHANGE] Notifier: Increment prometheus_notifications_errors_total by the number of affected alerts rather than per batch. #15428</li>
+<li>[CHANGE] API: list rules field &ldquo;groupNextToken:omitempty&rdquo; renamed to &ldquo;groupNextToken&rdquo;. #15400</li>
+<li>[ENHANCEMENT] OTLP translate: keep identifying attributes in target_info. #15448</li>
+<li>[ENHANCEMENT] Paginate rule groups, add infinite scroll to rules within groups. #15677</li>
+<li>[ENHANCEMENT] TSDB: Improve calculation of space used by labels. #13880</li>
+<li>[ENHANCEMENT] Rules: new metric rule_group_last_rule_duration_sum_seconds. #15672</li>
+<li>[ENHANCEMENT] Observability: Export &lsquo;go_sync_mutex_wait_total_seconds_total&rsquo; metric. #15339</li>
+<li>[ENHANCEMEN] Remote-Write: optionally use a DNS resolver that picks a random IP. #15329</li>
+<li>[PERF] Optimize <code>l=~&quot;.+&quot;</code> matcher. #15474, #15684</li>
+<li>[PERF] TSDB: Cache all symbols for compaction . #15455</li>
+<li>[PERF] TSDB: MemPostings: keep a map of label values slices. #15426</li>
+<li>[PERF] Remote-Write: Remove interning hook. #15456</li>
+<li>[PERF] Scrape: optimize string manipulation for experimental native histograms with custom buckets. #15453</li>
+<li>[PERF] TSDB: reduce memory allocations. #15465, #15427</li>
+<li>[PERF] Storage: Implement limit in mergeGenericQuerier. #14489</li>
+<li>[PERF] TSDB: Optimize inverse matching. #14144</li>
+<li>[PERF] Regex: use stack memory for lowercase copy of string. #15210</li>
+<li>[PERF] TSDB: When deleting from postings index, pause to unlock and let readers read. #15242</li>
+<li>[BUGFIX] Main: Avoid possible segfault at exit. (#15724)</li>
+<li>[BUGFIX] Rules: Do not run rules concurrently if uncertain about dependencies. #15560</li>
+<li>[BUGFIX] PromQL: Adds test for <code>absent</code>, <code>absent_over_time</code> and <code>deriv</code> func with histograms. #15667</li>
+<li>[BUGFIX] PromQL: Fix various bugs related to quoting UTF-8 characters. #15531</li>
+<li>[BUGFIX] Scrape: fix nil panic after scrape loop reload. #15563</li>
+<li>[BUGFIX] Remote-write: fix panic on repeated log message. #15562</li>
+<li>[BUGFIX] Scrape: reload would ignore always_scrape_classic_histograms and convert_classic_histograms_to_nhcb configs. #15489</li>
+<li>[BUGFIX] TSDB: fix data corruption in experimental native histograms. #15482</li>
+<li>[BUGFIX] PromQL: Ignore histograms in all time related functions. #15479</li>
+<li>[BUGFIX] OTLP receiver: Convert metric metadata. #15416</li>
+<li>[BUGFIX] PromQL: Fix <code>resets</code> function for histograms. #15527</li>
+<li>[BUGFIX] PromQL: Fix behaviour of <code>changes()</code> for mix of histograms and floats. #15469</li>
+<li>[BUGFIX] PromQL: Fix behaviour of some aggregations with histograms. #15432</li>
+<li>[BUGFIX] allow quoted exemplar keys in openmetrics text format. #15260</li>
+<li>[BUGFIX] TSDB: fixes for rare conditions when loading write-behind-log (WBL). #15380</li>
+<li>[BUGFIX] <code>round()</code> function did not remove <code>__name__</code> label. #15250</li>
+<li>[BUGFIX] Promtool: analyze block shows metric name with 0 cardinality. #15438</li>
+<li>[BUGFIX] PromQL: Fix <code>count_values</code> for histograms. #15422</li>
+<li>[BUGFIX] PromQL: fix issues with comparison binary operations with <code>bool</code> modifier and native histograms. #15413</li>
+<li>[BUGFIX] PromQL: fix incorrect &ldquo;native histogram ignored in aggregation&rdquo; annotations. #15414</li>
+<li>[BUGFIX] PromQL: Corrects the behaviour of some operator and aggregators with Native Histograms. #15245</li>
+<li>[BUGFIX] TSDB: Always return unknown hint for first sample in non-gauge histogram chunk. #15343</li>
+<li>[BUGFIX] PromQL: Clamp functions: Ignore any points with native histograms. #15169</li>
+<li>[BUGFIX] TSDB: Fix race on stale values in headAppender. #15322</li>
+<li>[BUGFIX] UI: Fix selector / series formatting for empty metric names. #15340</li>
+<li>[BUGFIX] OTLP receiver: Allow colons in non-standard units. #15710</li>
+</ul>
+<br><h3>Release notes for 3.1.0-rc.1 / 2024-12-30</h3><h4>2024-12-30</h4><p>Since RC.0:</p>
+
+<ul>
+<li>[BUGFIX] avoid possible segfault at exit. (#15724)</li>
+<li>[BUGFIX] OTLP receiver: Allow colons in non-standard units. #15710</li>
+</ul>
+
+<p>Included in RC.0:</p>
+
+<ul>
+<li>[SECURITY] upgrade golang.org/x/crypto to address reported CVE-2024-45337. #15691</li>
+<li>[CHANGE] Notifier: Increment prometheus_notifications_errors_total by the number of affected alerts rather than per batch. #15428</li>
+<li>[CHANGE] API: list rules field &ldquo;groupNextToken:omitempty&rdquo; renamed to &ldquo;groupNextToken&rdquo;. #15400</li>
+<li>[ENHANCEMENT] OTLP translate: keep identifying attributes in target_info. #15448</li>
+<li>[ENHANCEMENT] Paginate rule groups, add infinite scroll to rules within groups. #15677</li>
+<li>[ENHANCEMENT] TSDB: Improve calculation of space used by labels. #13880</li>
+<li>[ENHANCEMENT] Rules: new metric rule_group_last_rule_duration_sum_seconds. #15672</li>
+<li>[ENHANCEMENT] Observability: Export &lsquo;go_sync_mutex_wait_total_seconds_total&rsquo; metric. #15339</li>
+<li>[ENHANCEMEN] Remote-Write: optionally use a DNS resolver that picks a random IP. #15329</li>
+<li>[PERF] Optimize <code>l=~&quot;.+&quot;</code> matcher. #15474, #15684</li>
+<li>[PERF] TSDB: Cache all symbols for compaction . #15455</li>
+<li>[PERF] TSDB: MemPostings: keep a map of label values slices. #15426</li>
+<li>[PERF] TSDB: reduce memory allocations. #15465, #15427</li>
+<li>[PERF] TSDB: Optimize inverse matching. #14144</li>
+<li>[PERF] TSDB: When deleting from postings index, pause to unlock and let readers read. #15242</li>
+<li>[PERF] Scrape: optimize string manipulation for experimental native histograms with custom buckets. #15453</li>
+<li>[PERF] Storage: Implement limit in mergeGenericQuerier. #14489</li>
+<li>[PERF] Regex: use stack memory for lowercase copy of string. #15210</li>
+<li>[PERF] Remote-Write: Remove interning hook. #15456</li>
+<li>[BUGFIX] Rules: Do not run rules concurrently if uncertain about dependencies. #15560</li>
+<li>[BUGFIX] Scrape: fix nil panic after scrape loop reload. #15563</li>
+<li>[BUGFIX] Remote-write: fix panic on repeated log message. #15562</li>
+<li>[BUGFIX] Scrape: reload would ignore always_scrape_classic_histograms and convert_classic_histograms_to_nhcb configs. #15489</li>
+<li>[BUGFIX] TSDB: fix data corruption in experimental native histograms. #15482</li>
+<li>[BUGFIX] OTLP receiver: Convert metric metadata. #15416</li>
+<li>[BUGFIX] allow quoted exemplar keys in openmetrics text format. #15260</li>
+<li>[BUGFIX] PromQL: <code>round()</code> function did not remove <code>__name__</code> label. #15250</li>
+<li>[BUGFIX] PromQL: Fix various bugs related to quoting UTF-8 characters. #15531</li>
+<li>[BUGFIX] PromQL: Fix <code>resets</code> function for histograms. #15527</li>
+<li>[BUGFIX] PromQL: Fix behaviour of <code>changes()</code> for mix of histograms and floats. #15469</li>
+<li>[BUGFIX] PromQL: Fix behaviour of some aggregations with histograms. #15432</li>
+<li>[BUGFIX] PromQL: Fix <code>count_values</code> for histograms. #15422</li>
+<li>[BUGFIX] PromQL: fix issues with comparison binary operations with <code>bool</code> modifier and native histograms. #15413</li>
+<li>[BUGFIX] PromQL: fix incorrect &ldquo;native histogram ignored in aggregation&rdquo; annotations. #15414</li>
+<li>[BUGFIX] PromQL: Corrects the behaviour of some operator and aggregators with Native Histograms. #15245</li>
+<li>[BUGFIX] PromQL: Clamp functions: Ignore any points with native histograms. #15169</li>
+<li>[BUGFIX] PromQL: Ignore histograms in all time related functions. #15479</li>
+<li>[BUGFIX] Promtool: analyze block shows metric name with 0 cardinality. #15438</li>
+<li>[BUGFIX] TSDB: fixes for rare conditions when loading write-behind-log (WBL). #15380</li>
+<li>[BUGFIX] TSDB: Always return unknown hint for first sample in non-gauge histogram chunk. #15343</li>
+<li>[BUGFIX] TSDB: Fix race on stale values in headAppender. #15322</li>
+<li>[BUGFIX] UI: Fix selector / series formatting for empty metric names. #15340</li>
+</ul>
+<br>
+</body>
+
+</html>
