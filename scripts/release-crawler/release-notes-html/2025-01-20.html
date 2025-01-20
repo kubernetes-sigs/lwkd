@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-01-13 - 2025-01-20</h1><h2>kubernetes-sigs/kustomize</h2> <h3>Release notes for kyaml/v0.19.0</h3><h4>2025-01-14</h4><h2 id="announce">Announce</h2>
+
+<p>This release introduces a unified internal package version (<code>v0.19.0</code>) across the entire kustomize repository.
+ref. <a href="https://github.com/kubernetes-sigs/kustomize/issues/5800" target="_blank">https://github.com/kubernetes-sigs/kustomize/issues/5800</a></p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5825: Update to latest kube-opeapi to drop govalidator dependency
+#5830: downgrade go-difflib and go-spew to tagged releases</p>
+<br><h3>Release notes for kustomize/v5.6.0</h3><h4>2025-01-14</h4><h2 id="announce">Announce</h2>
+
+<p>This release introduces a unified internal package version (<code>v0.19.0</code>) across the entire kustomize repository.
+ref. <a href="https://github.com/kubernetes-sigs/kustomize/issues/5800" target="_blank">https://github.com/kubernetes-sigs/kustomize/issues/5800</a></p>
+
+<h2 id="chore">Chore</h2>
+
+<p>#5809: fix: &ldquo;edit add labels&rdquo; make labels handle -f flag same as commonLabels</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5825: Update to latest kube-opeapi to drop govalidator dependency
+#5830: downgrade go-difflib and go-spew to tagged releases
+#5837: Update kyaml to v0.19.0
+#5839: Update cmd/config to v0.19.0
+#5840: Update api to v0.19.0</p>
+<br><h3>Release notes for cmd/config/v0.19.0</h3><h4>2025-01-14</h4><h1 id="caution">Caution</h1>
+
+<p>This release of cmd/config module skipped a few versions(v0.15.0 -&gt; v0.19.0) to unify each pkg version in the kustomize repo.
+ref. <a href="https://github.com/kubernetes-sigs/kustomize/issues/5800" target="_blank">https://github.com/kubernetes-sigs/kustomize/issues/5800</a></p>
+
+<h2 id="announce">Announce</h2>
+
+<p>This release introduces a unified internal package version (v0.19.0) across the entire kustomize repository.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5825: Update to latest kube-opeapi to drop govalidator dependency
+#5830: downgrade go-difflib and go-spew to tagged releases
+#5837: Update kyaml to v0.19.0</p>
+<br><h3>Release notes for api/v0.19.0</h3><h4>2025-01-14</h4><h2 id="announce">Announce</h2>
+
+<p>This release introduces a unified internal package version (<code>v0.19.0</code>) across the entire kustomize repository.
+ref. <a href="https://github.com/kubernetes-sigs/kustomize/issues/5800" target="_blank">https://github.com/kubernetes-sigs/kustomize/issues/5800</a></p>
+
+<h2 id="chore">Chore</h2>
+
+<p>#5810: Better error message on undefined loader behavior.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5825: Update to latest kube-opeapi to drop govalidator dependency
+#5830: downgrade go-difflib and go-spew to tagged releases
+#5837: Update kyaml to v0.19.0</p>
+<br><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.0.2</h3><h4>2025-01-14</h4><p>Welcome to the v2.0.2 release of containerd!</p>
+
+<p>The second patch release for containerd 2.0 includes a number of bug fixes and improvements.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<h4 id="container-runtime-interface-cri">Container Runtime Interface (CRI)</h4>
+
+<ul>
+<li>Remove confusing warning in cri runtime config migration (<a href="https://github.com/containerd/containerd/pull/11256" target="_blank">#11256</a>)</li>
+<li>Fix runtime platform loading in cri image plugin init (<a href="https://github.com/containerd/containerd/pull/11248" target="_blank">#11248</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Update runc binary to v1.2.4 (<a href="https://github.com/containerd/containerd/pull/11239" target="_blank">#11239</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Jin Dong</li>
+<li>Derek McGowan</li>
+<li>Akihiro Suda</li>
+<li>Kazuyoshi Kato</li>
+<li>Henry Wang</li>
+<li>Krisztian Litkey</li>
+<li>Phil Estes</li>
+<li>Samuel Karp</li>
+<li>Sebastiaan van Stijn</li>
+<li>Akhil Mohan</li>
+<li>Brian Goff</li>
+<li>Chongyi Zheng</li>
+<li>Maksym Pavlenko</li>
+<li>Mike Brown</li>
+<li>Pierre Gimalac</li>
+<li>Wei Fu</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>23 commits</summary>
+<p>
+
+* Prepare release notes for v2.0.2 ([#11245](https://github.com/containerd/containerd/pull/11245))
+  * [`cdaf4dfb4`](https://github.com/containerd/containerd/commit/cdaf4dfb4de6b288314cf43d1571c3c6b05e8b27) Prepare release notes for v2.0.2
+* Update platforms to latest rc ([#11259](https://github.com/containerd/containerd/pull/11259))
+  * [`eb125e1dd`](https://github.com/containerd/containerd/commit/eb125e1dd3ddc427fb314640aabe6eb88c8bbd3b) Update platforms to latest rc
+* Remove confusing warning in cri runtime config migration ([#11256](https://github.com/containerd/containerd/pull/11256))
+  * [`468079c5c`](https://github.com/containerd/containerd/commit/468079c5c4a8c36be6f8005112bf2f0cd69984c4) Remove confusing warning in cri runtime config migration
+* Fix runtime platform loading in cri image plugin init ([#11248](https://github.com/containerd/containerd/pull/11248))
+  * [`a2d9d4fd5`](https://github.com/containerd/containerd/commit/a2d9d4fd556970c39d1fe80d94a77a1aa025c032) Fix runtime platform loading in cri image plugin init
+* make sure console master tty is closed on task exit ([#11246](https://github.com/containerd/containerd/pull/11246))
+  * [`184ffad01`](https://github.com/containerd/containerd/commit/184ffad01ff70e513f969a392de03b6d18b5e31e) Add integ test to check tty leak
+  * [`17181ed33`](https://github.com/containerd/containerd/commit/17181ed33e018a629deeb08889bef4cc3412c64e) fix master tty leak due to leaking init container object
+* Bump up otelttrpc to 0.1.0 ([#11242](https://github.com/containerd/containerd/pull/11242))
+  * [`8666e7422`](https://github.com/containerd/containerd/commit/8666e742255ac0d4e8047538aa69912689722861) Bump up otelttrpc to 0.1.0
+* ctr: `ctr images import --all-platforms`: fix unpack ([#11236](https://github.com/containerd/containerd/pull/11236))
+  * [`c4270430d`](https://github.com/containerd/containerd/commit/c4270430db0f7e27a4c03b60822c7e14d210ae46) ctr: `ctr images import --all-platforms`: fix unpack
+* Update runc binary to v1.2.4 ([#11239](https://github.com/containerd/containerd/pull/11239))
+  * [`7373ddd70`](https://github.com/containerd/containerd/commit/7373ddd70bed3958aecd99e9b76d431c890beaa4) update runc binary to v1.2.4
+* downgrade go-difflib and go-spew to tagged releases ([#11222](https://github.com/containerd/containerd/pull/11222))
+  * [`f34147772`](https://github.com/containerd/containerd/commit/f34147772bb97ef3220c85730b6139bfbf369095) downgrade go-difflib and go-spew to tagged releases
+* Add a build tag to disable std `plugin` import ([#11213](https://github.com/containerd/containerd/pull/11213))
+  * [`dca769485`](https://github.com/containerd/containerd/commit/dca769485cc524f86984631e15477f07bbf545c4) chore: add a build tag to disable containerd plugin import
+* Update golangci to 1.60.3 ([#11187](https://github.com/containerd/containerd/pull/11187))
+  * [`5942b3fcb`](https://github.com/containerd/containerd/commit/5942b3fcbacf02e3aeafd0cc1070ee1888aadd31) Update golangci to 1.60.3
+</p>
+</details>
+
+<h3 id="changes-from-containerd-otelttrpc">Changes from containerd/otelttrpc</h3>
+
+<details><summary>6 commits</summary>
+<p>
+
+* Add dependabot and upgrade golang and dependency versions ([containerd/otelttrpc#3](https://github.com/containerd/otelttrpc/pull/3))
+  * [`2d46141`](https://github.com/containerd/otelttrpc/commit/2d46141c9f9842bc8e2563ae884b963e34ea175f) upgrade golang, deps, CI versions
+  * [`64922e7`](https://github.com/containerd/otelttrpc/commit/64922e78c69b7bdecf065f039a5ead4d64e567e0) Add dependabot CI
+* Fix concurrent map panic on metadata ([containerd/otelttrpc#2](https://github.com/containerd/otelttrpc/pull/2))
+  * [`2ba3be1`](https://github.com/containerd/otelttrpc/commit/2ba3be1e39398b8d2544f5ea962edc1e2f906d32) Fix concurrent map panic on inject metadata
+  * [`f50a922`](https://github.com/containerd/otelttrpc/commit/f50a9220fc748442b274390c45773191367262ec) UT for concurrent inject/extract metadata
+</p>
+</details>
+
+<h3 id="changes-from-containerd-platforms">Changes from containerd/platforms</h3>
+
+<details><summary>6 commits</summary>
+<p>
+
+* Move windows matcher logic so all platforms can use ([containerd/platforms#22](https://github.com/containerd/platforms/pull/22))
+  * [`7c58292`](https://github.com/containerd/platforms/commit/7c5829273cd83c987784fd7ef5487485e0d2fee0) Move windows matcher logic so all platforms can use
+* replace testify with stdlib in tests ([containerd/platforms#21](https://github.com/containerd/platforms/pull/21))
+  * [`86a86b7`](https://github.com/containerd/platforms/commit/86a86b73a6e01f92aecad823e0f516f6198f3e2c) replace testify with stdlib in tests
+* Replace arm64 minor variant logic with lookup table ([containerd/platforms#18](https://github.com/containerd/platforms/pull/18))
+  * [`364665a`](https://github.com/containerd/platforms/commit/364665a87c183d5b5eb45fc0e9b86e99013a621a) Replace arm64 minor variant logic with lookup table
+</p>
+</details>
+
+<h3 id="changes-from-containerd-ttrpc">Changes from containerd/ttrpc</h3>
+
+<details><summary>5 commits</summary>
+<p>
+
+* Add MD.Clone function ([containerd/ttrpc#177](https://github.com/containerd/ttrpc/pull/177))
+  * [`430f734`](https://github.com/containerd/ttrpc/commit/430f7347915993a5543bfb00858ac337274528ba) Add MD.Clone
+* server: fix a Serve() vs. (immediate) Shutdown() race ([containerd/ttrpc#175](https://github.com/containerd/ttrpc/pull/175))
+  * [`c4d96d5`](https://github.com/containerd/ttrpc/commit/c4d96d55ad9c4f4cf6036c70a5b18ba80655d648) server: fix Serve() vs. immediate Shutdown() race.
+  * [`ed6c3ba`](https://github.com/containerd/ttrpc/commit/ed6c3ba082bdbc82284c198d93ca5f07ad9900dd) server_test: add Serve()/Shutdown() race test.
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>github.com/containerd/otelttrpc</strong>  ea5083fda723 -&gt; v0.1.0</li>
+<li><strong>github.com/containerd/platforms</strong>  v1.0.0-rc.0 -&gt; v1.0.0-rc.1</li>
+<li><strong>github.com/containerd/ttrpc</strong>      v1.2.6 -&gt; v1.2.7</li>
+<li><strong>github.com/davecgh/go-spew</strong>       d8f796af33cc -&gt; v1.1.1</li>
+<li><strong>github.com/pmezard/go-difflib</strong>    5d4384ee4fb2 -&gt; v1.0.0</li>
+<li><strong>github.com/stretchr/testify</strong>      v1.9.0 -&gt; v1.10.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v2.0.1" target="_blank">v2.0.1</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.31 (Ubuntu 20.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on non-glibc Linux distributions. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br><h2>kubernetes/cloud-provider-vsphere</h2> <h3>Release notes for v1.32.2</h3><h4>2025-01-14</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>🌱 Update packages to fix CVEs by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1379" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1379</a></li>
+<li>update documents for v1.32.2 release by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1380" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1380</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.32.1...v1.32.2" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.32.1&hellip;v1.32.2</a></p>
+<br><h3>Release notes for vsphere-cpi-chart-1.32.2</h3><h4>2025-01-14</h4><p>A Helm chart for vSphere Cloud Provider Interface Manager (CPI)</p>
+<br><h2>kubernetes/minikube</h2> <h3>Release notes for v1.35.0</h3><h4>2025-01-16</h4><p>📣😀 <strong>Please fill out our <a href="https://forms.gle/Gg3hG5ZySw8c1C24A" target="_blank">fast 5-question survey</a></strong> so that we can learn how &amp; why you use minikube, and what improvements we should make. Thank you! 💃🎉</p>
+
+<h1 id="release-notes">Release Notes</h1>
+
+<h2 id="version-1-35-0-2025-01-15">Version 1.35.0 - 2025-01-15</h2>
+
+<p>Features:</p>
+
+<ul>
+<li>Add support for AMD GPUs via &ndash;gpus=amd <a href="https://github.com/kubernetes/minikube/pull/19749" target="_blank">#19749</a></li>
+<li>Use Github Assets as New fail over for kic base image  <a href="https://github.com/kubernetes/minikube/pull/19464" target="_blank">#19464</a></li>
+<li>Support latest Kubernetes v1.32.0 <a href="https://github.com/kubernetes/minikube/pull/20091" target="_blank">#20091</a></li>
+<li>Adds support for kubeadm.k8s.io/v1beta4 (available since k8s v1.31) <a href="https://github.com/kubernetes/minikube/pull/19790" target="_blank">#19790</a></li>
+</ul>
+
+<p>Improvements:</p>
+
+<ul>
+<li>Merge nvidia-gpu-device-plugin and nvidia-device-plugin. <a href="https://github.com/kubernetes/minikube/pull/19545" target="_blank">#19545</a></li>
+<li>kicbase: Update nvidia packages <a href="https://github.com/kubernetes/minikube/pull/19738" target="_blank">#19738</a></li>
+<li>cilium: remove appArmorProfile for k8s<v1.30.0 <a href="https://github.com/kubernetes/minikube/pull/19888" target="_blank">#19888</a></li>
+<li>auto-pause: restart service after configuration <a href="https://github.com/kubernetes/minikube/pull/19900" target="_blank">#19900</a></li>
+<li>Revert &ldquo;Change MINIKUBE_HOME logic&rdquo; <a href="https://github.com/kubernetes/minikube/pull/20045" target="_blank">#20045</a></li>
+<li>don&rsquo;t pollute minikube profile list with errors if exitcode is absent <a href="https://github.com/kubernetes/minikube/pull/19728" target="_blank">#19728</a></li>
+<li>unified minikube cluster status query <a href="https://github.com/kubernetes/minikube/pull/18998" target="_blank">#18998</a></li>
+<li>Vfkit driver: fix TestMachineType failing on macOS <a href="https://github.com/kubernetes/minikube/pull/19726" target="_blank">#19726</a></li>
+<li>No more arch restriction on nerdctld <a href="https://github.com/kubernetes/minikube/pull/19730" target="_blank">#19730</a></li>
+<li>More robust MAC address matching <a href="https://github.com/kubernetes/minikube/pull/19750" target="_blank">#19750</a></li>
+<li>Add instructions to resolve docker context error <a href="https://github.com/kubernetes/minikube/pull/19197" target="_blank">#19197</a></li>
+</ul>
+
+<p>Bug fixes:</p>
+
+<ul>
+<li>fix &ndash;wait&rsquo;s failure to work on coredns pods <a href="https://github.com/kubernetes/minikube/pull/19748" target="_blank">#19748</a></li>
+<li>Fix panic when no services in namespace with &ndash;all specified <a href="https://github.com/kubernetes/minikube/pull/19957" target="_blank">#19957</a></li>
+<li>fix timeout when stopping KVM machine with CRI-O container runtime <a href="https://github.com/kubernetes/minikube/pull/19758" target="_blank">#19758</a></li>
+<li>Fix long lines in lastStart.txt not outputting in log outputs <a href="https://github.com/kubernetes/minikube/pull/19740" target="_blank">#19740</a></li>
+<li>Fix wrongly detecting kicbase arch as incorrect <a href="https://github.com/kubernetes/minikube/pull/19664" target="_blank">#19664</a></li>
+</ul>
+
+<p>Breaking Changes:</p>
+
+<ul>
+<li>remove arm64 kvm <a href="https://github.com/kubernetes/minikube/pull/19985" target="_blank">#19985</a> <a href="https://github.com/kubernetes/minikube/pull/20062" target="_blank">#20062</a></li>
+<li>remove helm-tiller addon <a href="https://github.com/kubernetes/minikube/pull/19636" target="_blank">#19636</a></li>
+</ul>
+
+<p>Languages:</p>
+
+<ul>
+<li>Add more Chinese translations <a href="https://github.com/kubernetes/minikube/pull/19490" target="_blank">#19490</a> <a href="https://github.com/kubernetes/minikube/pull/19508" target="_blank">#19508</a>  <a href="https://github.com/kubernetes/minikube/pull/19718" target="_blank">#19718</a> <a href="https://github.com/kubernetes/minikube/pull/19962" target="_blank">#19962</a> <a href="https://github.com/kubernetes/minikube/pull/19772" target="_blank">#19772</a></li>
+<li>Improve french translation <a href="https://github.com/kubernetes/minikube/pull/19654" target="_blank">#19654</a> <a href="https://github.com/kubernetes/minikube/pull/19978" target="_blank">#19978</a></li>
+</ul>
+
+<p>Version Updates:</p>
+
+<ul>
+<li>CNI: Update flannel from v0.25.6 to v0.26.2 <a href="https://github.com/kubernetes/minikube/pull/19761" target="_blank">#19761</a> <a href="https://github.com/kubernetes/minikube/pull/20107" target="_blank">#20107</a></li>
+<li>CNI: Update cilium from v1.16.1 to v1.16.5  <a href="https://github.com/kubernetes/minikube/pull/19734" target="_blank">#19734</a> <a href="https://github.com/kubernetes/minikube/pull/20148" target="_blank">#20148</a> <a href="https://github.com/kubernetes/minikube/pull/19823" target="_blank">#19823</a></li>
+<li>CNI: Update calico to v3.29.1 <a href="https://github.com/kubernetes/minikube/pull/19884" target="_blank">#19884</a> <a href="https://github.com/kubernetes/minikube/pull/20052" target="_blank">#20052</a> <a href="https://github.com/kubernetes/minikube/pull/19667" target="_blank">#19667</a></li>
+<li>CNI: Update kindnetd to v20241023-a345ebe4 <a href="https://github.com/kubernetes/minikube/pull/19865" target="_blank">#19865</a> <a href="https://github.com/kubernetes/minikube/pull/19780" target="_blank">#19780</a> <a href="https://github.com/kubernetes/minikube/pull/20051" target="_blank">#20051</a></li>
+<li>Update golang to 1.23.3 <a href="https://github.com/kubernetes/minikube/pull/20065" target="_blank">#20065</a> <a href="https://github.com/kubernetes/minikube/pull/19868" target="_blank">#19868</a> <a href="https://github.com/kubernetes/minikube/pull/19756" target="_blank">#19756</a></li>
+<li>Addon istio-provisioner: Update istio/operator image from 1.23.0 to 1.23.3 <a href="https://github.com/kubernetes/minikube/pull/19678" target="_blank">#19678</a> <a href="https://github.com/kubernetes/minikube/pull/19629" target="_blank">#19629</a> <a href="https://github.com/kubernetes/minikube/pull/19876" target="_blank">#19876</a></li>
+<li>Addon cloud-spanner: Update cloud-spanner-emulator/emulator image from 1.5.23 to 1.5.24 <a href="https://github.com/kubernetes/minikube/pull/19679" target="_blank">#19679</a></li>
+<li>Addon gcp-auth: Update k8s-minikube/gcp-auth-webhook image from v0.1.2 to v0.1.3 <a href="https://github.com/kubernetes/minikube/pull/19787" target="_blank">#19787</a></li>
+<li>Addon ingress: Update ingress-nginx/controller image from v1.11.2 to v1.12.0-beta.0 <a href="https://github.com/kubernetes/minikube/pull/19781" target="_blank">#19781</a> <a href="https://github.com/kubernetes/minikube/pull/19824" target="_blank">#19824</a></li>
+<li>Addon registry: Update kube-registry-proxy image from 0.0.7 to 0.0.8 <a href="https://github.com/kubernetes/minikube/pull/19782" target="_blank">#19782</a></li>
+<li>addon gvisor: Update gvisor-addon image from v0.0.1 to v0.0.2 <a href="https://github.com/kubernetes/minikube/pull/19776" target="_blank">#19776</a></li>
+<li>Addon inspektor-gadget: Update inspektor-gadget image from v0.33.0 to v0.36.0 <a href="https://github.com/kubernetes/minikube/pull/20205" target="_blank">#20205</a> <a href="https://github.com/kubernetes/minikube/pull/20033" target="_blank">#20033</a></li>
+<li>Addon registry: Update registry image from 2.8.3 to 2.8.3 <a href="https://github.com/kubernetes/minikube/pull/20035" target="_blank">#20035</a></li>
+<li>Addon kubevirt: Update bitnami/kubectl image from 1.31.1 to 1.31.3 <a href="https://github.com/kubernetes/minikube/pull/19763" target="_blank">#19763</a> <a href="https://github.com/kubernetes/minikube/pull/20028" target="_blank">#20028</a> <a href="https://github.com/kubernetes/minikube/pull/20068" target="_blank">#20068</a> <a href="https://github.com/kubernetes/minikube/pull/19937" target="_blank">#19937</a> <a href="https://github.com/kubernetes/minikube/pull/19690" target="_blank">#19690</a> <a href="https://github.com/kubernetes/minikube/pull/19875" target="_blank">#19875</a> <a href="https://github.com/kubernetes/minikube/pull/19652" target="_blank">#19652</a></li>
+<li>Addon headlamp: Update headlamp-k8s/headlamp image from v0.25.0 to v0.25.1 <a href="https://github.com/kubernetes/minikube/pull/19570" target="_blank">#19570</a></li>
+<li>Addon kong: Update kong image from 3.7.1 to 3.8.0 <a href="https://github.com/kubernetes/minikube/pull/19651" target="_blank">#19651</a></li>
+<li>Addon kong: Update kong/kubernetes-ingress-controller image from 2.12.0 to 3.3.1 <a href="https://github.com/kubernetes/minikube/pull/18424" target="_blank">#18424</a></li>
+<li>Addon Volcano: Update volcano images from v1.9.0 to v1.10.0 <a href="https://github.com/kubernetes/minikube/pull/19700" target="_blank">#19700</a></li>
+<li>Addon kong: Update kong image from 3.8.0 to 3.8.0 <a href="https://github.com/kubernetes/minikube/pull/19689" target="_blank">#19689</a></li>
+<li>Addon inspektor-gadget: Update inspektor-gadget image from v0.32.0 to v0.33.0 <a href="https://github.com/kubernetes/minikube/pull/19764" target="_blank">#19764</a></li>
+<li>Addons registry: Update kube-registry-proxy from 0.0.6 to 0.0.7 <a href="https://github.com/kubernetes/minikube/pull/19711" target="_blank">#19711</a></li>
+<li>Kicbase: Bump ubuntu:jammy from 20240808 to 20240911.1 <a href="https://github.com/kubernetes/minikube/pull/19662" target="_blank">#19662</a></li>
+<li>Kicbase/ISO: Update nerdctl from 1.7.6 to 1.7.7 <a href="https://github.com/kubernetes/minikube/pull/19649" target="_blank">#19649</a></li>
+<li>Kicbase/ISO: Update cni-plugins from v1.6.1 to v1.6.2 <a href="https://github.com/kubernetes/minikube/pull/20236" target="_blank">#20236</a></li>
+<li>Kicbase/ISO: Update buildkit from v0.16.0 to v0.18.1 <a href="https://github.com/kubernetes/minikube/pull/20089" target="_blank">#20089</a></li>
+<li>Kicbase/ISO: Update crun from 1.16.1 to 1.18.2 <a href="https://github.com/kubernetes/minikube/pull/19640" target="_blank">#19640</a> <a href="https://github.com/kubernetes/minikube/pull/19883" target="_blank">#19883</a> <a href="https://github.com/kubernetes/minikube/pull/20083" target="_blank">#20083</a> <a href="https://github.com/kubernetes/minikube/pull/19917" target="_blank">#19917</a></li>
+<li>Kicbase/ISO: Update dependency versions <a href="https://github.com/kubernetes/minikube/pull/20090" target="_blank">#20090</a></li>
+<li>Kicbase/ISO: Update runc from v1.1.13 to v1.1.15 <a href="https://github.com/kubernetes/minikube/pull/19598" target="_blank">#19598</a> <a href="https://github.com/kubernetes/minikube/pull/19774" target="_blank">#19774</a></li>
+<li>Kicbase/ISO: Update buildkit from v0.15.2 to v0.16.0 <a href="https://github.com/kubernetes/minikube/pull/19644" target="_blank">#19644</a></li>
+<li>Kicbase/ISO: Update containerd from v1.7.21 to v1.7.22 <a href="https://github.com/kubernetes/minikube/pull/19643" target="_blank">#19643</a></li>
+<li>Kicbase/ISO: Update docker from 27.2.0 to 27.3.1 <a href="https://github.com/kubernetes/minikube/pull/19616" target="_blank">#19616</a> <a href="https://github.com/kubernetes/minikube/pull/19672" target="_blank">#19672</a> <a href="https://github.com/kubernetes/minikube/pull/19696" target="_blank">#19696</a></li>
+<li>Kicbase/ISO: Update containerd from v1.7.22 to v1.7.23 <a href="https://github.com/kubernetes/minikube/pull/19806" target="_blank">#19806</a></li>
+<li>Kicbase/ISO: Update cni-plugins from v1.5.1 to v1.6.0 <a href="https://github.com/kubernetes/minikube/pull/19872" target="_blank">#19872</a></li>
+<li>HA (multi-control plane): Update kube-vip from v0.8.0 to v0.8.7 <a href="https://github.com/kubernetes/minikube/pull/19736" target="_blank">#19736</a> <a href="https://github.com/kubernetes/minikube/pull/19800" target="_blank">#19800</a> <a href="https://github.com/kubernetes/minikube/pull/19906" target="_blank">#19906</a> <a href="https://github.com/kubernetes/minikube/pull/19910" target="_blank">#19910</a>  <a href="https://github.com/kubernetes/minikube/pull/20053" target="_blank">#20053</a></li>
+</ul>
+
+<p>For a more detailed changelog, including changes occurring in pre-release versions, see <a href="https://github.com/kubernetes/minikube/blob/master/CHANGELOG.md" target="_blank">CHANGELOG.md</a>.</p>
+
+<p>Thank you to our contributors for this release!</p>
+
+<ul>
+<li>Anders F Björklund</li>
+<li>Bingtan Lu</li>
+<li>Fredrik Holmqvist</li>
+<li>Hello World</li>
+<li>Jeff MAURY</li>
+<li>Kubernetes Prow Robot</li>
+<li>Matt L</li>
+<li>Medya Ghazizadeh</li>
+<li>Nir Soffer</li>
+<li>Predrag Rogic</li>
+<li>Qasim Sarfraz</li>
+<li>Ramachandran C</li>
+<li>Sarath Kumar</li>
+<li>Steven Powell</li>
+<li>Sylvester Carolan</li>
+<li>Szymon Nadbrzeżny</li>
+<li>Tyler Auerbeck</li>
+<li>cuiyourong</li>
+<li>fbyrne</li>
+<li>joaquimrocha</li>
+<li>minikube-bot</li>
+<li>shixiuguo</li>
+<li>syxunion</li>
+<li>tianlj</li>
+<li>zdxgs</li>
+<li>錦南路之花</li>
+</ul>
+
+<p>Thank you to our PR reviewers for this release!</p>
+<br>
+</body>
+
+</html>
