@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-01-20 - 2025-01-27</h1><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.9.4</h3><h4>2025-01-21</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.32.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.32.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-9">Changes since v1.9</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>20 new commits merged</li>
+<li>5 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>CAPIM: Fix periodic resync in in-memory provider (#11670)</li>
+<li>Clustercache: Prevent concurrent map read/write when creating a cache (#11709)</li>
+<li>Machine: Sort list of pre-drain hooks for stable condition messages (#11625)</li>
+<li>Release: Fix broken links in release team handbooks (#11654)</li>
+<li>util: Also patch external refs if the UID differs (#11689)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>CAPIM: Inmemory: fix watch to continue serving based on resourceVersion parameter (#11710)</li>
+<li>clusterctl: Add Infrastructure provider Harvester (#11653)</li>
+<li>Conditions: Fix formatting of blocking lifecycle hook condition message (#11669)</li>
+<li>Conditions: Fix log messages in Cluster set status code + some minor unit test fixes (#11640)</li>
+<li>Dependency: Bump envtest to v1.32.0 (#11641)</li>
+<li>Dependency: Bump github.com/coredns/corefile-migration to v1.0.25 (#11676)</li>
+<li>Dependency: Bump to controller-runtime v0.19.4 (#11645)</li>
+<li>KCP: Stop recreating logger for etcd client (#11672)</li>
+<li>Logging: Reduce log level of noisy logs in ExtensionConfig and Cluster controller (#11668)</li>
+<li>Machine: Improve Machine create and delete logs (#11712)</li>
+<li>MachineHealthCheck: Improve Machine remediation logs (#11706)</li>
+<li>util: Call patchHelper only if necessary when reconciling external refs (#11675)</li>
+<li>util: PatchHelper: call toUnstructured only if necessary (#11673)</li>
+</ul>
+
+<p>:book: Additionally, there have been 2 contributions to our documentation and book. (#11627, #11701)</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/coredns/corefile-migration: <a href="https://github.com/coredns/corefile-migration/compare/v1.0.24...v1.0.25" target="_blank">v1.0.24 → v1.0.25</a></li>
+<li>sigs.k8s.io/controller-runtime: v0.19.3 → v0.19.4</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.8.9</h3><h4>2025-01-21</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.27.x -&gt; v1.31.x</li>
+<li>Workload Cluster: v1.25.x -&gt; v1.31.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-8">Changes since v1.8</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>7 new commits merged</li>
+<li>1 bug fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>util: Also patch external refs if the UID differs (#11690)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Dependency: Bump github.com/coredns/corefile-migration to v1.0.25 (#11680)</li>
+<li>Dependency: Bump to controller-runtime v0.18.7 (#11644)</li>
+<li>KCP: Stop recreating logger for etcd client (#11682)</li>
+<li>MachineHealthCheck: Improve Machine remediation logs (#11708)</li>
+<li>util: Call patchHelper only if necessary when reconciling external refs (#11684)</li>
+<li>util: PatchHelper: call toUnstructured only if necessary (#11683)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/coredns/corefile-migration: <a href="https://github.com/coredns/corefile-migration/compare/v1.0.24...v1.0.25" target="_blank">v1.0.24 → v1.0.25</a></li>
+<li>sigs.k8s.io/controller-runtime: v0.18.6 → v0.18.7</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.5.0</h3><h4>2025-01-21</h4><p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v4.4.0" target="_blank">v4.4.0</a></strong></p>
+
+<h2 id="breaking-changes">⚠️ Breaking Changes</h2>
+
+<ul>
+<li><strong>(go-v4):</strong> Upgrade controller-runtime from <code>v0.19.4</code> to <code>v0.20.0</code> and add support for Kubernetes 1.32 (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4492" target="_blank">#4492</a>). See the <a href="https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.20.0" target="_blank">controller-runtime release notes</a> to learn more about the breaking changes introduced.</li>
+</ul>
+
+<p><strong>(Projects using webhooks):</strong><br>
+  Controller-runtime removed the deprecated <code>webhook.Validator</code> and <code>webhook.Defaulter</code> interfaces. Additionally, webhooks should no longer reside under the <code>api</code> directory. Kubebuilder projects have not scaffolded webhooks in this directory or used the deprecated interfaces since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/tag/v4.3.0" target="_blank">v4.3.0</a>.</p>
+
+<p>If you are using these interfaces or the legacy <code>apis</code> directory for webhooks, please refer to the <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/tag/v4.3.0" target="_blank">v4.3.0 release notes</a>, which provide guidance on updating your projects to align with the current standards.</p>
+
+<p>To assist with migration or reduce the burden on users, Kubebuilder has introduced a flag option to allow scaffolding webhooks using the new interfaces in the legacy path. For now, you can scaffold webhooks in the legacy path (under <code>api</code>) by using the command <code>kubebuilder create webhook [OPTIONS] --legacy=true</code>. For reference, you can look at the <a href="https://github.com/kubernetes-sigs/kubebuilder/tree/v4.5.0/docs/book/src/cronjob-tutorial/testdata/project/internal/webhook/v1" target="_blank">CronJob Tutorial sample webhooks implementation</a>.</p>
+
+<h2 id="new-features">✨ New Features</h2>
+
+<ul>
+<li><strong>(go-v4):</strong> Upgrade controller-gen from <code>v0.17.0</code> to <code>v0.17.1</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4493" target="_blank">#4493</a>)</li>
+<li><strong>(go-v4):</strong> Upgrade GolangCI Lint from <code>v1.62.2</code> to <code>v1.63.4</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4494" target="_blank">#4494</a>)</li>
+<li><strong>(go-v4):</strong> e2e tests: upgrade cert-manager version used from <code>v1.16.0</code> to <code>v1.16.3</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4497" target="_blank">#4497</a>)</li>
+<li><strong>(go-v4):</strong> e2e tests: follow cert-manager org name changes (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4505" target="_blank">#4505</a>)</li>
+</ul>
+
+<h2 id="bug-fixes">🐛 Bug Fixes</h2>
+
+<ul>
+<li><strong>(CLI)</strong> Ensure minimal golang version <code>1.23.0</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4491" target="_blank">#4491</a>)</li>
+<li><strong>(helm/alpha-v1):</strong> Fix YAML lint in the ServiceMonitor file (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4502" target="_blank">#4502</a>)</li>
+<li><strong>(alpha generate command):</strong> Fix scenario where the output-dir path is not informed; default to the current directory (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4500" target="_blank">#4500</a>)</li>
+<li><strong>(alpha generate command):</strong> Allow re-creating projects with webhooks for external-apis (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4501" target="_blank">#4501</a>)</li>
+<li><strong>(go-v4):</strong> Use explicit <code>docker.io</code> prefix for Docker Hub images (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4513" target="_blank">#4513</a>)</li>
+</ul>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>📖 Add helm-plugin to the summary of available plugins by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4485" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4485</a></li>
+<li>🐛 Update golang version to 1.23.0 in init validation logic by @dmvolod in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4491" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4491</a></li>
+<li>:book: Bump sigs.k8s.io/kubebuilder/v4 from 4.3.1 to 4.4.0 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4488" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4488</a></li>
+<li>⚠️ Upgrade controller-runtime from v0.19.4 to v0.20.0 and k8s deps from 1.31 to 1.32 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4492" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4492</a></li>
+<li>✨ Upgrade controller-gen from v0.17.0 to v0.17.1 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4493" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4493</a></li>
+<li>✨ Upgrade GolangCI Lint from v1.62.2 to v1.63.4 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4494" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4494</a></li>
+<li>✨ e2e tests: upgrade cert-manager version used from <code>v1.16.0</code> to <code>v1.16.3</code> by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4497" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4497</a></li>
+<li>🐛 (helm/alpha-v1): fix yaml lint in the ServiceMonitor file by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4502" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4502</a></li>
+<li>🌱 CLI: Remove unused doc.go by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4504" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4504</a></li>
+<li>🐛 fix: kubebuilder alpha generate command to allow re-create projects with webhooks for external-apis by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4501" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4501</a></li>
+<li>✨ (go/v4): Follow cert-manager org name changes by @zchee in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4505" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4505</a></li>
+<li>🌱 (ci): Add GH action to validate generated helm charts for tutorials by @akagami-harsh in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4472" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4472</a></li>
+<li>🌱 fix: alpha generate command. If the output-dir path is not informed than it should be the current directory by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4500" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4500</a></li>
+<li>🐛 Use explicit docker.io prefix for Docker Hub images by @pl4nty in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4513" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4513</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@zchee made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4505" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4505</a></li>
+<li>@akagami-harsh made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4472" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4472</a></li>
+<li>@pl4nty made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4513" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4513</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v4.4.0...v4.5.0" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v4.4.0&hellip;v4.5.0</a></p>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.5.18</h3><h4>2025-01-24</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.5.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.5/upgrades/upgrade_3_5/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.5/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.5/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.18
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.18
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.18
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.70.0</h3><h4>2025-01-23</h4><p>This is release 1.70.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">genius</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[BoringSSL] Update third_party/boringssl-with-bazel. (<a href="https://github.com/grpc/grpc/pull/38274" target="_blank">#38274</a>)</li>
+</ul>
+
+<h2 id="c">C++</h2>
+
+<ul>
+<li>gRPC C++ begins to require C++17 or later to build and use gRPC C++.  You may need the following settings
+
+<ul>
+<li>CMake: Add <code>CMAKE_CXX_STANDARD=17</code> to your CMake build command.</li>
+<li>Bazel: Add <code>--cxxopt='/std:c++17'</code> and <code>--host_cxxopt='/std:c++17'</code> to your Bazel build command.</li>
+</ul></li>
+</ul>
+<br><h2>kubernetes-csi/csi-driver-nfs</h2> <h3>Release notes for v4.10.0 release</h3><h4>2025-01-24</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v4.9.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/756" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/756</a></li>
+<li>…Update README.md to note external-snapshotter is required by @lectrician1 in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/759" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/759</a></li>
+<li>chore: upgrade to debian-base:bookworm-v1.0.4 base image by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/761" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/761</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.28.0 to 0.29.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/764" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/764</a></li>
+<li>chore: upgrade golint version by @Zhupku in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/765" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/765</a></li>
+<li>chore: upgrade golang version by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/766" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/766</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.66.0 to 1.66.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/767" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/767</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.66.1 to 1.66.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/768" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/768</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/769" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/769</a></li>
+<li>fix: remove parent dir in DeleteVolume by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/770" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/770</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.66.2 to 1.67.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/772" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/772</a></li>
+<li>fix: build with go 1.22.5 to fix golang CVE by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/779" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/779</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.67.0 to 1.67.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/775" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/775</a></li>
+<li>fix: add CriticalAddonsOnly toleration into controller pod by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/780" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/780</a></li>
+<li>Prow update master by @TerryHowe in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/778" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/778</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.29.0 to 0.30.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/781" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/781</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.34.2 to 1.35.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/782" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/782</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.34.2 to 1.35.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/785" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/785</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.20.2 to 2.21.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/786" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/786</a></li>
+<li>test: fix trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/789" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/789</a></li>
+<li>fix: add timeout on mount to fix stuck issue by @umagnus in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/792" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/792</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.67.1 to 1.68.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/790" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/790</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.30.0 to 0.31.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/793" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/793</a></li>
+<li>chore: update CSI spec to v1.10.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/796" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/796</a></li>
+<li>chore: update dependabot by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/797" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/797</a></li>
+<li>chore(deps): bump the k8s group with 2 updates by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/798" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/798</a></li>
+<li>doc: missing keyword pod in command by @gulywwx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/800" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/800</a></li>
+<li>cleanup: remove group update in dependabot by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/802" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/802</a></li>
+<li>cleanup: remove unused livenessProbe in registrar container by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/804" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/804</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.35.1 to 1.36.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/803" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/803</a></li>
+<li>chore(deps): bump github.com/stretchr/testify from 1.9.0 to 1.10.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/805" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/805</a></li>
+<li>fix: driver name in storage class helm configure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/807" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/807</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.68.0 to 1.68.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/809" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/809</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.31.0 to 0.32.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/810" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/810</a></li>
+<li>feat: add volume resize support by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/811" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/811</a></li>
+<li>Prow update master by @TerryHowe in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/812" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/812</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.36.0 to 1.36.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/813" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/813</a></li>
+<li>doc: add allowVolumeExpansion in examples by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/814" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/814</a></li>
+<li>fix: runOnControlPlane chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/816" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/816</a></li>
+<li>fix: CVE-2024-45337 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/815" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/815</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.68.1 to 1.69.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/817" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/817</a></li>
+<li>feat: upgrade to snapshot v8.2.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/818" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/818</a></li>
+<li>chore: upgrade k8s.io/mount-utils to v1.32.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/821" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/821</a></li>
+<li>test: upgrade csi-test to v5.3.1 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/822" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/822</a></li>
+<li>feat: add controller.enableSnapshotter chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/820" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/820</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.35.2 to 1.36.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/824" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/824</a></li>
+<li>feat: support runOnControlPlane on csi-snapshot-controller by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/823" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/823</a></li>
+<li>feat: added volumesnapshotclass to helm chart by @geoffrey1330 in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/826" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/826</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.32.0 to 0.33.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/827" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/827</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.69.0 to 1.69.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/829" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/829</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.22.0 to 2.22.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/831" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/831</a></li>
+<li>chore: Update csi release tools  by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/832" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/832</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.0 to 1.36.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/833" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/833</a></li>
+<li>fix: increase default provisioner, snapshotter retry-interval-max by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/834" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/834</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.36.1 to 1.36.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/835" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/835</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.22.1 to 2.22.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/836" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/836</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.33.0 to 0.34.0 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/837" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/837</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.1 to 1.36.2 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/838" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/838</a></li>
+<li>fix: duplicated nfs mount by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/840" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/840</a></li>
+<li>feat: replace tar (cli) with code-only packing by @astef in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/808" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/808</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.69.2 to 1.69.4 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/841" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/841</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.2 to 1.36.3 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/844" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/844</a></li>
+<li>feat: add useTarCommandInSnapshot flag in chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/842" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/842</a></li>
+<li>chore: upgrade CSI driver sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/847" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/847</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@lectrician1 made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/759" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/759</a></li>
+<li>@Zhupku made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/765" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/765</a></li>
+<li>@TerryHowe made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/778" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/778</a></li>
+<li>@gulywwx made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/800" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/800</a></li>
+<li>@geoffrey1330 made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/826" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/826</a></li>
+<li>@astef made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/808" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/808</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-nfs/compare/v4.9.0...v4.10.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/compare/v4.9.0&hellip;v4.10.0</a></p>
+<br><h2>kubernetes-csi/csi-driver-smb</h2> <h3>Release notes for v1.17.0 release</h3><h4>2025-01-24</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v1.16.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/836" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/836</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.3 to bookworm-v1.0.4 in /cmd/smbplugin by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/839" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/839</a></li>
+<li>fix: chmod volume dir before deletion by @mpatlasov in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/840" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/840</a></li>
+<li>chore: upgrade golint version by @Zhupku in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/842" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/842</a></li>
+<li>fix: mount with 0777 in volume creation and deletion by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/843" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/843</a></li>
+<li>test: fix random ut failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/847" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/847</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/849" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/849</a></li>
+<li>fix: remove parent dir in DeleteVolume by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/850" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/850</a></li>
+<li>fix: delete volume failure due to permission issue by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/851" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/851</a></li>
+<li>test: use env var for enable driver install in e2e by @Phaow in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/854" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/854</a></li>
+<li>fix: mount options for fsGroup delegation must ensure RWX for the group by @mpatlasov in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/848" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/848</a></li>
+<li>fix: build with go 1.22.5 to fix golang CVE by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/857" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/857</a></li>
+<li>fix: add CriticalAddonsOnly toleration into controller pod by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/858" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/858</a></li>
+<li>test: fix trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/860" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/860</a></li>
+<li>fix: mount stuck issue by @umagnus in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/862" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/862</a></li>
+<li>chore: update CSI spec to v1.10.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/863" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/863</a></li>
+<li>chore: update dependabot by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/864" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/864</a></li>
+<li>cleanup: remove unused livenessProbe in registrar container by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/867" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/867</a></li>
+<li>Chores:remove group update rule by @MartinForReal in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/870" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/870</a></li>
+<li>chore(deps): bump k8s.io/klog/v2 from 2.110.1 to 2.130.1 by @dependabot in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/873" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/873</a></li>
+<li>test: add read-only subdir e2e test by @Phaow in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/874" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/874</a></li>
+<li>feat: add volume resize support by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/881" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/881</a></li>
+<li>chore: upgrade release tools by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/883" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/883</a></li>
+<li>fix: use godebug winsymlink on Windows build by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/884" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/884</a></li>
+<li>fix: runOnControlPlane chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/882" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/882</a></li>
+<li>fix: controller.runOnMaster chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/886" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/886</a></li>
+<li>fix: CVE-2024-45337 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/887" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/887</a></li>
+<li>test: upgrade csi-test to v5.3.1 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/889" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/889</a></li>
+<li>chore: upgrade k8s.io/mount-utils to v1.32.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/888" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/888</a></li>
+<li>fix: CVE-2024-45338 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/891" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/891</a></li>
+<li>chore: Update csi release tools by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/892" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/892</a></li>
+<li>fix: increase default provisioner retry-interval-max by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/893" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/893</a></li>
+<li>test: add unit test for main function by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/894" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/894</a></li>
+<li>feat: support windows host-process deployment by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/895" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/895</a></li>
+<li>chore: support windows hpc image build by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/896" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/896</a></li>
+<li>chore: use canary-windows-hp image for host process deployment by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/897" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/897</a></li>
+<li>test: fix windows hpc test failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/903" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/903</a></li>
+<li>feat: enable host process deployment for windows daemonset by default by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/904" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/904</a></li>
+<li>feat: inline volume support by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/905" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/905</a></li>
+<li>feat: support base64password field in secret by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/906" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/906</a></li>
+<li>Revert &ldquo;feat: support base64password field in secret&rdquo; by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/908" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/908</a></li>
+<li>chore: upgrade CSI driver sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/910" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/910</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@Zhupku made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/842" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/842</a></li>
+<li>@MartinForReal made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/870" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/870</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.16.0...v1.17.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.16.0&hellip;v1.17.0</a></p>
+<br><h2>containerd/nerdctl</h2> <h3>Release notes for v2.0.3</h3><h4>2025-01-21</h4><h2 id="changes">Changes</h2>
+
+<ul>
+<li><code>nerdctl build</code>:
+
+<ul>
+<li>Add <code>--add-host</code> option (#3786, thanks to @austinvazquez)</li>
+</ul></li>
+<li><code>nerdctl pull</code>:
+
+<ul>
+<li>Print the progress to stdout, not to stderr (#3773, thanks to @yankay)</li>
+</ul></li>
+<li><code>nerdctl cp</code>:
+
+<ul>
+<li>Major refactoring (#3323, thanks to @apostasie)</li>
+</ul></li>
+<li><code>nerdctl compose up</code>:
+
+<ul>
+<li>Add <code>--pull</code> option (#3745, thanks to @manugupt1)</li>
+</ul></li>
+<li><code>nerdctl-full</code>:
+
+<ul>
+<li>Update containerd (2.0.2), runc (1.2.4), CNI plugins (1.6.2), RootlessKit (2.3.2), bypass4netns (0.4.2), containerd-fuse-overlayfs (2.1.1), BuildKit (0.19.0) (#3774 #3797 #3799 #3826, thanks to @yankay @djdongjin @austinvazquez)</li>
+</ul></li>
+</ul>
+
+<p>Full changes: <a href="https://github.com/containerd/nerdctl/milestone/47?closed=1" target="_blank">https://github.com/containerd/nerdctl/milestone/47?closed=1</a></p>
+
+<p>Thanks to @BraveY @apostasie @austinvazquez @djdongjin @fahedouch @fengwei0328 @haytok @manugupt1 @miurahr @motinsa @ningmingxiao @rerpha @yankay @zzzzzzzzzy9</p>
+
+<h2 id="compatible-containerd-versions">Compatible containerd versions</h2>
+
+<p>This release of nerdctl is expected to be used with containerd v1.6, v1.7, or v2.0.</p>
+
+<h2 id="about-the-binaries">About the binaries</h2>
+
+<ul>
+<li>Minimal (<code>nerdctl-2.0.3-linux-amd64.tar.gz</code>): nerdctl only</li>
+<li>Full (<code>nerdctl-full-2.0.3-linux-amd64.tar.gz</code>):    Includes dependencies such as containerd, runc, and CNI</li>
+</ul>
+
+<h3 id="minimal">Minimal</h3>
+
+<p>Extract the archive to a path like <code>/usr/local/bin</code> or <code>~/bin</code> .
+<details><summary>tar Cxzvvf /usr/local/bin nerdctl-2.0.3-linux-amd64.tar.gz</summary>
+<p></p>
+
+<pre><code>-rwxr-xr-x root/root  26579096 2025-01-21 06:40 nerdctl
+-rwxr-xr-x root/root     22657 2025-01-21 06:39 containerd-rootless-setuptool.sh
+-rwxr-xr-x root/root      8708 2025-01-21 06:39 containerd-rootless.sh
+</code></pre>
+
+<p></p>
+</details></p>
+
+<h3 id="full">Full</h3>
+
+<p>Extract the archive to a path like <code>/usr/local</code> or <code>~/.local</code> .</p>
+
+<details><summary>tar Cxzvvf /usr/local nerdctl-full-2.0.3-linux-amd64.tar.gz</summary>
+<p>
+
+```
+drwxr-xr-x 0/0               0 2025-01-21 06:46 bin/
+-rwxr-xr-x 0/0        30958728 2015-10-21 00:00 bin/buildctl
+-rwxr-xr-x 0/0        23724032 2022-09-05 09:52 bin/buildg
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-LICENSE -> ../libexec/cni/LICENSE
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-README.md -> ../libexec/cni/README.md
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-bandwidth -> ../libexec/cni/bandwidth
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-bridge -> ../libexec/cni/bridge
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-dhcp -> ../libexec/cni/dhcp
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-dummy -> ../libexec/cni/dummy
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-firewall -> ../libexec/cni/firewall
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-host-device -> ../libexec/cni/host-device
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-host-local -> ../libexec/cni/host-local
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-ipvlan -> ../libexec/cni/ipvlan
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-loopback -> ../libexec/cni/loopback
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-macvlan -> ../libexec/cni/macvlan
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-portmap -> ../libexec/cni/portmap
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-ptp -> ../libexec/cni/ptp
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-sbr -> ../libexec/cni/sbr
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-static -> ../libexec/cni/static
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-tap -> ../libexec/cni/tap
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-tuning -> ../libexec/cni/tuning
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-vlan -> ../libexec/cni/vlan
+lrwxrwxrwx 0/0               0 2025-01-21 06:45 bin/buildkit-cni-vrf -> ../libexec/cni/vrf
+-rwxr-xr-x 0/0        62159193 2015-10-21 00:00 bin/buildkitd
+-rwxr-xr-x 0/0        15753904 2025-01-21 06:45 bin/bypass4netns
+-rwxr-xr-x 0/0         5882008 2025-01-21 06:45 bin/bypass4netnsd
+-rwxr-xr-x 0/0        38889392 2025-01-21 06:45 bin/containerd
+-rwxr-xr-x 0/0        10571928 2025-01-20 05:45 bin/containerd-fuse-overlayfs-grpc
+-rwxr-xr-x 0/0           22657 2025-01-21 06:46 bin/containerd-rootless-setuptool.sh
+-rwxr-xr-x 0/0            8708 2025-01-21 06:46 bin/containerd-rootless.sh
+-rwxr-xr-x 0/0         7725208 2025-01-21 06:45 bin/containerd-shim-runc-v2
+-rwxr-xr-x 0/0        53432472 2024-12-12 14:54 bin/containerd-stargz-grpc
+-rwxr-xr-x 0/0        22390924 2025-01-21 06:46 bin/ctd-decoder
+-rwxr-xr-x 0/0        19722392 2025-01-21 06:45 bin/ctr
+-rwxr-xr-x 0/0        29994370 2025-01-21 06:46 bin/ctr-enc
+-rwxr-xr-x 0/0        21078168 2024-12-12 14:54 bin/ctr-remote
+-rwxr-xr-x 0/0         1789968 2025-01-21 06:46 bin/fuse-overlayfs
+-rwxr-xr-x 0/0        26550424 2025-01-21 06:46 bin/nerdctl
+-rwxr-xr-x 0/0        11372493 2025-01-20 02:17 bin/rootlessctl
+-rwxr-xr-x 0/0        13124690 2025-01-20 02:17 bin/rootlesskit
+-rwxr-xr-x 0/0        15932632 2025-01-21 06:45 bin/runc
+-rwxr-xr-x 0/0         2354520 2025-01-21 06:46 bin/slirp4netns
+-rwxr-xr-x 0/0         9707672 2024-12-12 14:54 bin/stargz-store-helper
+-rwxr-xr-x 0/0          870496 2025-01-21 06:46 bin/tini
+drwxr-xr-x 0/0               0 2025-01-21 06:45 lib/
+drwxr-xr-x 0/0               0 2025-01-21 06:45 lib/systemd/
+drwxr-xr-x 0/0               0 2025-01-21 06:45 lib/systemd/system/
+-rw-r--r-- 0/0            1325 2025-01-21 06:45 lib/systemd/system/buildkit.service
+-rw-r--r-- 0/0            1264 2025-01-21 06:44 lib/systemd/system/containerd.service
+-rw-r--r-- 0/0             312 2025-01-21 06:45 lib/systemd/system/stargz-snapshotter.service
+drwxr-xr-x 0/0               0 2025-01-21 06:45 libexec/
+drwxr-xr-x 0/0               0 2025-01-21 06:45 libexec/cni/
+-rw-r--r-- 0/0           11357 2025-01-06 16:12 libexec/cni/LICENSE
+-rw-r--r-- 0/0            2343 2025-01-06 16:12 libexec/cni/README.md
+-rwxr-xr-x 0/0         4655178 2025-01-06 16:12 libexec/cni/bandwidth
+-rwxr-xr-x 0/0         5287212 2025-01-06 16:12 libexec/cni/bridge
+-rwxr-xr-x 0/0        12762814 2025-01-06 16:12 libexec/cni/dhcp
+-rwxr-xr-x 0/0         4847854 2025-01-06 16:12 libexec/cni/dummy
+-rwxr-xr-x 0/0         5315134 2025-01-06 16:12 libexec/cni/firewall
+-rwxr-xr-x 0/0         4792010 2025-01-06 16:12 libexec/cni/host-device
+-rwxr-xr-x 0/0         4060355 2025-01-06 16:12 libexec/cni/host-local
+-rwxr-xr-x 0/0         4870719 2025-01-06 16:12 libexec/cni/ipvlan
+-rwxr-xr-x 0/0         4114939 2025-01-06 16:12 libexec/cni/loopback
+-rwxr-xr-x 0/0         4903324 2025-01-06 16:12 libexec/cni/macvlan
+-rwxr-xr-x 0/0         4713429 2025-01-06 16:12 libexec/cni/portmap
+-rwxr-xr-x 0/0         5076613 2025-01-06 16:12 libexec/cni/ptp
+-rwxr-xr-x 0/0         4333422 2025-01-06 16:12 libexec/cni/sbr
+-rwxr-xr-x 0/0         3651755 2025-01-06 16:12 libexec/cni/static
+-rwxr-xr-x 0/0         4928874 2025-01-06 16:12 libexec/cni/tap
+-rwxr-xr-x 0/0         4208424 2025-01-06 16:12 libexec/cni/tuning
+-rwxr-xr-x 0/0         4868252 2025-01-06 16:12 libexec/cni/vlan
+-rwxr-xr-x 0/0         4488658 2025-01-06 16:12 libexec/cni/vrf
+drwxr-xr-x 0/0               0 2025-01-21 06:44 share/
+drwxr-xr-x 0/0               0 2025-01-21 06:46 share/doc/
+drwxr-xr-x 0/0               0 2025-01-21 06:46 share/doc/nerdctl/
+-rw-r--r-- 0/0           12101 2025-01-21 06:39 share/doc/nerdctl/README.md
+drwxr-xr-x 0/0               0 2025-01-21 06:39 share/doc/nerdctl/docs/
+-rw-r--r-- 0/0            3953 2025-01-21 06:39 share/doc/nerdctl/docs/build.md
+-rw-r--r-- 0/0            2570 2025-01-21 06:39 share/doc/nerdctl/docs/builder-debug.md
+-rw-r--r-- 0/0            4779 2025-01-21 06:39 share/doc/nerdctl/docs/cni.md
+-rw-r--r-- 0/0           79517 2025-01-21 06:39 share/doc/nerdctl/docs/command-reference.md
+-rw-r--r-- 0/0            1814 2025-01-21 06:39 share/doc/nerdctl/docs/compose.md
+-rw-r--r-- 0/0            5814 2025-01-21 06:39 share/doc/nerdctl/docs/config.md
+-rw-r--r-- 0/0            9128 2025-01-21 06:39 share/doc/nerdctl/docs/cosign.md
+-rw-r--r-- 0/0            5660 2025-01-21 06:39 share/doc/nerdctl/docs/cvmfs.md
+drwxr-xr-x 0/0               0 2025-01-21 06:39 share/doc/nerdctl/docs/dev/
+-rw-r--r-- 0/0            8587 2025-01-21 06:39 share/doc/nerdctl/docs/dev/store.md
+-rw-r--r-- 0/0            2776 2025-01-21 06:39 share/doc/nerdctl/docs/dir.md
+-rw-r--r-- 0/0             906 2025-01-21 06:39 share/doc/nerdctl/docs/experimental.md
+-rw-r--r-- 0/0           14687 2025-01-21 06:39 share/doc/nerdctl/docs/faq.md
+-rw-r--r-- 0/0             884 2025-01-21 06:39 share/doc/nerdctl/docs/freebsd.md
+-rw-r--r-- 0/0            3273 2025-01-21 06:39 share/doc/nerdctl/docs/gpu.md
+drwxr-xr-x 0/0               0 2025-01-21 06:39 share/doc/nerdctl/docs/images/
+-rw-r--r-- 0/0            1540 2025-01-21 06:39 share/doc/nerdctl/docs/images/nerdctl-white.svg
+-rw-r--r-- 0/0            1462 2025-01-21 06:39 share/doc/nerdctl/docs/images/nerdctl.svg
+-rw-r--r-- 0/0          684421 2025-01-21 06:39 share/doc/nerdctl/docs/images/rootlessKit-network-design.png
+-rw-r--r-- 0/0           14462 2025-01-21 06:39 share/doc/nerdctl/docs/ipfs.md
+-rw-r--r-- 0/0            1755 2025-01-21 06:39 share/doc/nerdctl/docs/multi-platform.md
+-rw-r--r-- 0/0            2960 2025-01-21 06:39 share/doc/nerdctl/docs/notation.md
+-rw-r--r-- 0/0            2610 2025-01-21 06:39 share/doc/nerdctl/docs/nydus.md
+-rw-r--r-- 0/0            3277 2025-01-21 06:39 share/doc/nerdctl/docs/ocicrypt.md
+-rw-r--r-- 0/0            1876 2025-01-21 06:39 share/doc/nerdctl/docs/overlaybd.md
+-rw-r--r-- 0/0           15657 2025-01-21 06:39 share/doc/nerdctl/docs/registry.md
+-rw-r--r-- 0/0            9147 2025-01-21 06:39 share/doc/nerdctl/docs/rootless.md
+-rw-r--r-- 0/0            2015 2025-01-21 06:39 share/doc/nerdctl/docs/soci.md
+-rw-r--r-- 0/0           10312 2025-01-21 06:39 share/doc/nerdctl/docs/stargz.md
+drwxr-xr-x 0/0               0 2025-01-21 06:39 share/doc/nerdctl/docs/testing/
+-rw-r--r-- 0/0            4115 2025-01-21 06:39 share/doc/nerdctl/docs/testing/README.md
+-rw-r--r-- 0/0           15068 2025-01-21 06:39 share/doc/nerdctl/docs/testing/tools.md
+drwxr-xr-x 0/0               0 2025-01-21 06:46 share/doc/nerdctl-full/
+-rw-r--r-- 0/0             999 2025-01-21 06:46 share/doc/nerdctl-full/README.md
+-rw-r--r-- 0/0            5713 2025-01-21 06:46 share/doc/nerdctl-full/SHA256SUMS
+```
+</p>
+</details>
+
+<details><summary>Included components</summary>
+<p>
+
+See `share/doc/nerdctl-full/README.md`:
+```markdown
+# nerdctl (full distribution)
+- nerdctl: v2.0.3
+- containerd: v2.0.2
+- runc: v1.2.4
+- CNI plugins: v1.6.2
+- BuildKit: v0.19.0
+- Stargz Snapshotter: v0.16.3
+- imgcrypt: v2.0.0
+- slirp4netns: v1.3.1
+- bypass4netns: v0.4.2
+- fuse-overlayfs: v1.14
+- containerd-fuse-overlayfs: v2.1.1
+- Tini: v0.19.0
+- buildg: v0.4.1
+- RootlessKit: v2.3.2
+
+## License
+- bin/slirp4netns:    [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/rootless-containers/slirp4netns/blob/v1.3.1/COPYING)
+- bin/fuse-overlayfs: [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/containers/fuse-overlayfs/blob/v1.14/COPYING)
+- bin/{runc,bypass4netns,bypass4netnsd}: Apache License 2.0, statically linked with libseccomp ([LGPL 2.1](https://github.com/seccomp/libseccomp/blob/main/LICENSE), source code available at https://github.com/seccomp/libseccomp/)
+- bin/tini: [MIT License](https://github.com/krallin/tini/blob/v0.19.0/LICENSE)
+- Other files: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+```
+</p>
+</details>
+
+<h2 id="quick-start">Quick start</h2>
+
+<h3 id="rootful">Rootful</h3>
+
+<pre><code class="language-console">$ sudo systemctl enable --now containerd
+$ sudo nerdctl run -d --name nginx -p 80:80 nginx:alpine
+</code></pre>
+
+<h3 id="rootless">Rootless</h3>
+
+<pre><code class="language-console">$ containerd-rootless-setuptool.sh install
+$ nerdctl run -d --name nginx -p 8080:80 nginx:alpine
+</code></pre>
+
+<p>Enabling cgroup v2 is highly recommended for rootless mode, see <a href="https://rootlesscontaine.rs/getting-started/common/cgroup2/" target="_blank">https://rootlesscontaine.rs/getting-started/common/cgroup2/</a> .</p>
+
+<hr>
+
+<p>The binaries were built automatically on GitHub Actions.
+The build log is available for 90 days: <a href="https://github.com/containerd/nerdctl/actions/runs/12881485737" target="_blank">https://github.com/containerd/nerdctl/actions/runs/12881485737</a></p>
+
+<p>The sha256sum of the SHA256SUMS file itself is <code>fb944f55d3a7d18496957f403c6c4b86147496b84dfb17eba35cc800e8d26f26</code> .</p>
+
+<hr>
+
+<p>Release manager: @AkihiroSuda</p>
+<br><h2>cri-o/cri-o</h2> <h3>Release notes for v1.30.9</h3><h4>2025-01-20</h4><ul>
+<li><a href="#cri-o-v1309">CRI-O v1.30.9</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1308">Changelog since v1.30.8</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-30-9">CRI-O v1.30.9</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.30.8...v1.30.9" target="_blank">v1.30.8&hellip;v1.30.9</a> on Mon, 20 Jan 2025 10:21:30 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz" target="_blank">cri-o.amd64.v1.30.9.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.30.9.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz.sig" target="_blank">cri-o.amd64.v1.30.9.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz.cert" target="_blank">cri-o.amd64.v1.30.9.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz.spdx" target="_blank">cri-o.amd64.v1.30.9.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.30.9.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.9.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.30.9.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz" target="_blank">cri-o.arm64.v1.30.9.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.30.9.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz.sig" target="_blank">cri-o.arm64.v1.30.9.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz.cert" target="_blank">cri-o.arm64.v1.30.9.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz.spdx" target="_blank">cri-o.arm64.v1.30.9.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.30.9.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.9.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.30.9.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.9.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.30.9.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz" target="_blank">cri-o.s390x.v1.30.9.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.30.9.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz.sig" target="_blank">cri-o.s390x.v1.30.9.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz.cert" target="_blank">cri-o.s390x.v1.30.9.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz.spdx" target="_blank">cri-o.s390x.v1.30.9.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.30.9.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.9.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.30.9.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.30.9.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.30.9 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.30.9 \
+    --signature cri-o.amd64.v1.30.9.tar.gz.sig \
+    --certificate cri-o.amd64.v1.30.9.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.30.9.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.30.9.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-30-8">Changelog since v1.30.8</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Fixed issue when sandbox removal is not possible due to stale or missing network namespace path. (#8819, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for openstack-manila-csi-2.32.0-alpha.0</h3><h4>2025-01-23</h4><p>Manila CSI Chart for OpenStack</p>
+<br><h3>Release notes for openstack-cloud-controller-manager-2.32.0-alpha.0</h3><h4>2025-01-23</h4><p>Openstack Cloud Controller Manager Helm Chart</p>
+<br><h3>Release notes for openstack-cinder-csi-2.32.0-alpha.0</h3><h4>2025-01-23</h4><p>Cinder CSI Chart for OpenStack</p>
+<br>
+</body>
+
+</html>
