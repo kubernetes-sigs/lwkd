@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-02-17 - 2025-02-24</h1><h2>kubernetes-csi/csi-driver-host-path</h2> <h3>Release notes for v1.16.0</h3><h4>2025-02-18</h4><h1 id="container">Container</h1>
+
+<p>To be released</p>
+
+<h1 id="full-changelog">Full Changelog</h1>
+
+<p><a href="https://github.com/kubernetes-csi/csi-driver-host-path/blob/v1.16.0/CHANGELOG/CHANGELOG-1.16.md" target="_blank">https://github.com/kubernetes-csi/csi-driver-host-path/blob/v1.16.0/CHANGELOG/CHANGELOG-1.16.md</a></p>
+<br><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.9.5</h3><h4>2025-02-18</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.32.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.32.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-9-4">Changes since v1.9.4</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>23 new commits merged</li>
+<li>6 feature additions ✨</li>
+<li>4 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>ClusterClass: Add classNamespace to topology (#11730)</li>
+<li>ClusterClass: Add e2e tests &amp; clusterctl changes for cross-ns CC ref (#11845)</li>
+<li>ClusterClass: Clusterctl move support for a cross namespace ClusterClass reference (#11846)</li>
+<li>clusterctl: Add addon provider fleet to registry (#11829)</li>
+<li>e2e: Extend scale test and make ExtensionConfig name in RuntimeSDK test configurable (#11844)</li>
+<li>Machine: Add MachineDrainRule &ldquo;WaitCompleted&rdquo; (#11758)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Clustercache: Increase timeout for informer List+Watch calls from 10s to 11m (#11767)</li>
+<li>ClusterClass: Ensure Cluster topology controller is not stuck when MDs are stuck in deletion (#11787)</li>
+<li>clusterctl: Fix: send delete request before removing finalizers (#11821)</li>
+<li>MachinePool: Check machinepool feature-flag before watching in cluster controller (#11779)</li>
+<li>CI: Scripts: fix checking out k/k release branch (#11841)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>clusterctl: Bump cert-manager to v1.16.3 (#11715)</li>
+<li>clusterctl: Remove OCNE providers (#11831)</li>
+<li>Conditions: Handle &ldquo;waiting for completion&rdquo; in KCP, MD, MS and Machine conditions (#11825)</li>
+<li>Controller-runtime: Bump to controller-runtime v0.19.5 (#11748)</li>
+<li>Dependency: Bump go to v1.22.11 (#11739)</li>
+<li>Dependency: Bump go to v1.22.12 (#11804)</li>
+<li>Dependency: Bump to controller-runtime v0.19.6 (#11851)</li>
+<li>e2e: Add optional ClusterctlVariables to QuickStartSpecInput (#11785)</li>
+<li>e2e: Attempt older version upgrades twice to work around flake with the docker controller (#11793)</li>
+<li>KCP: Improve KCP remediation of multiple failures (#11746)</li>
+<li>Machine: Add &ndash;additional-sync-machine-labels to allow syncing additional labels to Nodes (#11762)</li>
+<li>MachineDeployment: Improve MachineSet create and delete logs (#11765)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>sigs.k8s.io/controller-runtime: v0.19.4 → v0.19.6</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.8.10</h3><h4>2025-02-18</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.27.x -&gt; v1.31.x</li>
+<li>Workload Cluster: v1.25.x -&gt; v1.31.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-8-9">Changes since v1.8.9</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>6 new commits merged</li>
+<li>1 bug fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>CI: Should only test a max of k8s 1.31 (#11842)</li>
+<li>CI: Scripts: fix checking out k/k release branch (#11839)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>clusterctl: Bump cert-manager to v1.16.3 (#11726)</li>
+<li>Dependency: Bump go to v1.22.11 (#11738)</li>
+<li>Dependency: Bump go to v1.22.12 (#11805)</li>
+<li>e2e: Attempt older version upgrades twice to work around flake with the docker controller (#11794)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.5.1</h3><h4>2025-02-21</h4><p><strong>changes since <a href="https://github.com/kubernetes-sigs/kubebuilder/releases/v4.5.0" target="_blank">v4.5.0</a></strong></p>
+
+<h2 id="new-features">✨ New Features</h2>
+
+<blockquote>
+<p><strong>Note:</strong> This release includes only minor version updates.</p>
+</blockquote>
+
+<ul>
+<li><strong>(go-v4):</strong> Upgraded <code>controller-runtime</code> from <code>v0.20.0</code> to <code>v0.20.2</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4528" target="_blank">#4528</a>, <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4570" target="_blank">#4570</a>)</li>
+<li><strong>(go-v4):</strong> Upgraded <code>controller-gen</code> from <code>v0.17.1</code> to <code>v0.17.2</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4553" target="_blank">#4553</a>)</li>
+</ul>
+
+<h2 id="bug-fixes">🐛 Bug Fixes</h2>
+
+<ul>
+<li><strong>(go-v4):</strong> Aligned webhook suite tests with controller suite tests (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4449" target="_blank">#4449</a>)</li>
+<li><strong>(go-v4):</strong> Fixed project initialization in directories containing other files. Now, initialization is only prevented for directories with explicitly unwanted files (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4510" target="_blank">#4510</a>)</li>
+<li><strong>(go-v4, kustomize/v2, helm/v1-alpha):</strong> Fixed Prometheus integration by adding the <code>serverName</code> field to <code>ServiceMonitor</code>, ensuring proper certificate validation with the metrics server (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4536" target="_blank">#4536</a>, <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4558" target="_blank">#4558</a>)</li>
+<li><strong>(CLI):</strong> Fixed <code>kubebuilder alpha generate</code> by using <code>--repo</code> information tracked in the <code>PROJECT</code> file. Fix generation of projects outside of <code>GOPATH</code> (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4559" target="_blank">#4559</a>)</li>
+<li><strong>(go-v4, deploy-image/v1-alpha):</strong> Fixed handling of missing boilerplate files by raising a warning instead of failing. Previously, the process would terminate with an error, but it now issues a warning and continues execution (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4518" target="_blank">#4518</a>).</li>
+<li><strong>(go-v4):</strong> e2e tests: Removed Prometheus dependency as part of cleanup and fixes, since it is optional and not required (<a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4529" target="_blank">#4529</a>)</li>
+</ul>
+
+<p><strong>Thanks to all our contributors!</strong> 🎉</p>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>:bug: Make kubebuilder go install-able by @migueleliasweb in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4481" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4481</a></li>
+<li>:bug: (go/v4): Align webhook suite test with controller&rsquo;s suite test by @mateusoliveira43 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4449" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4449</a></li>
+<li>🌱 : Fix Kubernetes version in the goreleaser by upgrading it from 1.31.0 to 1.32.0 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4517" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4517</a></li>
+<li>:book: Bump sigs.k8s.io/kubebuilder/v4 from 4.4.0 to 4.5.0 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4519" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4519</a></li>
+<li>🌱 test: add to commmon.sh the latest k8s release 1.32 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4521" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4521</a></li>
+<li>🐛 fix: disallow files containing unwanted files when initializing a project by @afzal442 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4510" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4510</a></li>
+<li>✨ Upgrade controller-runtime from v0.20.0 to v0.20.1 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4528" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4528</a></li>
+<li>📖 doc: update the Artifacts with the latest changes on the EnvTest Makefile target configurations by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4520" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4520</a></li>
+<li>:book: bump github.com/spf13/pflag from 1.0.5 to 1.0.6 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4531" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4531</a></li>
+<li>:seedling: bump github.com/spf13/pflag from 1.0.5 to 1.0.6 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4532" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4532</a></li>
+<li>📖 fix: correct minor typos in documentation by @SaphMB in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4534" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4534</a></li>
+<li>:bug: (go/v4): e2e test: Removed Prometheus dependency by @anshuman-agarwala in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4529" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4529</a></li>
+<li>🌱 : Add YAML Linting to CI Workflow for Scaffolded Charts by @sarthaksarthak9 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4512" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4512</a></li>
+<li>:book: Remove simplistic advice about multiple controllers reconciling same CR by @alvaroaleman in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4537" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4537</a></li>
+<li>🌱 ci: fix testdata - issues caused by some merge conflict with go mod by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4538" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4538</a></li>
+<li>🌱 Revert &ldquo;Merge pull request #4512 from sarthaksarthak9/lint&rdquo; by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4539" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4539</a></li>
+<li>:seedling: bump golang.org/x/text from 0.21.0 to 0.22.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4542" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4542</a></li>
+<li>📖 Update documentation for non-owned resources by @mwdomino in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4541" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4541</a></li>
+<li>✨ handle missing boilerplate file gracefully during scaffolding by @sarthaksarthak9 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4518" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4518</a></li>
+<li>:book: Fix grammar in lets -&gt; let&rsquo;s. by @guettli in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4543" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4543</a></li>
+<li>:bug: (kustomize/v2): fix ServiceMonitor with TLS kustomize scaffolding by @abhishekdwivedi3060 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4536" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4536</a></li>
+<li>🌱 Update controller-runtime version used in the common.sh tests by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4550" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4550</a></li>
+<li>📖 Update Roadmap 2025 with latest status by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4551" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4551</a></li>
+<li>🌱 : Improve samples linting &amp; fix samples lint issues by @wazery in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4548" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4548</a></li>
+<li>🌱 Revert (kustomize/v2): fix ServiceMonitor with TLS kustomize scaffolding by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4556" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4556</a></li>
+<li>:seedling: Bump golang.org/x/tools from 0.29.0 to 0.30.0 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4557" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4557</a></li>
+<li>✨ Upgrade controller-gen from v0.17.1 to v0.17.2 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4553" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4553</a></li>
+<li>🐛 (go/v4,ksutomize/v2,helm/v1-alpha): Fix prometheus integration with TLS check by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4558" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4558</a></li>
+<li>🐛 Fix kubebuild alpha generate when not in GOPATH by @freddyesteban in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4559" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4559</a></li>
+<li>🌱 fix testdata generation by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4569" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4569</a></li>
+<li>:seedling: Bump github.com/spf13/cobra from 1.8.1 to 1.9.1 by @dependabot in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4568" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4568</a></li>
+<li>✨ Upgrade controller-runtime from v0.20.1 to v0.20.2 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4570" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4570</a></li>
+<li>🌱  Added e2e tests for alpha generate command for scaffolded data  by @manalilatkar in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4554" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4554</a></li>
+<li>:bug: Revert &ldquo;Make kubebuilder go install-able&rdquo; by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4576" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4576</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@migueleliasweb made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4481" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4481</a></li>
+<li>@afzal442 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4510" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4510</a></li>
+<li>@SaphMB made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4534" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4534</a></li>
+<li>@anshuman-agarwala made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4529" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4529</a></li>
+<li>@alvaroaleman made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4537" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4537</a></li>
+<li>@mwdomino made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4541" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4541</a></li>
+<li>@abhishekdwivedi3060 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4536" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4536</a></li>
+<li>@wazery made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4548" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4548</a></li>
+<li>@freddyesteban made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4559" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4559</a></li>
+<li>@manalilatkar made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4554" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4554</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v4.5.0...v4.5.1" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v4.5.0&hellip;v4.5.1</a></p>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 3.2.0 / 2025-02-17</h3><h4>2025-02-17</h4><h2 id="prometheus-v3-2-0-changelog">Prometheus v3.2.0 Changelog</h2>
+
+<ul>
+<li>[CHANGE] relabel: Replace actions can now use UTF-8 characters in <code>targetLabel</code> field. Note that <code>$&lt;chars&gt;</code> or <code>${&lt;chars&gt;}</code> will be expanded. This also apply to <code>replacement</code> field for <code>LabelMap</code> action. #15851</li>
+<li>[CHANGE] rulefmt: Rule names can use UTF-8 characters, except <code>{</code> and <code>}</code> characters (due to common mistake checks). #15851</li>
+<li>[FEATURE] remote/otlp: Add feature flag <code>otlp-deltatocumulative</code> to support conversion from delta to cumulative. #15165</li>
+<li>[ENHANCEMENT] openstack SD: Discover Octavia loadbalancers. #15539</li>
+<li>[ENHANCEMENT] scrape: Add metadata for automatic metrics to WAL for <code>metadata-wal-records</code> feature. #15837</li>
+<li>[ENHANCEMENT] promtool: Support linting of scrape interval, through lint option <code>too-long-scrape-interval</code>. #15719</li>
+<li>[ENHANCEMENT] promtool: Add &ndash;ignore-unknown-fields option. #15706</li>
+<li>[ENHANCEMENT] ui: Make &ldquo;hide empty rules&rdquo; and hide empty rules&rdquo; persistent #15807</li>
+<li>[ENHANCEMENT] web/api: Add a limit parameter to <code>/query</code> and <code>/query_range</code>. #15552</li>
+<li>[ENHANCEMENT] api: Add fields Node and ServerTime to <code>/status</code>. #15784</li>
+<li>[PERF] Scraping: defer computing labels for dropped targets until they are needed by the UI.  #15261</li>
+<li>[BUGFIX] remotewrite2: Fix invalid metadata bug for metrics without metadata. #15829</li>
+<li>[BUGFIX] remotewrite2: Fix the unit field propagation. #15825</li>
+<li>[BUGFIX] scrape: Fix WAL metadata for histograms and summaries. #15832</li>
+<li>[BUGFIX] ui: Merge duplicate &ldquo;Alerts page settings&rdquo; sections. #15810</li>
+<li>[BUGFIX] PromQL: Fix <code>&lt;aggr_over_time&gt;</code> functions with histograms. #15711</li>
+</ul>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.71.0-pre2</h3><h4>2025-02-22</h4><p>This is a prerelease of gRPC Core 1.71.0 (gears).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This prerelease contains refinements, improvements, and bug fixes.</p>
+<br>
+</body>
+
+</html>
