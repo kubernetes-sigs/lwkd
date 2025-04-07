@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-03-31 - 2025-04-07</h1><h2>coredns/coredns</h2> <h3>Release notes for v1.12.1</h3><h4>2025-03-31</h4><p>In this release:</p>
+
+<ul>
+<li>kubernetes: Revert recent change to only create PTR records for endpoints with hostname defined.</li>
+<li>forward: added option to return SERVFAIL immediately if all upstreams are unhealthy.</li>
+</ul>
+
+<h2 id="brought-to-you-by">Brought to You By</h2>
+
+<p>Adrian Moisey,
+Arthur Outhenin-Chalandre,
+Bartosz Borkowski,
+Ben Kochie,
+Chris O&rsquo;Haver,
+Min Woo Kim,
+Puneet Loya,
+Rich,
+Viktor,
+momantech</p>
+
+<h2 id="noteworthy-changes">Noteworthy Changes</h2>
+
+<ul>
+<li>core: Increase CNAME lookup limit from 7 to 10 (<a href="https://github.com/coredns/coredns/pull/7153" target="_blank">https://github.com/coredns/coredns/pull/7153</a>)</li>
+<li>plugin/kubernetes: Fix handling of pods having DeletionTimestamp set (<a href="https://github.com/coredns/coredns/pull/7119" target="_blank">https://github.com/coredns/coredns/pull/7119</a>) (#7131)</li>
+<li>plugin/kubernetes: Revert &ldquo;only create PTR records for endpoints with hostname defined (<a href="https://github.com/coredns/coredns/pull/6898)&quot;" target="_blank">https://github.com/coredns/coredns/pull/6898)&rdquo;</a> (#7194)</li>
+<li>plugin/forward: added option <code>failfast_all_unhealthy_upstreams</code> to return servfail if all upstreams are down (<a href="https://github.com/coredns/coredns/pull/6999" target="_blank">https://github.com/coredns/coredns/pull/6999</a>)</li>
+</ul>
+<br><h2>cri-o/cri-o</h2> <h3>Release notes for v1.32.3</h3><h4>2025-04-02</h4><ul>
+<li><a href="#cri-o-v1323">CRI-O v1.32.3</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1322">Changelog since v1.32.2</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-32-3">CRI-O v1.32.3</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.32.2...v1.32.3" target="_blank">v1.32.2&hellip;v1.32.3</a> on Wed, 02 Apr 2025 00:23:32 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz" target="_blank">cri-o.amd64.v1.32.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.32.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz.sig" target="_blank">cri-o.amd64.v1.32.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz.cert" target="_blank">cri-o.amd64.v1.32.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz.spdx" target="_blank">cri-o.amd64.v1.32.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.32.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.3.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.32.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz" target="_blank">cri-o.arm64.v1.32.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.32.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz.sig" target="_blank">cri-o.arm64.v1.32.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz.cert" target="_blank">cri-o.arm64.v1.32.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz.spdx" target="_blank">cri-o.arm64.v1.32.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.32.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.3.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.32.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.3.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.32.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz" target="_blank">cri-o.s390x.v1.32.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.32.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz.sig" target="_blank">cri-o.s390x.v1.32.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz.cert" target="_blank">cri-o.s390x.v1.32.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz.spdx" target="_blank">cri-o.s390x.v1.32.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.32.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.3.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.32.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.32.3.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.32.3 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.32.3 \
+    --signature cri-o.amd64.v1.32.3.tar.gz.sig \
+    --certificate cri-o.amd64.v1.32.3.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.32.3.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.32.3.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-32-2">Changelog since v1.32.2</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Prevent multiple crio wipes on reboot (#9071, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/containers/storage: <a href="https://github.com/containers/storage/compare/v1.57.1...v1.57.2" target="_blank">v1.57.1 → v1.57.2</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.31.7</h3><h4>2025-04-02</h4><ul>
+<li><a href="#cri-o-v1317">CRI-O v1.31.7</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1316">Changelog since v1.31.6</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#other-cleanup-or-flake">Other (Cleanup or Flake)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-31-7">CRI-O v1.31.7</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.31.6...v1.31.7" target="_blank">v1.31.6&hellip;v1.31.7</a> on Wed, 02 Apr 2025 00:23:35 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz" target="_blank">cri-o.amd64.v1.31.7.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.31.7.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz.sig" target="_blank">cri-o.amd64.v1.31.7.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz.cert" target="_blank">cri-o.amd64.v1.31.7.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz.spdx" target="_blank">cri-o.amd64.v1.31.7.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.31.7.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.7.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.31.7.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz" target="_blank">cri-o.arm64.v1.31.7.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.31.7.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz.sig" target="_blank">cri-o.arm64.v1.31.7.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz.cert" target="_blank">cri-o.arm64.v1.31.7.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz.spdx" target="_blank">cri-o.arm64.v1.31.7.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.31.7.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.7.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.31.7.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.7.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.31.7.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz" target="_blank">cri-o.s390x.v1.31.7.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.31.7.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz.sig" target="_blank">cri-o.s390x.v1.31.7.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz.cert" target="_blank">cri-o.s390x.v1.31.7.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz.spdx" target="_blank">cri-o.s390x.v1.31.7.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.31.7.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.7.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.31.7.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.31.7.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.31.7 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.31.7 \
+    --signature cri-o.amd64.v1.31.7.tar.gz.sig \
+    --certificate cri-o.amd64.v1.31.7.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.31.7.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.31.7.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-31-6">Changelog since v1.31.6</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="other-cleanup-or-flake">Other (Cleanup or Flake)</h4>
+
+<ul>
+<li>Fixed bug when trying to pull certain docker schema 1 images in CRI-O. (#9072, @saschagrunert)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/containers/storage: <a href="https://github.com/containers/storage/compare/a030a44...028e88d" target="_blank">a030a44 → 028e88d</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.30.12</h3><h4>2025-04-02</h4><ul>
+<li><a href="#cri-o-v13012">CRI-O v1.30.12</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v13011">Changelog since v1.30.11</a></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-30-12">CRI-O v1.30.12</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.30.11...v1.30.12" target="_blank">v1.30.11&hellip;v1.30.12</a> on Wed, 02 Apr 2025 00:23:41 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz" target="_blank">cri-o.amd64.v1.30.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.30.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz.sig" target="_blank">cri-o.amd64.v1.30.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz.cert" target="_blank">cri-o.amd64.v1.30.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz.spdx" target="_blank">cri-o.amd64.v1.30.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.30.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.30.12.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.30.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz" target="_blank">cri-o.arm64.v1.30.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.30.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz.sig" target="_blank">cri-o.arm64.v1.30.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz.cert" target="_blank">cri-o.arm64.v1.30.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz.spdx" target="_blank">cri-o.arm64.v1.30.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.30.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.30.12.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.30.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.30.12.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.30.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz" target="_blank">cri-o.s390x.v1.30.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.30.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz.sig" target="_blank">cri-o.s390x.v1.30.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz.cert" target="_blank">cri-o.s390x.v1.30.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz.spdx" target="_blank">cri-o.s390x.v1.30.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.30.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.30.12.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.30.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.30.12.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.30.12 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.30.12 \
+    --signature cri-o.amd64.v1.30.12.tar.gz.sig \
+    --certificate cri-o.amd64.v1.30.12.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.30.12.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.30.12.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-30-11">Changelog since v1.30.11</h2>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br>
+</body>
+
+</html>
