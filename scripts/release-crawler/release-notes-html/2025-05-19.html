@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-05-12 - 2025-05-19</h1><h2>prometheus/prometheus</h2> <h3>Release notes for 3.4.0 / 2025-05-17</h3><h4>2025-05-17</h4><ul>
+<li>[CHANGE] Config: Make setting out-of-order native histograms feature (<code>--enable-feature=ooo-native-histograms</code>) a no-op. Out-of-order native histograms are now always enabled when <code>out_of_order_time_window</code> is greater than zero and <code>--enable-feature=native-histograms</code> is set. #16207</li>
+<li>[FEATURE] OTLP translate: Add feature flag for optionally translating OTel explicit bucket histograms into native histograms with custom buckets. #15850</li>
+<li>[FEATURE] OTLP translate: Add option to receive OTLP metrics without translating names or attributes. #16441</li>
+<li>[FEATURE] PromQL: allow arithmetic operations in durations in PromQL parser. #16249</li>
+<li>[FEATURE] OTLP receiver: Add primitive support for ingesting OTLP delta metrics as-is. #16360</li>
+<li>[ENHANCEMENT] PromQL: histogram_fraction for bucket histograms. #16095</li>
+<li>[ENHANCEMENT] TSDB: add <code>prometheus_tsdb_wal_replay_unknown_refs_total</code> and <code>prometheus_tsdb_wbl_replay_unknown_refs_total</code> metrics to track unknown series references during WAL/WBL replay. #16166</li>
+<li>[ENHANCEMENT] Scraping: Add config option for escaping scheme request. #16066</li>
+<li>[ENHANCEMENT] Config: Add global config option for convert_classic_histograms_to_nhcb. #16226</li>
+<li>[ENHANCEMENT] Alerting: make batch size configurable (<code>--alertmanager.notification-batch-size</code>). #16254</li>
+<li>[PERF] Kubernetes SD: make endpointSlice discovery more efficient. #16433</li>
+<li>[BUGFIX] Config: Fix auto-reload on changes to rule and scrape config files. #16340</li>
+<li>[BUGFIX] Scraping: Skip native histogram series if ingestion is disabled. #16218</li>
+<li>[BUGFIX] TSDB: Handle metadata/tombstones/exemplars for duplicate series during WAL replay. #16231</li>
+<li>[BUGFIX] TSDB: Avoid processing exemplars outside the valid time range during WAL replay. #16242</li>
+<li>[BUGFIX] Promtool: Add feature flags for PromQL features. #16443</li>
+<li>[BUGFIX] Rules: correct logging of alert name &amp; template data. #15093</li>
+<li>[BUGFIX] PromQL: Use arithmetic mean for <code>histogram_stddev()</code> and <code>histogram_stdvar()</code> . #16444</li>
+</ul>
+<br><h2>kubernetes-csi/csi-driver-smb</h2> <h3>Release notes for v1.18.0 release</h3><h4>2025-05-12</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v1.17.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/907" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/907</a></li>
+<li>test: fix trivy action failure due to CVE-2024-45336 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/919" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/919</a></li>
+<li>fix: duplicated securityContext on Windows chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/921" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/921</a></li>
+<li>test: fix CVE-2025-22866 in trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/923" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/923</a></li>
+<li>fix: incorrect affinity chart config by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/924" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/924</a></li>
+<li>chore: update csi release tools (building driver with go1.23.6) by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/929" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/929</a></li>
+<li>test: use env var for CSI inline volume test secret by @Phaow in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/928" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/928</a></li>
+<li>test: correct external-e2e driver capabilities by @Phaow in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/931" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/931</a></li>
+<li>fix: CVE-2025-0426 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/926" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/926</a></li>
+<li>fix: CVE-2025-30204 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/937" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/937</a></li>
+<li>chore: use go1.24 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/941" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/941</a></li>
+<li>test: fix CVE-2025-22871 in trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/942" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/942</a></li>
+<li>fix: CVE-2025-22872 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/944" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/944</a></li>
+<li>chore: upgrade resizer sidecar image version to v1.13.2 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/945" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/945</a></li>
+<li>fix: goroutine leak when timeout by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/947" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/947</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.17.0...v1.18.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.17.0&hellip;v1.18.0</a></p>
+<br><h2>containerd/nerdctl</h2> <h3>Release notes for v2.1.1</h3><h4>2025-05-12</h4><h2 id="changes">Changes</h2>
+
+<ul>
+<li>Fixed the CI pipeline issue that prevented releasing binaries in v2.1.0 (#4242)</li>
+</ul>
+
+<h2 id="compatible-containerd-versions">Compatible containerd versions</h2>
+
+<p>This release of nerdctl is expected to be used with containerd v1.6, v1.7, v2.0, or v2.1.</p>
+
+<h2 id="about-the-binaries">About the binaries</h2>
+
+<ul>
+<li>Minimal (<code>nerdctl-2.1.1-linux-amd64.tar.gz</code>): nerdctl only</li>
+<li>Full (<code>nerdctl-full-2.1.1-linux-amd64.tar.gz</code>):    Includes dependencies such as containerd, runc, and CNI</li>
+</ul>
+
+<h3 id="minimal">Minimal</h3>
+
+<p>Extract the archive to a path like <code>/usr/local/bin</code> or <code>~/bin</code> .
+<details><summary>tar Cxzvvf /usr/local/bin nerdctl-2.1.1-linux-amd64.tar.gz</summary>
+<p></p>
+
+<pre><code>-rwxr-xr-x root/root  28582072 2025-05-12 11:15 nerdctl
+-rwxr-xr-x root/root     22657 2025-05-12 11:15 containerd-rootless-setuptool.sh
+-rwxr-xr-x root/root      8708 2025-05-12 11:15 containerd-rootless.sh
+</code></pre>
+
+<p></p>
+</details></p>
+
+<h3 id="full">Full</h3>
+
+<p>Extract the archive to a path like <code>/usr/local</code> or <code>~/.local</code> .</p>
+
+<details><summary>tar Cxzvvf /usr/local nerdctl-full-2.1.1-linux-amd64.tar.gz</summary>
+<p>
+
+```
+drwxr-xr-x 0/0               0 2025-05-12 11:23 bin/
+-rwxr-xr-x 0/0        31128678 2015-10-21 00:00 bin/buildctl
+-rwxr-xr-x 0/0        29851800 2025-04-25 14:13 bin/buildg
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-LICENSE -> ../libexec/cni/LICENSE
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-README.md -> ../libexec/cni/README.md
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-bandwidth -> ../libexec/cni/bandwidth
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-bridge -> ../libexec/cni/bridge
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-dhcp -> ../libexec/cni/dhcp
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-dummy -> ../libexec/cni/dummy
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-firewall -> ../libexec/cni/firewall
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-host-device -> ../libexec/cni/host-device
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-host-local -> ../libexec/cni/host-local
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-ipvlan -> ../libexec/cni/ipvlan
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-loopback -> ../libexec/cni/loopback
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-macvlan -> ../libexec/cni/macvlan
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-portmap -> ../libexec/cni/portmap
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-ptp -> ../libexec/cni/ptp
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-sbr -> ../libexec/cni/sbr
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-static -> ../libexec/cni/static
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-tap -> ../libexec/cni/tap
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-tuning -> ../libexec/cni/tuning
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-vlan -> ../libexec/cni/vlan
+lrwxrwxrwx 0/0               0 2025-05-12 11:22 bin/buildkit-cni-vrf -> ../libexec/cni/vrf
+-rwxr-xr-x 0/0        63640138 2015-10-21 00:00 bin/buildkitd
+-rwxr-xr-x 0/0        16439968 2025-05-12 11:21 bin/bypass4netns
+-rwxr-xr-x 0/0         6320312 2025-05-12 11:21 bin/bypass4netnsd
+-rwxr-xr-x 0/0        41059552 2025-05-12 11:22 bin/containerd
+-rwxr-xr-x 0/0        12021944 2025-05-08 05:52 bin/containerd-fuse-overlayfs-grpc
+-rwxr-xr-x 0/0           22657 2025-05-12 11:23 bin/containerd-rootless-setuptool.sh
+-rwxr-xr-x 0/0            8708 2025-05-12 11:23 bin/containerd-rootless.sh
+-rwxr-xr-x 0/0         8270008 2025-05-12 11:22 bin/containerd-shim-runc-v2
+-rwxr-xr-x 0/0        53432472 2024-12-12 14:54 bin/containerd-stargz-grpc
+-rwxr-xr-x 0/0        23521766 2025-05-12 11:22 bin/ctd-decoder
+-rwxr-xr-x 0/0        21590200 2025-05-12 11:21 bin/ctr
+-rwxr-xr-x 0/0        31174373 2025-05-12 11:22 bin/ctr-enc
+-rwxr-xr-x 0/0        21078168 2024-12-12 14:54 bin/ctr-remote
+-rwxr-xr-x 0/0         1788872 2025-05-12 11:22 bin/fuse-overlayfs
+-rwxr-xr-x 0/0         3936440 2025-05-12 11:21 bin/gomodjail
+-rwxr-xr-x 0/0        28545208 2025-05-12 11:23 bin/nerdctl
+-rwxr-xr-x 0/0        32489528 2025-05-12 11:23 bin/nerdctl.gomodjail
+-rwxr-xr-x 0/0        12236796 2025-05-08 06:00 bin/rootlessctl
+-rwxr-xr-x 0/0        14176992 2025-05-08 06:00 bin/rootlesskit
+-rwxr-xr-x 0/0        17888000 2025-05-12 11:21 bin/runc
+-rwxr-xr-x 0/0         2383224 2025-05-12 11:22 bin/slirp4netns
+-rwxr-xr-x 0/0         9707672 2024-12-12 14:54 bin/stargz-store-helper
+-rwxr-xr-x 0/0          870496 2025-05-12 11:22 bin/tini
+drwxr-xr-x 0/0               0 2025-05-12 11:22 lib/
+drwxr-xr-x 0/0               0 2025-05-12 11:22 lib/systemd/
+drwxr-xr-x 0/0               0 2025-05-12 11:22 lib/systemd/system/
+-rw-r--r-- 0/0            1309 2025-05-12 11:22 lib/systemd/system/buildkit.service
+-rw-r--r-- 0/0            1248 2025-05-12 11:20 lib/systemd/system/containerd.service
+-rw-r--r-- 0/0             312 2025-05-12 11:22 lib/systemd/system/stargz-snapshotter.service
+drwxr-xr-x 0/0               0 2025-05-12 11:22 libexec/
+drwxr-xr-x 0/0               0 2025-05-12 11:22 libexec/cni/
+-rw-r--r-- 0/0           11357 2025-04-25 12:58 libexec/cni/LICENSE
+-rw-r--r-- 0/0            2343 2025-04-25 12:58 libexec/cni/README.md
+-rwxr-xr-x 0/0         5033580 2025-04-25 12:58 libexec/cni/bandwidth
+-rwxr-xr-x 0/0         5694447 2025-04-25 12:58 libexec/cni/bridge
+-rwxr-xr-x 0/0        13924938 2025-04-25 12:58 libexec/cni/dhcp
+-rwxr-xr-x 0/0         5247557 2025-04-25 12:58 libexec/cni/dummy
+-rwxr-xr-x 0/0         5749447 2025-04-25 12:58 libexec/cni/firewall
+-rwxr-xr-x 0/0         5163089 2025-04-25 12:58 libexec/cni/host-device
+-rwxr-xr-x 0/0         4364143 2025-04-25 12:58 libexec/cni/host-local
+-rwxr-xr-x 0/0         5269812 2025-04-25 12:58 libexec/cni/ipvlan
+-rwxr-xr-x 0/0         4263979 2025-04-25 12:58 libexec/cni/loopback
+-rwxr-xr-x 0/0         5305057 2025-04-25 12:58 libexec/cni/macvlan
+-rwxr-xr-x 0/0         5125860 2025-04-25 12:58 libexec/cni/portmap
+-rwxr-xr-x 0/0         5477120 2025-04-25 12:58 libexec/cni/ptp
+-rwxr-xr-x 0/0         4488703 2025-04-25 12:58 libexec/cni/sbr
+-rwxr-xr-x 0/0         3736370 2025-04-25 12:58 libexec/cni/static
+-rwxr-xr-x 0/0         5332257 2025-04-25 12:58 libexec/cni/tap
+-rwxr-xr-x 0/0         4352498 2025-04-25 12:58 libexec/cni/tuning
+-rwxr-xr-x 0/0         5267833 2025-04-25 12:58 libexec/cni/vlan
+-rwxr-xr-x 0/0         4644777 2025-04-25 12:58 libexec/cni/vrf
+drwxr-xr-x 0/0               0 2025-05-12 11:20 share/
+drwxr-xr-x 0/0               0 2025-05-12 11:23 share/doc/
+drwxr-xr-x 0/0               0 2025-05-12 11:23 share/doc/nerdctl/
+-rw-r--r-- 0/0           12101 2025-05-12 11:15 share/doc/nerdctl/README.md
+drwxr-xr-x 0/0               0 2025-05-12 11:15 share/doc/nerdctl/docs/
+-rw-r--r-- 0/0            3953 2025-05-12 11:15 share/doc/nerdctl/docs/build.md
+-rw-r--r-- 0/0            2570 2025-05-12 11:15 share/doc/nerdctl/docs/builder-debug.md
+-rw-r--r-- 0/0            4779 2025-05-12 11:15 share/doc/nerdctl/docs/cni.md
+-rw-r--r-- 0/0           82941 2025-05-12 11:15 share/doc/nerdctl/docs/command-reference.md
+-rw-r--r-- 0/0            1814 2025-05-12 11:15 share/doc/nerdctl/docs/compose.md
+-rw-r--r-- 0/0            6457 2025-05-12 11:15 share/doc/nerdctl/docs/config.md
+-rw-r--r-- 0/0            9128 2025-05-12 11:15 share/doc/nerdctl/docs/cosign.md
+-rw-r--r-- 0/0            5660 2025-05-12 11:15 share/doc/nerdctl/docs/cvmfs.md
+drwxr-xr-x 0/0               0 2025-05-12 11:15 share/doc/nerdctl/docs/dev/
+-rw-r--r-- 0/0           12859 2025-05-12 11:15 share/doc/nerdctl/docs/dev/auditing_dockerfile.md
+-rw-r--r-- 0/0            8587 2025-05-12 11:15 share/doc/nerdctl/docs/dev/store.md
+-rw-r--r-- 0/0            2776 2025-05-12 11:15 share/doc/nerdctl/docs/dir.md
+-rw-r--r-- 0/0             906 2025-05-12 11:15 share/doc/nerdctl/docs/experimental.md
+-rw-r--r-- 0/0           14687 2025-05-12 11:15 share/doc/nerdctl/docs/faq.md
+-rw-r--r-- 0/0             884 2025-05-12 11:15 share/doc/nerdctl/docs/freebsd.md
+-rw-r--r-- 0/0            3273 2025-05-12 11:15 share/doc/nerdctl/docs/gpu.md
+drwxr-xr-x 0/0               0 2025-05-12 11:15 share/doc/nerdctl/docs/images/
+-rw-r--r-- 0/0            1540 2025-05-12 11:15 share/doc/nerdctl/docs/images/nerdctl-white.svg
+-rw-r--r-- 0/0            1462 2025-05-12 11:15 share/doc/nerdctl/docs/images/nerdctl.svg
+-rw-r--r-- 0/0          684421 2025-05-12 11:15 share/doc/nerdctl/docs/images/rootlessKit-network-design.png
+-rw-r--r-- 0/0           14462 2025-05-12 11:15 share/doc/nerdctl/docs/ipfs.md
+-rw-r--r-- 0/0            2426 2025-05-12 11:15 share/doc/nerdctl/docs/multi-platform.md
+-rw-r--r-- 0/0            2960 2025-05-12 11:15 share/doc/nerdctl/docs/notation.md
+-rw-r--r-- 0/0            2610 2025-05-12 11:15 share/doc/nerdctl/docs/nydus.md
+-rw-r--r-- 0/0            3277 2025-05-12 11:15 share/doc/nerdctl/docs/ocicrypt.md
+-rw-r--r-- 0/0            1876 2025-05-12 11:15 share/doc/nerdctl/docs/overlaybd.md
+-rw-r--r-- 0/0           15657 2025-05-12 11:15 share/doc/nerdctl/docs/registry.md
+-rw-r--r-- 0/0            9147 2025-05-12 11:15 share/doc/nerdctl/docs/rootless.md
+-rw-r--r-- 0/0            2015 2025-05-12 11:15 share/doc/nerdctl/docs/soci.md
+-rw-r--r-- 0/0           10312 2025-05-12 11:15 share/doc/nerdctl/docs/stargz.md
+drwxr-xr-x 0/0               0 2025-05-12 11:15 share/doc/nerdctl/docs/testing/
+-rw-r--r-- 0/0            4897 2025-05-12 11:15 share/doc/nerdctl/docs/testing/README.md
+-rw-r--r-- 0/0           15708 2025-05-12 11:15 share/doc/nerdctl/docs/testing/tools.md
+drwxr-xr-x 0/0               0 2025-05-12 11:23 share/doc/nerdctl-full/
+-rw-r--r-- 0/0            1060 2025-05-12 11:22 share/doc/nerdctl-full/README.md
+-rw-r--r-- 0/0            9404 2025-05-12 11:23 share/doc/nerdctl-full/SHA256SUMS
+```
+</p>
+</details>
+
+<details><summary>Included components</summary>
+<p>
+
+See `share/doc/nerdctl-full/README.md`:
+```markdown
+# nerdctl (full distribution)
+- nerdctl: v2.1.1
+- containerd: v2.1.0
+- runc: v1.3.0
+- CNI plugins: v1.7.1
+- BuildKit: v0.21.1
+- Stargz Snapshotter: v0.16.3
+- imgcrypt: v2.0.1
+- slirp4netns: v1.3.2
+- bypass4netns: v0.4.2
+- fuse-overlayfs: v1.15
+- containerd-fuse-overlayfs: v2.1.5
+- Tini: v0.19.0
+- buildg: v0.5.2
+- RootlessKit: v2.3.5
+- gomodjail: v0.1.2@0a86b34442a491fa8f5e4565e9c846fce310239c
+
+## License
+- bin/slirp4netns:    [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/rootless-containers/slirp4netns/blob/v1.3.2/COPYING)
+- bin/fuse-overlayfs: [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/containers/fuse-overlayfs/blob/v1.15/COPYING)
+- bin/{runc,bypass4netns,bypass4netnsd}: Apache License 2.0, statically linked with libseccomp ([LGPL 2.1](https://github.com/seccomp/libseccomp/blob/main/LICENSE), source code available at https://github.com/seccomp/libseccomp/)
+- bin/tini: [MIT License](https://github.com/krallin/tini/blob/v0.19.0/LICENSE)
+- Other files: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+```
+</p>
+</details>
+
+<h2 id="quick-start">Quick start</h2>
+
+<h3 id="rootful">Rootful</h3>
+
+<pre><code class="language-console">$ sudo systemctl enable --now containerd
+$ sudo nerdctl run -d --name nginx -p 80:80 nginx:alpine
+</code></pre>
+
+<h3 id="rootless">Rootless</h3>
+
+<pre><code class="language-console">$ containerd-rootless-setuptool.sh install
+$ nerdctl run -d --name nginx -p 8080:80 nginx:alpine
+</code></pre>
+
+<p>Enabling cgroup v2 is highly recommended for rootless mode, see <a href="https://rootlesscontaine.rs/getting-started/common/cgroup2/" target="_blank">https://rootlesscontaine.rs/getting-started/common/cgroup2/</a> .</p>
+
+<hr>
+
+<p>The binaries were built automatically on GitHub Actions.
+The build log is available for 90 days: <a href="https://github.com/containerd/nerdctl/actions/runs/14970785898" target="_blank">https://github.com/containerd/nerdctl/actions/runs/14970785898</a></p>
+
+<p>The sha256sum of the SHA256SUMS file itself is <code>dd115402d5835b8d8368abbf2bbfe3e48077190eafa44790795d66617c384037</code> .</p>
+
+<hr>
+
+<p>Release manager: @AkihiroSuda</p>
+<br><h3>Release notes for v2.1.0</h3><h4>2025-05-12</h4><blockquote>
+<p>[!NOTE]</p>
+
+<p>Binaries are missing in this release due to a bug in the CI pipeline (#4241).
+The issue was fixed in <a href="https://github.com/containerd/nerdctl/releases/tag/v2.1.1" target="_blank">v2.1.1</a>.</p>
+</blockquote>
+
+<h2 id="changes">Changes</h2>
+
+<ul>
+<li><p>Experimental support for <a href="https://github.com/AkihiroSuda/gomodjail" target="_blank">gomodjail</a>: jail for Go modules (#4012).
+gomodjail imposes syscall restrictions on a specific set of Go modules, so as to mitigate their potential vulnerabilities and supply chain attack vectors (see <a href="https://github.com/AkihiroSuda/gomodjail/blob/v0.1.2/README.md#caveats" target="_blank">caveats</a>).
+Use the <code>nerdctl.gomodjail</code> binary included in the <code>nerdctl-full</code> archive.</p></li>
+
+<li><p>Initial support for UserNS-remap mode (#3941, thanks to @Shubhranshu153).
+UserNS-remap can be considered a middle between Rootless and Rootful.
+In the case of UserNS-remap, the daemon is executed with root privileges, while the containers are executed as a non-root user, to balance security and performance.
+To enable UserNS-remap mdoe, specify <a href="https://github.com/containerd/nerdctl/blob/v2.1.0/docs/config.md" target="_blank"><code>userns_remap = &lt;USERNAME&gt;</code></a> in <code>nerdctl.toml</code>, and run <code>nerdctl</code> as root.</p></li>
+
+<li><p><code>nerdctl run</code>:</p>
+
+<ul>
+<li>Support Container Device Interface (CDI) in <code>--device=example.com/device=foo</code> flag (#4170, thanks to @elezar and @djdongjin)</li>
+</ul></li>
+
+<li><p><code>nerdctl ps</code>:</p>
+
+<ul>
+<li>Add <code>--status=created</code> flag (#4196, thanks to @Shubhranshu153)</li>
+</ul></li>
+
+<li><p><code>nerdctl logs</code>:</p>
+
+<ul>
+<li>Fix logs of restarted containers (#3896, thanks to @Shubhranshu153)</li>
+<li>Fix trailing newlines (#4226, thanks to @fahedouch)</li>
+</ul></li>
+
+<li><p>Rootless:</p>
+
+<ul>
+<li>Fix <code>exec: \&quot;iptables\&quot;: executable file not found in $PATH</code> error on Debian, etc. (#4208)</li>
+</ul></li>
+
+<li><p>Misc:</p>
+
+<ul>
+<li>Support loong64 architecture (#2533, #4238, thanks to @zhaixiaojuan and @apostasie)</li>
+<li>CI fixes (various PRs, thanks to @apostasie)</li>
+</ul></li>
+
+<li><p>nerdctl-full:</p>
+
+<ul>
+<li>Update containerd (2.1.0), RootlessKit (2.3.5), fuse-overlayfs (1.15), containerd-fuse-overlayfs (2.1.5) (#4179, #4217, #4227, thanks to @Shubhranshu153)</li>
+</ul></li>
+</ul>
+
+<p>Full changes: <a href="https://github.com/containerd/nerdctl/pulls?q=is%3Apr+milestone%3Av2.1.0+is%3Aclosed" target="_blank">https://github.com/containerd/nerdctl/pulls?q=is%3Apr+milestone%3Av2.1.0+is%3Aclosed</a></p>
+
+<p>Thanks to @Shubhranshu153 @apostasie @djdongjin @fahedouch @zhaixiaojuan</p>
+<br><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for openstack-manila-csi-2.33.0-alpha.2</h3><h4>2025-05-16</h4><p>Manila CSI Chart for OpenStack</p>
+<br><h3>Release notes for openstack-manila-csi-2.33.0-alpha.1</h3><h4>2025-05-14</h4><p>Manila CSI Chart for OpenStack</p>
+<br><h2>kubernetes/kompose</h2> <h3>Release notes for v1.36.0</h3><h4>2025-05-14</h4><h1 id="installation">Installation</h1>
+
+<p><strong>Linux and macOS:</strong></p>
+
+<pre><code class="language-sh"># Linux
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-amd64 -o kompose
+
+# Linux ARM64
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-arm64 -o kompose
+
+# macOS
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-darwin-amd64 -o kompose
+
+# macOS ARM64
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-darwin-arm64 -o kompose
+
+chmod +x kompose
+sudo mv ./kompose /usr/local/bin/kompose
+</code></pre>
+
+<p><strong>Windows:</strong></p>
+
+<p>Download from <a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-windows-amd64.exe" target="_blank">GitHub</a> and add the binary to your PATH.</p>
+
+<p><strong>Checksums:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Filename</th>
+<th align="center">SHA256 Hash</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-darwin-amd64" target="_blank">kompose-darwin-amd64</a></td>
+<td align="center">de44e3fe67a01b4080b99a4366741e9adab8a927d9f3fee8afc6a32fe6fc93c5</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-darwin-amd64.tar.gz" target="_blank">kompose-darwin-amd64.tar.gz</a></td>
+<td align="center">a6a7848f68eced31838e014cf160a1a14a07b72adeeaf584b60eaa1730ff4f7e</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-darwin-arm64" target="_blank">kompose-darwin-arm64</a></td>
+<td align="center">a0678bc4d1206884144a5273b9c7b3368afef5acfbfdee82acf6d0bb911bbf2e</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-darwin-arm64.tar.gz" target="_blank">kompose-darwin-arm64.tar.gz</a></td>
+<td align="center">0f6e7e2567bc8098448266a7f26bfcd30b87eb0b30e49d692127a42211c87673</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-amd64" target="_blank">kompose-linux-amd64</a></td>
+<td align="center">459d86a14a2172d8384007ff296f74f3c625dde15b6c8dc971f4985891aef3a7</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-amd64.tar.gz" target="_blank">kompose-linux-amd64.tar.gz</a></td>
+<td align="center">80af2b304c16c42e9d558ce7aee6f9850e2e624ccd299187104e5ae91071bbad</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-arm" target="_blank">kompose-linux-arm</a></td>
+<td align="center">1f1af77ec4489de19029d59c62a99569d506fc8c4be0ca272b8bb0c76840d04b</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-arm.tar.gz" target="_blank">kompose-linux-arm.tar.gz</a></td>
+<td align="center">6f1795436592eb2029762e7b432e641239b4624c52c5c32f01f46d7423f382a9</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-arm64" target="_blank">kompose-linux-arm64</a></td>
+<td align="center">27a07a05c10e9414d837c4cf578c8bdd4c8ec28aa606ffcb781c252f363806fe</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-linux-arm64.tar.gz" target="_blank">kompose-linux-arm64.tar.gz</a></td>
+<td align="center">31d0edf5fb035119aa80a924bda13e1e8b61d53c64056985447d44f1b8a24c02</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-windows-amd64.exe" target="_blank">kompose-windows-amd64.exe</a></td>
+<td align="center">cc9fe74bafbcd0ab4df74868e335ab48780d81344b6ae8c4a416861f88a63548</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/kompose-windows-amd64.exe.tar.gz" target="_blank">kompose-windows-amd64.exe.tar.gz</a></td>
+<td align="center">7bc06ab69b30126ee9aafe3e7d23ee765ec4e22675e098fcd50dd1c6204e6dd3</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/kubernetes/kompose/releases/download/v1.36.0/SHA256_SUM" target="_blank">SHA256_SUM</a></td>
+<td align="center">df9c53913d646c9ffd13e6ae1ba46ab40d434a03919fce51ab1b88f449239544</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Replaced y with ✓ by @alf in <a href="https://github.com/kubernetes/kompose/pull/1975" target="_blank">https://github.com/kubernetes/kompose/pull/1975</a></li>
+<li>Add no-interpolate feature option to the CLI by @jvitor83 in <a href="https://github.com/kubernetes/kompose/pull/1955" target="_blank">https://github.com/kubernetes/kompose/pull/1955</a></li>
+<li>update typo in kompose.volume.subpath by @kundan2707 in <a href="https://github.com/kubernetes/kompose/pull/1998" target="_blank">https://github.com/kubernetes/kompose/pull/1998</a></li>
+<li>Fix case of FromAs by @gisostallenberg in <a href="https://github.com/kubernetes/kompose/pull/1993" target="_blank">https://github.com/kubernetes/kompose/pull/1993</a></li>
+<li>Improve command to run in docker by @gisostallenberg in <a href="https://github.com/kubernetes/kompose/pull/1994" target="_blank">https://github.com/kubernetes/kompose/pull/1994</a></li>
+<li>Fix ConfigMap name clash if env_file name is equal by @robertaistleitner in <a href="https://github.com/kubernetes/kompose/pull/2001" target="_blank">https://github.com/kubernetes/kompose/pull/2001</a></li>
+<li>fix: resolve env_file variable interpolation issues by adding support… by @yuefanxiao in <a href="https://github.com/kubernetes/kompose/pull/2011" target="_blank">https://github.com/kubernetes/kompose/pull/2011</a></li>
+<li>fix: Load variables from .env file by default by @yuefanxiao in <a href="https://github.com/kubernetes/kompose/pull/2008" target="_blank">https://github.com/kubernetes/kompose/pull/2008</a></li>
+<li>1.36.0 Release by @cdrage in <a href="https://github.com/kubernetes/kompose/pull/2013" target="_blank">https://github.com/kubernetes/kompose/pull/2013</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@alf made their first contribution in <a href="https://github.com/kubernetes/kompose/pull/1975" target="_blank">https://github.com/kubernetes/kompose/pull/1975</a></li>
+<li>@gisostallenberg made their first contribution in <a href="https://github.com/kubernetes/kompose/pull/1993" target="_blank">https://github.com/kubernetes/kompose/pull/1993</a></li>
+<li>@robertaistleitner made their first contribution in <a href="https://github.com/kubernetes/kompose/pull/2001" target="_blank">https://github.com/kubernetes/kompose/pull/2001</a></li>
+<li>@yuefanxiao made their first contribution in <a href="https://github.com/kubernetes/kompose/pull/2011" target="_blank">https://github.com/kubernetes/kompose/pull/2011</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kompose/compare/v1.35.0...v1.36.0" target="_blank">https://github.com/kubernetes/kompose/compare/v1.35.0&hellip;v1.36.0</a></p>
+<br><h2>kubernetes-sigs/kind</h2> <h3>Release notes for v0.28.0</h3><h4>2025-05-16</h4><p>This release moves to Kubernetes to 1.33.1 by default.</p>
+
+<h1 id="breaking-changes">Breaking Changes</h1>
+
+<p>The default node image is now <code>kindest/node:v1.33.1@sha256:8d866994839cd096b3590681c55a6fa4a071fdaf33be7b9660e5697d2ed13002</code></p>
+
+<h1 id="new-features">New Features</h1>
+
+<ul>
+<li>Updated to containerd 2.1 and runc 1.3</li>
+<li>Updated default node image to Kubernetes 1.33.1</li>
+<li>Updated go to 1.24.2</li>
+</ul>
+
+<p>Images pre-built for this release:</p>
+
+<ul>
+<li>v1.33.1: <code>kindest/node:v1.33.1@sha256:8d866994839cd096b3590681c55a6fa4a071fdaf33be7b9660e5697d2ed13002</code></li>
+<li>v1.32.5: <code>kindest/node:v1.32.2@sha256:36187f6c542fa9b78d2d499de4c857249c5a0ac8cc2241bef2ccd92729a7a259</code></li>
+<li>v1.31.9: <code>kindest/node:v1.31.6@sha256:156da58ab617d0cb4f56bbdb4b493f4dc89725505347a4babde9e9544888bb92</code></li>
+<li>v1.30.13: <code>kindest/node:v1.30.10@sha256:8673291894dc400e0fb4f57243f5fdc6e355ceaa765505e0e73941aa1b6e0b80</code></li>
+</ul>
+
+<p><strong>NOTE</strong>: You <em>must</em> use the <code>@sha256</code> digest to guarantee an image built for this release, until such a time as we switch to a different tagging scheme. Even then we will highly encourage digest pinning for security and reproducibility reasons.</p>
+
+<p>See also:</p>
+
+<ul>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/#creating-a-cluster" target="_blank">https://kind.sigs.k8s.io/docs/user/quick-start/#creating-a-cluster</a></li>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/#building-images" target="_blank">https://kind.sigs.k8s.io/docs/user/quick-start/#building-images</a></li>
+</ul>
+
+<p>NOTE: These node images support amd64 and arm64, both of our supported platforms. <strong>You must use the same platform as your host,</strong> for more context see <a href="https://github.com/kubernetes-sigs/kind/issues/2718" target="_blank">https://github.com/kubernetes-sigs/kind/issues/2718</a></p>
+
+<h1 id="fixes">Fixes</h1>
+
+<ul>
+<li>Node image now sets <code>net.ipv4.conf.all.arp_ignore</code> to 0 to address some container networking failures</li>
+</ul>
+
+<h1 id="contributors">Contributors</h1>
+
+<p><strong>Thank you to everyone who contributed to this kind over the years!</strong></p>
+
+<p>Committers for this release:</p>
+
+<ul>
+<li>@adrianmoisey</li>
+<li>@AkihiroSuda</li>
+<li>@aojea</li>
+<li>@BenTheElder</li>
+<li>@k8s-ci-robot</li>
+<li>@mwdomino</li>
+<li>@null</li>
+<li>@pellared</li>
+<li>@rooty0</li>
+<li>@shaneutt</li>
+<li>@vonhatnam1212</li>
+</ul>
+<br><h2>cri-o/cri-o</h2> <h3>Release notes for v1.33.0</h3><h4>2025-05-16</h4><ul>
+<li><a href="#cri-o-v1330">CRI-O v1.33.0</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1320">Changelog since v1.32.0</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#other">Other</a></li>
+<li><a href="#deprecation">Deprecation</a></li>
+<li><a href="#api-change">API Change</a></li>
+<li><a href="#feature">Feature</a></li>
+<li><a href="#bug-or-regression">Bug or Regression</a></li>
+<li><a href="#other-cleanup-or-flake">Other (Cleanup or Flake)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-33-0">CRI-O v1.33.0</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.32.0...v1.33.0" target="_blank">v1.32.0&hellip;v1.33.0</a> on Fri, 16 May 2025 00:24:44 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz" target="_blank">cri-o.amd64.v1.33.0.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.33.0.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz.sig" target="_blank">cri-o.amd64.v1.33.0.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz.cert" target="_blank">cri-o.amd64.v1.33.0.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz.spdx" target="_blank">cri-o.amd64.v1.33.0.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.33.0.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.0.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.33.0.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz" target="_blank">cri-o.arm64.v1.33.0.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.33.0.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz.sig" target="_blank">cri-o.arm64.v1.33.0.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz.cert" target="_blank">cri-o.arm64.v1.33.0.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz.spdx" target="_blank">cri-o.arm64.v1.33.0.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.33.0.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.0.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.33.0.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.0.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.33.0.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz" target="_blank">cri-o.s390x.v1.33.0.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.33.0.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz.sig" target="_blank">cri-o.s390x.v1.33.0.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz.cert" target="_blank">cri-o.s390x.v1.33.0.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz.spdx" target="_blank">cri-o.s390x.v1.33.0.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.33.0.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.0.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.33.0.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.33.0.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.33.0 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.33.0 \
+    --signature cri-o.amd64.v1.33.0.tar.gz.sig \
+    --certificate cri-o.amd64.v1.33.0.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.33.0.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.33.0.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-32-0">Changelog since v1.32.0</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="other">Other</h4>
+
+<ul>
+<li>Fix path traversal in CRI-O log handling (#8968, @sohankunkerkar)</li>
+</ul>
+
+<h4 id="deprecation">Deprecation</h4>
+
+<ul>
+<li>Explicit configuration for <code>LimitNOFILE</code> in the reference <code>crio.service</code> systemd service file is removed.</li>
+</ul>
+
+<p>Warning: Administrators on platforms running versions less than systemd 240 should explicitly configure <code>LimitNOFILE=1024:524288</code> or risk falling back to the kernel default of <code>4096</code>. (#8962, @saschagrunert)</p>
+
+<h4 id="api-change">API Change</h4>
+
+<ul>
+<li>Added container stop signal feature (KEP-4960). (#9086, @bitoku)</li>
+<li>Disabled <code>pull-progress-timeout</code> per default. (#9130, @saschagrunert)</li>
+</ul>
+
+<h4 id="feature">Feature</h4>
+
+<ul>
+<li>Add option to enable/disable OCI Artifact mount. (#9147, @bitoku)</li>
+<li>Add support for OCI Artifact (#9062, @bitoku)</li>
+<li>Added OCI artifact store support. This means that CRI-O now stores artifacts per default in
+<code>/var/lib/containers/storage/artifacts</code>, which are handled as pinned images. The artifacts
+are pullable using <code>crictl pull</code> and will also show-up in <code>crictl images</code>. It is also possible to
+<code>crictl inspecti</code> them as well as deleting them using <code>crictl rmi</code>. (#8996, @saschagrunert)</li>
+<li>Added image volume subpath support for Kubernetes v1.33 (<a href="https://github.com/kubernetes/enhancements/issues/4639" target="_blank">https://github.com/kubernetes/enhancements/issues/4639</a>). (#9050, @saschagrunert)</li>
+<li>Added multi-architecture artifacts support. (#9194, @bitoku)</li>
+<li>Added new metric <code>container_spec_memory_limit_bytes</code> to display the memory limit of containers in bytes. (#9140, @bingikarthik)</li>
+<li>Added option <code>--privileged-seccomp-profile</code> / <code>privileged_seccomp_profile</code> to allow specifying a seccomp profile for privileged containers. (#9190, @saschagrunert)</li>
+<li>Added runtime config block to the <code>StatusResponse</code> returned by the CRI Status endpoint. (#9129, @tariq1890)</li>
+<li>Added support for OCI artifact mount sub paths. (#9159, @saschagrunert)</li>
+<li>Added support for handling CNAI models from OCI artifacts. (#9131, @saschagrunert)</li>
+<li>Experimental support for FreeBSD. (#7727, @dfr)</li>
+<li>Signature verification for image volumes (#9060, @xw19)</li>
+</ul>
+
+<h4 id="bug-or-regression">Bug or Regression</h4>
+
+<ul>
+<li>Decouple CNI plugin initialization from CRI-O health checks. (#8911, @sohankunkerkar)</li>
+<li>Fix a panic when default_annotations are used (#8867, @haircommander)</li>
+<li>Fix artifact handling to retrieve artifact status using both the canonical name and the short name. (#9081, @bitoku)</li>
+<li>Fix log rotation failure during pod termination (#8868, @bitoku)</li>
+<li>Fixed bug to allow <code>conmon_cgroup</code> to be empty when cgroup manager is <code>cgroupfs</code> . (#8888, @xw19)</li>
+<li>Fixed context cancellation when image pull progress timeout is <code>0</code> (<code>--pull-progress-timeout=0</code> / <code>pull_progress_timeout=0</code>) (#8998, @saschagrunert)</li>
+<li>Fixed log format from klog. (#8918, @bitoku)</li>
+<li>Prevent multiple crio wipes on reboot (#9059, @PannagaRao)</li>
+</ul>
+
+<h4 id="other-cleanup-or-flake">Other (Cleanup or Flake)</h4>
+
+<ul>
+<li>Change log levels and formats for some iptables logs and klog related logs. (#8883, @bitoku)</li>
+<li>Changed runtime default masked paths for non privileged containers to:
+
+<ul>
+<li>/proc/acpi</li>
+<li>/proc/asound</li>
+<li>/proc/interrupts</li>
+<li>/proc/kcore</li>
+<li>/proc/keys</li>
+<li>/proc/latency_stats</li>
+<li>/proc/sched_debug</li>
+<li>/proc/scsi</li>
+<li>/proc/timer_list</li>
+<li>/proc/timer_stats</li>
+<li>/sys/devices/system/cpu/cpu<ID>/thermal_throttle</li>
+<li>/sys/devices/virtual/powercap</li>
+<li>/sys/firmware</li>
+<li>/sys/fs/selinux (#9069, @saschagrunert)</li>
+</ul></li>
+<li>Hostports are now implemented using nftables rather than iptables.
+cri-o now depends on the <code>nft</code> binary being available (and
+does not depend on the iptables binaries being available). (#8684, @danwinship)</li>
+<li>Improve <code>sync.Map</code> iterators with an implicit call (#8871, @roman-kiselenko)</li>
+<li>Increased <code>pull-progress-timeout</code> to default to <code>30s</code>. (#9108, @saschagrunert)</li>
+<li>Removed <code>exclude_graphdriver_devicemapper</code> build tag usage. (#8994, @saschagrunert)</li>
+<li>Removed image status <code>info</code> log message for the response, we already provide that information in the <code>debug</code> logs. (#9034, @saschagrunert)</li>
+<li>Require go 1.24 for build. (#9051, @saschagrunert)</li>
+<li>Update Packit configuration to remove reference to Fedora 39. (#8898, @buckaroogeek)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>github.com/AliyunContainerService/ack-ram-tool/pkg/credentials/provider: <a href="https://github.com/AliyunContainerService/ack-ram-tool/tree/pkg/credentials/provider/v0.14.0" target="_blank">v0.14.0</a></li>
+<li>github.com/CloudNativeAI/model-spec: <a href="https://github.com/CloudNativeAI/model-spec/tree/v0.0.4" target="_blank">v0.0.4</a></li>
+<li>github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp: <a href="https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/tree/detectors/gcp/v1.26.0" target="_blank">v1.26.0</a></li>
+<li>github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric: <a href="https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/tree/exporter/metric/v0.49.0" target="_blank">v0.49.0</a></li>
+<li>github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping: <a href="https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/tree/internal/resourcemapping/v0.49.0" target="_blank">v0.49.0</a></li>
+<li>github.com/avast/retry-go/v4: <a href="https://github.com/avast/retry-go/tree/v4.6.1" target="_blank">v4.6.1</a></li>
+<li>github.com/buildkite/roko: <a href="https://github.com/buildkite/roko/tree/v1.2.0" target="_blank">v1.2.0</a></li>
+<li>github.com/chainguard-dev/clog: <a href="https://github.com/chainguard-dev/clog/tree/v1.5.1" target="_blank">v1.5.1</a></li>
+<li>github.com/envoyproxy/go-control-plane/envoy: <a href="https://github.com/envoyproxy/go-control-plane/tree/envoy/v1.32.4" target="_blank">v1.32.4</a></li>
+<li>github.com/envoyproxy/go-control-plane/ratelimit: <a href="https://github.com/envoyproxy/go-control-plane/tree/ratelimit/v0.1.0" target="_blank">v0.1.0</a></li>
+<li>github.com/in-toto/attestation: <a href="https://github.com/in-toto/attestation/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/keybase/go-keychain: <a href="https://github.com/keybase/go-keychain/tree/v0.0.1" target="_blank">v0.0.1</a></li>
+<li>github.com/lithammer/dedent: <a href="https://github.com/lithammer/dedent/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/opencontainers/cgroups: <a href="https://github.com/opencontainers/cgroups/tree/v0.0.2" target="_blank">v0.0.2</a></li>
+<li>github.com/prashantv/gostub: <a href="https://github.com/prashantv/gostub/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/santhosh-tekuri/jsonschema/v5: <a href="https://github.com/santhosh-tekuri/jsonschema/tree/v5.3.1" target="_blank">v5.3.1</a></li>
+<li>github.com/santhosh-tekuri/jsonschema/v6: <a href="https://github.com/santhosh-tekuri/jsonschema/tree/v6.0.1" target="_blank">v6.0.1</a></li>
+<li>github.com/sigstore/sigstore-go: <a href="https://github.com/sigstore/sigstore-go/tree/v0.6.1" target="_blank">v0.6.1</a></li>
+<li>github.com/smallstep/pkcs7: <a href="https://github.com/smallstep/pkcs7/tree/v0.1.1" target="_blank">v0.1.1</a></li>
+<li>github.com/theupdateframework/go-tuf/v2: <a href="https://github.com/theupdateframework/go-tuf/tree/v2.0.1" target="_blank">v2.0.1</a></li>
+<li>github.com/tink-crypto/tink-go-awskms/v2: <a href="https://github.com/tink-crypto/tink-go-awskms/tree/v2.1.0" target="_blank">v2.1.0</a></li>
+<li>github.com/tink-crypto/tink-go-gcpkms/v2: <a href="https://github.com/tink-crypto/tink-go-gcpkms/tree/v2.2.0" target="_blank">v2.2.0</a></li>
+<li>github.com/tink-crypto/tink-go/v2: <a href="https://github.com/tink-crypto/tink-go/tree/v2.3.0" target="_blank">v2.3.0</a></li>
+<li>go.opentelemetry.io/auto/sdk: v1.1.0</li>
+<li>go.opentelemetry.io/contrib/detectors/gcp: v1.34.0</li>
+<li>go.opentelemetry.io/otel/sdk/metric: v1.34.0</li>
+<li>go.uber.org/automaxprocs: v1.6.0</li>
+<li>sigs.k8s.io/randfill: v1.0.0</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>cel.dev/expr: v0.16.1 → v0.20.0</li>
+<li>chainguard.dev/go-grpc-kit: v0.17.5 → v0.17.7</li>
+<li>chainguard.dev/sdk: v0.1.23 → v0.1.29</li>
+<li>cloud.google.com/go/accessapproval: v1.7.12 → v1.8.3</li>
+<li>cloud.google.com/go/accesscontextmanager: v1.8.12 → v1.9.3</li>
+<li>cloud.google.com/go/aiplatform: v1.68.0 → v1.74.0</li>
+<li>cloud.google.com/go/analytics: v0.24.0 → v0.26.0</li>
+<li>cloud.google.com/go/apigateway: v1.6.12 → v1.7.3</li>
+<li>cloud.google.com/go/apigeeconnect: v1.6.12 → v1.7.3</li>
+<li>cloud.google.com/go/apigeeregistry: v0.8.10 → v0.9.3</li>
+<li>cloud.google.com/go/appengine: v1.8.12 → v1.9.3</li>
+<li>cloud.google.com/go/area120: v0.8.12 → v0.9.3</li>
+<li>cloud.google.com/go/artifactregistry: v1.14.14 → v1.16.1</li>
+<li>cloud.google.com/go/asset: v1.19.6 → v1.20.4</li>
+<li>cloud.google.com/go/assuredworkloads: v1.11.12 → v1.12.3</li>
+<li>cloud.google.com/go/auth/oauth2adapt: v0.2.4 → v0.2.8</li>
+<li>cloud.google.com/go/auth: v0.9.1 → v0.15.0</li>
+<li>cloud.google.com/go/automl: v1.13.12 → v1.14.4</li>
+<li>cloud.google.com/go/baremetalsolution: v1.2.11 → v1.3.3</li>
+<li>cloud.google.com/go/batch: v1.9.4 → v1.12.0</li>
+<li>cloud.google.com/go/beyondcorp: v1.0.11 → v1.1.3</li>
+<li>cloud.google.com/go/bigquery: v1.62.0 → v1.66.2</li>
+<li>cloud.google.com/go/bigtable: v1.29.0 → v1.35.0</li>
+<li>cloud.google.com/go/billing: v1.18.10 → v1.20.1</li>
+<li>cloud.google.com/go/binaryauthorization: v1.8.8 → v1.9.3</li>
+<li>cloud.google.com/go/certificatemanager: v1.8.6 → v1.9.3</li>
+<li>cloud.google.com/go/channel: v1.17.12 → v1.19.2</li>
+<li>cloud.google.com/go/cloudbuild: v1.16.6 → v1.22.0</li>
+<li>cloud.google.com/go/clouddms: v1.7.11 → v1.8.4</li>
+<li>cloud.google.com/go/cloudtasks: v1.12.13 → v1.13.3</li>
+<li>cloud.google.com/go/compute/metadata: v0.5.0 → v0.6.0</li>
+<li>cloud.google.com/go/compute: v1.27.5 → v1.34.0</li>
+<li>cloud.google.com/go/contactcenterinsights: v1.13.7 → v1.17.1</li>
+<li>cloud.google.com/go/container: v1.38.1 → v1.42.2</li>
+<li>cloud.google.com/go/containeranalysis: v0.12.2 → v0.13.3</li>
+<li>cloud.google.com/go/datacatalog: v1.21.1 → v1.24.3</li>
+<li>cloud.google.com/go/dataflow: v0.9.12 → v0.10.3</li>
+<li>cloud.google.com/go/dataform: v0.9.9 → v0.10.3</li>
+<li>cloud.google.com/go/datafusion: v1.7.12 → v1.8.3</li>
+<li>cloud.google.com/go/datalabeling: v0.8.12 → v0.9.3</li>
+<li>cloud.google.com/go/dataplex: v1.18.3 → v1.22.0</li>
+<li>cloud.google.com/go/dataproc/v2: v2.5.4 → v2.11.0</li>
+<li>cloud.google.com/go/dataqna: v0.8.12 → v0.9.3</li>
+<li>cloud.google.com/go/datastore: v1.19.0 → v1.20.0</li>
+<li>cloud.google.com/go/datastream: v1.10.11 → v1.13.0</li>
+<li>cloud.google.com/go/deploy: v1.21.2 → v1.26.2</li>
+<li>cloud.google.com/go/dialogflow: v1.56.0 → v1.66.0</li>
+<li>cloud.google.com/go/dlp: v1.17.0 → v1.21.0</li>
+<li>cloud.google.com/go/documentai: v1.32.0 → v1.35.2</li>
+<li>cloud.google.com/go/domains: v0.9.12 → v0.10.3</li>
+<li>cloud.google.com/go/edgecontainer: v1.2.6 → v1.4.1</li>
+<li>cloud.google.com/go/errorreporting: v0.3.1 → v0.3.2</li>
+<li>cloud.google.com/go/essentialcontacts: v1.6.13 → v1.7.3</li>
+<li>cloud.google.com/go/eventarc: v1.13.11 → v1.15.1</li>
+<li>cloud.google.com/go/filestore: v1.8.8 → v1.9.3</li>
+<li>cloud.google.com/go/firestore: v1.16.0 → v1.18.0</li>
+<li>cloud.google.com/go/functions: v1.18.0 → v1.19.3</li>
+<li>cloud.google.com/go/gkebackup: v1.5.5 → v1.6.3</li>
+<li>cloud.google.com/go/gkeconnect: v0.8.12 → v0.12.1</li>
+<li>cloud.google.com/go/gkehub: v0.14.12 → v0.15.3</li>
+<li>cloud.google.com/go/gkemulticloud: v1.2.5 → v1.5.1</li>
+<li>cloud.google.com/go/gsuiteaddons: v1.6.12 → v1.7.4</li>
+<li>cloud.google.com/go/iam: v1.1.13 → v1.4.1</li>
+<li>cloud.google.com/go/iap: v1.9.11 → v1.10.3</li>
+<li>cloud.google.com/go/ids: v1.4.12 → v1.5.3</li>
+<li>cloud.google.com/go/iot: v1.7.12 → v1.8.3</li>
+<li>cloud.google.com/go/kms: v1.18.5 → v1.21.1</li>
+<li>cloud.google.com/go/language: v1.13.1 → v1.14.3</li>
+<li>cloud.google.com/go/lifesciences: v0.9.12 → v0.10.3</li>
+<li>cloud.google.com/go/logging: v1.11.0 → v1.13.0</li>
+<li>cloud.google.com/go/longrunning: v0.5.12 → v0.6.5</li>
+<li>cloud.google.com/go/managedidentities: v1.6.12 → v1.7.3</li>
+<li>cloud.google.com/go/maps: v1.11.7 → v1.19.0</li>
+<li>cloud.google.com/go/mediatranslation: v0.8.12 → v0.9.3</li>
+<li>cloud.google.com/go/memcache: v1.10.12 → v1.11.3</li>
+<li>cloud.google.com/go/metastore: v1.13.11 → v1.14.3</li>
+<li>cloud.google.com/go/monitoring: v1.20.4 → v1.24.0</li>
+<li>cloud.google.com/go/networkconnectivity: v1.14.11 → v1.16.1</li>
+<li>cloud.google.com/go/networkmanagement: v1.13.7 → v1.18.0</li>
+<li>cloud.google.com/go/networksecurity: v0.9.12 → v0.10.3</li>
+<li>cloud.google.com/go/notebooks: v1.11.10 → v1.12.3</li>
+<li>cloud.google.com/go/optimization: v1.6.10 → v1.7.3</li>
+<li>cloud.google.com/go/orchestration: v1.9.7 → v1.11.4</li>
+<li>cloud.google.com/go/orgpolicy: v1.12.8 → v1.14.2</li>
+<li>cloud.google.com/go/osconfig: v1.13.3 → v1.14.3</li>
+<li>cloud.google.com/go/oslogin: v1.13.8 → v1.14.3</li>
+<li>cloud.google.com/go/phishingprotection: v0.8.12 → v0.9.3</li>
+<li>cloud.google.com/go/policytroubleshooter: v1.10.10 → v1.11.3</li>
+<li>cloud.google.com/go/privatecatalog: v0.9.12 → v0.10.4</li>
+<li>cloud.google.com/go/profiler: v0.4.0 → v0.4.2</li>
+<li>cloud.google.com/go/pubsub: v1.42.0 → v1.47.0</li>
+<li>cloud.google.com/go/recaptchaenterprise/v2: v2.14.3 → v2.19.4</li>
+<li>cloud.google.com/go/recommendationengine: v0.8.12 → v0.9.3</li>
+<li>cloud.google.com/go/recommender: v1.12.8 → v1.13.3</li>
+<li>cloud.google.com/go/redis: v1.16.5 → v1.18.0</li>
+<li>cloud.google.com/go/resourcemanager: v1.9.12 → v1.10.3</li>
+<li>cloud.google.com/go/resourcesettings: v1.7.5 → v1.8.3</li>
+<li>cloud.google.com/go/retail: v1.17.5 → v1.19.2</li>
+<li>cloud.google.com/go/run: v1.4.1 → v1.9.0</li>
+<li>cloud.google.com/go/scheduler: v1.10.13 → v1.11.4</li>
+<li>cloud.google.com/go/secretmanager: v1.13.6 → v1.14.5</li>
+<li>cloud.google.com/go/security: v1.18.0 → v1.18.3</li>
+<li>cloud.google.com/go/securitycenter: v1.34.0 → v1.36.0</li>
+<li>cloud.google.com/go/servicedirectory: v1.11.12 → v1.12.3</li>
+<li>cloud.google.com/go/shell: v1.7.12 → v1.8.3</li>
+<li>cloud.google.com/go/spanner: v1.67.0 → v1.76.1</li>
+<li>cloud.google.com/go/speech: v1.24.1 → v1.26.0</li>
+<li>cloud.google.com/go/storage: v1.39.1 → v1.50.0</li>
+<li>cloud.google.com/go/storagetransfer: v1.10.11 → v1.12.1</li>
+<li>cloud.google.com/go/talent: v1.6.13 → v1.8.0</li>
+<li>cloud.google.com/go/texttospeech: v1.7.12 → v1.11.0</li>
+<li>cloud.google.com/go/tpu: v1.6.12 → v1.8.0</li>
+<li>cloud.google.com/go/trace: v1.10.12 → v1.11.3</li>
+<li>cloud.google.com/go/translate: v1.11.0 → v1.12.3</li>
+<li>cloud.google.com/go/video: v1.22.1 → v1.23.3</li>
+<li>cloud.google.com/go/videointelligence: v1.11.12 → v1.12.3</li>
+<li>cloud.google.com/go/vision/v2: v2.8.7 → v2.9.3</li>
+<li>cloud.google.com/go/vmmigration: v1.7.12 → v1.8.3</li>
+<li>cloud.google.com/go/vmwareengine: v1.2.1 → v1.3.3</li>
+<li>cloud.google.com/go/vpcaccess: v1.7.12 → v1.8.3</li>
+<li>cloud.google.com/go/webrisk: v1.9.12 → v1.10.3</li>
+<li>cloud.google.com/go/websecurityscanner: v1.6.12 → v1.7.3</li>
+<li>cloud.google.com/go/workflows: v1.12.11 → v1.13.3</li>
+<li>cloud.google.com/go: v0.115.1 → v0.118.3</li>
+<li>cuelabs.dev/go/oci/ociregistry: 224736b → a39bec0</li>
+<li>cuelang.org/go: v0.8.1 → v0.9.2</li>
+<li>github.com/Azure/azure-sdk-for-go/sdk/azcore: <a href="https://github.com/Azure/azure-sdk-for-go/compare/sdk/azcore/v1.13.0...sdk/azcore/v1.17.1" target="_blank">v1.13.0 → v1.17.1</a></li>
+<li>github.com/Azure/azure-sdk-for-go/sdk/azidentity: <a href="https://github.com/Azure/azure-sdk-for-go/compare/sdk/azidentity/v1.7.0...sdk/azidentity/v1.8.2" target="_blank">v1.7.0 → v1.8.2</a></li>
+<li>github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys: <a href="https://github.com/Azure/azure-sdk-for-go/compare/sdk/security/keyvault/azkeys/v1.1.0...sdk/security/keyvault/azkeys/v1.3.1" target="_blank">v1.1.0 → v1.3.1</a></li>
+<li>github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal: <a href="https://github.com/Azure/azure-sdk-for-go/compare/sdk/security/keyvault/internal/v1.0.0...sdk/security/keyvault/internal/v1.1.1" target="_blank">v1.0.0 → v1.1.1</a></li>
+<li>github.com/Azure/go-ansiterm: <a href="https://github.com/Azure/go-ansiterm/compare/306776e...faa5f7b" target="_blank">306776e → faa5f7b</a></li>
+<li>github.com/AzureAD/microsoft-authentication-library-for-go: <a href="https://github.com/AzureAD/microsoft-authentication-library-for-go/compare/v1.2.2...v1.3.3" target="_blank">v1.2.2 → v1.3.3</a></li>
+<li>github.com/BurntSushi/toml: <a href="https://github.com/BurntSushi/toml/compare/v1.4.0...v1.5.0" target="_blank">v1.4.0 → v1.5.0</a></li>
+<li>github.com/Masterminds/semver/v3: <a href="https://github.com/Masterminds/semver/compare/v3.2.1...v3.3.1" target="_blank">v3.2.1 → v3.3.1</a></li>
+<li>github.com/ProtonMail/go-crypto: <a href="https://github.com/ProtonMail/go-crypto/compare/v1.0.0...v1.1.6" target="_blank">v1.0.0 → v1.1.6</a></li>
+<li>github.com/aliyun/credentials-go: <a href="https://github.com/aliyun/credentials-go/compare/v1.3.1...v1.3.2" target="_blank">v1.3.1 → v1.3.2</a></li>
+<li>github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream: <a href="https://github.com/aws/aws-sdk-go-v2/compare/aws/protocol/eventstream/v1.6.2...aws/protocol/eventstream/v1.6.3" target="_blank">v1.6.2 → v1.6.3</a></li>
+<li>github.com/aws/aws-sdk-go-v2/config: <a href="https://github.com/aws/aws-sdk-go-v2/compare/config/v1.27.27...config/v1.29.10" target="_blank">v1.27.27 → v1.29.10</a></li>
+<li>github.com/aws/aws-sdk-go-v2/credentials: <a href="https://github.com/aws/aws-sdk-go-v2/compare/credentials/v1.17.27...credentials/v1.17.63" target="_blank">v1.17.27 → v1.17.63</a></li>
+<li>github.com/aws/aws-sdk-go-v2/feature/ec2/imds: <a href="https://github.com/aws/aws-sdk-go-v2/compare/feature/ec2/imds/v1.16.11...feature/ec2/imds/v1.16.30" target="_blank">v1.16.11 → v1.16.30</a></li>
+<li>github.com/aws/aws-sdk-go-v2/feature/s3/manager: <a href="https://github.com/aws/aws-sdk-go-v2/compare/feature/s3/manager/v1.16.9...feature/s3/manager/v1.17.10" target="_blank">v1.16.9 → v1.17.10</a></li>
+<li>github.com/aws/aws-sdk-go-v2/internal/configsources: <a href="https://github.com/aws/aws-sdk-go-v2/compare/internal/configsources/v1.3.15...internal/configsources/v1.3.34" target="_blank">v1.3.15 → v1.3.34</a></li>
+<li>github.com/aws/aws-sdk-go-v2/internal/endpoints/v2: <a href="https://github.com/aws/aws-sdk-go-v2/compare/internal/endpoints/v2/v2.6.15...internal/endpoints/v2/v2.6.34" target="_blank">v2.6.15 → v2.6.34</a></li>
+<li>github.com/aws/aws-sdk-go-v2/internal/ini: <a href="https://github.com/aws/aws-sdk-go-v2/compare/internal/ini/v1.8.0...internal/ini/v1.8.3" target="_blank">v1.8.0 → v1.8.3</a></li>
+<li>github.com/aws/aws-sdk-go-v2/internal/v4a: <a href="https://github.com/aws/aws-sdk-go-v2/compare/internal/v4a/v1.3.9...internal/v4a/v1.3.15" target="_blank">v1.3.9 → v1.3.15</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/internal/accept-encoding/v1.11.3...service/internal/accept-encoding/v1.12.3" target="_blank">v1.11.3 → v1.12.3</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/internal/checksum: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/internal/checksum/v1.3.11...service/internal/checksum/v1.3.17" target="_blank">v1.3.11 → v1.3.17</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/internal/presigned-url: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/internal/presigned-url/v1.11.17...service/internal/presigned-url/v1.12.15" target="_blank">v1.11.17 → v1.12.15</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/internal/s3shared: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/internal/s3shared/v1.17.9...service/internal/s3shared/v1.17.15" target="_blank">v1.17.9 → v1.17.15</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/kms: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/kms/v1.35.3...service/kms/v1.38.1" target="_blank">v1.35.3 → v1.38.1</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/s3: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/s3/v1.55.1...service/s3/v1.58.3" target="_blank">v1.55.1 → v1.58.3</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/sso: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/sso/v1.22.4...service/sso/v1.25.1" target="_blank">v1.22.4 → v1.25.1</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/ssooidc: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/ssooidc/v1.26.4...service/ssooidc/v1.29.2" target="_blank">v1.26.4 → v1.29.2</a></li>
+<li>github.com/aws/aws-sdk-go-v2/service/sts: <a href="https://github.com/aws/aws-sdk-go-v2/compare/service/sts/v1.30.3...service/sts/v1.33.17" target="_blank">v1.30.3 → v1.33.17</a></li>
+<li>github.com/aws/aws-sdk-go-v2: <a href="https://github.com/aws/aws-sdk-go-v2/compare/v1.30.3...v1.36.3" target="_blank">v1.30.3 → v1.36.3</a></li>
+<li>github.com/aws/aws-sdk-go: <a href="https://github.com/aws/aws-sdk-go/compare/v1.55.5...v1.55.6" target="_blank">v1.55.5 → v1.55.6</a></li>
+<li>github.com/aws/smithy-go: <a href="https://github.com/aws/smithy-go/compare/v1.20.3...v1.22.2" target="_blank">v1.20.3 → v1.22.2</a></li>
+<li>github.com/buildkite/agent/v3: <a href="https://github.com/buildkite/agent/compare/v3.62.0...v3.81.0" target="_blank">v3.62.0 → v3.81.0</a></li>
+<li>github.com/buildkite/go-pipeline: <a href="https://github.com/buildkite/go-pipeline/compare/v0.3.2...v0.13.1" target="_blank">v0.3.2 → v0.13.1</a></li>
+<li>github.com/buildkite/interpolate: <a href="https://github.com/buildkite/interpolate/compare/07f35b4...v0.1.3" target="_blank">07f35b4 → v0.1.3</a></li>
+<li>github.com/census-instrumentation/opencensus-proto: <a href="https://github.com/census-instrumentation/opencensus-proto/compare/v0.4.1...v0.2.1" target="_blank">v0.4.1 → v0.2.1</a></li>
+<li>github.com/cilium/ebpf: <a href="https://github.com/cilium/ebpf/compare/v0.16.0...v0.17.3" target="_blank">v0.16.0 → v0.17.3</a></li>
+<li>github.com/cncf/udpa/go: <a href="https://github.com/cncf/udpa/compare/c52dc94...269d4d4" target="_blank">c52dc94 → 269d4d4</a></li>
+<li>github.com/cncf/xds/go: <a href="https://github.com/cncf/xds/compare/b4127c9...2f00578" target="_blank">b4127c9 → 2f00578</a></li>
+<li>github.com/containerd/cgroups/v3: <a href="https://github.com/containerd/cgroups/compare/v3.0.3...v3.0.5" target="_blank">v3.0.3 → v3.0.5</a></li>
+<li>github.com/containerd/containerd/api: <a href="https://github.com/containerd/containerd/compare/api/v1.8.0...api/v1.9.0" target="_blank">v1.8.0 → v1.9.0</a></li>
+<li>github.com/containerd/containerd: <a href="https://github.com/containerd/containerd/compare/v1.7.24...v1.7.27" target="_blank">v1.7.24 → v1.7.27</a></li>
+<li>github.com/containerd/continuity: <a href="https://github.com/containerd/continuity/compare/v0.4.2...v0.4.4" target="_blank">v0.4.2 → v0.4.4</a></li>
+<li>github.com/containerd/errdefs: <a href="https://github.com/containerd/errdefs/compare/v0.3.0...v1.0.0" target="_blank">v0.3.0 → v1.0.0</a></li>
+<li>github.com/containerd/nri: <a href="https://github.com/containerd/nri/compare/v0.9.0...e597e78" target="_blank">v0.9.0 → e597e78</a></li>
+<li>github.com/containerd/otelttrpc: <a href="https://github.com/containerd/otelttrpc/compare/ea5083f...v0.1.0" target="_blank">ea5083f → v0.1.0</a></li>
+<li>github.com/containerd/stargz-snapshotter/estargz: <a href="https://github.com/containerd/stargz-snapshotter/compare/estargz/v0.15.1...estargz/v0.16.3" target="_blank">v0.15.1 → v0.16.3</a></li>
+<li>github.com/containerd/ttrpc: <a href="https://github.com/containerd/ttrpc/compare/b5cd6e4...v1.2.7" target="_blank">b5cd6e4 → v1.2.7</a></li>
+<li>github.com/containerd/typeurl/v2: <a href="https://github.com/containerd/typeurl/compare/v2.2.0...v2.2.3" target="_blank">v2.2.0 → v2.2.3</a></li>
+<li>github.com/containernetworking/cni: <a href="https://github.com/containernetworking/cni/compare/v1.2.3...v1.3.0" target="_blank">v1.2.3 → v1.3.0</a></li>
+<li>github.com/containernetworking/plugins: <a href="https://github.com/containernetworking/plugins/compare/v1.6.1...v1.7.1" target="_blank">v1.6.1 → v1.7.1</a></li>
+<li>github.com/containers/common: <a href="https://github.com/containers/common/compare/v0.61.0...v0.63.0" target="_blank">v0.61.0 → v0.63.0</a></li>
+<li>github.com/containers/image/v5: <a href="https://github.com/containers/image/compare/v5.33.0...v5.35.0" target="_blank">v5.33.0 → v5.35.0</a></li>
+<li>github.com/containers/ocicrypt: <a href="https://github.com/containers/ocicrypt/compare/v1.2.0...v1.2.1" target="_blank">v1.2.0 → v1.2.1</a></li>
+<li>github.com/containers/storage: <a href="https://github.com/containers/storage/compare/v1.56.0...v1.58.0" target="_blank">v1.56.0 → v1.58.0</a></li>
+<li>github.com/coreos/go-oidc/v3: <a href="https://github.com/coreos/go-oidc/compare/v3.11.0...v3.13.0" target="_blank">v3.11.0 → v3.13.0</a></li>
+<li>github.com/coreos/go-oidc: <a href="https://github.com/coreos/go-oidc/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1+incompatible → v2.3.0+incompatible</a></li>
+<li>github.com/cpuguy83/go-md2man/v2: <a href="https://github.com/cpuguy83/go-md2man/compare/v2.0.5...v2.0.6" target="_blank">v2.0.5 → v2.0.6</a></li>
+<li>github.com/cyberphone/json-canonicalization: <a href="https://github.com/cyberphone/json-canonicalization/compare/ba74d44...19d51d7" target="_blank">ba74d44 → 19d51d7</a></li>
+<li>github.com/cyphar/filepath-securejoin: <a href="https://github.com/cyphar/filepath-securejoin/compare/v0.3.5...v0.4.1" target="_blank">v0.3.5 → v0.4.1</a></li>
+<li>github.com/danieljoos/wincred: <a href="https://github.com/danieljoos/wincred/compare/v1.2.1...v1.2.2" target="_blank">v1.2.1 → v1.2.2</a></li>
+<li>github.com/docker/cli: <a href="https://github.com/docker/cli/compare/v27.3.1...v28.0.4" target="_blank">v27.3.1+incompatible → v28.0.4+incompatible</a></li>
+<li>github.com/docker/docker-credential-helpers: <a href="https://github.com/docker/docker-credential-helpers/compare/v0.8.2...v0.9.3" target="_blank">v0.8.2 → v0.9.3</a></li>
+<li>github.com/docker/docker: <a href="https://github.com/docker/docker/compare/v27.3.1...v28.0.4" target="_blank">v27.3.1+incompatible → v28.0.4+incompatible</a></li>
+<li>github.com/elazarl/goproxy: <a href="https://github.com/elazarl/goproxy/compare/2592e75...v1.4.0" target="_blank">2592e75 → v1.4.0</a></li>
+<li>github.com/envoyproxy/go-control-plane: <a href="https://github.com/envoyproxy/go-control-plane/compare/v0.13.0...v0.13.4" target="_blank">v0.13.0 → v0.13.4</a></li>
+<li>github.com/envoyproxy/protoc-gen-validate: <a href="https://github.com/envoyproxy/protoc-gen-validate/compare/v1.1.0...v1.2.1" target="_blank">v1.1.0 → v1.2.1</a></li>
+<li>github.com/fsnotify/fsnotify: <a href="https://github.com/fsnotify/fsnotify/compare/v1.8.0...v1.9.0" target="_blank">v1.8.0 → v1.9.0</a></li>
+<li>github.com/gliderlabs/ssh: <a href="https://github.com/gliderlabs/ssh/compare/v0.3.7...v0.3.8" target="_blank">v0.3.7 → v0.3.8</a></li>
+<li>github.com/go-chi/chi/v5: <a href="https://github.com/go-chi/chi/compare/v5.1.0...v5.2.1" target="_blank">v5.1.0 → v5.2.1</a></li>
+<li>github.com/go-git/go-billy/v5: <a href="https://github.com/go-git/go-billy/compare/v5.5.0...v5.6.2" target="_blank">v5.5.0 → v5.6.2</a></li>
+<li>github.com/go-git/go-git/v5: <a href="https://github.com/go-git/go-git/compare/v5.12.0...v5.13.2" target="_blank">v5.12.0 → v5.13.2</a></li>
+<li>github.com/go-jose/go-jose/v4: <a href="https://github.com/go-jose/go-jose/compare/v4.0.4...v4.0.5" target="_blank">v4.0.4 → v4.0.5</a></li>
+<li>github.com/go-kit/log: <a href="https://github.com/go-kit/log/compare/v0.2.1...v0.1.0" target="_blank">v0.2.1 → v0.1.0</a></li>
+<li>github.com/go-logfmt/logfmt: <a href="https://github.com/go-logfmt/logfmt/compare/v0.5.1...v0.5.0" target="_blank">v0.5.1 → v0.5.0</a></li>
+<li>github.com/go-openapi/errors: <a href="https://github.com/go-openapi/errors/compare/v0.22.0...v0.22.1" target="_blank">v0.22.0 → v0.22.1</a></li>
+<li>github.com/go-openapi/swag: <a href="https://github.com/go-openapi/swag/compare/v0.23.0...v0.23.1" target="_blank">v0.23.0 → v0.23.1</a></li>
+<li>github.com/go-sql-driver/mysql: <a href="https://github.com/go-sql-driver/mysql/compare/v1.8.1...v1.9.1" target="_blank">v1.8.1 → v1.9.1</a></li>
+<li>github.com/golang-jwt/jwt/v4: <a href="https://github.com/golang-jwt/jwt/compare/v4.5.0...v4.5.2" target="_blank">v4.5.0 → v4.5.2</a></li>
+<li>github.com/golang-jwt/jwt/v5: <a href="https://github.com/golang-jwt/jwt/compare/v5.2.1...v5.2.2" target="_blank">v5.2.1 → v5.2.2</a></li>
+<li>github.com/golang/glog: <a href="https://github.com/golang/glog/compare/v1.2.2...v1.2.4" target="_blank">v1.2.2 → v1.2.4</a></li>
+<li>github.com/golang/groupcache: <a href="https://github.com/golang/groupcache/compare/41bb18b...2c02b82" target="_blank">41bb18b → 2c02b82</a></li>
+<li>github.com/google/btree: <a href="https://github.com/google/btree/compare/v1.0.1...v1.1.3" target="_blank">v1.0.1 → v1.1.3</a></li>
+<li>github.com/google/cel-go: <a href="https://github.com/google/cel-go/compare/v0.20.1...v0.23.2" target="_blank">v0.20.1 → v0.23.2</a></li>
+<li>github.com/google/certificate-transparency-go: <a href="https://github.com/google/certificate-transparency-go/compare/v1.2.1...v1.3.1" target="_blank">v1.2.1 → v1.3.1</a></li>
+<li>github.com/google/gnostic-models: <a href="https://github.com/google/gnostic-models/compare/c7be7c7...v0.6.9" target="_blank">c7be7c7 → v0.6.9</a></li>
+<li>github.com/google/go-cmp: <a href="https://github.com/google/go-cmp/compare/v0.6.0...v0.7.0" target="_blank">v0.6.0 → v0.7.0</a></li>
+<li>github.com/google/go-containerregistry: <a href="https://github.com/google/go-containerregistry/compare/v0.20.2...v0.20.3" target="_blank">v0.20.2 → v0.20.3</a></li>
+<li>github.com/google/pprof: <a href="https://github.com/google/pprof/compare/d1b30fe...27863c8" target="_blank">d1b30fe → 27863c8</a></li>
+<li>github.com/google/s2a-go: <a href="https://github.com/google/s2a-go/compare/v0.1.8...v0.1.9" target="_blank">v0.1.8 → v0.1.9</a></li>
+<li>github.com/google/trillian: <a href="https://github.com/google/trillian/compare/v1.6.0...v1.7.1" target="_blank">v1.6.0 → v1.7.1</a></li>
+<li>github.com/googleapis/enterprise-certificate-proxy: <a href="https://github.com/googleapis/enterprise-certificate-proxy/compare/v0.3.2...v0.3.6" target="_blank">v0.3.2 → v0.3.6</a></li>
+<li>github.com/googleapis/gax-go/v2: <a href="https://github.com/googleapis/gax-go/compare/v2.13.0...v2.14.1" target="_blank">v2.13.0 → v2.14.1</a></li>
+<li>github.com/gorilla/websocket: <a href="https://github.com/gorilla/websocket/compare/v1.5.0...e064f32" target="_blank">v1.5.0 → e064f32</a></li>
+<li>github.com/gregjones/httpcache: <a href="https://github.com/gregjones/httpcache/compare/9cad4c3...901d907" target="_blank">9cad4c3 → 901d907</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/compare/v2.23.0...v2.26.1" target="_blank">v2.23.0 → v2.26.1</a></li>
+<li>github.com/hashicorp/vault/api: <a href="https://github.com/hashicorp/vault/compare/api/v1.14.0...api/v1.16.0" target="_blank">v1.14.0 → v1.16.0</a></li>
+<li>github.com/jellydator/ttlcache/v3: <a href="https://github.com/jellydator/ttlcache/compare/v3.2.0...v3.3.0" target="_blank">v3.2.0 → v3.3.0</a></li>
+<li>github.com/jmespath/go-jmespath: <a href="https://github.com/jmespath/go-jmespath/compare/v0.4.0...b0104c8" target="_blank">v0.4.0 → b0104c8</a></li>
+<li>github.com/jmoiron/sqlx: <a href="https://github.com/jmoiron/sqlx/compare/v1.3.5...v1.4.0" target="_blank">v1.3.5 → v1.4.0</a></li>
+<li>github.com/jonboulle/clockwork: <a href="https://github.com/jonboulle/clockwork/compare/v0.2.2...v0.4.0" target="_blank">v0.2.2 → v0.4.0</a></li>
+<li>github.com/klauspost/compress: <a href="https://github.com/klauspost/compress/compare/v1.17.11...v1.18.0" target="_blank">v1.17.11 → v1.18.0</a></li>
+<li>github.com/klauspost/cpuid/v2: <a href="https://github.com/klauspost/cpuid/compare/v2.0.9...v2.0.4" target="_blank">v2.0.9 → v2.0.4</a></li>
+<li>github.com/magiconair/properties: <a href="https://github.com/magiconair/properties/compare/v1.8.7...v1.8.9" target="_blank">v1.8.7 → v1.8.9</a></li>
+<li>github.com/mailru/easyjson: <a href="https://github.com/mailru/easyjson/compare/v0.7.7...v0.9.0" target="_blank">v0.7.7 → v0.9.0</a></li>
+<li>github.com/mattn/go-sqlite3: <a href="https://github.com/mattn/go-sqlite3/compare/v1.14.24...v1.14.27" target="_blank">v1.14.24 → v1.14.27</a></li>
+<li>github.com/maxbrunsfeld/counterfeiter/v6: <a href="https://github.com/maxbrunsfeld/counterfeiter/compare/v6.8.1...v6.11.2" target="_blank">v6.8.1 → v6.11.2</a></li>
+<li>github.com/moby/spdystream: <a href="https://github.com/moby/spdystream/compare/v0.4.0...v0.5.0" target="_blank">v0.4.0 → v0.5.0</a></li>
+<li>github.com/moby/sys/capability: <a href="https://github.com/moby/sys/compare/capability/v0.3.0...capability/v0.4.0" target="_blank">v0.3.0 → v0.4.0</a></li>
+<li>github.com/moby/sys/user: <a href="https://github.com/moby/sys/compare/user/v0.3.0...user/v0.4.0" target="_blank">v0.3.0 → v0.4.0</a></li>
+<li>github.com/moby/term: <a href="https://github.com/moby/term/compare/v0.5.0...v0.5.2" target="_blank">v0.5.0 → v0.5.2</a></li>
+<li>github.com/mozillazg/docker-credential-acr-helper: <a href="https://github.com/mozillazg/docker-credential-acr-helper/compare/v0.3.0...v0.4.0" target="_blank">v0.3.0 → v0.4.0</a></li>
+<li>github.com/oleiade/reflections: <a href="https://github.com/oleiade/reflections/compare/v1.0.1...v1.1.0" target="_blank">v1.0.1 → v1.1.0</a></li>
+<li>github.com/onsi/ginkgo/v2: <a href="https://github.com/onsi/ginkgo/compare/v2.22.0...v2.23.4" target="_blank">v2.22.0 → v2.23.4</a></li>
+<li>github.com/onsi/gomega: <a href="https://github.com/onsi/gomega/compare/v1.36.0...v1.37.0" target="_blank">v1.36.0 → v1.37.0</a></li>
+<li>github.com/opencontainers/image-spec: <a href="https://github.com/opencontainers/image-spec/compare/v1.1.0...v1.1.1" target="_blank">v1.1.0 → v1.1.1</a></li>
+<li>github.com/opencontainers/runc: <a href="https://github.com/opencontainers/runc/compare/v1.2.1...v1.2.6" target="_blank">v1.2.1 → v1.2.6</a></li>
+<li>github.com/opencontainers/runtime-spec: <a href="https://github.com/opencontainers/runtime-spec/compare/v1.2.0...v1.2.1" target="_blank">v1.2.0 → v1.2.1</a></li>
+<li>github.com/opencontainers/runtime-tools: <a href="https://github.com/opencontainers/runtime-tools/compare/6c9570a...260e151" target="_blank">6c9570a → 260e151</a></li>
+<li>github.com/opencontainers/selinux: <a href="https://github.com/opencontainers/selinux/compare/v1.11.1...v1.12.0" target="_blank">v1.11.1 → v1.12.0</a></li>
+<li>github.com/pjbgf/sha1cd: <a href="https://github.com/pjbgf/sha1cd/compare/v0.3.0...v0.3.2" target="_blank">v0.3.0 → v0.3.2</a></li>
+<li>github.com/pkg/sftp: <a href="https://github.com/pkg/sftp/compare/v1.13.7...v1.13.9" target="_blank">v1.13.7 → v1.13.9</a></li>
+<li>github.com/proglottis/gpgme: <a href="https://github.com/proglottis/gpgme/compare/v0.1.3...v0.1.4" target="_blank">v0.1.3 → v0.1.4</a></li>
+<li>github.com/prometheus/client_golang: <a href="https://github.com/prometheus/client_golang/compare/v1.20.5...v1.22.0" target="_blank">v1.20.5 → v1.22.0</a></li>
+<li>github.com/prometheus/common: <a href="https://github.com/prometheus/common/compare/v0.57.0...v0.62.0" target="_blank">v0.57.0 → v0.62.0</a></li>
+<li>github.com/redis/go-redis/v9: <a href="https://github.com/redis/go-redis/compare/v9.5.1...v9.7.3" target="_blank">v9.5.1 → v9.7.3</a></li>
+<li>github.com/rs/cors: <a href="https://github.com/rs/cors/compare/v1.11.0...v1.11.1" target="_blank">v1.11.0 → v1.11.1</a></li>
+<li>github.com/safchain/ethtool: <a href="https://github.com/safchain/ethtool/compare/v0.5.9...v0.5.10" target="_blank">v0.5.9 → v0.5.10</a></li>
+<li>github.com/seccomp/libseccomp-golang: <a href="https://github.com/seccomp/libseccomp-golang/compare/v0.10.0...v0.11.0" target="_blank">v0.10.0 → v0.11.0</a></li>
+<li>github.com/secure-systems-lab/go-securesystemslib: <a href="https://github.com/secure-systems-lab/go-securesystemslib/compare/v0.8.0...v0.9.0" target="_blank">v0.8.0 → v0.9.0</a></li>
+<li>github.com/sigstore/cosign/v2: <a href="https://github.com/sigstore/cosign/compare/v2.2.4...v2.4.1" target="_blank">v2.2.4 → v2.4.1</a></li>
+<li>github.com/sigstore/fulcio: <a href="https://github.com/sigstore/fulcio/compare/v1.6.4...v1.6.6" target="_blank">v1.6.4 → v1.6.6</a></li>
+<li>github.com/sigstore/protobuf-specs: <a href="https://github.com/sigstore/protobuf-specs/compare/v0.3.0...v0.4.1" target="_blank">v0.3.0 → v0.4.1</a></li>
+<li>github.com/sigstore/rekor: <a href="https://github.com/sigstore/rekor/compare/v1.3.6...v1.3.10" target="_blank">v1.3.6 → v1.3.10</a></li>
+<li>github.com/sigstore/sigstore/pkg/signature/kms/aws: <a href="https://github.com/sigstore/sigstore/compare/pkg/signature/kms/aws/v1.8.8...pkg/signature/kms/aws/v1.9.1" target="_blank">v1.8.8 → v1.9.1</a></li>
+<li>github.com/sigstore/sigstore/pkg/signature/kms/azure: <a href="https://github.com/sigstore/sigstore/compare/pkg/signature/kms/azure/v1.8.8...pkg/signature/kms/azure/v1.9.1" target="_blank">v1.8.8 → v1.9.1</a></li>
+<li>github.com/sigstore/sigstore/pkg/signature/kms/gcp: <a href="https://github.com/sigstore/sigstore/compare/pkg/signature/kms/gcp/v1.8.8...pkg/signature/kms/gcp/v1.9.1" target="_blank">v1.8.8 → v1.9.1</a></li>
+<li>github.com/sigstore/sigstore/pkg/signature/kms/hashivault: <a href="https://github.com/sigstore/sigstore/compare/pkg/signature/kms/hashivault/v1.8.8...pkg/signature/kms/hashivault/v1.9.1" target="_blank">v1.8.8 → v1.9.1</a></li>
+<li>github.com/sigstore/sigstore: <a href="https://github.com/sigstore/sigstore/compare/v1.8.9...v1.9.3" target="_blank">v1.8.9 → v1.9.3</a></li>
+<li>github.com/skeema/knownhosts: <a href="https://github.com/skeema/knownhosts/compare/v1.3.0...v1.3.1" target="_blank">v1.3.0 → v1.3.1</a></li>
+<li>github.com/spf13/cast: <a href="https://github.com/spf13/cast/compare/v1.6.0...v1.7.0" target="_blank">v1.6.0 → v1.7.0</a></li>
+<li>github.com/spf13/cobra: <a href="https://github.com/spf13/cobra/compare/v1.8.1...v1.9.1" target="_blank">v1.8.1 → v1.9.1</a></li>
+<li>github.com/spf13/pflag: <a href="https://github.com/spf13/pflag/compare/v1.0.5...v1.0.6" target="_blank">v1.0.5 → v1.0.6</a></li>
+<li>github.com/spiffe/go-spiffe/v2: <a href="https://github.com/spiffe/go-spiffe/compare/v2.3.0...v2.5.0" target="_blank">v2.3.0 → v2.5.0</a></li>
+<li>github.com/stoewer/go-strcase: <a href="https://github.com/stoewer/go-strcase/compare/v1.2.0...v1.3.0" target="_blank">v1.2.0 → v1.3.0</a></li>
+<li>github.com/sylabs/sif/v2: <a href="https://github.com/sylabs/sif/compare/v2.19.1...v2.21.1" target="_blank">v2.19.1 → v2.21.1</a></li>
+<li>github.com/tchap/go-patricia/v2: <a href="https://github.com/tchap/go-patricia/compare/v2.3.1...v2.3.2" target="_blank">v2.3.1 → v2.3.2</a></li>
+<li>github.com/urfave/cli/v2: <a href="https://github.com/urfave/cli/compare/v2.27.5...v2.27.6" target="_blank">v2.27.5 → v2.27.6</a></li>
+<li>github.com/urfave/cli: <a href="https://github.com/urfave/cli/compare/v1.22.15...v1.22.16" target="_blank">v1.22.15 → v1.22.16</a></li>
+<li>github.com/uwu-tools/magex: <a href="https://github.com/uwu-tools/magex/compare/v0.10.0...v0.10.1" target="_blank">v0.10.0 → v0.10.1</a></li>
+<li>github.com/vbatts/tar-split: <a href="https://github.com/vbatts/tar-split/compare/v0.11.6...v0.12.1" target="_blank">v0.11.6 → v0.12.1</a></li>
+<li>github.com/vbauerster/mpb/v8: <a href="https://github.com/vbauerster/mpb/compare/v8.8.3...v8.9.3" target="_blank">v8.8.3 → v8.9.3</a></li>
+<li>github.com/veraison/go-cose: <a href="https://github.com/veraison/go-cose/compare/v1.2.1...v1.3.0" target="_blank">v1.2.1 → v1.3.0</a></li>
+<li>github.com/vishvananda/netlink: <a href="https://github.com/vishvananda/netlink/compare/v1.3.0...0e7078e" target="_blank">v1.3.0 → 0e7078e</a></li>
+<li>github.com/vishvananda/netns: <a href="https://github.com/vishvananda/netns/compare/v0.0.4...v0.0.5" target="_blank">v0.0.4 → v0.0.5</a></li>
+<li>github.com/xanzy/go-gitlab: <a href="https://github.com/xanzy/go-gitlab/compare/v0.102.0...v0.109.0" target="_blank">v0.102.0 → v0.109.0</a></li>
+<li>github.com/xiang90/probing: <a href="https://github.com/xiang90/probing/compare/43a291a...a49e3df" target="_blank">43a291a → a49e3df</a></li>
+<li>github.com/zeebo/errs: <a href="https://github.com/zeebo/errs/compare/v1.3.0...v1.4.0" target="_blank">v1.3.0 → v1.4.0</a></li>
+<li>go.etcd.io/bbolt: v1.3.11 → v1.4.0</li>
+<li>go.etcd.io/etcd/api/v3: v3.5.14 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/pkg/v3: v3.5.14 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/v2: v2.305.13 → v2.305.21</li>
+<li>go.etcd.io/etcd/client/v3: v3.5.14 → v3.5.21</li>
+<li>go.etcd.io/etcd/pkg/v3: v3.5.13 → v3.5.21</li>
+<li>go.etcd.io/etcd/raft/v3: v3.5.13 → v3.5.21</li>
+<li>go.etcd.io/etcd/server/v3: v3.5.13 → v3.5.21</li>
+<li>go.mozilla.org/pkcs7: 33d0574 → 432b235</li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.57.0 → v0.60.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: v0.53.0 → v0.59.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.32.0 → v1.35.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp: v1.21.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.32.0 → v1.35.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.32.0 → v1.35.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.32.0 → v1.35.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.32.0 → v1.35.0</li>
+<li>go.opentelemetry.io/otel: v1.32.0 → v1.35.0</li>
+<li>go.opentelemetry.io/proto/otlp: v1.3.1 → v1.5.0</li>
+<li>go.step.sm/crypto: v0.51.1 → v0.60.0</li>
+<li>go.uber.org/mock: v0.5.0 → v0.5.2</li>
+<li>gocloud.dev: v0.37.0 → v0.40.0</li>
+<li>golang.org/x/crypto: v0.29.0 → v0.38.0</li>
+<li>golang.org/x/exp: f66d83c → 2d47ceb</li>
+<li>golang.org/x/lint: 6edffad → 1621716</li>
+<li>golang.org/x/mod: v0.21.0 → v0.24.0</li>
+<li>golang.org/x/net: v0.30.0 → v0.40.0</li>
+<li>golang.org/x/oauth2: v0.23.0 → v0.29.0</li>
+<li>golang.org/x/sync: v0.9.0 → v0.14.0</li>
+<li>golang.org/x/sys: v0.28.0 → v0.33.0</li>
+<li>golang.org/x/term: v0.26.0 → v0.32.0</li>
+<li>golang.org/x/text: v0.20.0 → v0.25.0</li>
+<li>golang.org/x/time: v0.6.0 → v0.11.0</li>
+<li>golang.org/x/tools: v0.26.0 → v0.31.0</li>
+<li>golang.org/x/xerrors: 104605a → 93cc26a</li>
+<li>google.golang.org/api: v0.195.0 → v0.228.0</li>
+<li>google.golang.org/appengine: v1.6.8 → v1.6.7</li>
+<li>google.golang.org/genproto/googleapis/api: dd2ea8e → a0af3ef</li>
+<li>google.golang.org/genproto/googleapis/rpc: dd2ea8e → e70fdf4</li>
+<li>google.golang.org/genproto: 4ba0660 → a0af3ef</li>
+<li>google.golang.org/grpc: v1.68.0 → v1.72.0</li>
+<li>google.golang.org/protobuf: v1.35.1 → v1.36.6</li>
+<li>gotest.tools/v3: v3.5.1 → v3.5.2</li>
+<li>honnef.co/go/tools: v0.1.3 → ea95bdf</li>
+<li>k8s.io/api: v0.31.4 → v0.33.0</li>
+<li>k8s.io/apimachinery: v0.31.4 → v0.33.0</li>
+<li>k8s.io/apiserver: v0.31.4 → v0.33.0</li>
+<li>k8s.io/client-go: v0.31.4 → v0.33.0</li>
+<li>k8s.io/component-base: v0.31.4 → v0.33.0</li>
+<li>k8s.io/cri-api: v0.31.4 → v0.33.0</li>
+<li>k8s.io/cri-client: v0.31.4 → v0.33.0</li>
+<li>k8s.io/gengo/v2: 51d4e06 → a7b603a</li>
+<li>k8s.io/kms: v0.31.4 → v0.33.0</li>
+<li>k8s.io/kube-openapi: 70dd376 → c8a335a</li>
+<li>k8s.io/kubelet: v0.31.4 → v0.33.0</li>
+<li>k8s.io/utils: 18e509b → 24370be</li>
+<li>sigs.k8s.io/apiserver-network-proxy/konnectivity-client: v0.30.3 → v0.31.2</li>
+<li>sigs.k8s.io/json: bc3834c → 9aa6b5e</li>
+<li>sigs.k8s.io/release-sdk: v0.12.1 → v0.12.2</li>
+<li>sigs.k8s.io/release-utils: v0.8.5 → v0.11.1</li>
+<li>sigs.k8s.io/structured-merge-diff/v4: v4.4.1 → v4.6.0</li>
+<li>tags.cncf.io/container-device-interface/specs-go: v0.8.0 → v1.0.0</li>
+<li>tags.cncf.io/container-device-interface: v0.8.0 → v1.0.1</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<ul>
+<li>cloud.google.com/go/apikeys: v0.6.0</li>
+<li>cloud.google.com/go/dataproc: v1.12.0</li>
+<li>cloud.google.com/go/gaming: v1.9.0</li>
+<li>cloud.google.com/go/grafeas: v0.2.0</li>
+<li>cloud.google.com/go/recaptchaenterprise: v1.3.1</li>
+<li>cloud.google.com/go/servicecontrol: v1.11.1</li>
+<li>cloud.google.com/go/servicemanagement: v1.8.0</li>
+<li>cloud.google.com/go/serviceusage: v1.6.0</li>
+<li>cloud.google.com/go/vision: v1.2.0</li>
+<li>dmitri.shuralyov.com/gpu/mtl: 666a987</li>
+<li>gioui.org: 57750fc</li>
+<li>git.sr.ht/~sbinet/gg: v0.3.1</li>
+<li>github.com/AliyunContainerService/ack-ram-tool/pkg/credentials/alibabacloudsdkgo/helper: <a href="https://github.com/AliyunContainerService/ack-ram-tool/tree/pkg/credentials/alibabacloudsdkgo/helper/v0.2.0" target="_blank">v0.2.0</a></li>
+<li>github.com/BurntSushi/xgb: <a href="https://github.com/BurntSushi/xgb/tree/27f1227" target="_blank">27f1227</a></li>
+<li>github.com/JohnCGriffin/overflow: <a href="https://github.com/JohnCGriffin/overflow/tree/46fa312" target="_blank">46fa312</a></li>
+<li>github.com/ajstarks/deck/generate: <a href="https://github.com/ajstarks/deck/tree/c3f852c" target="_blank">c3f852c</a></li>
+<li>github.com/ajstarks/deck: <a href="https://github.com/ajstarks/deck/tree/30c9fc6" target="_blank">30c9fc6</a></li>
+<li>github.com/ajstarks/svgo: <a href="https://github.com/ajstarks/svgo/tree/1546f12" target="_blank">1546f12</a></li>
+<li>github.com/andybalholm/brotli: <a href="https://github.com/andybalholm/brotli/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/apache/arrow/go/v10: <a href="https://github.com/apache/arrow/tree/go/v10/v10.0.1" target="_blank">v10.0.1</a></li>
+<li>github.com/apache/arrow/go/v11: <a href="https://github.com/apache/arrow/tree/go/v11/v11.0.0" target="_blank">v11.0.0</a></li>
+<li>github.com/apache/thrift: <a href="https://github.com/apache/thrift/tree/v0.16.0" target="_blank">v0.16.0</a></li>
+<li>github.com/boombuler/barcode: <a href="https://github.com/boombuler/barcode/tree/v1.0.1" target="_blank">v1.0.1</a></li>
+<li>github.com/cenkalti/backoff/v3: <a href="https://github.com/cenkalti/backoff/tree/v3.2.2" target="_blank">v3.2.2</a></li>
+<li>github.com/cespare/xxhash: <a href="https://github.com/cespare/xxhash/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/chainguard-dev/slogctx: <a href="https://github.com/chainguard-dev/slogctx/tree/v1.2.2" target="_blank">v1.2.2</a></li>
+<li>github.com/docopt/docopt-go: <a href="https://github.com/docopt/docopt-go/tree/ee0de3b" target="_blank">ee0de3b</a></li>
+<li>github.com/dsnet/compress: <a href="https://github.com/dsnet/compress/tree/f669936" target="_blank">f669936</a></li>
+<li>github.com/fogleman/gg: <a href="https://github.com/fogleman/gg/tree/v1.3.0" target="_blank">v1.3.0</a></li>
+<li>github.com/ghodss/yaml: <a href="https://github.com/ghodss/yaml/tree/v1.0.0" target="_blank">v1.0.0</a></li>
+<li>github.com/go-fonts/dejavu: <a href="https://github.com/go-fonts/dejavu/tree/v0.1.0" target="_blank">v0.1.0</a></li>
+<li>github.com/go-fonts/latin-modern: <a href="https://github.com/go-fonts/latin-modern/tree/v0.2.0" target="_blank">v0.2.0</a></li>
+<li>github.com/go-fonts/liberation: <a href="https://github.com/go-fonts/liberation/tree/v0.2.0" target="_blank">v0.2.0</a></li>
+<li>github.com/go-fonts/stix: <a href="https://github.com/go-fonts/stix/tree/v0.1.0" target="_blank">v0.1.0</a></li>
+<li>github.com/go-gl/glfw/v3.3/glfw: <a href="https://github.com/go-gl/glfw/tree/v3.3/glfw/6f7a984" target="_blank">6f7a984</a></li>
+<li>github.com/go-gl/glfw: <a href="https://github.com/go-gl/glfw/tree/e6da0ac" target="_blank">e6da0ac</a></li>
+<li>github.com/go-latex/latex: <a href="https://github.com/go-latex/latex/tree/c0d11ff" target="_blank">c0d11ff</a></li>
+<li>github.com/go-pdf/fpdf: <a href="https://github.com/go-pdf/fpdf/tree/v0.6.0" target="_blank">v0.6.0</a></li>
+<li>github.com/golang/freetype: <a href="https://github.com/golang/freetype/tree/e2365df" target="_blank">e2365df</a></li>
+<li>github.com/google/flatbuffers: <a href="https://github.com/google/flatbuffers/tree/v2.0.8" target="_blank">v2.0.8+incompatible</a></li>
+<li>github.com/google/martian/v3: <a href="https://github.com/google/martian/tree/v3.3.2" target="_blank">v3.3.2</a></li>
+<li>github.com/google/martian: <a href="https://github.com/google/martian/tree/v2.1.0" target="_blank">v2.1.0+incompatible</a></li>
+<li>github.com/google/tink/go: <a href="https://github.com/google/tink/tree/go/v1.7.0" target="_blank">v1.7.0</a></li>
+<li>github.com/googleapis/go-type-adapters: <a href="https://github.com/googleapis/go-type-adapters/tree/v1.0.0" target="_blank">v1.0.0</a></li>
+<li>github.com/googleapis/google-cloud-go-testing: <a href="https://github.com/googleapis/google-cloud-go-testing/tree/bcd43fb" target="_blank">bcd43fb</a></li>
+<li>github.com/iancoleman/strcase: <a href="https://github.com/iancoleman/strcase/tree/v0.2.0" target="_blank">v0.2.0</a></li>
+<li>github.com/jstemmer/go-junit-report: <a href="https://github.com/jstemmer/go-junit-report/tree/v0.9.1" target="_blank">v0.9.1</a></li>
+<li>github.com/jung-kurt/gofpdf: <a href="https://github.com/jung-kurt/gofpdf/tree/24315ac" target="_blank">24315ac</a></li>
+<li>github.com/kballard/go-shellquote: <a href="https://github.com/kballard/go-shellquote/tree/95032a8" target="_blank">95032a8</a></li>
+<li>github.com/klauspost/asmfmt: <a href="https://github.com/klauspost/asmfmt/tree/v1.3.2" target="_blank">v1.3.2</a></li>
+<li>github.com/lyft/protoc-gen-star/v2: <a href="https://github.com/lyft/protoc-gen-star/tree/v2.0.1" target="_blank">v2.0.1</a></li>
+<li>github.com/lyft/protoc-gen-star: <a href="https://github.com/lyft/protoc-gen-star/tree/v0.6.1" target="_blank">v0.6.1</a></li>
+<li>github.com/mholt/archiver/v3: <a href="https://github.com/mholt/archiver/tree/v3.5.1" target="_blank">v3.5.1</a></li>
+<li>github.com/minio/asm2plan9s: <a href="https://github.com/minio/asm2plan9s/tree/cdd7644" target="_blank">cdd7644</a></li>
+<li>github.com/minio/c2goasm: <a href="https://github.com/minio/c2goasm/tree/36a3d3b" target="_blank">36a3d3b</a></li>
+<li>github.com/mmcloughlin/avo: <a href="https://github.com/mmcloughlin/avo/tree/v0.5.0" target="_blank">v0.5.0</a></li>
+<li>github.com/nwaples/rardecode: <a href="https://github.com/nwaples/rardecode/tree/v1.1.3" target="_blank">v1.1.3</a></li>
+<li>github.com/phpdave11/gofpdf: <a href="https://github.com/phpdave11/gofpdf/tree/v1.4.2" target="_blank">v1.4.2</a></li>
+<li>github.com/phpdave11/gofpdi: <a href="https://github.com/phpdave11/gofpdi/tree/v1.0.13" target="_blank">v1.0.13</a></li>
+<li>github.com/pkg/diff: <a href="https://github.com/pkg/diff/tree/20ebb0f" target="_blank">20ebb0f</a></li>
+<li>github.com/remyoudompheng/bigfft: <a href="https://github.com/remyoudompheng/bigfft/tree/eec4a21" target="_blank">eec4a21</a></li>
+<li>github.com/ruudk/golang-pdf417: <a href="https://github.com/ruudk/golang-pdf417/tree/a7e3863" target="_blank">a7e3863</a></li>
+<li>github.com/spaolacci/murmur3: <a href="https://github.com/spaolacci/murmur3/tree/f09979e" target="_blank">f09979e</a></li>
+<li>github.com/xi2/xz: <a href="https://github.com/xi2/xz/tree/48954b6" target="_blank">48954b6</a></li>
+<li>github.com/zeebo/assert: <a href="https://github.com/zeebo/assert/tree/v1.3.0" target="_blank">v1.3.0</a></li>
+<li>github.com/zeebo/xxh3: <a href="https://github.com/zeebo/xxh3/tree/v1.0.2" target="_blank">v1.0.2</a></li>
+<li>golang.org/x/image: 723b81c</li>
+<li>golang.org/x/mobile: d2bd2a2</li>
+<li>gonum.org/v1/gonum: v0.11.0</li>
+<li>gonum.org/v1/netlib: 8cb4219</li>
+<li>gonum.org/v1/plot: v0.10.1</li>
+<li>gopkg.in/errgo.v2: v2.1.0</li>
+<li>gopkg.in/square/go-jose.v2: v2.6.0</li>
+<li>gotest.tools: v2.2.0+incompatible</li>
+<li>lukechampine.com/uint128: v1.2.0</li>
+<li>modernc.org/cc/v3: v3.36.3</li>
+<li>modernc.org/ccgo/v3: v3.16.9</li>
+<li>modernc.org/ccorpus: v1.11.6</li>
+<li>modernc.org/httpfs: v1.0.6</li>
+<li>modernc.org/libc: v1.17.1</li>
+<li>modernc.org/mathutil: v1.5.0</li>
+<li>modernc.org/memory: v1.2.1</li>
+<li>modernc.org/opt: v0.1.3</li>
+<li>modernc.org/sqlite: v1.18.1</li>
+<li>modernc.org/strutil: v1.1.3</li>
+<li>modernc.org/tcl: v1.13.1</li>
+<li>modernc.org/token: v1.0.0</li>
+<li>modernc.org/z: v1.5.1</li>
+<li>rsc.io/binaryregexp: v0.2.0</li>
+<li>rsc.io/pdf: v0.1.1</li>
+<li>rsc.io/quote/v3: v3.1.0</li>
+<li>rsc.io/sampler: v1.3.0</li>
+</ul>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.6.0</h3><h4>2025-05-15</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.6.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.6/upgrades/upgrade_3_6/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.6/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.6/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.0
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1 --no-same-owner
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.0
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.0
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl get foo
+</code></pre>
+<br>
+</body>
+
+</html>
