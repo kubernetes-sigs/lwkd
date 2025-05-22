@@ -45,6 +45,7 @@ var repos map[string][]string = map[string][]string{
 		"ingress-gce",
 		"kompose",
 		"cloud-provider-alibaba-cloud",
+		"autoscaler",
 	},
 	"kubernetes-sigs": {
 		"cluster-api",
