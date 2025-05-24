@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # To configure this pre-commit hook, copy this file to .git/hooks/pre-commit
-# Run `cp ./pre-commit.sh ./git/hooks/pre-commit`
+# Run `cp ./pre-commit.sh ./.git/hooks/pre-commit`
 # This script will update the time date key in the issue's frontmatter
 # if the latest file in _posts is touched.
 
