@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-06-04 - 2025-06-11</h1><h2>coredns/coredns</h2> <h3>Release notes for v1.12.2</h3><h4>2025-06-06</h4><p>This release introduces significant improvements to plugin stability and extensibility.
+It adds multicluster support to the Kubernetes plugin, fallthrough support in the file plugin,
+and a new SetProxyOptions function for the forward plugin.
+Notably, the QUIC (DoQ) plugin now limits concurrent streams, improving performance under load.
+Several bug fixes and optimizations improve reliability across plugins, including rewrite, proxy, and metrics.</p>
+
+<h2 id="brought-to-you-by">Brought to You By</h2>
+
+<p>Ambrose Chua,
+Arthur Outhenin-Chalandre,
+Ben Kochie,
+Colden Cullen,
+Gleb Kogtev,
+Hirotaka Tagawa,
+Kevin Lyda,
+Manuel Rüger,
+Mark Mickan,
+Parfenov Ivan,
+skipper,
+vdbe,
+Viktor Oreshkin,
+Ville Vesilehto,
+Yannick Epstein,
+Yong Tang</p>
+
+<h2 id="noteworthy-changes">Noteworthy Changes</h2>
+
+<ul>
+<li>core: Enable plugins via environment during build (<a href="https://github.com/coredns/coredns/pull/7310" target="_blank">https://github.com/coredns/coredns/pull/7310</a>)</li>
+<li>core: Ensure DNS query name reset in plugin.NS error path (<a href="https://github.com/coredns/coredns/pull/7142" target="_blank">https://github.com/coredns/coredns/pull/7142</a>)</li>
+<li>plugin/forward: Added SetProxyOptions function for forward plugin (<a href="https://github.com/coredns/coredns/pull/7229" target="_blank">https://github.com/coredns/coredns/pull/7229</a>)</li>
+<li>plugin/ready: Do not interrupt querying readiness probes for plugins (<a href="https://github.com/coredns/coredns/pull/6975" target="_blank">https://github.com/coredns/coredns/pull/6975</a>)</li>
+<li>plugin/secondary: Make transfer property mandatory (<a href="https://github.com/coredns/coredns/pull/7249" target="_blank">https://github.com/coredns/coredns/pull/7249</a>)</li>
+<li>plugin/rewrite: Truncated upstream response (<a href="https://github.com/coredns/coredns/pull/7277" target="_blank">https://github.com/coredns/coredns/pull/7277</a>)</li>
+<li>plugin/quic: Limit concurrent DoQ streams and goroutines (<a href="https://github.com/coredns/coredns/pull/7296" target="_blank">https://github.com/coredns/coredns/pull/7296</a>)</li>
+<li>plugin/kubernetes: Add multicluster support (<a href="https://github.com/coredns/coredns/pull/7266" target="_blank">https://github.com/coredns/coredns/pull/7266</a>)</li>
+<li>plugin/bind: Remove zone for link-local IPv4 (<a href="https://github.com/coredns/coredns/pull/7295" target="_blank">https://github.com/coredns/coredns/pull/7295</a>)</li>
+<li>plugin/metrics: Preserve request size from plugins (<a href="https://github.com/coredns/coredns/pull/7313" target="_blank">https://github.com/coredns/coredns/pull/7313</a>)</li>
+<li>plugin/proxy: Avoid Dial hang after Transport stopped (<a href="https://github.com/coredns/coredns/pull/7321" target="_blank">https://github.com/coredns/coredns/pull/7321</a>)</li>
+<li>plugin/file: Add fallthrough support (<a href="https://github.com/coredns/coredns/pull/7327" target="_blank">https://github.com/coredns/coredns/pull/7327</a>)</li>
+<li>plugin/kubernetes: Optimize AutoPath slice allocation (<a href="https://github.com/coredns/coredns/pull/7323" target="_blank">https://github.com/coredns/coredns/pull/7323</a>)</li>
+</ul>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.73.0</h3><h4>2025-06-07</h4><p>This is release 1.73.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gradient</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<p>As of this version, gRPC on MacOS &amp; iOS will utilize Abseil&rsquo;s synchronization features, aligning it with other platforms. Should you encounter any issues due to this update, you can disable it by enabling GPR_DISABLE_ABSEIL_SYNC. If you do this, please report any problems by filing a bug at <a href="https://github.com/grpc/grpc" target="_blank">https://github.com/grpc/grpc</a>.</p>
+
+<ul>
+<li>[Dep] Update Protobuf to v31.0. (<a href="https://github.com/grpc/grpc/pull/39392" target="_blank">#39392</a>)</li>
+<li>[Core] Added GPR_DISABLE_ABSEIL_SYNC. (<a href="https://github.com/grpc/grpc/pull/39562" target="_blank">#39562</a>)</li>
+<li>[xds_override_host] pass through per-endpoint args when creating subchannels. (<a href="https://github.com/grpc/grpc/pull/39532" target="_blank">#39532</a>)</li>
+<li>Expose GRPC_OPENSSL_CLEANUP_TIMEOUT to control shutdown grace period. (<a href="https://github.com/grpc/grpc/pull/39297" target="_blank">#39297</a>)</li>
+<li>[URI] fix parsing of user_info in proxy settings. (<a href="https://github.com/grpc/grpc/pull/39004" target="_blank">#39004</a>)</li>
+<li>[EventEngine] Fix busy loop in thread pool when shutting down. (<a href="https://github.com/grpc/grpc/pull/39258" target="_blank">#39258</a>)</li>
+<li>[Dep] Added a flag to build with <code>openssl</code> instead of <code>boringssl</code>. (<a href="https://github.com/grpc/grpc/pull/39188" target="_blank">#39188</a>)</li>
+<li>[EventEngine] Cleanup: EventEngine client, listener, and dns experiments are on by default on all platforms. (<a href="https://github.com/grpc/grpc/pull/39079" target="_blank">#39079</a>)</li>
+</ul>
+
+<h2 id="c">C++</h2>
+
+<ul>
+<li>[OpenCensus] Mark OpenCensus and dependent APIs as deprecated. (<a href="https://github.com/grpc/grpc/pull/39554" target="_blank">#39554</a>)</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Python] Pin Cython to 3.1.1. (<a href="https://github.com/grpc/grpc/pull/39609" target="_blank">#39609</a>)</li>
+<li>[Python] grpc_tools: make PythonGrpcGenerator handle dot <code>.</code> in proto paths the same way as native Generator/PyiGenerator. (<a href="https://github.com/grpc/grpc/pull/39586" target="_blank">#39586</a>)</li>
+</ul>
+
+<h2 id="ruby">Ruby</h2>
+
+<ul>
+<li>[Ruby] add remove_unused_artifacts to opt build. (<a href="https://github.com/grpc/grpc/pull/39593" target="_blank">#39593</a>)</li>
+</ul>
+<br><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for Release v1.33.0</h3><h4>2025-06-10</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>2.33 alpha charts by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2849" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2849</a></li>
+<li>Update issue templates by @kayrus in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2857" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2857</a></li>
+<li>Bump golang.org/x/net from 0.35.0 to 0.36.0 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2859" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2859</a></li>
+<li>[cinder-csi-plugin] Don&rsquo;t report topology capability when &ndash;with-topology=False by @stephenfin in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2862" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2862</a></li>
+<li>update security contacts by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2702" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2702</a></li>
+<li>[openstack-cloud-controller-manager (occm)] fix: wrap error to bubble it up by @cwrau in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2878" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2878</a></li>
+<li>Bump golang.org/x/net from 0.36.0 to 0.38.0 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2877" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2877</a></li>
+<li>k8s-keystone-auth: properly handle token with no project scope by @kayrus in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2880" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2880</a></li>
+<li>Add stephenfin to approvers, reviewers by @stephenfin in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2887" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2887</a></li>
+<li>[manila-csi-plugin] helm: add release namespace in manila csi chart by @okozachenko1203 in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2889" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2889</a></li>
+<li>[manila-csi-plugin] allow podSecurityContexts to be set in controllerplugin and nodeplugin by @xrisaD in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2759" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2759</a></li>
+<li>[manila-csi-plugin] helm: support additional volumes in manila csi chart by @okozachenko1203 in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2890" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2890</a></li>
+<li>Update openstack-cinder-csi helm chart for multi cloud support by @guillaumebernard84 in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2681" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2681</a></li>
+<li>[cinder-csi-plugin]: helm-charts: use /etc/config/ for cloud.conf by @garloff in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2892" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2892</a></li>
+<li>[all] update deps to 1.33 k8s by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2894" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2894</a></li>
+<li>update build images by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2900" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2900</a></li>
+<li>[occm] docs: remove deprecated apiserver flag from kubeadm.conf by @jxadl in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2899" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2899</a></li>
+<li>tests: Temporarily unblock gate with use of EOL Bobcat tags by @stephenfin in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2905" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2905</a></li>
+<li>release 1.33.0 by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2901" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2901</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@dependabot made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2859" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2859</a></li>
+<li>@okozachenko1203 made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2889" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2889</a></li>
+<li>@xrisaD made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2759" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2759</a></li>
+<li>@garloff made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2892" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2892</a></li>
+<li>@jxadl made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2899" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2899</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-openstack/compare/v1.32.0...v1.33.0" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/compare/v1.32.0&hellip;v1.33.0</a></p>
+<br><h3>Release notes for openstack-manila-csi-2.33.0</h3><h4>2025-06-08</h4><p>Manila CSI Chart for OpenStack</p>
+<br><h3>Release notes for openstack-cloud-controller-manager-2.33.0</h3><h4>2025-06-08</h4><p>Openstack Cloud Controller Manager Helm Chart</p>
+<br><h3>Release notes for openstack-cinder-csi-2.33.0</h3><h4>2025-06-08</h4><p>Cinder CSI Chart for OpenStack</p>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.6.1</h3><h4>2025-06-06</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.6.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.6/upgrades/upgrade_3_6/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.6/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.6/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.1
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1 --no-same-owner
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.1
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.1
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl get foo
+</code></pre>
+<br>
+</body>
+
+</html>
