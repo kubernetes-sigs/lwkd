@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-06-09 - 2025-06-16</h1><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.1.2</h3><h4>2025-06-12</h4><p>Welcome to the v2.1.2 release of containerd!</p>
+
+<p>The second patch release for containerd 2.1 contains various fixes and updates.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Fix check of wrapped errors in erofs snapshotter (<a href="https://github.com/containerd/containerd/pull/11935" target="_blank">#11935</a>)</li>
+</ul>
+
+<h4 id="go-client">Go client</h4>
+
+<ul>
+<li>Improve mount error message (<a href="https://github.com/containerd/containerd/pull/11884" target="_blank">#11884</a>)</li>
+</ul>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Fix transfer differ selection (<a href="https://github.com/containerd/containerd/pull/11936" target="_blank">#11936</a>)</li>
+<li>Enable DuplicationSuppressor in transfer service (<a href="https://github.com/containerd/containerd/pull/11932" target="_blank">#11932</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Properly shutdown non-groupable shims to prevent resource leaks (<a href="https://github.com/containerd/containerd/pull/11971" target="_blank">#11971</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Akihiro Suda</li>
+<li>Kirtana Ashok</li>
+<li>Austin Vazquez</li>
+<li>Maksym Pavlenko</li>
+<li>ningmingxiao</li>
+<li>Gao Xiang</li>
+<li>Henry Wang</li>
+<li>Jin Dong</li>
+<li>Phil Estes</li>
+<li>Wei Fu</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>28 commits</summary>
+<p>
+
+* Prepare release notes for v2.1.2 ([#11962](https://github.com/containerd/containerd/pull/11962))
+  * [`63b9eae62`](https://github.com/containerd/containerd/commit/63b9eae62e4a927269d3c7d1d0a50eb9095c1ee1) Prepare release notes for v2.1.2
+* Properly shutdown non-groupable shims to prevent resource leaks ([#11971](https://github.com/containerd/containerd/pull/11971))
+  * [`cff1feb28`](https://github.com/containerd/containerd/commit/cff1feb28c79f1f8f792f6284335f08f065bae1f) *: properly shutdown non-groupable shims to prevent resource leaks
+* ci: bump golang [1.23.10,1.24.4] in build and release ([#11968](https://github.com/containerd/containerd/pull/11968))
+  * [`2ce169aae`](https://github.com/containerd/containerd/commit/2ce169aae05d76f820ad977e8ea195938ced98a1) ci: bump golang [1.23.10,1.24.4] in build and release
+* Backport Enable CIs to run on WS2022 and WS2025 ([#11955](https://github.com/containerd/containerd/pull/11955))
+  * [`70bcb9b55`](https://github.com/containerd/containerd/commit/70bcb9b55edf9d832a4f8162a12830bcaf646695) Enable CIs to run on WS2022 and WS2025
+* cri:use debug level when receive exec process exited events ([#11848](https://github.com/containerd/containerd/pull/11848))
+  * [`40575a15f`](https://github.com/containerd/containerd/commit/40575a15f212903a838381fc893560a86ba8b485) cri:use debug level when receive exec process exited events
+* build(deps): bump google.golang.org/grpc from 1.72.0 to 1.72.2 ([#11952](https://github.com/containerd/containerd/pull/11952))
+  * [`c71f77170`](https://github.com/containerd/containerd/commit/c71f77170ef2640197884644acfe5ba28b3cf6ab) build(deps): bump google.golang.org/grpc from 1.72.0 to 1.72.2
+* Fix transfer differ selection ([#11936](https://github.com/containerd/containerd/pull/11936))
+  * [`4bcea74de`](https://github.com/containerd/containerd/commit/4bcea74decd64dcbf616f56b47cf8f5b4a2a586f) Update differ selection in transfer service to prefer default
+  * [`0c3cd8a99`](https://github.com/containerd/containerd/commit/0c3cd8a99529849ee2e3f9661ebfa937f3f9be66) Add debug log when transfer returns not implemented
+  * [`820e56765`](https://github.com/containerd/containerd/commit/820e56765083b50d0e8f4baf06f4804700f33a92) Add more error details when unpack fails to extract
+* Fetch image with default platform only in TestExportAndImportMultiLayer ([#11943](https://github.com/containerd/containerd/pull/11943))
+  * [`9b6c1949a`](https://github.com/containerd/containerd/commit/9b6c1949af50ee264d1d3a8b1aafd05149c4b8fe) Fetch image with default platform only in TestExportAndImportMultiLayer
+* Fix check of wrapped errors in erofs snapshotter ([#11935](https://github.com/containerd/containerd/pull/11935))
+  * [`480126f50`](https://github.com/containerd/containerd/commit/480126f5079e501228553038a584ce8542807d89) erofs-snapshotter: fix to work with wrapped errors
+* Enable DuplicationSuppressor in transfer service ([#11932](https://github.com/containerd/containerd/pull/11932))
+  * [`d82921ff5`](https://github.com/containerd/containerd/commit/d82921ff59cc91c1d75d35cc1cb3a5e709da9fdd) Enable DuplicationSuppressor in transfer service
+* ci: bump golang [1.23.9, 1.24.3] in build and release ([#11889](https://github.com/containerd/containerd/pull/11889))
+  * [`0bb25c3d6`](https://github.com/containerd/containerd/commit/0bb25c3d6cbb6eaf8d091b9f728776efdffe4859) ci: bump golang [1.23.9, 1.24.3] in build and release
+* Improve mount error message ([#11884](https://github.com/containerd/containerd/pull/11884))
+  * [`ac8e84efc`](https://github.com/containerd/containerd/commit/ac8e84efc384a728fbc498cf58f8c689263c857a) client:improve mount error message
+* Add symlink breakout test for overriden path ([#11887](https://github.com/containerd/containerd/pull/11887))
+  * [`dd2ce49d0`](https://github.com/containerd/containerd/commit/dd2ce49d0f23b0a190b86583c90a5a3eea4cdd4f) Add symlink breakout test for overriden path
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>google.golang.org/grpc</strong>  v1.72.0 -&gt; v1.72.2</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v2.1.1" target="_blank">v2.1.1</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.35 (Ubuntu 22.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on Linux distributions that do not use glibc &gt;= 2.35. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for Release v1.33.0</h3><h4>2025-06-10</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>2.33 alpha charts by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2849" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2849</a></li>
+<li>Update issue templates by @kayrus in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2857" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2857</a></li>
+<li>Bump golang.org/x/net from 0.35.0 to 0.36.0 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2859" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2859</a></li>
+<li>[cinder-csi-plugin] Don&rsquo;t report topology capability when &ndash;with-topology=False by @stephenfin in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2862" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2862</a></li>
+<li>update security contacts by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2702" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2702</a></li>
+<li>[openstack-cloud-controller-manager (occm)] fix: wrap error to bubble it up by @cwrau in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2878" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2878</a></li>
+<li>Bump golang.org/x/net from 0.36.0 to 0.38.0 by @dependabot in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2877" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2877</a></li>
+<li>k8s-keystone-auth: properly handle token with no project scope by @kayrus in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2880" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2880</a></li>
+<li>Add stephenfin to approvers, reviewers by @stephenfin in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2887" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2887</a></li>
+<li>[manila-csi-plugin] helm: add release namespace in manila csi chart by @okozachenko1203 in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2889" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2889</a></li>
+<li>[manila-csi-plugin] allow podSecurityContexts to be set in controllerplugin and nodeplugin by @xrisaD in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2759" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2759</a></li>
+<li>[manila-csi-plugin] helm: support additional volumes in manila csi chart by @okozachenko1203 in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2890" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2890</a></li>
+<li>Update openstack-cinder-csi helm chart for multi cloud support by @guillaumebernard84 in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2681" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2681</a></li>
+<li>[cinder-csi-plugin]: helm-charts: use /etc/config/ for cloud.conf by @garloff in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2892" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2892</a></li>
+<li>[all] update deps to 1.33 k8s by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2894" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2894</a></li>
+<li>update build images by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2900" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2900</a></li>
+<li>[occm] docs: remove deprecated apiserver flag from kubeadm.conf by @jxadl in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2899" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2899</a></li>
+<li>tests: Temporarily unblock gate with use of EOL Bobcat tags by @stephenfin in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2905" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2905</a></li>
+<li>release 1.33.0 by @zetaab in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2901" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2901</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@dependabot made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2859" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2859</a></li>
+<li>@okozachenko1203 made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2889" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2889</a></li>
+<li>@xrisaD made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2759" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2759</a></li>
+<li>@garloff made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2892" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2892</a></li>
+<li>@jxadl made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-openstack/pull/2899" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/pull/2899</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-openstack/compare/v1.32.0...v1.33.0" target="_blank">https://github.com/kubernetes/cloud-provider-openstack/compare/v1.32.0&hellip;v1.33.0</a></p>
+<br>
+</body>
+
+</html>
