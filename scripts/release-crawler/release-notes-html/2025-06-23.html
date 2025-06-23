@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-06-16 - 2025-06-23</h1><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.11.0-alpha.1</h3><h4>2025-06-17</h4><dl>
+<dt><summary>More details about the release</summary></dt>
+</dl>
+
+<p>:warning: <strong>ALPHA RELEASE NOTES</strong> :warning:</p>
+
+<h2 id="changes-since-v1-10-0">Changes since v1.10.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>186 new commits merged</li>
+<li>45 breaking changes :warning:</li>
+<li>12 feature additions ✨</li>
+<li>25 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="warning-breaking-changes">:warning: Breaking Changes</h2>
+
+<ul>
+<li>API: Add CAPD v1beta2 types (#12226)</li>
+<li>API: Add v1beta2 types (#12037)</li>
+<li>API: Change .status.replicas fields to pointer + omitempty (#12250)</li>
+<li>API/Conditions: add V1Beta1 suffix and remove V1Beta2 suffix from condition types and reasons in v1beta2 packages (#12091)</li>
+<li>API: Migrate API to use *Seconds instead of metav1.Duration fields (#12327)</li>
+<li>API: Move APIs to ./api (#12262)</li>
+<li>API: Remove DefaulterRemoveUnknownOrOmitableFields mutating webhook option (#12290)</li>
+<li>API: Promote v1beta2 conditions (#12066)</li>
+<li>API: Remove DefaulterRemoveUnknownOrOmitableFields mutating webhook option (#12231)</li>
+<li>API: Remove IPFamily from public APIs (move to CAPD/kind util) (#12215)</li>
+<li>CABPK: Align KubeadmConfig to kubeadm v1beta4 types (#12282)</li>
+<li>Cluster: Remove deprecated index ByClusterClassName, ClusterByClusterClassClassName and ClusterClassNameField (#12269)</li>
+<li>ClusterClass: Drop unnecessary fields from ClusterClass template references (#12358)</li>
+<li>ClusterClass: Move infrastructure namingStrategy field in ClusterClass (#12216)</li>
+<li>ClusterClass: Remove ClusterVariable.DefinitionFrom field (#12202)</li>
+<li>ClusterClass: Remove deprecated Cluster.spec.topology.rolloutAfter field (#12268)</li>
+<li>ClusterClass: Remove deprecated ClusterCacheTracker and corresponding types (#12270)</li>
+<li>ClusterClass: Rename deprecated ClusterClass Metadata fields to DeprecatedV1Beta1Metadata (#12273)</li>
+<li>ClusterClass: Rename runtime extension fields in ClusterClass ExternalPatchDefinition (#12281)</li>
+<li>ClusterClass: Restructure classRef field in Cluster.spec.topology (#12235)</li>
+<li>clusterctl: Clusterctl describe defaults to v1beta2 (#12369)</li>
+<li>clusterctl: Remove clusterctl alpha topology plan (#12283)</li>
+<li>ClusterResourceSet: Make clusterName field in ClusterResourceSetBinding required (#12276)</li>
+<li>ClusterResourceSet: Remove deprecated ClusterResourceSetBinding.DeleteBinding method (#12267)</li>
+<li>Conditions: Swap condition packages (#12086)</li>
+<li>Dependency: Bump to controller-runtime v0.21 / controller-tools v0.18 / k8s.io/* v0.33 / move to randfill (#12191)</li>
+<li>IPAM: Refactor reference types for IPAM (#12365)</li>
+<li>Machine: Drop unnecessary fields from Machine status.nodeRef (#12352)</li>
+<li>MachineDeployment: Drop revisionHistory in MachineDeployment (#12274)</li>
+<li>MachineDeployment: Remove MD spec.progressDeadlineSeconds (#12232)</li>
+<li>MachineHealthCheck: Rename MHC unhealthyConditions to unhealthyNodeConditions (#12245)</li>
+<li>API/Cluster: Add initialization to Cluster status (#12098)</li>
+<li>API/Control-plane/Bootstrap/KCP/CABPK/Cluster: Implement v1beta2 contract in cluster controller, KCP, CABPK (#12094)</li>
+<li>API/KCP/CABPK/CI: Enable nomaps linter, Remove unused kubeadm ClusterStatus struct, Migrate Cluster.status.failureDomains to array (#12083)</li>
+<li>API/Machine: Add initialization to Machine Status (#12101)</li>
+<li>API/MachinePool: Add initialization to MachinePool Status (#12102)</li>
+<li>clusterctl/Documentation: Remove reference and configurations for Packet (Equinix Metal) (#12143)</li>
+<li>KCP/CABPK: Remove KubeadmConfig UseExperimentalRetryJoin (#12234)</li>
+<li>KCP/CABPK: Remove redundant fields from CABPK / KCP ClusterConfiguration (#12319)</li>
+<li>KCP/CABPK: Remove TypeMeta from KubeadmConfigSpec (#12350)</li>
+<li>KCP/MachineSet/CABPK/CAPD/e2e/Cluster: Cleanup version handling of unsupported Kubernetes releases (#12303)</li>
+<li>Machine/Cluster: Stop using FailureReason and FailureMessage in controllers (#12148)</li>
+<li>Machine/MachinePool/MachineSet/MachineDeployment: Add MinReadySeconds to Machine and remove it from MachineDeployment, MachineSet, MachinePool. (#12153)</li>
+<li>Machine/MachineSet/MachineDeployment/Cluster: Stop using deprecated replica counters in controllers (#12149)</li>
+<li>Runtime SDK: Add v1beta2 API for ExtensionConfig (#12197)</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>API: Block imports to internal packages in our API + restructure import restrictions (#12302)</li>
+<li>API: Deprecate v1alpha1 &amp; v1beta1 API packages (#12254)</li>
+<li>clusterctl: Clearer diagnostics when provider metadata is missing or repo URL is stale (#12238)</li>
+<li>clusterctl: Validate provider metadata (#12242)</li>
+<li>Dependency: Bump controller-tools v0.17.3, conversion-gen v0.33.0 (#12129)</li>
+<li>Dependency: Complete bump to Kubernetes v1.33 (#12206)</li>
+<li>Dependency: Update KUBEBUILDER_ENVTEST_KUBERNETES_VERSION (#12130)</li>
+<li>e2e: From 1.10 use GetStableReleaseOfMinor instead of GetLatestReleaseOfMinor (#12118)</li>
+<li>Machine: Implement v1beta2 contract in Machine controller (#12038)</li>
+<li>Runtime SDK/ClusterClass: Extend Cluster builtin to include metadata (#12014)</li>
+<li>Runtime SDK: Extend cluster builtin to include classNamespace (#12050)</li>
+<li>Testing: Bump Kubernetes in tests to v1.33.0 and claim support for v1.33 (#12104)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Bootstrap: Make joinConfiguration.discovery.bootstrapToken.token optional (#12107)</li>
+<li>Bootstrap: Relax minLength for bootstrap.dataSecretName to 0 (#12164)</li>
+<li>CABPK: Increase ignition additionalConfig maxSize from 10 to 32 KB (#12222)</li>
+<li>CABPK: Make KubeadmConfig FileSystem.Label optional (#12019)</li>
+<li>CAPD: Fix worker machine count in CAPD template (#12028)</li>
+<li>CAPIM: Fix CAPD in-memory templates (#12013)</li>
+<li>CAPIM/Mux: fix error check (#12230)</li>
+<li>CI: Fix conversion-verifier and fix findings (#12349)</li>
+<li>ClusterClass: Fix continuous reconciles because of apiVersion differences in Cluster topology controller (#12341)</li>
+<li>clusterctl: Accept upper case version (#12237)</li>
+<li>clusterctl: Add missing API version to NS object (#12200)</li>
+<li>clusterctl: Clusterctl upgrade hangs for a time on CRD migration when new version contains a number of new CRDs (#11984)</li>
+<li>ClusterResourceSet: Fix potential panic if ClusterResourceSetStrategy is not defined or incorrect (#12096)</li>
+<li>e2e: Stop overwriting ExtraPortMappings if WithDockerSockMount option is used (#12012)</li>
+<li>IPAM: Enable conversion in CRDs (#12198)</li>
+<li>IPAM: Revert condition func changes for IPAddressClaim v1beta1 (#12223)</li>
+<li>KCP: Fix nil pointer in conversion (#12292)</li>
+<li>KCP: Fix rollout when init configuration in KCP is empty (#12344)</li>
+<li>Machine: fallback to InfraMachine providerID if Machine providerID is not set (#11985)</li>
+<li>MachineDeployment: Fix second rolling update for MD rolloutAfter (#12261)</li>
+<li>API/ClusterClass: Fix MaxLength of worker topology Name fields (#12072)</li>
+<li>Dependency/CI: Upgrade golangci-lint to v2.1.0 (#12170)</li>
+<li>Testing/CI: Fix the condition to check whether cluster has v1beta2 conditions (#12100)</li>
+<li>util/CRD migration: Fix cases where update validation fails (#11991)</li>
+<li>util: Fix typo for WithOwnedV1beta1Conditions to WithOwnedV1Beta1Conditions (#12218)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>API: Drop hardcoded v1beta1 references (#12027)</li>
+<li>API: Move internal/apis to internal/api (#12296)</li>
+<li>API: Remove unused List conversion funcs (#12054)</li>
+<li>CAPIM: Ignore net.ErrClosed error during listener close &amp; server shutdown (#12212)</li>
+<li>CI: Add govulncheck to ensure vulnerability (#12108)</li>
+<li>CI: Bump E2E to Kubernetes v1.33.0-rc.1 (#12099)</li>
+<li>CI: Bump golangci-lint v2 (#12088)</li>
+<li>CI: Bump KAL to 20250605073038, cleanup excludes, fix IPAM prefix field, add MaxItems to Machine.status.addresses (#12326)</li>
+<li>CI: Enable duplicatemarkers linter (#12228)</li>
+<li>CI: Enable statusoptional linter (#12229)</li>
+<li>CI: Remove govulncheck from the verify target (#12348)</li>
+<li>CI: Switch plugin to kube-api-linter (#12089)</li>
+<li>CI: Update version matrix for github workflows for release-1.10 (#11992)</li>
+<li>CI: Use release artifacts for CAPI v1.10 (#12147)</li>
+<li>ClusterClass: Improve webhook output to include the names of the clusters blocking a deletion (#12060)</li>
+<li>clusterctl: Add filename to clusterctl error about bad YAML (#12189)</li>
+<li>clusterctl: Add support for compatible contracts to clusterctl (#12018)</li>
+<li>clusterctl: Bump cert-manager to v1.17.1 (#12044)</li>
+<li>clusterctl: Bump cert-manager to v1.17.2 (#12210)</li>
+<li>clusterctl: Bump cert-manager to v1.18.0 (#12342)</li>
+<li>clusterctl: Change k0smotron repo location (#12225)</li>
+<li>clusterctl: Enforce skip upgrade policy in clusterctl (#12017)</li>
+<li>Community meeting: Add JoelSpeed to approvers (#12204)</li>
+<li>Conditions: Cleanup v1beta1 updateStatus functions (#12190)</li>
+<li>Conditions: Drop usage of v1beta1 conditions (#12109)</li>
+<li>Control-plane: Avoid large number of connection error traces in kubeadm controlplane controller (#12106)</li>
+<li>Dependency: Bump Go 1.24 (#12128)</li>
+<li>Dependency: Bump go to v1.23.8 (#12052)</li>
+<li>Dependency: Bump sigs.k8s.io/kind to v0.28.0 (#12243)</li>
+<li>Dependency: Bump sigs.k8s.io/kind to v0.29.0 (#12257)</li>
+<li>Dependency: Bump to Go v1.24.4, github.com/cloudflare/circl v1.6.1 (#12351)</li>
+<li>Devtools: Add KubeVirt support to Tilt dev workflow (#11697)</li>
+<li>Devtools: use v1beta2 for condition metrics and add metrics for dockercluster devcluster dockermachine devmachine extensionconfig ipaddressclaim and crs (#12006)</li>
+<li>e2e: Add an option to override custom node image name for kind cluster (#12186)</li>
+<li>e2e: Add retry for SSA requests against Kubernetes &lt; v1.29 in clusterctl upgrade tests (#12067)</li>
+<li>e2e: Bump clusterctl_upgrade_test.go main and 1.10 tests to k8s v1.33.0 (#12193)</li>
+<li>e2e: Bump Kubernetes version used for testing to v1.33.0-rc.0 (#12073)</li>
+<li>e2e: Only run DescribeCluster if v1beta2 Cluster CRD is there (#12279)</li>
+<li>KCP: Allow unsetting etcd.local, etcd.external and dns (#12065)</li>
+<li>KCP: Bump corefile-migration library to v1.0.26 (#12058)</li>
+<li>KCP: Fix typo in forward etcd leadership error message (#12056)</li>
+<li>Misc: Remove jackfrancis from reviewers (#12134)</li>
+<li>KCP/CABPK: Remove unused updateClusterStatus (#12295)</li>
+<li>Release: Prepare main for v1.11 development (#12000)</li>
+<li>Release: Use github.base_ref in markdown-link-check (#12034)</li>
+<li>Runtime SDK: Block dependencies to internal packages for the RX implementation (#12297)</li>
+<li>Runtime SDK: Stop registering API types in the runtime extension scheme (#12042)</li>
+<li>Testing: Watch logs from init containers (#12208)</li>
+<li>Testing: Release Notes Generator - Test cases for main.go and ref.go (#11882)</li>
+<li>util: Move contract version &amp; GetCompatibleVersions to contract package (#12032)</li>
+<li>util: Recover v1.10 util packages for conditions, patch and paused to util/deprecated/v1beta1 for provider migrations (#12224)</li>
+</ul>
+
+<p>:book: Additionally, there have been 30 contributions to our documentation and book. (#11029, #11998, #12004, #12057, #12074, #12093, #12117, #12120, #12122, #12125, #12126, #12131, #12139, #12140, #12145, #12150, #12163, #12165, #12188, #12201, #12205, #12236, #12246, #12266, #12284, #12287, #12306, #12309, #12328, #12333)</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>github.com/klauspost/compress: <a href="https://github.com/klauspost/compress/tree/v1.18.0" target="_blank">v1.18.0</a></li>
+<li>github.com/kylelemons/godebug: <a href="https://github.com/kylelemons/godebug/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/prashantv/gostub: <a href="https://github.com/prashantv/gostub/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>go.opentelemetry.io/auto/sdk: v1.1.0</li>
+<li>go.uber.org/automaxprocs: v1.6.0</li>
+<li>gopkg.in/go-jose/go-jose.v2: v2.6.3</li>
+<li>sigs.k8s.io/randfill: v1.0.0</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>cel.dev/expr: v0.18.0 → v0.19.1</li>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+<li>github.com/coreos/go-oidc: <a href="https://github.com/coreos/go-oidc/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1+incompatible → v2.3.0+incompatible</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.4.2...v1.4.3" target="_blank">v1.4.2 → v1.4.3</a></li>
+<li>github.com/golang-jwt/jwt/v4: <a href="https://github.com/golang-jwt/jwt/compare/v4.5.0...v4.5.2" target="_blank">v4.5.0 → v4.5.2</a></li>
+<li>github.com/google/cel-go: <a href="https://github.com/google/cel-go/compare/v0.22.0...v0.23.2" target="_blank">v0.22.0 → v0.23.2</a></li>
+<li>github.com/google/gnostic-models: <a href="https://github.com/google/gnostic-models/compare/v0.6.8...v0.6.9" target="_blank">v0.6.8 → v0.6.9</a></li>
+<li>github.com/google/pprof: <a href="https://github.com/google/pprof/compare/40e02aa...27863c8" target="_blank">40e02aa → 27863c8</a></li>
+<li>github.com/gorilla/websocket: <a href="https://github.com/gorilla/websocket/compare/v1.5.3...e064f32" target="_blank">v1.5.3 → e064f32</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/compare/v2.20.0...v2.24.0" target="_blank">v2.20.0 → v2.24.0</a></li>
+<li>github.com/onsi/ginkgo/v2: <a href="https://github.com/onsi/ginkgo/compare/v2.23.3...v2.23.4" target="_blank">v2.23.3 → v2.23.4</a></li>
+<li>github.com/onsi/gomega: <a href="https://github.com/onsi/gomega/compare/v1.36.3...v1.37.0" target="_blank">v1.36.3 → v1.37.0</a></li>
+<li>github.com/pmezard/go-difflib: <a href="https://github.com/pmezard/go-difflib/compare/5d4384e...v1.0.0" target="_blank">5d4384e → v1.0.0</a></li>
+<li>github.com/prometheus/client_golang: <a href="https://github.com/prometheus/client_golang/compare/v1.19.1...v1.22.0" target="_blank">v1.19.1 → v1.22.0</a></li>
+<li>github.com/prometheus/common: <a href="https://github.com/prometheus/common/compare/v0.55.0...v0.62.0" target="_blank">v0.55.0 → v0.62.0</a></li>
+<li>github.com/rogpeppe/go-internal: <a href="https://github.com/rogpeppe/go-internal/compare/v1.12.0...v1.13.1" target="_blank">v1.12.0 → v1.13.1</a></li>
+<li>github.com/spf13/viper: <a href="https://github.com/spf13/viper/compare/v1.20.0...v1.20.1" target="_blank">v1.20.0 → v1.20.1</a></li>
+<li>github.com/stretchr/objx: <a href="https://github.com/stretchr/objx/compare/v0.5.0...v0.5.2" target="_blank">v0.5.0 → v0.5.2</a></li>
+<li>go.etcd.io/etcd/api/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/pkg/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/v2: v2.305.16 → v2.305.21</li>
+<li>go.etcd.io/etcd/client/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/pkg/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/raft/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/server/v3: v3.5.16 → v3.5.21</li>
+<li>go.opentelemetry.io/contrib/detectors/gcp: v1.29.0 → v1.30.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.27.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.28.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/sdk/metric: v1.29.0 → v1.30.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/proto/otlp: v1.3.1 → v1.4.0</li>
+<li>golang.org/x/crypto: v0.36.0 → v0.39.0</li>
+<li>golang.org/x/mod: v0.23.0 → v0.25.0</li>
+<li>golang.org/x/net: v0.37.0 → v0.41.0</li>
+<li>golang.org/x/oauth2: v0.28.0 → v0.30.0</li>
+<li>golang.org/x/sync: v0.12.0 → v0.15.0</li>
+<li>golang.org/x/sys: v0.31.0 → v0.33.0</li>
+<li>golang.org/x/term: v0.30.0 → v0.32.0</li>
+<li>golang.org/x/text: v0.23.0 → v0.26.0</li>
+<li>golang.org/x/time: v0.8.0 → v0.9.0</li>
+<li>golang.org/x/tools: v0.30.0 → v0.33.0</li>
+<li>google.golang.org/grpc: v1.67.3 → v1.68.2</li>
+<li>k8s.io/api: v0.32.3 → v0.33.1</li>
+<li>k8s.io/apiextensions-apiserver: v0.32.3 → v0.33.1</li>
+<li>k8s.io/apimachinery: v0.32.3 → v0.33.1</li>
+<li>k8s.io/apiserver: v0.32.3 → v0.33.1</li>
+<li>k8s.io/client-go: v0.32.3 → v0.33.1</li>
+<li>k8s.io/cluster-bootstrap: v0.32.3 → v0.33.1</li>
+<li>k8s.io/code-generator: v0.32.3 → v0.33.1</li>
+<li>k8s.io/component-base: v0.32.3 → v0.33.1</li>
+<li>k8s.io/gengo/v2: 2b36238 → 1244d31</li>
+<li>k8s.io/kms: v0.32.3 → v0.33.1</li>
+<li>k8s.io/kube-openapi: 32ad38e → c8a335a</li>
+<li>sigs.k8s.io/apiserver-network-proxy/konnectivity-client: v0.31.0 → v0.31.2</li>
+<li>sigs.k8s.io/controller-runtime: v0.20.4 → v0.21.0</li>
+<li>sigs.k8s.io/structured-merge-diff/v4: v4.4.2 → v4.6.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<ul>
+<li>github.com/asaskevich/govalidator: <a href="https://github.com/asaskevich/govalidator/tree/f61b66f" target="_blank">f61b66f</a></li>
+<li>github.com/go-kit/log: <a href="https://github.com/go-kit/log/tree/v0.2.1" target="_blank">v0.2.1</a></li>
+<li>github.com/go-logfmt/logfmt: <a href="https://github.com/go-logfmt/logfmt/tree/v0.5.1" target="_blank">v0.5.1</a></li>
+<li>gopkg.in/square/go-jose.v2: v2.6.0</li>
+</ul>
+
+<p></details>
+<br/>
+<em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.10.3</h3><h4>2025-06-17</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.33.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.33.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-10-2">Changes since v1.10.2</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>4 new commits merged</li>
+<li>3 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>API: Increase ignition additionalConfig maxSize from 10 to 32 KB (#12259)</li>
+<li>ClusterClass: Fix continuous reconciles because of apiVersion differences in Cluster topology controller (#12345)</li>
+<li>clusterctl: Accept upper case version (#12321)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Dependency: Bump to Go v1.23.10, github.com/cloudflare/circl v1.6.1 (#12354)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.9.9</h3><h4>2025-06-17</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.32.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.32.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-9-8">Changes since v1.9.8</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>3 new commits merged</li>
+<li>2 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>ClusterClass: Fix continuous reconciles because of apiVersion differences in Cluster topology controller (#12346)</li>
+<li>clusterctl: Accept upper case version (#12322)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Dependency: Bump to Go v1.23.10, github.com/cloudflare/circl v1.6.1 (#12355)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>kubernetes-sigs/cluster-api-provider-vsphere</h2> <h3>Release notes for v1.14.0-alpha.1</h3><h4>2025-06-18</h4><p>🚨 This is a ALPHA RELEASE. Use it only for testing purposes. If you find any bugs, file an <a href="https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/new" target="_blank">issue</a>.</p>
+
+<h2 id="changes-since-v1-14-0-alpha-0">Changes since v1.14.0-alpha.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>15 new commits merged</li>
+<li>2 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Govmomi: fix additional printer columns for ControlPlaneEndpoint (#3483)</li>
+<li>StoragePolicy should ignore datastores in maintenance mode (#3498)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Adjust import alias to align with CAPI migration recommendation (#3491)</li>
+<li>Bump to CAPI v1.11.0-alpha.1 (#3519)</li>
+<li>Bump to Go v1.24.4, github.com/cloudflare/circl v1.6.1 (#3509)</li>
+<li>Changes for community owned Prow CI (#3473)</li>
+<li>CI: Partially revert 3473 due to having vSphere 8 in community ci (#3485)</li>
+<li>CI: reschedule release-1.13 jobs (#3495)</li>
+<li>E2e: also collect pod logs (#3490)</li>
+<li>E2e: fixup flake while claiming VIPs and IPAM MTU (#3504)</li>
+<li>E2e: wait for vsphere api and set mtu for calico (#3508)</li>
+<li>Prowjobs: reschedule main periodics at 23 and 1 UTC (#3494)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.4.2...v1.4.3" target="_blank">v1.4.2 → v1.4.3</a></li>
+<li>golang.org/x/crypto: v0.38.0 → v0.39.0</li>
+<li>golang.org/x/mod: v0.24.0 → v0.25.0</li>
+<li>golang.org/x/net: v0.40.0 → v0.41.0</li>
+<li>golang.org/x/sync: v0.14.0 → v0.15.0</li>
+<li>golang.org/x/text: v0.25.0 → v0.26.0</li>
+<li>golang.org/x/tools: v0.33.0 → v0.34.0</li>
+<li>sigs.k8s.io/cluster-api: v1.11.0-alpha.0 → v1.11.0-alpha.1</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<dl>
+<dt><summary>More details about the release</summary></dt>
+</dl>
+
+<p>:warning: <strong>ALPHA RELEASE NOTES</strong> :warning:</p>
+
+<h2 id="changes-since-v1-13-0">Changes since v1.13.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview-1">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>40 new commits merged</li>
+<li>1 feature addition ✨</li>
+<li>2 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>Bump Kubernetes to v1.33 and add new OVA&rsquo;s (#3435)</li>
+</ul>
+
+<h2 id="bug-bug-fixes-1">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Govmomi: fix additional printer columns for ControlPlaneEndpoint (#3483)</li>
+<li>StoragePolicy should ignore datastores in maintenance mode (#3498)</li>
+</ul>
+
+<h2 id="seedling-others-1">:seedling: Others</h2>
+
+<ul>
+<li>Able to export webhooks for external utilization (#3434)</li>
+<li>Adjust import alias to align with CAPI migration recommendation (#3491)</li>
+<li>Adjust weekly gh actions to run for release-1.13 branch (#3420)</li>
+<li>Bump CAPI in tests to main (v1.11) (#3468)</li>
+<li>Bump CAPI to v1.10.0-rc.1, K8S and CPI to v1.33.0-rc.0 (#3424)</li>
+<li>Bump CAPI to v1.11.0-alpha.0 (#3478)</li>
+<li>Bump CAPI v1.10.0 (#3433)</li>
+<li>Bump CAPI v1.10.1 (#3443)</li>
+<li>Bump CPI to v1.33.0 (#3441)</li>
+<li>Bump go 1.23.8 (#3446)</li>
+<li>Bump to CAPI v1.11.0-alpha.1 (#3519)</li>
+<li>Bump to Go v1.24.4, github.com/cloudflare/circl v1.6.1 (#3509)</li>
+<li>Bump to Kubernetes v1.33.0-rc.1 (#3426)</li>
+<li>Changes for community owned Prow CI (#3473)</li>
+<li>CI: Partially revert 3473 due to having vSphere 8 in community ci (#3485)</li>
+<li>CI: reschedule release-1.13 jobs (#3495)</li>
+<li>E2e: also collect pod logs (#3490)</li>
+<li>E2e: fixup flake while claiming VIPs and IPAM MTU (#3504)</li>
+<li>E2e: wait for vsphere api and set mtu for calico (#3508)</li>
+<li>Fix web-hook structure names and descriptions (#3462)</li>
+<li>Makefile: Bump Kubebuilder to v1.33 (#3476)</li>
+<li>Migrate config and bump golangci lint to v2 (#3469)</li>
+<li>Prepare main for v1.14 (#3453)</li>
+<li>Prowjobs: reschedule main periodics at 23 and 1 UTC (#3494)</li>
+<li>Start using 1.34 for CI latest on main (#3438)</li>
+<li>Use release artefacts for CAPI v1.10 (#3448)</li>
+</ul>
+
+<p>:book: Additionally, there has been 1 contribution to our documentation and book. (#3437)</p>
+
+<h2 id="dependencies-1">Dependencies</h2>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+<li>github.com/klauspost/compress: <a href="https://github.com/klauspost/compress/tree/v1.18.0" target="_blank">v1.18.0</a></li>
+<li>github.com/kylelemons/godebug: <a href="https://github.com/kylelemons/godebug/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>go.opentelemetry.io/auto/sdk: v1.1.0</li>
+<li>gopkg.in/go-jose/go-jose.v2: v2.6.3</li>
+<li>sigs.k8s.io/randfill: v1.0.0</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+<li>cel.dev/expr: v0.18.0 → v0.19.1</li>
+<li>cloud.google.com/go/compute/metadata: v0.5.2 → v0.5.0</li>
+<li>github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp: <a href="https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/compare/detectors/gcp/v1.25.0...detectors/gcp/v1.24.1" target="_blank">v1.25.0 → v1.24.1</a></li>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+<li>github.com/cncf/xds/go: <a href="https://github.com/cncf/xds/compare/024c85f...b4127c9" target="_blank">024c85f → b4127c9</a></li>
+<li>github.com/coreos/go-oidc: <a href="https://github.com/coreos/go-oidc/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1+incompatible → v2.3.0+incompatible</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.4.2...v1.4.3" target="_blank">v1.4.2 → v1.4.3</a></li>
+<li>github.com/golang-jwt/jwt/v4: <a href="https://github.com/golang-jwt/jwt/compare/v4.5.0...v4.5.2" target="_blank">v4.5.0 → v4.5.2</a></li>
+<li>github.com/google/cel-go: <a href="https://github.com/google/cel-go/compare/v0.22.0...v0.23.2" target="_blank">v0.22.0 → v0.23.2</a></li>
+<li>github.com/google/gnostic-models: <a href="https://github.com/google/gnostic-models/compare/v0.6.8...v0.6.9" target="_blank">v0.6.8 → v0.6.9</a></li>
+<li>github.com/gorilla/websocket: <a href="https://github.com/gorilla/websocket/compare/v1.5.3...e064f32" target="_blank">v1.5.3 → e064f32</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/compare/v2.20.0...v2.24.0" target="_blank">v2.20.0 → v2.24.0</a></li>
+<li>github.com/prometheus/client_golang: <a href="https://github.com/prometheus/client_golang/compare/v1.19.1...v1.22.0" target="_blank">v1.19.1 → v1.22.0</a></li>
+<li>github.com/prometheus/common: <a href="https://github.com/prometheus/common/compare/v0.55.0...v0.62.0" target="_blank">v0.55.0 → v0.62.0</a></li>
+<li>github.com/rogpeppe/go-internal: <a href="https://github.com/rogpeppe/go-internal/compare/v1.12.0...v1.13.1" target="_blank">v1.12.0 → v1.13.1</a></li>
+<li>github.com/spf13/viper: <a href="https://github.com/spf13/viper/compare/v1.20.0...v1.20.1" target="_blank">v1.20.0 → v1.20.1</a></li>
+<li>github.com/vmware/govmomi: <a href="https://github.com/vmware/govmomi/compare/v0.49.0...v0.51.0" target="_blank">v0.49.0 → v0.51.0</a></li>
+<li>go.etcd.io/etcd/api/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/pkg/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/v2: v2.305.16 → v2.305.21</li>
+<li>go.etcd.io/etcd/client/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/pkg/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/raft/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/server/v3: v3.5.16 → v3.5.21</li>
+<li>go.opentelemetry.io/contrib/detectors/gcp: v1.28.0 → v1.30.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.53.0 → v0.58.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.27.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.28.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/sdk/metric: v1.28.0 → v1.30.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/proto/otlp: v1.3.1 → v1.4.0</li>
+<li>golang.org/x/crypto: v0.36.0 → v0.39.0</li>
+<li>golang.org/x/mod: v0.24.0 → v0.25.0</li>
+<li>golang.org/x/net: v0.37.0 → v0.41.0</li>
+<li>golang.org/x/oauth2: v0.28.0 → v0.30.0</li>
+<li>golang.org/x/sync: v0.12.0 → v0.15.0</li>
+<li>golang.org/x/sys: v0.32.0 → v0.33.0</li>
+<li>golang.org/x/term: v0.30.0 → v0.32.0</li>
+<li>golang.org/x/text: v0.23.0 → v0.26.0</li>
+<li>golang.org/x/time: v0.8.0 → v0.9.0</li>
+<li>golang.org/x/tools: v0.31.0 → v0.34.0</li>
+<li>google.golang.org/grpc: v1.67.3 → v1.68.2</li>
+<li>k8s.io/api: v0.32.3 → v0.33.1</li>
+<li>k8s.io/apiextensions-apiserver: v0.32.3 → v0.33.1</li>
+<li>k8s.io/apimachinery: v0.32.3 → v0.33.1</li>
+<li>k8s.io/apiserver: v0.32.3 → v0.33.1</li>
+<li>k8s.io/client-go: v0.32.3 → v0.33.1</li>
+<li>k8s.io/cluster-bootstrap: v0.32.3 → v0.33.1</li>
+<li>k8s.io/code-generator: v0.32.3 → v0.33.1</li>
+<li>k8s.io/component-base: v0.32.3 → v0.33.1</li>
+<li>k8s.io/gengo/v2: 2b36238 → 1244d31</li>
+<li>k8s.io/kms: v0.32.3 → v0.33.1</li>
+<li>k8s.io/kube-openapi: 32ad38e → c8a335a</li>
+<li>sigs.k8s.io/apiserver-network-proxy/konnectivity-client: v0.31.0 → v0.31.2</li>
+<li>sigs.k8s.io/cluster-api: v1.10.1 → v1.11.0-alpha.1</li>
+<li>sigs.k8s.io/controller-runtime: v0.20.4 → v0.21.0</li>
+<li>sigs.k8s.io/structured-merge-diff/v4: v4.4.2 → v4.6.0</li>
+</ul>
+
+<h3 id="removed-1">Removed</h3>
+
+<ul>
+<li>github.com/asaskevich/govalidator: <a href="https://github.com/asaskevich/govalidator/tree/f61b66f" target="_blank">f61b66f</a></li>
+<li>github.com/go-kit/log: <a href="https://github.com/go-kit/log/tree/v0.2.1" target="_blank">v0.2.1</a></li>
+<li>github.com/go-logfmt/logfmt: <a href="https://github.com/go-logfmt/logfmt/tree/v0.5.1" target="_blank">v0.5.1</a></li>
+<li>gopkg.in/square/go-jose.v2: v2.6.0</li>
+</ul>
+
+<p></details>
+<br/>
+<em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.1.3</h3><h4>2025-06-19</h4><p>Welcome to the v2.1.3 release of containerd!</p>
+
+<p>The third patch release for containerd 2.1 contains various fixes and updates
+to address pull issues with some registries.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Fix multipart fetch issue when the server does not return content length (<a href="https://github.com/containerd/containerd/pull/12003" target="_blank">#12003</a>)</li>
+<li>Update transfer service supported platforms logic (<a href="https://github.com/containerd/containerd/pull/11999" target="_blank">#11999</a>)</li>
+<li>Fix import for local transfer service (<a href="https://github.com/containerd/containerd/pull/12000" target="_blank">#12000</a>)</li>
+<li>Fix registry errors with transfer service (<a href="https://github.com/containerd/containerd/pull/11979" target="_blank">#11979</a>)</li>
+<li>Fix fetch always adding range to requests (<a href="https://github.com/containerd/containerd/pull/12001" target="_blank">#12001</a>)</li>
+<li>Update fetcher errors to include full registry error (<a href="https://github.com/containerd/containerd/pull/11997" target="_blank">#11997</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Phil Estes</li>
+<li>Adrien Delorme</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>15 commits</summary>
+<p>
+
+* Prepare release notes for v2.1.3 ([#12002](https://github.com/containerd/containerd/pull/12002))
+  * [`627729341`](https://github.com/containerd/containerd/commit/62772934139be6d2b648a16b412d847dc0aef09c) Prepare release notes for v2.1.3
+* Fix multipart fetch issue when the server does not return content length ([#12003](https://github.com/containerd/containerd/pull/12003))
+  * [`7636bd5eb`](https://github.com/containerd/containerd/commit/7636bd5eb2525babefd2983d38f6e1133843eb94) fix when multipart fetching and the server does not return content length
+* Update transfer service supported platforms logic ([#11999](https://github.com/containerd/containerd/pull/11999))
+  * [`3c5ede878`](https://github.com/containerd/containerd/commit/3c5ede878a7cb2d7a04a40e8ed1086718402fdf3) Update transfer supported platforms logic
+* Fix import for local transfer service ([#12000](https://github.com/containerd/containerd/pull/12000))
+  * [`fb752bc8e`](https://github.com/containerd/containerd/commit/fb752bc8ed456ff40ceb516dcb72830678cae1ab) fix import for local transfer service
+* Fix registry errors with transfer service ([#11979](https://github.com/containerd/containerd/pull/11979))
+  * [`f6d926314`](https://github.com/containerd/containerd/commit/f6d92631401562eba488a986a22002025d2860c9) Register remote errors for clients to access registry errors
+  * [`7c1813345`](https://github.com/containerd/containerd/commit/7c18133453a495df7a334fde31423c56d42265c2) Decode grpc errors in the transfer client proxy
+* Fix fetch always adding range to requests ([#12001](https://github.com/containerd/containerd/pull/12001))
+  * [`babacebad`](https://github.com/containerd/containerd/commit/babacebadc0738e6b016e2f366cdf4bdf893a1a5) Fix fetch always adding range to requests
+* Update fetcher errors to include full registry error ([#11997](https://github.com/containerd/containerd/pull/11997))
+  * [`f30be44ad`](https://github.com/containerd/containerd/commit/f30be44ad31166bb4f4644255c5db59b9f47bb22) Update fetcher errors to include full registry error
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<p>This release has no dependency changes</p>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v2.1.2" target="_blank">v2.1.2</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.35 (Ubuntu 22.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on Linux distributions that do not use glibc &gt;= 2.35. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br>
+</body>
+
+</html>
