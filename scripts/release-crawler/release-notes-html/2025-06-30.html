@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-06-23 - 2025-06-30</h1><h2>prometheus/prometheus</h2> <h3>Release notes for 3.4.2 / 2025-06-26</h3><h4>2025-06-26</h4><ul>
+<li>[BUGFIX] OTLP receiver: Fix default configuration not being respected if the <code>otlp:</code> block is unset in the config file. #16693</li>
+</ul>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.72.2</h3><h4>2025-06-26</h4><p>This is release 1.72.2 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gusto</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Backport of #39894 to v1.72.x] Fix the issue with gRPC Python Client not reconnecting in certain situations: #38290, #39113, #39631. (#39949)</li>
+</ul>
+<br><h3>Release notes for Release v1.71.2</h3><h4>2025-06-28</h4><p>This is release 1.71.2 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gears</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="c">C++</h2>
+
+<ul>
+<li>[Backport of #39266 to v1.71.x] Protect grpc generated sources from unwanted system macros (#39484).</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Backport of #39894 to v1.71.x] Fix the issue with gRPC Python Client not reconnecting in certain situations: #38290, #39113, #39631 (#39948).</li>
+<li>[Backport of #39609 to v1.71.x] Pin Cython to 3.1.1 (#39636). This addresses several issues:
+
+<ul>
+<li>#39588 Using inconsistent Cython version in released platform-specific wheels within the same grpcio release.</li>
+<li>cython/cython#6878 Several published grpcio wheels were built with Cython 3.1.0 and are affected by Cython memory leak issue when using AsyncIO APIs (<code>grpc.aio.*</code>).</li>
+</ul></li>
+</ul>
+<br><h3>Release notes for Release v1.73.1</h3><h4>2025-06-25</h4><p>This is release 1.73.1 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gradient</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Backport of #39894 to v1.73.x] Fix the issue with gRPC Python Client not reconnecting in certain situations: #38290, #39113, #39631 (#39950).</li>
+</ul>
+<br><h2>kubernetes-csi/csi-driver-host-path</h2> <h3>Release notes for v1.17.0</h3><h4>2025-06-24</h4><h1 id="container">Container</h1>
+
+<p>docker pull registry.k8s.io/sig-storage/hostpathplugin:v1.17.0</p>
+
+<h1 id="full-changelog">Full Changelog</h1>
+
+<p><a href="https://github.com/kubernetes-csi/csi-driver-host-path/blob/v1.17.0/CHANGELOG/CHANGELOG-1.17.md" target="_blank">https://github.com/kubernetes-csi/csi-driver-host-path/blob/v1.17.0/CHANGELOG/CHANGELOG-1.17.md</a></p>
+<br><h2>kubernetes-sigs/cluster-api-provider-vsphere</h2> <h3>Release notes for v1.13.1</h3><h4>2025-06-25</h4><h2 id="changes-since-v1-13-0">Changes since v1.13.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>12 new commits merged</li>
+<li>1 bug fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>StoragePolicy should ignore datastores in maintenance mode (#3500)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Able to export webhooks for external utilization (#3456)</li>
+<li>Bump golang.org/x/net to v0.38.0 to fix CVE (#3457)</li>
+<li>Bump to Go v1.23.10, github.com/cloudflare/circl v1.6.1 (#3510)</li>
+<li>Changes for community owned Prow CI (#3484)</li>
+<li>CI: Partially revert 3473 due to having vSphere 8 in community ci (#3489)</li>
+<li>E2e: also collect pod logs (#3496)</li>
+<li>E2e: fixup flake while claiming VIPs and and IPAM MTU (#3505)</li>
+<li>E2e: wait for vsphere api and set mtu for calico (#3514)</li>
+<li>Fix web-hook structure names and descriptions (#3463)</li>
+<li>Hack: debug vsphere connectivity (#3520)</li>
+<li>Use release artefacts for CAPI v1.10 (#3449)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>golang.org/x/net: v0.37.0 → v0.38.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.12.1</h3><h4>2025-06-25</h4><h2 id="changes-since-v1-12-0">Changes since v1.12.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>22 new commits merged</li>
+<li>2 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>StoragePolicy should ignore datastores in maintenance mode (#3502)</li>
+<li>Vspheremachinetemplate: don&rsquo;t reconcile if className is not set (#3381)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Able to export webhooks for external utilization (#3455)</li>
+<li>Bump envtest to v1.32.0 (#3317)</li>
+<li>Bump golang.org/x/net to v0.33.0 (#3315)</li>
+<li>Bump govulncheck to v1.1.4 (#3464)</li>
+<li>Bump to controller-runtime v0.19.4 (#3319)</li>
+<li>Bump to Go 1.22.11 (#3338)</li>
+<li>Bump to Go 1.22.12 (#3346)</li>
+<li>Bump to Go 1.23.8 to fix CVEs + ignore CVE CVE-2025-22872 via trivy (#3458)</li>
+<li>Bump to Go v1.23.10, github.com/cloudflare/circl v1.6.1 (#3511)</li>
+<li>Cherry-Pick: Changes for community owned Prow CI (#3487)</li>
+<li>E2e: also collect pod logs (#3497)</li>
+<li>E2e: fixup flake while claiming VIPs and and IPAM MTU (#3506)</li>
+<li>E2e: wait for vsphere api and set mtu for calico (#3515)</li>
+<li>Fix web-hook structure names and descriptions (#3467)</li>
+<li>Hack: debug vsphere connectivity (#3521)</li>
+<li>Log version directly on controller startup (#3390)</li>
+<li>Makefile: drop test file to ignore ssh vulnerability in test code (#3368)</li>
+<li>Security: whitelist CVE-2025-22870 for trivy because of being not affected according to govulncheck (#3397)</li>
+<li>Templates: remove cloud-provider flag for kube-apiserver due to removal in v1.33 (#3366)</li>
+<li>Vcsim: wait for powered on VM and use mac address reference to set IP (#3355)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>golang.org/x/net: v0.32.0 → v0.33.0</li>
+<li>sigs.k8s.io/controller-runtime: v0.19.3 → v0.19.4</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>kubernetes-sigs/kustomize</h2> <h3>Release notes for kyaml/v0.20.0</h3><h4>2025-06-28</h4><p>#5316: feat: add exec-plugin argument and environment support
+#5873: Bump to github.com/spf13/viper v1.20.0
+#5931: Drop usage of forked copies of goyaml.v2 and goyaml.v3</p>
+<br><h3>Release notes for kustomize/v5.7.0</h3><h4>2025-06-28</h4><h2 id="feature">Feature</h2>
+
+<p><a href="https://github.com/kubernetes-sigs/kustomize/pull/5630:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5630:</a> Add static value source for replacement
+<a href="https://github.com/kubernetes-sigs/kustomize/pull/5921:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5921:</a> feat: Add images suport for Image Volumes
+<a href="https://github.com/kubernetes-sigs/kustomize/pull/5771:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5771:</a> fix: Allow patches with empty files with multiple newlines or comments
+<a href="https://github.com/kubernetes-sigs/kustomize/pull/5865:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5865:</a> feat(helm): allow the use of devel alias for helmcharts</p>
+
+<h2 id="fix">fix</h2>
+
+<p><a href="https://github.com/kubernetes-sigs/kustomize/pull/5846:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5846:</a> fix: Get version from the BuildInfo.Main.Version if not found in deps and build flag
+<a href="https://github.com/kubernetes-sigs/kustomize/pull/5859:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5859:</a> fix: Don&rsquo;t panic on multiple $patch: delete strategic merge patches in a single patch file
+<a href="https://github.com/kubernetes-sigs/kustomize/pull/5877:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5877:</a> fix: make private one field in replacements transformer struct that had a missing JSON tag</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>#5847: replace deplecated package github.com/google/shlex with github.com/carapace-sh/carapace-shlex
+#5873: Bump to github.com/spf13/viper v1.20.0
+#5931: Drop usage of forked copies of goyaml.v2 and goyaml.v3</p>
+
+<h2 id="chore">chore</h2>
+
+<p><a href="https://github.com/kubernetes-sigs/kustomize/pull/5882:" target="_blank">https://github.com/kubernetes-sigs/kustomize/pull/5882:</a> Set Git messages to English for TestRemoteLoad_LocalProtocol
+#5934: Update kyaml to v0.20.0
+#5935: Update cmd/config to v0.20.0
+#5936: Update api to v0.20.0</p>
+<br><h3>Release notes for cmd/config/v0.20.0</h3><h4>2025-06-28</h4><p>#5873: Bump to github.com/spf13/viper v1.20.0
+#5931: Drop usage of forked copies of goyaml.v2 and goyaml.v3
+#5934: Update kyaml to v0.20.0</p>
+<br><h3>Release notes for api/v0.20.0</h3><h4>2025-06-28</h4><p>#5630: Add static value source for replacement
+#5771: fix: Allow patches with empty files with multiple newlines or comments
+#5846: fix: Get version from the BuildInfo.Main.Version if not found in deps and build flag
+#5847: replace deplecated package github.com/google/shlex with github.com/carapace-sh/carapace-shlex
+#5859: fix: Don&rsquo;t panic on multiple $patch: delete strategic merge patches in a single patch file
+#5865: feat(helm): allow the use of devel alias for helmcharts
+#5873: Bump to github.com/spf13/viper v1.20.0
+#5877: fix: make private one field in replacements transformer struct that had a missing JSON tag
+#5882: Set Git messages to English for TestRemoteLoad_LocalProtocol
+#5921: feat: Add suport for Image Volumes
+#5931: Drop usage of forked copies of goyaml.v2 and goyaml.v3
+#5934: Update kyaml to v0.20.0</p>
+<br>
+</body>
+
+</html>
