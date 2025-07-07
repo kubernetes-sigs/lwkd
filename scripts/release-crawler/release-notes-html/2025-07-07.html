@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-06-30 - 2025-07-07</h1><h2>cri-o/cri-o</h2> <h3>Release notes for v1.33.2</h3><h4>2025-07-02</h4><ul>
+<li><a href="#cri-o-v1332">CRI-O v1.33.2</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1331">Changelog since v1.33.1</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-33-2">CRI-O v1.33.2</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.33.1...v1.33.2" target="_blank">v1.33.1&hellip;v1.33.2</a> on Wed, 02 Jul 2025 00:25:39 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz" target="_blank">cri-o.amd64.v1.33.2.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.33.2.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz.sig" target="_blank">cri-o.amd64.v1.33.2.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz.cert" target="_blank">cri-o.amd64.v1.33.2.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz.spdx" target="_blank">cri-o.amd64.v1.33.2.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.33.2.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.2.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.33.2.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz" target="_blank">cri-o.arm64.v1.33.2.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.33.2.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz.sig" target="_blank">cri-o.arm64.v1.33.2.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz.cert" target="_blank">cri-o.arm64.v1.33.2.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz.spdx" target="_blank">cri-o.arm64.v1.33.2.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.33.2.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.2.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.33.2.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.2.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.33.2.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz" target="_blank">cri-o.s390x.v1.33.2.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.33.2.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz.sig" target="_blank">cri-o.s390x.v1.33.2.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz.cert" target="_blank">cri-o.s390x.v1.33.2.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz.spdx" target="_blank">cri-o.s390x.v1.33.2.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.33.2.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.2.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.33.2.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.33.2.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.33.2 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.33.2 \
+    --signature cri-o.amd64.v1.33.2.tar.gz.sig \
+    --certificate cri-o.amd64.v1.33.2.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.33.2.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.33.2.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-33-1">Changelog since v1.33.1</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Fix a bug where CRI-O did not respect cases where the kubelet instructed it to unmask /proc for containers (#9288, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.32.6</h3><h4>2025-07-02</h4><ul>
+<li><a href="#cri-o-v1326">CRI-O v1.32.6</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1325">Changelog since v1.32.5</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#bug-or-regression">Bug or Regression</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-32-6">CRI-O v1.32.6</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.32.5...v1.32.6" target="_blank">v1.32.5&hellip;v1.32.6</a> on Wed, 02 Jul 2025 00:25:35 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz" target="_blank">cri-o.amd64.v1.32.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.32.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz.sig" target="_blank">cri-o.amd64.v1.32.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz.cert" target="_blank">cri-o.amd64.v1.32.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz.spdx" target="_blank">cri-o.amd64.v1.32.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.32.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.6.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.32.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz" target="_blank">cri-o.arm64.v1.32.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.32.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz.sig" target="_blank">cri-o.arm64.v1.32.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz.cert" target="_blank">cri-o.arm64.v1.32.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz.spdx" target="_blank">cri-o.arm64.v1.32.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.32.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.6.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.32.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.6.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.32.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz" target="_blank">cri-o.s390x.v1.32.6.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.32.6.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz.sig" target="_blank">cri-o.s390x.v1.32.6.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz.cert" target="_blank">cri-o.s390x.v1.32.6.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz.spdx" target="_blank">cri-o.s390x.v1.32.6.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.32.6.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.6.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.32.6.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.32.6.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.32.6 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.32.6 \
+    --signature cri-o.amd64.v1.32.6.tar.gz.sig \
+    --certificate cri-o.amd64.v1.32.6.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.32.6.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.32.6.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-32-5">Changelog since v1.32.5</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="bug-or-regression">Bug or Regression</h4>
+
+<ul>
+<li>Fix a potential deadlock when an infra container is taking a long time to exit and the sandbox&rsquo;s readiness is blocked on the infra container&rsquo;s opLock (#9224, @haircommander)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.31.10</h3><h4>2025-07-02</h4><ul>
+<li><a href="#cri-o-v13110">CRI-O v1.31.10</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1319">Changelog since v1.31.9</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#bug-or-regression">Bug or Regression</a></li>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-31-10">CRI-O v1.31.10</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.31.9...v1.31.10" target="_blank">v1.31.9&hellip;v1.31.10</a> on Wed, 02 Jul 2025 00:25:43 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz" target="_blank">cri-o.amd64.v1.31.10.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.31.10.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz.sig" target="_blank">cri-o.amd64.v1.31.10.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz.cert" target="_blank">cri-o.amd64.v1.31.10.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz.spdx" target="_blank">cri-o.amd64.v1.31.10.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.31.10.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.10.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.31.10.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz" target="_blank">cri-o.arm64.v1.31.10.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.31.10.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz.sig" target="_blank">cri-o.arm64.v1.31.10.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz.cert" target="_blank">cri-o.arm64.v1.31.10.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz.spdx" target="_blank">cri-o.arm64.v1.31.10.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.31.10.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.10.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.31.10.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.10.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.31.10.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz" target="_blank">cri-o.s390x.v1.31.10.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.31.10.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz.sig" target="_blank">cri-o.s390x.v1.31.10.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz.cert" target="_blank">cri-o.s390x.v1.31.10.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz.spdx" target="_blank">cri-o.s390x.v1.31.10.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.31.10.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.10.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.31.10.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.31.10.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.31.10 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.31.10 \
+    --signature cri-o.amd64.v1.31.10.tar.gz.sig \
+    --certificate cri-o.amd64.v1.31.10.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.31.10.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.31.10.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-31-9">Changelog since v1.31.9</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="bug-or-regression">Bug or Regression</h4>
+
+<ul>
+<li>Fixed <code>make install</code> for building the man pages. (#9279, @saschagrunert)</li>
+</ul>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Fix a potential deadlock when an infra container is taking a long time to exit and the sandbox&rsquo;s readiness is blocked on the infra container&rsquo;s opLock (#9291, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h2>kubernetes/autoscaler</h2> <h3>Release notes for cluster-autoscaler-1.33.0</h3><h4>2025-07-01</h4><h2 id="changes-by-kind">Changes by Kind</h2>
+
+<h3 id="feature">Feature</h3>
+
+<h4 id="dra-improvements">DRA Improvements</h4>
+
+<p>For this release we focused DRA efforts on delivering a production-ready implementation of the basic DRA Structured Parameters feature set (a basic Cluster Autoscaler implementation shipped in <a href="https://github.com/kubernetes/autoscaler/releases/tag/cluster-autoscaler-1.32.0" target="_blank">1.32.0</a>.</p>
+
+<ul>
+<li>Use DeltaSnapshotStore for optimal processing (<a href="https://github.com/kubernetes/autoscaler/pull/8235" target="_blank">#8235</a>, <a href="https://github.com/mtrqq" target="_blank">@mtrqq</a></li>
+<li>Handle node readiness for DRA after a scale-up (<a href="https://github.com/kubernetes/autoscaler/pull/8109" target="_blank">#8109</a>, <a href="https://github.com/abdelrahman882" target="_blank">@bdelrahman882</a></li>
+<li>Patches based implementation for DRA snapshot (<a href="https://github.com/kubernetes/autoscaler/pull/8090" target="_blank">#8090</a>, <a href="https://github.com/mtrqq" target="_blank">@mtrqq</a></li>
+</ul>
+
+<h4 id="general-features">General Features</h4>
+
+<ul>
+<li>Added checkCapacityProvisioningRequestProcessorInstance option that allows to filter check capacity ProvisioningRequests to process by specific Cluster Autoscaler instance. (<a href="https://github.com/kubernetes/autoscaler/pull/7676" target="_blank">#7676</a>, <a href="https://github.com/macsko" target="_blank">@macsko</a>)</li>
+<li>Adding pods when creating a cluster snapshot for scale up is now parallelized, improving performance. Parallelization can be adjusted or disabled by setting the cluster-snapshot-parallelization flag. (<a href="https://github.com/kubernetes/autoscaler/pull/7630" target="_blank">#7630</a>, <a href="https://github.com/macsko" target="_blank">@macsko</a>)</li>
+<li>Allow setting Hetzner Cloud Cluster Config by providing a json config file, set via <code>HCLOUD_CLUSTER_CONFIG_FILE</code> (<a href="https://github.com/kubernetes/autoscaler/pull/7817" target="_blank">#7817</a>, <a href="https://github.com/karsten42" target="_blank">@karsten42</a>)</li>
+<li>Cloud Provider using cluster-api is extended to handle DRA devices such as GPU in the scale-from-0-nodes. (<a href="https://github.com/kubernetes/autoscaler/pull/7804" target="_blank">#7804</a>, <a href="https://github.com/ttsuuubasa" target="_blank">@ttsuuubasa</a>)</li>
+<li>Cluster-autoscaler kwok cloudprovider automatically annotates nodes with metrics-server path (<a href="https://github.com/kubernetes/autoscaler/pull/7339" target="_blank">#7339</a>, <a href="https://github.com/justinmir" target="_blank">@justinmir</a>)</li>
+<li>Improved frequent loops when there is only one of scale up activity or ProvisioningRequest processing is productive. (<a href="https://github.com/kubernetes/autoscaler/pull/7679" target="_blank">#7679</a>, <a href="https://github.com/macsko" target="_blank">@macsko</a>)</li>
+<li>ProvisioningRequests can now be processed without delay if they have just been created. (<a href="https://github.com/kubernetes/autoscaler/pull/7688" target="_blank">#7688</a>, <a href="https://github.com/macsko" target="_blank">@macsko</a>)</li>
+</ul>
+
+<h3 id="azure">Azure</h3>
+
+<ul>
+<li>Enable VM node pools <a href="https://github.com/kubernetes/autoscaler/pull/8078" target="_blank">#8078</a>, <a href="https://github.com/wenxuan0923" target="_blank">@wenxuan0923</a></li>
+</ul>
+
+<h3 id="aws">AWS</h3>
+
+<ul>
+<li>AWSCloudProvider should ignore unrecognized provider IDs <a href="https://github.com/kubernetes/autoscaler/pull/8047" target="_blank">#8047</a>, <a href="https://github.com/raykrueger" target="_blank">@raykrueger</a></li>
+</ul>
+
+<h3 id="gce">GCE</h3>
+
+<ul>
+<li>pricing changes: updated z3 pricing information <a href="https://github.com/kubernetes/autoscaler/pull/8137" target="_blank">#8137</a>, <a href="https://github.com/DigitalVeer" target="_blank">@DigitalVeer</a></li>
+<li>Improve resilience of diskTypes requests <a href="https://github.com/kubernetes/autoscaler/pull/7923" target="_blank">#7923</a>, <a href="https://github.com/Uladzislau97" target="_blank">@Uladzislau97</a></li>
+</ul>
+
+<h3 id="bug-or-regression">Bug or Regression</h3>
+
+<ul>
+<li>Add events for pods that are not triggering scale up because of reaching total max nodes. (<a href="https://github.com/kubernetes/autoscaler/pull/7667" target="_blank">#7667</a>, <a href="https://github.com/jbtk" target="_blank">@jbtk</a>)</li>
+<li>Azure: fixed an issue where CAS crashes when VMSS is not present or has no nodes (<a href="https://github.com/kubernetes/autoscaler/pull/7708" target="_blank">#7708</a>, <a href="https://github.com/comtalyst" target="_blank">@comtalyst</a>)</li>
+<li>Bug fixes and improvements for Kamatera cluster autoscaler to align with latest Kamatera platform changes (<a href="https://github.com/kubernetes/autoscaler/pull/7767" target="_blank">#7767</a>, <a href="https://github.com/OriHoch" target="_blank">@OriHoch</a>)</li>
+<li>Fixed memory leak for GCE instance templates fetching (<a href="https://github.com/kubernetes/autoscaler/pull/7694" target="_blank">#7694</a>, <a href="https://github.com/mtrqq" target="_blank">@mtrqq</a>)</li>
+<li>New <code>ScaleDownNoCandidates</code> status emitted instead of existing <code>ScaleDownInCooldown</code> when there are no candidates.
+
+<ul>
+<li><code>last_activity{activity=scaleDown}</code> metric will be updated even when there are no candidates. (<a href="https://github.com/kubernetes/autoscaler/pull/7997" target="_blank">#7997</a>, <a href="https://github.com/damikag" target="_blank">@damikag</a>)</li>
+</ul></li>
+<li>On Cluster API, node groups that contain failed Machines can have their size decreased when the autoscaler determines that there is a difference between the node count and the instances in the node group. (<a href="https://github.com/kubernetes/autoscaler/pull/7950" target="_blank">#7950</a>, <a href="https://github.com/elmiko" target="_blank">@elmiko</a>)</li>
+<li>Report machine phases in ClusterAPI provider to allow faster autoscaler decisions and avoid timeout delays. (<a href="https://github.com/kubernetes/autoscaler/pull/7989" target="_blank">#7989</a>, <a href="https://github.com/loick111" target="_blank">@loick111</a>)</li>
+<li>Set k8s.io/client-go version to v0.33.0. (<a href="https://github.com/kubernetes/autoscaler/pull/8165" target="_blank">#8165</a>, <a href="https://github.com/nickytd" target="_blank">@nickytd</a>)</li>
+<li>The log messages related to the DecreaseTargetSize function have been updated to better reflect the names of the values. (<a href="https://github.com/kubernetes/autoscaler/pull/7929" target="_blank">#7929</a>, <a href="https://github.com/elmiko" target="_blank">@elmiko</a>)</li>
+</ul>
+
+<h3 id="other-cleanup-or-flake">Other (Cleanup or Flake)</h3>
+
+<ul>
+<li>Enabled logging time of scale down logic when it takes too long. (<a href="https://github.com/kubernetes/autoscaler/pull/8185" target="_blank">#8185</a>, <a href="https://github.com/x13n" target="_blank">@x13n</a>)</li>
+<li>Introduce new scale up status when cluster reaches max nodes total limit. (<a href="https://github.com/kubernetes/autoscaler/pull/7648" target="_blank">#7648</a>, <a href="https://github.com/jbtk" target="_blank">@jbtk</a>)</li>
+<li>Misc logging improvements. (<a href="https://github.com/kubernetes/autoscaler/pull/7639" target="_blank">#7639</a>, <a href="https://github.com/x13n" target="_blank">@x13n</a>)</li>
+<li>Removed deprecated flags:
+
+<ul>
+<li>max-autoprovisioned-node-group-count -&gt; had a warning and deprecated in 1.31</li>
+<li>node-autoprovisioning-enabled -&gt; had a warning and deprecated in 1.31</li>
+<li>gce-expander-ephemeral-storage-support -&gt; no references, initialized with &ldquo;_&rdquo;, planned to be removed in 1.30+</li>
+<li>max-empty-bulk-delete -&gt; had a warning  and deprecated in 1.29 (<a href="https://github.com/kubernetes/autoscaler/pull/7890" target="_blank">#7890</a>, <a href="https://github.com/YahiaBadr" target="_blank">@YahiaBadr</a>)</li>
+</ul></li>
+<li>Update imports to synchronize with Kubernetes v1.33.1 (<a href="https://github.com/kubernetes/autoscaler/pull/8237" target="_blank">#8237</a>, <a href="https://github.com/jackfrancis" target="_blank">@jackfrancis</a>)</li>
+</ul>
+
+<h3 id="uncategorized">Uncategorized</h3>
+
+<ul>
+<li>Deployments with topology spread constraints will no longer block scale down if the removable node changes the global minimum (<a href="https://github.com/kubernetes/autoscaler/pull/8164" target="_blank">#8164</a>, <a href="https://github.com/MenD32" target="_blank">@MenD32</a>)</li>
+<li>Fixed a bug that prevents third party statefulset from being drained by cluster auto scaler (<a href="https://github.com/kubernetes/autoscaler/pull/8011" target="_blank">#8011</a>, <a href="https://github.com/jinglinliang" target="_blank">@jinglinliang</a>)</li>
+<li>On GKE, Adding node labels that start with &ldquo;clusterautoscaler-nodetemplate-resources-&rdquo;, with value equal to the amount of the resources, allows the cluster autoscaler to detect extended resources and scale up the node pools from zero. (<a href="https://github.com/kubernetes/autoscaler/pull/7604" target="_blank">#7604</a>, <a href="https://github.com/mu-soliman" target="_blank">@mu-soliman</a>)</li>
+<li>The default cluster-autoscaler expander as been changed from random to least-waste to prevent misused expensive nodes. (<a href="https://github.com/kubernetes/autoscaler/pull/7631" target="_blank">#7631</a>, <a href="https://github.com/jfcoz" target="_blank">@jfcoz</a>)</li>
+</ul>
+
+<h1 id="images">Images</h1>
+
+<ul>
+<li><code>registry.k8s.io/autoscaling/cluster-autoscaler:v1.33.0</code></li>
+<li><code>registry.k8s.io/autoscaling/cluster-autoscaler-arm64:v1.33.0</code></li>
+<li><code>registry.k8s.io/autoscaling/cluster-autoscaler-amd64:v1.33.0</code></li>
+<li><code>registry.k8s.io/autoscaling/cluster-autoscaler-s390x:v1.33.0</code></li>
+</ul>
+<br><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.11.0-alpha.2</h3><h4>2025-07-01</h4><p>🚨 This is an ALPHA RELEASE. Use it only for testing purposes. If you find any bugs, file an <a href="https://github.com/kubernetes-sigs/cluster-api/issues/new" target="_blank">issue</a>.</p>
+
+<h2 id="changes-since-v1-11-0-alpha-1">Changes since v1.11.0-alpha.1</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>32 new commits merged</li>
+<li>9 breaking changes :warning:</li>
+<li>2 feature additions ✨</li>
+<li>4 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="warning-breaking-changes">:warning: Breaking Changes</h2>
+
+<ul>
+<li>API: Drop unnecessary fields from contract-versioned object references (#12356)</li>
+<li>CAPD: Conditions: add V1Beta1 suffix and remove V1Beta2 suffix from condition types and reasons in CAPD v1beta2 packages (#12393)</li>
+<li>CAPD: Implement v1beta2 contract in CAPD (#12409)</li>
+<li>CAPD: Promote v1beta2 condition in CAPD (#12362)</li>
+<li>ClusterClass: Remove DefaulterRemoveUnknownOrOmitableFields mutating webhook option (again) (#12404)</li>
+<li>KCP: KCP tolerates diff not leading to changes on machines (#12402)</li>
+<li>MachineHealthCheck: Drop unnecessary fields from remediationTemplate references (#12368)</li>
+<li>MachineSet: Make Template in MachineSet &amp; Spec in MachineTemplateSpec required (#12420)</li>
+<li>MachineSet/MachineDeployment: Use MachineSetDeletePolicy enum in MD &amp; MS API (#12419)</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>clusterctl: Add Scaleway infrastructure provider to clusterctl (#12357)</li>
+<li>KCP/CABPK: Reintroduce KCP/CABPK ClusterConfiguration controlPlaneEndpoint (#12423)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>API: Ensure all pointer status fields are dereferenced correctly (#12412)</li>
+<li>CABPK: Fix rendering of ntp.enabled &amp; users.inactive *bool values in cloud init (#12394)</li>
+<li>CI: Fixing failed to install kind for e2e tests (#12361)</li>
+<li>MachineDeployment: Bug fix to set machinedeployment AvailableReplicas (#12410)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>API: Set minimum=1 on ObservedGeneration and KubeadmConfig APIEndpoint bindPort (#12417)</li>
+<li>CAPD: Ensure CAPD v1beta1 API package only imports core v1beta1 (#12405)</li>
+<li>CI: Bump KAL to 20250626 + enable uniquemarkers linter (#12427)</li>
+<li>Cluster: Ensure Cluster.status.failureDomains are alphabetically sorted (#12416)</li>
+<li>Cluster: Improve error message if rebase fails because target ClusterClass is not reconciled (#12415)</li>
+<li>clusterctl: Bump cert-manager to v1.18.1 (#12378)</li>
+<li>Dependency: Update github.com/go-viper/mapstructure/v2 to v2.3.0 (#12421)</li>
+<li>KCP/CABPK: KCP: Set MinItems=1 on ExternalEtcd.Endpoints (#12411)</li>
+<li>Testing/CI: Fix e2e test capi-e2e-release-1.8 (#12379)</li>
+<li>Testing: Test changes planned to comply optionalrequired linter (#12414)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>go.yaml.in/yaml/v2: v2.4.2</li>
+<li>go.yaml.in/yaml/v3: v3.0.3</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1 → v2.3.0</a></li>
+<li>k8s.io/api: v0.33.1 → v0.33.2</li>
+<li>k8s.io/apiextensions-apiserver: v0.33.1 → v0.33.2</li>
+<li>k8s.io/apimachinery: v0.33.1 → v0.33.2</li>
+<li>k8s.io/apiserver: v0.33.1 → v0.33.2</li>
+<li>k8s.io/client-go: v0.33.1 → v0.33.2</li>
+<li>k8s.io/cluster-bootstrap: v0.33.1 → v0.33.2</li>
+<li>k8s.io/code-generator: v0.33.1 → v0.33.2</li>
+<li>k8s.io/component-base: v0.33.1 → v0.33.2</li>
+<li>k8s.io/kms: v0.33.1 → v0.33.2</li>
+<li>sigs.k8s.io/yaml: v1.4.0 → v1.5.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<dl>
+<dt><summary>More details about the release</summary></dt>
+</dl>
+
+<p>:warning: <strong>ALPHA RELEASE NOTES</strong> :warning:</p>
+
+<h2 id="changes-since-v1-10-0">Changes since v1.10.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview-1">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>219 new commits merged</li>
+<li>54 breaking changes :warning:</li>
+<li>14 feature additions ✨</li>
+<li>29 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="warning-breaking-changes-1">:warning: Breaking Changes</h2>
+
+<ul>
+<li>API: Add CAPD v1beta2 types (#12226)</li>
+<li>API: Add v1beta2 types (#12037)</li>
+<li>API: Change .status.replicas fields to pointer + omitempty (#12250)</li>
+<li>API: Conditions: add V1Beta1 suffix and remove V1Beta2 suffix from condition types and reasons in v1beta2 packages (#12091)</li>
+<li>API: Drop unnecessary fields from contract-versioned object references (#12356)</li>
+<li>API: Migrate API to use *Seconds instead of metav1.Duration fields (#12327)</li>
+<li>API: Move APIs to ./api (#12262)</li>
+<li>API: Partially revert: Remove DefaulterRemoveUnknownOrOmitableFields mutating webhook option (#12290)</li>
+<li>API: Promote v1beta2 conditions (#12066)</li>
+<li>API: Remove DefaulterRemoveUnknownOrOmitableFields mutating webhook option (#12231)</li>
+<li>API: Remove IPFamily from public APIs (move to CAPD/kind util) (#12215)</li>
+<li>CABPK: Align KubeadmConfig to kubeadm v1beta4 types (#12282)</li>
+<li>CAPD: Conditions: add V1Beta1 suffix and remove V1Beta2 suffix from condition types and reasons in CAPD v1beta2 packages (#12393)</li>
+<li>CAPD: Implement v1beta2 contract in CAPD (#12409)</li>
+<li>CAPD: Promote v1beta2 condition in CAPD (#12362)</li>
+<li>Cluster: Remove deprecated index ByClusterClassName, ClusterByClusterClassClassName and ClusterClassNameField (#12269)</li>
+<li>ClusterClass: Drop unnecessary fields from ClusterClass template references (#12358)</li>
+<li>ClusterClass: Move infrastructure namingStrategy field in ClusterClass (#12216)</li>
+<li>ClusterClass: Remove ClusterVariable.DefinitionFrom field (#12202)</li>
+<li>ClusterClass: Remove DefaulterRemoveUnknownOrOmitableFields mutating webhook option (again) (#12404)</li>
+<li>ClusterClass: Remove deprecated Cluster.spec.topology.rolloutAfter field (#12268)</li>
+<li>ClusterClass: Remove deprecated ClusterCacheTracker and corresponding types (#12270)</li>
+<li>ClusterClass: Rename deprecated ClusterClass Metadata fields to DeprecatedV1Beta1Metadata (#12273)</li>
+<li>ClusterClass: Rename runtime extension fields in ClusterClass ExternalPatchDefinition (#12281)</li>
+<li>ClusterClass: Restructure classRef field in Cluster.spec.topology (#12235)</li>
+<li>clusterctl: Clusterctl describe defaults to v1beta2 (#12369)</li>
+<li>clusterctl: Remove clusterctl alpha topology plan (#12283)</li>
+<li>ClusterResourceSet: Make clusterName field in ClusterResourceSetBinding required (#12276)</li>
+<li>ClusterResourceSet: Remove deprecated ClusterResourceSetBinding.DeleteBinding method (#12267)</li>
+<li>Conditions: Swap condition packages (#12086)</li>
+<li>Dependency: Bump to controller-runtime v0.21 / controller-tools v0.18 / k8s.io/* v0.33 / move to randfill (#12191)</li>
+<li>IPAM: Refactor reference types for IPAM (#12365)</li>
+<li>KCP: KCP tolerates diff not leading to changes on machines (#12402)</li>
+<li>Machine: Drop unnecessary fields from Machine status.nodeRef (#12352)</li>
+<li>MachineDeployment: Drop revisionHistory in MachineDeployment (#12274)</li>
+<li>MachineDeployment: Remove MD spec.progressDeadlineSeconds (#12232)</li>
+<li>MachineHealthCheck: Drop unnecessary fields from remediationTemplate references (#12368)</li>
+<li>MachineHealthCheck: Rename MHC unhealthyConditions to unhealthyNodeConditions (#12245)</li>
+<li>MachineSet: Make Template in MachineSet &amp; Spec in MachineTemplateSpec required (#12420)</li>
+<li>API/Cluster: Add initialization to Cluster status (#12098)</li>
+<li>API/Control-plane/Bootstrap/KCP/CABPK/Cluster: Implement v1beta2 contract in cluster controller, KCP, CABPK (#12094)</li>
+<li>API/KCP/CABPK/CI: Enable nomaps linter, Remove unused kubeadm ClusterStatus struct, Migrate Cluster.status.failureDomains to array (#12083)</li>
+<li>API/Machine: Add initialization to Machine Status (#12101)</li>
+<li>API/MachinePool: Add initialization to MachinePool Status (#12102)</li>
+<li>clusterctl/Documentation: Remove reference and configurations for Packet (Equinix Metal) (#12143)</li>
+<li>KCP/CABPK: Remove KubeadmConfig UseExperimentalRetryJoin (#12234)</li>
+<li>KCP/CABPK: Remove redundant fields from CABPK / KCP ClusterConfiguration (#12319)</li>
+<li>KCP/CABPK: Remove TypeMeta from KubeadmConfigSpec (#12350)</li>
+<li>KCP/MachineSet/CABPK/CAPD/e2e/Cluster: Cleanup version handling of unsupported Kubernetes releases (#12303)</li>
+<li>Machine/Cluster: Stop using FailureReason and FailureMessage in controllers (#12148)</li>
+<li>Machine/MachinePool/MachineSet/MachineDeployment: Add MinReadySeconds to Machine and remove it from MachineDeployment, MachineSet, MachinePool. (#12153)</li>
+<li>Machine/MachineSet/MachineDeployment/Cluster: Stop using deprecated replica counters in controllers (#12149)</li>
+<li>MachineSet/MachineDeployment: Use MachineSetDeletePolicy enum in MD &amp; MS API (#12419)</li>
+<li>Runtime SDK: Add v1beta2 API for ExtensionConfig (#12197)</li>
+</ul>
+
+<h2 id="sparkles-new-features-1">:sparkles: New Features</h2>
+
+<ul>
+<li>API: Block imports to internal packages in our API + restructure import restrictions (#12302)</li>
+<li>API: Deprecate v1alpha1 &amp; v1beta1 API packages (#12254)</li>
+<li>clusterctl: Add Scaleway infrastructure provider to clusterctl (#12357)</li>
+<li>clusterctl: Clearer diagnostics when provider metadata is missing or repo URL is stale (#12238)</li>
+<li>clusterctl: Validate provider metadata (#12242)</li>
+<li>Dependency: Bump controller-tools v0.17.3, conversion-gen v0.33.0 (#12129)</li>
+<li>Dependency: Complete bump to Kubernetes v1.33 (#12206)</li>
+<li>Dependency: Update KUBEBUILDER_ENVTEST_KUBERNETES_VERSION (#12130)</li>
+<li>e2e: From 1.10 use GetStableReleaseOfMinor instead of GetLatestReleaseOfMinor (#12118)</li>
+<li>Machine: Implement v1beta2 contract in Machine controller (#12038)</li>
+<li>KCP/CABPK: Reintroduce KCP/CABPK ClusterConfiguration controlPlaneEndpoint (#12423)</li>
+<li>Runtime SDK/ClusterClass: Extend Cluster builtin to include metadata (#12014)</li>
+<li>Runtime SDK: Extend cluster builtin to include classNamespace (#12050)</li>
+<li>Testing: Bump Kubernetes in tests to v1.33.0 and claim support for v1.33 (#12104)</li>
+</ul>
+
+<h2 id="bug-bug-fixes-1">:bug: Bug Fixes</h2>
+
+<ul>
+<li>API: Ensure all pointer status fields are dereferenced correctly (#12412)</li>
+<li>Bootstrap: Make joinConfiguration.discovery.bootstrapToken.token optional (#12107)</li>
+<li>Bootstrap: Relax minLength for bootstrap.dataSecretName to 0 (#12164)</li>
+<li>CABPK: Fix rendering of ntp.enabled &amp; users.inactive *bool values in cloud init (#12394)</li>
+<li>CABPK: Increase ignition additionalConfig maxSize from 10 to 32 KB (#12222)</li>
+<li>CABPK: Make KubeadmConfig FileSystem.Label optional (#12019)</li>
+<li>CAPD: Fix worker machine count in CAPD template (#12028)</li>
+<li>CAPIM: Fix CAPD in-memory templates (#12013)</li>
+<li>CAPIM: Mux: fix error check (#12230)</li>
+<li>CI: Fix conversion-verifier and fix findings (#12349)</li>
+<li>CI: Fixing failed to install kind for e2e tests (#12361)</li>
+<li>ClusterClass: Fix continuous reconciles because of apiVersion differences in Cluster topology controller (#12341)</li>
+<li>clusterctl: Accept upper case version (#12237)</li>
+<li>clusterctl: Add missing API version to NS object (#12200)</li>
+<li>clusterctl: Clusterctl upgrade hangs for a time on CRD migration when new version contains a number of new CRDs (#11984)</li>
+<li>ClusterResourceSet: Fix potential panic if ClusterResourceSetStrategy is not defined or incorrect (#12096)</li>
+<li>e2e: Stop overwriting ExtraPortMappings if WithDockerSockMount option is used (#12012)</li>
+<li>IPAM: Enable conversion in CRDs (#12198)</li>
+<li>IPAM: Revert condition func changes for IPAddressClaim v1beta1 (#12223)</li>
+<li>KCP: Fix nil pointer in conversion (#12292)</li>
+<li>KCP: Fix rollout when init configuration in KCP is empty (#12344)</li>
+<li>Machine: Machine deletion: fallback to InfraMachine providerID if Machine providerID is not set (#11985)</li>
+<li>MachineDeployment: Bug fix to set machinedeployment AvailableReplicas (#12410)</li>
+<li>MachineDeployment: Fix second rolling update for MD rolloutAfter (#12261)</li>
+<li>API/ClusterClass: Fix MaxLength of worker topology Name fields (#12072)</li>
+<li>Dependency/CI: Upgrade golangci-lint to v2.1.0 (#12170)</li>
+<li>Testing/CI: Fix the condition to check whether cluster has v1beta2 conditions (#12100)</li>
+<li>util: CRD migration: Fix cases where update validation fails (#11991)</li>
+<li>util: Fix typo for WithOwnedV1beta1Conditions to WithOwnedV1Beta1Conditions (#12218)</li>
+</ul>
+
+<h2 id="seedling-others-1">:seedling: Others</h2>
+
+<ul>
+<li>API: Drop hardcoded v1beta1 references (#12027)</li>
+<li>API: Move internal/apis to internal/api (#12296)</li>
+<li>API: Remove unused List conversion funcs (#12054)</li>
+<li>API: Set minimum=1 on ObservedGeneration and KubeadmConfig APIEndpoint bindPort (#12417)</li>
+<li>CAPD: Ensure CAPD v1beta1 API package only imports core v1beta1 (#12405)</li>
+<li>CAPIM: Mux: Ignore net.ErrClosed error during listener close &amp; server shutdown (#12212)</li>
+<li>CI: Add govulncheck to ensure vulnerability (#12108)</li>
+<li>CI: Bump E2E to Kubernetes v1.33.0-rc.1 (#12099)</li>
+<li>CI: Bump golangci-lint v2 (#12088)</li>
+<li>CI: Bump KAL to 20250605073038, cleanup excludes, fix IPAM prefix field, add MaxItems to Machine.status.addresses (#12326)</li>
+<li>CI: Bump KAL to 20250626 + enable uniquemarkers linter (#12427)</li>
+<li>CI: Enable duplicatemarkers linter (#12228)</li>
+<li>CI: Enable statusoptional linter (#12229)</li>
+<li>CI: Remove govulncheck from the verify target (#12348)</li>
+<li>CI: Switch plugin to kube-api-linter (#12089)</li>
+<li>CI: Update version matrix for github workflows for release-1.10 (#11992)</li>
+<li>CI: Use release artifacts for CAPI v1.10 (#12147)</li>
+<li>Cluster: Ensure Cluster.status.failureDomains are alphabetically sorted (#12416)</li>
+<li>Cluster: Improve error message if rebase fails because target ClusterClass is not reconciled (#12415)</li>
+<li>ClusterClass: Improve webhook output to include the names of the clusters blocking a deletion (#12060)</li>
+<li>clusterctl: Add filename to clusterctl error about bad YAML (#12189)</li>
+<li>clusterctl: Add support for compatible contracts to clusterctl (#12018)</li>
+<li>clusterctl: Bump cert-manager to v1.17.1 (#12044)</li>
+<li>clusterctl: Bump cert-manager to v1.17.2 (#12210)</li>
+<li>clusterctl: Bump cert-manager to v1.18.0 (#12342)</li>
+<li>clusterctl: Bump cert-manager to v1.18.1 (#12378)</li>
+<li>clusterctl: Change k0smotron repo location (#12225)</li>
+<li>clusterctl: Enforce skip upgrade policy in clusterctl (#12017)</li>
+<li>Community meeting: Add JoelSpeed to approvers (#12204)</li>
+<li>Conditions: Cleanup v1beta1 updateStatus functions (#12190)</li>
+<li>Conditions: Drop usage of v1beta1 conditions (#12109)</li>
+<li>Control-plane: Avoid large number of connection error traces in kubeadm controlplane controller (#12106)</li>
+<li>Dependency: Bump Go 1.24 (#12128)</li>
+<li>Dependency: Bump go to v1.23.8 (#12052)</li>
+<li>Dependency: Bump sigs.k8s.io/kind to v0.28.0 (#12243)</li>
+<li>Dependency: Bump sigs.k8s.io/kind to v0.29.0 (#12257)</li>
+<li>Dependency: Bump to Go v1.24.4, github.com/cloudflare/circl v1.6.1 (#12351)</li>
+<li>Dependency: Update github.com/go-viper/mapstructure/v2 to v2.3.0 (#12421)</li>
+<li>Devtools: Add KubeVirt support to Tilt dev workflow (#11697)</li>
+<li>Devtools: Metrics: use v1beta2 for condition metrics and add metrics for dockercluster devcluster dockermachine devmachine extensionconfig ipaddressclaim and crs (#12006)</li>
+<li>e2e: Add an option to override custom node image name for kind cluster (#12186)</li>
+<li>e2e: Add retry for SSA requests against Kubernetes &lt; v1.29 in clusterctl upgrade tests (#12067)</li>
+<li>e2e: Bump clusterctl_upgrade_test.go main and 1.10 tests to k8s v1.33.0 (#12193)</li>
+<li>e2e: Bump Kubernetes version used for testing to v1.33.0-rc.0 (#12073)</li>
+<li>e2e: Only run DescribeCluster if v1beta2 Cluster CRD is there (#12279)</li>
+<li>KCP: Allow unsetting etcd.local, etcd.external and dns (#12065)</li>
+<li>KCP: Bump corefile-migration library to v1.0.26 (#12058)</li>
+<li>KCP: Fix typo in forward etcd leadership error message (#12056)</li>
+<li>Misc: Remove jackfrancis from reviewers (#12134)</li>
+<li>KCP/CABPK: KCP: Set MinItems=1 on ExternalEtcd.Endpoints (#12411)</li>
+<li>KCP/CABPK: Remove unused updateClusterStatus (#12295)</li>
+<li>Testing/CI: Fix e2e test capi-e2e-release-1.8 (#12379)</li>
+<li>Release: Prepare main for v1.11 development (#12000)</li>
+<li>Release: Use github.base_ref in markdown-link-check (#12034)</li>
+<li>Runtime SDK: Block dependencies to internal packages for the RX implementation (#12297)</li>
+<li>Runtime SDK: Stop registering API types in the runtime extension scheme (#12042)</li>
+<li>Testing: Framework: Watch logs from init containers (#12208)</li>
+<li>Testing: Release Notes Generator - Test cases for main.go and ref.go (#11882)</li>
+<li>Testing: Test changes planned to comply optionalrequired linter (#12414)</li>
+<li>util: Move contract version &amp; GetCompatibleVersions to contract package (#12032)</li>
+<li>util: Recover v1.10 util packages for conditions, patch and paused to util/deprecated/v1beta1 for provider migrations (#12224)</li>
+</ul>
+
+<p>:book: Additionally, there have been 33 contributions to our documentation and book. (#11029, #11998, #12004, #12057, #12074, #12093, #12117, #12120, #12122, #12125, #12126, #12131, #12139, #12140, #12145, #12150, #12163, #12165, #12188, #12201, #12205, #12236, #12246, #12266, #12284, #12287, #12306, #12309, #12328, #12333, #12377, #12382, #12418)</p>
+
+<h2 id="dependencies-1">Dependencies</h2>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+<li>github.com/klauspost/compress: <a href="https://github.com/klauspost/compress/tree/v1.18.0" target="_blank">v1.18.0</a></li>
+<li>github.com/kylelemons/godebug: <a href="https://github.com/kylelemons/godebug/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>github.com/prashantv/gostub: <a href="https://github.com/prashantv/gostub/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>go.opentelemetry.io/auto/sdk: v1.1.0</li>
+<li>go.uber.org/automaxprocs: v1.6.0</li>
+<li>go.yaml.in/yaml/v2: v2.4.2</li>
+<li>go.yaml.in/yaml/v3: v3.0.3</li>
+<li>gopkg.in/go-jose/go-jose.v2: v2.6.3</li>
+<li>sigs.k8s.io/randfill: v1.0.0</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+<li>cel.dev/expr: v0.18.0 → v0.19.1</li>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+<li>github.com/coreos/go-oidc: <a href="https://github.com/coreos/go-oidc/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1+incompatible → v2.3.0+incompatible</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.4.2...v1.4.3" target="_blank">v1.4.2 → v1.4.3</a></li>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1 → v2.3.0</a></li>
+<li>github.com/golang-jwt/jwt/v4: <a href="https://github.com/golang-jwt/jwt/compare/v4.5.0...v4.5.2" target="_blank">v4.5.0 → v4.5.2</a></li>
+<li>github.com/google/cel-go: <a href="https://github.com/google/cel-go/compare/v0.22.0...v0.23.2" target="_blank">v0.22.0 → v0.23.2</a></li>
+<li>github.com/google/gnostic-models: <a href="https://github.com/google/gnostic-models/compare/v0.6.8...v0.6.9" target="_blank">v0.6.8 → v0.6.9</a></li>
+<li>github.com/google/pprof: <a href="https://github.com/google/pprof/compare/40e02aa...27863c8" target="_blank">40e02aa → 27863c8</a></li>
+<li>github.com/gorilla/websocket: <a href="https://github.com/gorilla/websocket/compare/v1.5.3...e064f32" target="_blank">v1.5.3 → e064f32</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/compare/v2.20.0...v2.24.0" target="_blank">v2.20.0 → v2.24.0</a></li>
+<li>github.com/onsi/ginkgo/v2: <a href="https://github.com/onsi/ginkgo/compare/v2.23.3...v2.23.4" target="_blank">v2.23.3 → v2.23.4</a></li>
+<li>github.com/onsi/gomega: <a href="https://github.com/onsi/gomega/compare/v1.36.3...v1.37.0" target="_blank">v1.36.3 → v1.37.0</a></li>
+<li>github.com/pmezard/go-difflib: <a href="https://github.com/pmezard/go-difflib/compare/5d4384e...v1.0.0" target="_blank">5d4384e → v1.0.0</a></li>
+<li>github.com/prometheus/client_golang: <a href="https://github.com/prometheus/client_golang/compare/v1.19.1...v1.22.0" target="_blank">v1.19.1 → v1.22.0</a></li>
+<li>github.com/prometheus/common: <a href="https://github.com/prometheus/common/compare/v0.55.0...v0.62.0" target="_blank">v0.55.0 → v0.62.0</a></li>
+<li>github.com/rogpeppe/go-internal: <a href="https://github.com/rogpeppe/go-internal/compare/v1.12.0...v1.13.1" target="_blank">v1.12.0 → v1.13.1</a></li>
+<li>github.com/spf13/viper: <a href="https://github.com/spf13/viper/compare/v1.20.0...v1.20.1" target="_blank">v1.20.0 → v1.20.1</a></li>
+<li>github.com/stretchr/objx: <a href="https://github.com/stretchr/objx/compare/v0.5.0...v0.5.2" target="_blank">v0.5.0 → v0.5.2</a></li>
+<li>go.etcd.io/etcd/api/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/pkg/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/v2: v2.305.16 → v2.305.21</li>
+<li>go.etcd.io/etcd/client/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/pkg/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/raft/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/server/v3: v3.5.16 → v3.5.21</li>
+<li>go.opentelemetry.io/contrib/detectors/gcp: v1.29.0 → v1.30.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.27.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.28.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/sdk/metric: v1.29.0 → v1.30.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/proto/otlp: v1.3.1 → v1.4.0</li>
+<li>golang.org/x/crypto: v0.36.0 → v0.39.0</li>
+<li>golang.org/x/mod: v0.23.0 → v0.25.0</li>
+<li>golang.org/x/net: v0.37.0 → v0.41.0</li>
+<li>golang.org/x/oauth2: v0.28.0 → v0.30.0</li>
+<li>golang.org/x/sync: v0.12.0 → v0.15.0</li>
+<li>golang.org/x/sys: v0.31.0 → v0.33.0</li>
+<li>golang.org/x/term: v0.30.0 → v0.32.0</li>
+<li>golang.org/x/text: v0.23.0 → v0.26.0</li>
+<li>golang.org/x/time: v0.8.0 → v0.9.0</li>
+<li>golang.org/x/tools: v0.30.0 → v0.33.0</li>
+<li>google.golang.org/grpc: v1.67.3 → v1.68.2</li>
+<li>k8s.io/api: v0.32.3 → v0.33.2</li>
+<li>k8s.io/apiextensions-apiserver: v0.32.3 → v0.33.2</li>
+<li>k8s.io/apimachinery: v0.32.3 → v0.33.2</li>
+<li>k8s.io/apiserver: v0.32.3 → v0.33.2</li>
+<li>k8s.io/client-go: v0.32.3 → v0.33.2</li>
+<li>k8s.io/cluster-bootstrap: v0.32.3 → v0.33.2</li>
+<li>k8s.io/code-generator: v0.32.3 → v0.33.2</li>
+<li>k8s.io/component-base: v0.32.3 → v0.33.2</li>
+<li>k8s.io/gengo/v2: 2b36238 → 1244d31</li>
+<li>k8s.io/kms: v0.32.3 → v0.33.2</li>
+<li>k8s.io/kube-openapi: 32ad38e → c8a335a</li>
+<li>sigs.k8s.io/apiserver-network-proxy/konnectivity-client: v0.31.0 → v0.31.2</li>
+<li>sigs.k8s.io/controller-runtime: v0.20.4 → v0.21.0</li>
+<li>sigs.k8s.io/structured-merge-diff/v4: v4.4.2 → v4.6.0</li>
+<li>sigs.k8s.io/yaml: v1.4.0 → v1.5.0</li>
+</ul>
+
+<h3 id="removed-1">Removed</h3>
+
+<ul>
+<li>github.com/asaskevich/govalidator: <a href="https://github.com/asaskevich/govalidator/tree/f61b66f" target="_blank">f61b66f</a></li>
+<li>github.com/go-kit/log: <a href="https://github.com/go-kit/log/tree/v0.2.1" target="_blank">v0.2.1</a></li>
+<li>github.com/go-logfmt/logfmt: <a href="https://github.com/go-logfmt/logfmt/tree/v0.5.1" target="_blank">v0.5.1</a></li>
+<li>gopkg.in/square/go-jose.v2: v2.6.0</li>
+</ul>
+
+<p></details>
+<br/>
+<em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>kubernetes-sigs/cluster-api-provider-vsphere</h2> <h3>Release notes for v1.14.0-alpha.2</h3><h4>2025-07-02</h4><p>🚨 This is a ALPHA RELEASE. Use it only for testing purposes. If you find any bugs, file an <a href="https://github.com/kubernetes-sigs/cluster-api-provider-vsphere/issues/new" target="_blank">issue</a>.</p>
+
+<h2 id="highlights">Highlights</h2>
+
+<ul>
+<li>REPLACE ME</li>
+</ul>
+
+<h2 id="changes-since-v1-14-0-alpha-1">Changes since v1.14.0-alpha.1</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>9 new commits merged</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Bump to CAPI 1.11 version with ref changes (#3526)</li>
+<li>Bump to CAPI v1.11.0-alpha.2 (#3534)</li>
+<li>E2e: pull calico from a gcr.io mirror (#3525)</li>
+<li>Enhances VirtualMachineSetResourcePolicy reconcile (#3518)</li>
+<li>Fix comment of the NumCoresPerSocket property of VirtualMachineCloneSpec (#3531)</li>
+<li>Hack: debug vsphere connectivity (#3517)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>go.yaml.in/yaml/v2: v2.4.2</li>
+<li>go.yaml.in/yaml/v3: v3.0.3</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1 → v2.3.0</a></li>
+<li>k8s.io/api: v0.33.1 → v0.33.2</li>
+<li>k8s.io/apiextensions-apiserver: v0.33.1 → v0.33.2</li>
+<li>k8s.io/apimachinery: v0.33.1 → v0.33.2</li>
+<li>k8s.io/apiserver: v0.33.1 → v0.33.2</li>
+<li>k8s.io/client-go: v0.33.1 → v0.33.2</li>
+<li>k8s.io/cluster-bootstrap: v0.33.1 → v0.33.2</li>
+<li>k8s.io/code-generator: v0.33.1 → v0.33.2</li>
+<li>k8s.io/component-base: v0.33.1 → v0.33.2</li>
+<li>k8s.io/kms: v0.33.1 → v0.33.2</li>
+<li>sigs.k8s.io/cluster-api: v1.11.0-alpha.1 → v1.11.0-alpha.2</li>
+<li>sigs.k8s.io/yaml: v1.4.0 → v1.5.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<dl>
+<dt><summary>More details about the release</summary></dt>
+</dl>
+
+<p>:warning: <strong>ALPHA RELEASE NOTES</strong> :warning:</p>
+
+<h2 id="highlights-1">Highlights</h2>
+
+<ul>
+<li>REPLACE ME</li>
+</ul>
+
+<h2 id="changes-since-v1-13-0">Changes since v1.13.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview-1">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>49 new commits merged</li>
+<li>1 feature addition ✨</li>
+<li>2 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>Bump Kubernetes to v1.33 and add new OVA&rsquo;s (#3435)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Govmomi: fix additional printer columns for ControlPlaneEndpoint (#3483)</li>
+<li>StoragePolicy should ignore datastores in maintenance mode (#3498)</li>
+</ul>
+
+<h2 id="seedling-others-1">:seedling: Others</h2>
+
+<ul>
+<li>Able to export webhooks for external utilization (#3434)</li>
+<li>Adjust import alias to align with CAPI migration recommendation (#3491)</li>
+<li>Adjust weekly gh actions to run for release-1.13 branch (#3420)</li>
+<li>Bump CAPI in tests to main (v1.11) (#3468)</li>
+<li>Bump CAPI to v1.10.0-rc.1, K8S and CPI to v1.33.0-rc.0 (#3424)</li>
+<li>Bump CAPI to v1.11.0-alpha.0 (#3478)</li>
+<li>Bump CAPI v1.10.0 (#3433)</li>
+<li>Bump CAPI v1.10.1 (#3443)</li>
+<li>Bump CPI to v1.33.0 (#3441)</li>
+<li>Bump go 1.23.8 (#3446)</li>
+<li>Bump to CAPI 1.11 version with ref changes (#3526)</li>
+<li>Bump to CAPI v1.11.0-alpha.1 (#3519)</li>
+<li>Bump to CAPI v1.11.0-alpha.2 (#3534)</li>
+<li>Bump to Go v1.24.4, github.com/cloudflare/circl v1.6.1 (#3509)</li>
+<li>Bump to Kubernetes v1.33.0-rc.1 (#3426)</li>
+<li>Changes for community owned Prow CI (#3473)</li>
+<li>CI: Partially revert 3473 due to having vSphere 8 in community ci (#3485)</li>
+<li>CI: reschedule release-1.13 jobs (#3495)</li>
+<li>E2e: also collect pod logs (#3490)</li>
+<li>E2e: fixup flake while claiming VIPs and IPAM MTU (#3504)</li>
+<li>E2e: pull calico from a gcr.io mirror (#3525)</li>
+<li>E2e: wait for vsphere api and set mtu for calico (#3508)</li>
+<li>Enhances VirtualMachineSetResourcePolicy reconcile (#3518)</li>
+<li>Fix comment of the NumCoresPerSocket property of VirtualMachineCloneSpec (#3531)</li>
+<li>Fix web-hook structure names and descriptions (#3462)</li>
+<li>Hack: debug vsphere connectivity (#3517)</li>
+<li>Makefile: Bump Kubebuilder to v1.33 (#3476)</li>
+<li>Migrate config and bump golangci lint to v2 (#3469)</li>
+<li>Prepare main for v1.14 (#3453)</li>
+<li>Prowjobs: reschedule main periodics at 23 and 1 UTC (#3494)</li>
+<li>Start using 1.34 for CI latest on main (#3438)</li>
+<li>Use release artefacts for CAPI v1.10 (#3448)</li>
+</ul>
+
+<p>:book: Additionally, there has been 1 contribution to our documentation and book. (#3437)</p>
+
+<h2 id="dependencies-1">Dependencies</h2>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+<li>github.com/klauspost/compress: <a href="https://github.com/klauspost/compress/tree/v1.18.0" target="_blank">v1.18.0</a></li>
+<li>github.com/kylelemons/godebug: <a href="https://github.com/kylelemons/godebug/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>go.opentelemetry.io/auto/sdk: v1.1.0</li>
+<li>go.yaml.in/yaml/v2: v2.4.2</li>
+<li>go.yaml.in/yaml/v3: v3.0.3</li>
+<li>gopkg.in/go-jose/go-jose.v2: v2.6.3</li>
+<li>sigs.k8s.io/randfill: v1.0.0</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+<li>cel.dev/expr: v0.18.0 → v0.19.1</li>
+<li>cloud.google.com/go/compute/metadata: v0.5.2 → v0.5.0</li>
+<li>github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp: <a href="https://github.com/GoogleCloudPlatform/opentelemetry-operations-go/compare/detectors/gcp/v1.25.0...detectors/gcp/v1.24.1" target="_blank">v1.25.0 → v1.24.1</a></li>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+<li>github.com/cncf/xds/go: <a href="https://github.com/cncf/xds/compare/024c85f...b4127c9" target="_blank">024c85f → b4127c9</a></li>
+<li>github.com/coreos/go-oidc: <a href="https://github.com/coreos/go-oidc/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1+incompatible → v2.3.0+incompatible</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.4.2...v1.4.3" target="_blank">v1.4.2 → v1.4.3</a></li>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1 → v2.3.0</a></li>
+<li>github.com/golang-jwt/jwt/v4: <a href="https://github.com/golang-jwt/jwt/compare/v4.5.0...v4.5.2" target="_blank">v4.5.0 → v4.5.2</a></li>
+<li>github.com/google/cel-go: <a href="https://github.com/google/cel-go/compare/v0.22.0...v0.23.2" target="_blank">v0.22.0 → v0.23.2</a></li>
+<li>github.com/google/gnostic-models: <a href="https://github.com/google/gnostic-models/compare/v0.6.8...v0.6.9" target="_blank">v0.6.8 → v0.6.9</a></li>
+<li>github.com/gorilla/websocket: <a href="https://github.com/gorilla/websocket/compare/v1.5.3...e064f32" target="_blank">v1.5.3 → e064f32</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/compare/v2.20.0...v2.24.0" target="_blank">v2.20.0 → v2.24.0</a></li>
+<li>github.com/prometheus/client_golang: <a href="https://github.com/prometheus/client_golang/compare/v1.19.1...v1.22.0" target="_blank">v1.19.1 → v1.22.0</a></li>
+<li>github.com/prometheus/common: <a href="https://github.com/prometheus/common/compare/v0.55.0...v0.62.0" target="_blank">v0.55.0 → v0.62.0</a></li>
+<li>github.com/rogpeppe/go-internal: <a href="https://github.com/rogpeppe/go-internal/compare/v1.12.0...v1.13.1" target="_blank">v1.12.0 → v1.13.1</a></li>
+<li>github.com/spf13/viper: <a href="https://github.com/spf13/viper/compare/v1.20.0...v1.20.1" target="_blank">v1.20.0 → v1.20.1</a></li>
+<li>github.com/vmware/govmomi: <a href="https://github.com/vmware/govmomi/compare/v0.49.0...v0.51.0" target="_blank">v0.49.0 → v0.51.0</a></li>
+<li>go.etcd.io/etcd/api/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/pkg/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/client/v2: v2.305.16 → v2.305.21</li>
+<li>go.etcd.io/etcd/client/v3: v3.5.20 → v3.5.21</li>
+<li>go.etcd.io/etcd/pkg/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/raft/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/server/v3: v3.5.16 → v3.5.21</li>
+<li>go.opentelemetry.io/contrib/detectors/gcp: v1.28.0 → v1.30.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.53.0 → v0.58.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.27.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.28.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/sdk/metric: v1.28.0 → v1.30.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel: v1.29.0 → v1.33.0</li>
+<li>go.opentelemetry.io/proto/otlp: v1.3.1 → v1.4.0</li>
+<li>golang.org/x/crypto: v0.36.0 → v0.39.0</li>
+<li>golang.org/x/mod: v0.24.0 → v0.25.0</li>
+<li>golang.org/x/net: v0.37.0 → v0.41.0</li>
+<li>golang.org/x/oauth2: v0.28.0 → v0.30.0</li>
+<li>golang.org/x/sync: v0.12.0 → v0.15.0</li>
+<li>golang.org/x/sys: v0.32.0 → v0.33.0</li>
+<li>golang.org/x/term: v0.30.0 → v0.32.0</li>
+<li>golang.org/x/text: v0.23.0 → v0.26.0</li>
+<li>golang.org/x/time: v0.8.0 → v0.9.0</li>
+<li>golang.org/x/tools: v0.31.0 → v0.34.0</li>
+<li>google.golang.org/grpc: v1.67.3 → v1.68.2</li>
+<li>k8s.io/api: v0.32.3 → v0.33.2</li>
+<li>k8s.io/apiextensions-apiserver: v0.32.3 → v0.33.2</li>
+<li>k8s.io/apimachinery: v0.32.3 → v0.33.2</li>
+<li>k8s.io/apiserver: v0.32.3 → v0.33.2</li>
+<li>k8s.io/client-go: v0.32.3 → v0.33.2</li>
+<li>k8s.io/cluster-bootstrap: v0.32.3 → v0.33.2</li>
+<li>k8s.io/code-generator: v0.32.3 → v0.33.2</li>
+<li>k8s.io/component-base: v0.32.3 → v0.33.2</li>
+<li>k8s.io/gengo/v2: 2b36238 → 1244d31</li>
+<li>k8s.io/kms: v0.32.3 → v0.33.2</li>
+<li>k8s.io/kube-openapi: 32ad38e → c8a335a</li>
+<li>sigs.k8s.io/apiserver-network-proxy/konnectivity-client: v0.31.0 → v0.31.2</li>
+<li>sigs.k8s.io/cluster-api: v1.10.1 → v1.11.0-alpha.2</li>
+<li>sigs.k8s.io/controller-runtime: v0.20.4 → v0.21.0</li>
+<li>sigs.k8s.io/structured-merge-diff/v4: v4.4.2 → v4.6.0</li>
+<li>sigs.k8s.io/yaml: v1.4.0 → v1.5.0</li>
+</ul>
+
+<h3 id="removed-1">Removed</h3>
+
+<ul>
+<li>github.com/asaskevich/govalidator: <a href="https://github.com/asaskevich/govalidator/tree/f61b66f" target="_blank">f61b66f</a></li>
+<li>github.com/go-kit/log: <a href="https://github.com/go-kit/log/tree/v0.2.1" target="_blank">v0.2.1</a></li>
+<li>github.com/go-logfmt/logfmt: <a href="https://github.com/go-logfmt/logfmt/tree/v0.5.1" target="_blank">v0.5.1</a></li>
+<li>gopkg.in/square/go-jose.v2: v2.6.0</li>
+</ul>
+
+<p></details>
+<br/>
+<em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 3.5.0-rc.0 / 2025-06-25</h3><h4>2025-06-30</h4><p>3.5 will be a Long Term Support (LTS) release; see release <a href="https://prometheus.io/docs/introduction/release-cycle/" target="_blank">https://prometheus.io/docs/introduction/release-cycle/</a>
+There are a number of new features, and no known breaking changes in this release.</p>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>[FEATURE] PromQL: Add experimental type and unit metadata labels, behind feature flag <code>type-and-unit-labels</code>. #16228 #16632 #16718 #16743</li>
+<li>[FEATURE] PromQL: Add <code>ts_of_(min|max|last)_over_time</code>, behind feature flag <code>experimental-promql-functions</code>. #16722 #16733</li>
+<li>[FEATURE] Scraping: Add global option <code>always_scrape_classic_histograms</code> to scrape a classic histogram even if it is also exposed as native. #16452</li>
+<li>[FEATURE] OTLP: Support promoting OTel scope name/version/schema URL/attributes as metric labels, via <code>otlp.promote_scope_metadata</code>. #16730 #16760</li>
+<li>[FEATURE] OTLP: New config options <code>promote_all_resource_attributes</code> and <code>ignore_resource_attributes</code>. #16426</li>
+<li>[FEATURE] Discovery: New service discovery for STACKIT Cloud. #16401</li>
+<li>[ENHANCEMENT] Hetzner SD: Add <code>label_selector</code> to filter servers. #16512</li>
+<li>[ENHANCEMENT] PromQL: support non-constant parameter in aggregations like <code>quantile</code> and <code>topk</code>. #16404</li>
+<li>[ENHANCEMENT] UI: Better total target count display when using <code>keep_dropped_targets</code> option. #16604</li>
+<li>[ENHANCEMENT] UI: Add simple filtering on the <code>/rules</code> page. #16605</li>
+<li>[ENHANCEMENT] UI: Display query stats in hover tooltip over table query tab. #16723</li>
+<li>[ENHANCEMENT] UI: Clear search field on <code>/targets</code> page. #16567</li>
+<li>[ENHANCEMENT] Rules: Check that rules parse without error earlier at startup. #16601</li>
+<li>[ENHANCEMENT] Promtool: Optional fuzzy float64 comparison in rules unittests. #16395</li>
+<li>[PERF] PromQL: Reuse <code>histogramStatsIterator</code> where possible. #16686</li>
+<li>[PERF] PromQL: Reuse storage for custom bucket values for native histograms. #16565</li>
+<li>[PERF] UI: Optimize memoization and search debouncing on <code>/targets</code> page. #16589</li>
+<li>[PERF] UI: Fix full-page re-rendering when opening status nav menu. #16590</li>
+<li>[PERF] Kubernetes SD: use service cache.Indexer to achieve better performance. #16365</li>
+<li>[PERF] TSDB: Optionally use Direct IO for chunks writing. #15365</li>
+<li>[PERF] TSDB: When fetching label values, stop work earlier if the limit is reached. #16158</li>
+<li>[PERF] Labels: Simpler/faster stringlabels encoding. #16069</li>
+<li>[PERF] Scraping: Reload scrape pools concurrently. #16595 #16783</li>
+<li>[BUGFIX] Top-level: Update GOGC before loading TSDB. #16491</li>
+<li>[BUGFIX] Config: Respect GOGC environment variable if no &ldquo;runtime&rdquo; block exists. #16558</li>
+<li>[BUGFIX] PromQL: Fix native histogram <code>last_over_time</code>. #16744</li>
+<li>[BUGFIX] PromQL: Fix reported parser position range in errors for aggregations wrapped in ParenExpr #16041 #16754</li>
+<li>[BUGFIX] PromQL: Don&rsquo;t emit a value from <code>histogram_fraction</code> or <code>histogram_quantile</code> if classic and native histograms are present at the same timestamp. #16552</li>
+<li>[BUGFIX] PromQL: Incorrect rounding of <code>[1001ms]</code> to <code>[1s]</code> and similar. #16478</li>
+<li>[BUGFIX] PromQL: Fix inconsistent / sometimes negative <code>histogram_count</code> and <code>histogram_sum</code>. #16682</li>
+<li>[BUGFIX] PromQL: Improve handling of NaNs in native histograms. #16724</li>
+<li>[BUGFIX] PromQL: Fix unary operator precedence in duration expressions. #16713</li>
+<li>[BUGFIX] PromQL: Improve consistency of <code>avg</code> aggregation and <code>avg_over_time</code>. #16569 #16773</li>
+<li>[BUGFIX] UI: Add query warnings and info to graph view. #16753 #16759</li>
+<li>[BUGFIX] API: Add HTTP <code>Vary: Origin</code> header to responses to avoid cache poisoning. #16008</li>
+<li>[BUGFIX] Discovery: Avoid deadlocks by taking locks in consistent order. #16587</li>
+<li>[BUGFIX] Remote-write: For Azure AD auth, allow empty <code>client_id</code> to suppport system assigned managed identity. #16421</li>
+<li>[BUGFIX] Scraping: Fix rare memory corruption bug. #16623</li>
+<li>[BUGFIX] Scraping: continue handling custom-bucket histograms after an exponential histogram is encountered. #16720</li>
+<li>[BUGFIX] OTLP: Default config not respected when <code>otlp:</code> block is unset. #16693</li>
+</ul>
+<br><h3>Release notes for 2.53.5 / 2025-06-27</h3><h4>2025-06-30</h4><p>[LTS patch release]</p>
+
+<ul>
+<li>[ENHANCEMENT] TSDB: Add backward compatibility with the upcoming TSDB block index v3 #16762</li>
+<li>[BUGFIX] Top-level: Update GOGC before loading TSDB #16521</li>
+</ul>
+<br>
+</body>
+
+</html>
