@@ -58,7 +58,7 @@ Sources of this information include, but are not limited to:
 
 ## Searching for PRs
 
-We search for singificant PRs merged in the last week against kubernetes/kubernetes using this github query:
+We search for significant PRs merged in the last week against kubernetes/kubernetes using this github query:
 
 ```
 is:pr merged:>YYYY-MM-DD label:release-note,release-note-action-required,"kind/deprecation","kind/api-change","kind/feature","size/l"
