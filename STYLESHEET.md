@@ -86,9 +86,34 @@ Prow
 
 ### Merge Reporting
 
-Each week, we report merges that had some noticeable effect on either users or Kubernetes developers.  This includes new features, API changes, code reorganizations, new metrics, new tests, crash bug fixes, feature advancements, and a few other kinds of changes.  
+Each week, we report merges that had some noticeable effect on either users or Kubernetes developers.  This includes new features, API changes, code reorganizations, new metrics, new tests, crash bug fixes, feature advancements, and a few other kinds of changes.
 
-There's a few types of changes that aren't usually worth reporting, such as internal code documentation updates (unless they're very large), fixes to unreleased features, and cherry-picks to older versions.  You can use whether or not the merge rated a release note as somewhat of a guideline.  Beyond that, also base your selectivity on the volume of merges in a week; if it's an 80-PR week (on the standard query), then you want a higher threshold of significance.
+There's a few types of changes that aren't usually worth reporting.  You can use whether or not the merge rated a release note as somewhat of a guideline.  Beyond that, also base your selectivity on the volume of merges in a week; if it's an 80-PR week (on the standard query), then you want a higher threshold of significance.
+
+Merges we should almost always publish include:
+
+* Features (look for `kind/feature`)
+* All deprecations
+* API changes (look for the `kind/api-change` label)
+* Major version updates to critical dependances (golang, etcd, etc.)
+* Changes that carry a release note (will be in the PR description)
+* Feature promotions
+* Fixes for crash bugs and/or security holes
+* Changes that require contributors to modify their development environment or process (moving directories, updating build tools, etc.)
+* New tests
+* New monitoring fields/endpoints
+* Any really large refactoring
+
+Merges that we often skip reporting on include:
+
+* Changes to code comments and internal code docs
+* Alpha or beta releases of dependancies
+* Minor fixes to unreleased alpha features
+* Minor fixes to optional components (e.g. kubeadm, operators, drivers)
+* Wording, grammar, or typo fixes to docs, help messages, and prompts
+* Small refactorings
+
+We never report cherry-picks.  Instead, report the original PR.
 
 For merges, you are looking to summarize what's important about the merge in one short statement, ideally 4-10 words.  This statement should:
 
@@ -189,7 +214,7 @@ This will be the last update for version 1.26. if you are still using 1.26, star
 
 There's two very similar sections in LWKD, one called `Version Updates` and one called `Subproject and Dependency Updates`. While there is some flexibility in which section a particular news item goes in, here are the guidelines:
 
-**Version Updates**: New versions of build dependencies and some minor subprojects of Kubernetes.  Usually the news is not about a release, but rather which version is included with/required for/supported by Kubernetes.  Examples would be updates to our required version of golang or etcd.  We also usually put update releases from minor subprojects here, such as cri-tools or cadvisor.  
+**Version Updates**: New versions of build dependencies and some minor subprojects of Kubernetes.  Usually the news is not about a release, but rather which version is included with/required for/supported by Kubernetes.  Examples would be updates to our required version of golang or etcd.  We also usually put update releases from minor subprojects here, such as cri-tools or cadvisor.
 
 Generally these items come from PRs in k/k repository, or announcements on the Dev list. A good rule is: "If you're not going to say anything about the update, it probably goes in Version Updates rather than subprojects."
 
