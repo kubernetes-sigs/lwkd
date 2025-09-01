@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-08-25 - 2025-09-01</h1><h2>kubernetes-sigs/cluster-api-provider-vsphere</h2> <h3>Release notes for templates/v1.34.0</h3><h4>2025-08-28</h4><p>VM templates for Kubernetes v1.34.0
+If an OVA image consists of multiple parts, use <code>cat &lt;image&gt;-parts* &gt; &lt;image&gt;.ova</code> to join them back.</p>
+<br><h2>kubernetes-sigs/kind</h2> <h3>Release notes for v0.30.0</h3><h4>2025-08-27</h4><p>This is small release containing patched dependencies and Kubernetes 1.34, as well as a bugfix for Kubernetes v1.33.0+ cluster reboots.</p>
+
+<h1 id="breaking-changes">Breaking Changes</h1>
+
+<p>The default node image is now <code>kindest/node:v1.34.0@sha256:7416a61b42b1662ca6ca89f02028ac133a309a2a30ba309614e8ec94d976dc5a</code></p>
+
+<h1 id="new-features">New Features</h1>
+
+<ul>
+<li>Updated to containerd 2.1.4</li>
+</ul>
+
+<p>Images pre-built for this release:</p>
+
+<ul>
+<li>v1.34.0: <code>kindest/node:v1.34.0@sha256:7416a61b42b1662ca6ca89f02028ac133a309a2a30ba309614e8ec94d976dc5a</code></li>
+<li>v1.33.4: <code>kindest/node:v1.33.4@sha256:25a6018e48dfcaee478f4a59af81157a437f15e6e140bf103f85a2e7cd0cbbf2</code></li>
+<li>v1.32.8: <code>kindest/node:v1.32.8@sha256:abd489f042d2b644e2d033f5c2d900bc707798d075e8186cb65e3f1367a9d5a1</code></li>
+<li>v1.31.12: <code>kindest/node:v1.31.12@sha256:0f5cc49c5e73c0c2bb6e2df56e7df189240d83cf94edfa30946482eb08ec57d2</code></li>
+</ul>
+
+<p><strong>NOTE</strong>: You <em>must</em> use the <code>@sha256</code> digest to guarantee an image built for this release, until such a time as we switch to a different tagging scheme. Even then we will highly encourage digest pinning for security and reproducibility reasons.</p>
+
+<p>See also:</p>
+
+<ul>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/#creating-a-cluster" target="_blank">https://kind.sigs.k8s.io/docs/user/quick-start/#creating-a-cluster</a></li>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/#building-images" target="_blank">https://kind.sigs.k8s.io/docs/user/quick-start/#building-images</a></li>
+</ul>
+
+<p>NOTE: These node images support amd64 and arm64, both of our supported platforms. <strong>You must use the same platform as your host,</strong> for more context see <a href="https://github.com/kubernetes-sigs/kind/issues/2718" target="_blank">https://github.com/kubernetes-sigs/kind/issues/2718</a></p>
+
+<h1 id="fixes">Fixes</h1>
+
+<ul>
+<li>Fix an issue with rebooting v1.33.0+ clusters <a href="https://github.com/kubernetes-sigs/kind/issues/3941" target="_blank">https://github.com/kubernetes-sigs/kind/issues/3941</a></li>
+<li>Add priority class system-critical to kindnetd</li>
+<li>Fix HA control-plane loadbalancer for podman <a href="https://github.com/kubernetes-sigs/kind/pull/3962" target="_blank">https://github.com/kubernetes-sigs/kind/pull/3962</a></li>
+<li>Fix node-image builds with relative source paths</li>
+</ul>
+
+<h1 id="contributors">Contributors</h1>
+
+<p>Committers for this release:</p>
+
+<ul>
+<li>@BenTheElder</li>
+<li>@dims</li>
+<li>@k8s-ci-robot</li>
+<li>@oduludo</li>
+<li>@stmcginnis</li>
+<li>@tchap</li>
+<li>@tom1299 </li>
+</ul>
+<br><h2>kubernetes-sigs/kubebuilder</h2> <h3>Release notes for v4.8.0</h3><h4>2025-08-27</h4><h2 id="warning-breaking-changes">:warning: Breaking changes</h2>
+
+<ul>
+<li><strong>(CLI)</strong>: Replace logrus with standard library log/slog for logging <strong>(no user-facing changes)</strong>  <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4968" target="_blank">#4968</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5049" target="_blank">#5049</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4993" target="_blank">#4993</a></li>
+</ul>
+
+<h2 id="new-features">✨ New features</h2>
+
+<ul>
+<li><strong>(go/v4)</strong>: Upgrade cert-manager used in E2E tests from <code>v1.16.3</code> to <code>v1.18.2</code> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4947" target="_blank">#4947</a></li>
+<li><strong>(go/v4)</strong>: Upgrade Golang-CI from <code>v2.1.6</code> to <code>v2.3.0</code> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4945" target="_blank">#4945</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4974" target="_blank">#4974</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4957" target="_blank">#4957</a></li>
+<li><strong>(CLI;go/v4)</strong>: Upgrade Go from <code>1.24.0</code> to <code>1.24.5</code> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4944" target="_blank">#4944</a></li>
+<li><strong>(go/v4)</strong>: Improve KinD integration to ensure custom KinD binary is used in E2E tests <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4618" target="_blank">#4618</a></li>
+<li><strong>(go/v4)</strong>: Add <code>e2e</code> build tag to prevent accidental execution of end-to-end tests <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4946" target="_blank">#4946</a></li>
+<li><strong>(go/v4)</strong>: <code>create api</code> now adds status conditions by default <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4943" target="_blank">#4943</a></li>
+<li><strong>(helm/alpha-v1)</strong>: Allow define default image policy for the manager <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4932" target="_blank">#4932</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5023" target="_blank">#5023</a></li>
+<li><strong>(go/v4)</strong>: Improve <code>go-install-tool</code> implementation in Makefile <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4988" target="_blank">#4988</a></li>
+<li><strong>(CLI)</strong>: Add <code>IfNotExistsAction</code> to machinery for optional file handling <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4967" target="_blank">#4967</a></li>
+<li><strong>(alpha update)</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5013" target="_blank">#5013</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5002" target="_blank">#5002</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5018" target="_blank">#5018</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5019" target="_blank">#5019</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5026" target="_blank">#5026</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5017" target="_blank">#5017</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5027" target="_blank">#5027</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5035" target="_blank">#5035</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5040" target="_blank">#5040</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5039" target="_blank">#5039</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4992" target="_blank">#4992</a> <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5050" target="_blank">#5050</a>
+
+<ul>
+<li><strong>(command)</strong> Major improvements and new flags—<code>--squash</code> to condense commits; <code>--restore-path</code> to keep selected paths unchanged; <code>--output-branch</code> to write changes to a new branch; <code>--open-gh-issue</code> to create new GitHub issues with update data; <code>--use-gh-models</code> to post AI summary to help project upgrade process; and <code>--git-config</code> to set Git defaults for the run. (<a href="https://book.kubebuilder.io/reference/commands/alpha_update" target="_blank">More info</a>)</li>
+<li><strong>(New Plugin)</strong> Adds new optional plugin (<code>autoupdate/alpha-v1</code>) with AI-assistence for upgrades. The plugin scaffolds a workflow to open an issue and post an AI summary whenever a new Kubebuilder release is available.  (<a href="https://book.kubebuilder.io/plugins/available/autoupdate-v1-alpha" target="_blank">More info</a>)</li>
+</ul></li>
+</ul>
+
+<h2 id="bug-fixes">🐛 Bug fixes</h2>
+
+<ul>
+<li><strong>(e2e)</strong>: Remove Prometheus install/check helpers from E2E utils <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4948" target="_blank">#4948</a></li>
+<li><strong>(go/v4)</strong>: Replace custom <code>CertWatcher</code> with controller-runtime’s built-in implementation for webhook &amp; metrics server cert reloads; ensures non-leader replicas update certificates <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5008" target="_blank">#5008</a></li>
+<li><strong>(CLI)</strong>: Fix link shown for plugin versioning when plugins are not found <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5021" target="_blank">#5021</a></li>
+<li><strong>(helm/v1-alpha)</strong>: When scaffolding a Helm project with webhooks, the generated GitHub Actions workflow now installs and waits for cert-manager. Without webhooks, the cert-manager step remains commented <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5043" target="_blank">#5043</a></li>
+<li><strong>(go/v4)</strong> fix simple typos in Dockerfile comments <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5056" target="_blank">#5056</a></li>
+</ul>
+
+<p><strong>Thanks to all contributors</strong> 🎉</p>
+
+<h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>📖 Bump sigs.k8s.io/kubebuilder/v4 from 4.6.0 to 4.7.0 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4926" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4926</a></li>
+<li>🌱 helm(e2e): test helm plugin integration by @bavarianbidi in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4914" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4914</a></li>
+<li>📖: Revert   guide for building a bundle with kubebuilder-based projects for management by OLM and/or publication on OperatorHub.io by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4929" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4929</a></li>
+<li>🌱 (cli; alpha commands): Add unit tests for common utils used by alpha commands by @mayuka-c in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4928" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4928</a></li>
+<li>📖 (doc): fixed the broken links by @manzil-infinity180 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4933" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4933</a></li>
+<li>📖  Bump github.com/spf13/pflag from 1.0.6 to 1.0.7 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4934" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4934</a></li>
+<li>🌱  Bump github.com/spf13/pflag from 1.0.6 to 1.0.7 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4935" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4935</a></li>
+<li>🌱: introduce gci as formatter in golangci-lint by @bavarianbidi in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4927" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4927</a></li>
+<li>✨ (go/v4) : Improve Kind Integration: Ensure Custom Kind Binary is Used in E2E Tests by @kersten in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4618" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4618</a></li>
+<li>🌱 (ci): Fix mock for alpha update e2e tests by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4938" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4938</a></li>
+<li>✨ (go/v4): upgrade cert-manager from v1.16.3 v1.18.2 used in the e2e tests by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4947" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4947</a></li>
+<li>✨ Upgrade Golang-CI from v2.1.6 to v2.2.2 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4945" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4945</a></li>
+<li>🌱 (ci): only call lint sample and test-devcontainer checks when has changes in the specific directories checked by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4940" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4940</a></li>
+<li>📖 (docs/alpha update): remove suggestion marker by @vitorfloriano in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4953" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4953</a></li>
+<li>🌱 (CLI): Add unit tests for plugin utils by @mayuka-c in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4956" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4956</a></li>
+<li>🌱 (alpha update): add e2e tests for <code>--force</code> flag by @vitorfloriano in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4955" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4955</a></li>
+<li>✨ (go/v4) add e2e build tag to prevent accidental execution of end-to-end tests by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4946" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4946</a></li>
+<li>✨ Upgrade Golang-CI from v2.2.2 to v2.3.0 by @aman4433 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4957" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4957</a></li>
+<li>✨ (go/v4): Create API command now adds status conditions by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4943" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4943</a></li>
+<li>🌱 Improve revive linter configuration by @aman4433 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4954" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4954</a></li>
+<li>🌱 (ci) - Add test for release mock by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4939" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4939</a></li>
+<li>🌱 Bump github.com/onsi/gomega from 1.37.0 to 1.38.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4958" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4958</a></li>
+<li>🌱 (CLI): Add unit tests and improve coverage for plugins/golang pkg by @mayuka-c in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4959" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4959</a></li>
+<li>🐛 remove: Prometheus install/check helpers from e2e utils by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4948" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4948</a></li>
+<li>🌱  Bump sigs.k8s.io/yaml from 1.5.0 to 1.6.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4962" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4962</a></li>
+<li>📖 Bump sigs.k8s.io/kubebuilder/v4 from 4.7.0 to 4.7.1 in /docs/book/src/simple-external-plugin-tutorial/testdata/sampleexternalplugin/v1 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4963" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4963</a></li>
+<li>✨ (CLI;go/v4) Upgrade golang version from 1.24.0 to 1.24.5 by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4944" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4944</a></li>
+<li>🌱 fix file added by mistake; should be removed by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4964" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4964</a></li>
+<li>🌱 (ci) fix samples linter and release linter by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4965" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4965</a></li>
+<li>🌱 Add unit testing for files(external) in pkg/cli/alpha by @cmallikarjunah in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4966" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4966</a></li>
+<li>🌱 Add unit tests for alpha/internal/update by @cmallikarjunah in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4931" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4931</a></li>
+<li>🌱 (fix) Install-and-build.sh script to work on MacOs by @mayuka-c in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4970" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4970</a></li>
+<li>✨ Version bump for golangci-lint to 2.3.0 ( follow up #4957 ) by @Shubhamag12 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4974" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4974</a></li>
+<li>🌱 (alpha update) add validation for equal versions by @vitorfloriano in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4975" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4975</a></li>
+<li>📖 (docs/tutorials): ensure all fields follow Kubernetes API conventions by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4942" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4942</a></li>
+<li>⚠️  Migrate from logrus to log/slog by @Shubhamag12 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4968" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4968</a></li>
+<li>✨  (go/v4;helm/alpha-v1;kustomize/v2): Adding default image policy for the manager by @adarshagrawal38 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4932" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4932</a></li>
+<li>🌱 Add versioned tool installation via <code>go-install-tool</code> helper in Kubebuilder Makefile such as we provide for end users by @afritzler in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4986" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4986</a></li>
+<li>✨ (go/v4): Improve go-install-tool code implementation into Makefile  by @afritzler in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4988" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4988</a></li>
+<li>🌱 (ci) Refactor alpha update E2E tests and increase coverage by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4991" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4991</a></li>
+<li>🐛 (alpha commands): Fix incorrect error message when creating the merge branch during alpha update. by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4993" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4993</a></li>
+<li>🐛 (alpha commands): alpha update command with <code>--force</code> now runs post-merge fixes in best-effort mode raising warnings instead of errors to allow properly automation with this option by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4992" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4992</a></li>
+<li>🌱 (e2e) Make alpha update tests easier to understand and more complete by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4994" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4994</a></li>
+<li>🌱 Revert &ldquo;🐛 (alpha commands): alpha update command with <code>--force</code> now runs post-merge fixes in best-effort mode raising warnings instead of errors to allow properly automation with this option&rdquo; by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4996" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4996</a></li>
+<li>🌱  Bump golang.org/x/text from 0.27.0 to 0.28.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4997" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4997</a></li>
+<li>🌱 Bump golang.org/x/mod from 0.26.0 to 0.27.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4999" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4999</a></li>
+<li>🌱 Bump golang.org/x/tools from 0.35.0 to 0.36.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4998" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4998</a></li>
+<li>🌱 refactor TestContext to allow use in unit tests with directory setup by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4995" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4995</a></li>
+<li>📖 (docs) include 2025 roadmap by @GuyStone in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5001" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5001</a></li>
+<li>📖 (doc): Update, improve and fix alpha update documentation by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5003" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5003</a></li>
+<li>✨ alpha(update): add &ndash;squash, &ndash;preserve-path, &ndash;output-branch for PR-friendly upgrades by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5002" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5002</a></li>
+<li>🌱 Bump actions/checkout from 4 to 5 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5006" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5006</a></li>
+<li>🐛 (go/v4): Replace custom CertWatcher with controller-runtime’s built-in implementation for webhook and metrics server cert reloads. Ensures non-leader replicas update certificates correctly.  by @DustinChaloupka in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5008" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5008</a></li>
+<li>🌱 Bump helm.sh/helm/v3 from 3.18.4 to 3.18.5 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5010" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5010</a></li>
+<li>🌱 (alpha commands): rename files command to generate for better maintainability by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5015" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5015</a></li>
+<li>🌱 (alpha update): (unit tests) fix call by adding suite to run all tests by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5014" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5014</a></li>
+<li>🌱 (fix): Remove duplication to avoid flakes in the ci and keep it more optimise by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5016" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5016</a></li>
+<li>✨ (alpha update): easier commits, safer defaults, more control by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5013" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5013</a></li>
+<li>📖 Proposal: Automating Operator Maintenance: Driving Better Results with Less Overhead by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4302" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4302</a></li>
+<li>✨  (CLI/Api): Add IfNotExistsAction to machinery for optional file handling by @aman4433 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4967" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4967</a></li>
+<li>🐛 Fix link shared about plugin versioning when plugins are not found   by @ricardo1u in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5021" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5021</a></li>
+<li>✨ (alpha update) Add option to allow open GitHub Issues after updates by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5018" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5018</a></li>
+<li>🌱 Bump github.com/onsi/ginkgo/v2 from 2.23.4 to 2.24.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5022" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5022</a></li>
+<li>🐛 (revert) only changes done in the default scaffold in the pr: 4932 ( kept helm chart changes ) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5023" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5023</a></li>
+<li>✨ (alpha update) skip running make targets if Makefile has conflicts by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5019" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5019</a></li>
+<li>🌱 Bump helm.sh/helm/v3 from 3.18.5 to 3.18.6 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5025" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5025</a></li>
+<li>✨ (alpha update): Rename alpha update flag preserve-path to restore-path by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5026" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5026</a></li>
+<li>✨(alpha update): add &ndash;git-config flag with clear defaults and replacement behavior by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5017" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5017</a></li>
+<li>🐛 Fix git branch creation error when <code>main</code> already exists by @Deofex in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5029" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5029</a></li>
+<li>✨ Add plugin for Alpha Update Command by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5027" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5027</a></li>
+<li>🌱 Bump github.com/onsi/ginkgo/v2 from 2.24.0 to 2.25.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5031" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5031</a></li>
+<li>🌱 Bump github.com/onsi/gomega from 1.38.0 to 1.38.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5037" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5037</a></li>
+<li>📖 (docs): Reference to Book FAQ entry with solution to too long annotations error by @pessolato in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5041" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5041</a></li>
+<li>✨ (alpha update): Only run makefile targets on files where conflict is not found (Follow-up of: 5019) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5035" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5035</a></li>
+<li>🐛 (alpha update): ensure that by default is used merge.conflictStyle=merge to facilitate the review by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5039" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5039</a></li>
+<li>🌱  (fix): Fix inconsistent logging format  ( Follow up: #4968 ) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5044" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5044</a></li>
+<li>✨ (alpha update) Add Option to use AI with alpha update by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5040" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5040</a></li>
+<li>🐛 (fix) reformat subprocess output for consistent logging during alpha commands (Follow up: #4968) by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5049" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5049</a></li>
+<li>✨ refactor: (alpha update) optimize diff generation and add unified conflict detection by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5050" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5050</a></li>
+<li>📖 (docs): Add missing information to quick start and supplement links by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5053" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5053</a></li>
+<li>📖 (docs) fix AutoUpdate and Alpha Update docs by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5054" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5054</a></li>
+<li>📖 Update roadmap for 2025 with new statuses and details by @camilamacedo86 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5057" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5057</a></li>
+<li>🐛 (helm/v1-alpha): When scaffolding a Helm project with webhooks, the generated GitHub Actions workflow now installs and waits for cert-manager. Without webhooks, the cert-manager step remains commented. by @n2h9 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5043" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5043</a></li>
+<li>🐛 (go/v4) fix simple typos in Dockerfile comments by @lpmi-13 in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5056" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5056</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@mayuka-c made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4928" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4928</a></li>
+<li>@manzil-infinity180 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4933" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4933</a></li>
+<li>@aman4433 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4957" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4957</a></li>
+<li>@cmallikarjunah made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4966" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4966</a></li>
+<li>@Shubhamag12 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4974" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4974</a></li>
+<li>@adarshagrawal38 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/4932" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/4932</a></li>
+<li>@GuyStone made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5001" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5001</a></li>
+<li>@DustinChaloupka made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5008" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5008</a></li>
+<li>@ricardo1u made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5021" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5021</a></li>
+<li>@Deofex made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5029" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5029</a></li>
+<li>@pessolato made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5041" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5041</a></li>
+<li>@n2h9 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5043" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5043</a></li>
+<li>@lpmi-13 made their first contribution in <a href="https://github.com/kubernetes-sigs/kubebuilder/pull/5056" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/pull/5056</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-sigs/kubebuilder/compare/v4.7.1...v4.8.0" target="_blank">https://github.com/kubernetes-sigs/kubebuilder/compare/v4.7.1&hellip;v4.8.0</a></p>
+<br><h2>kubernetes-sigs/kubespray</h2> <h3>Release notes for v2.28.1</h3><h4>2025-08-26</h4><h2 id="changes-by-kind">Changes by Kind</h2>
+
+<h3 id="bug-or-regression">Bug or Regression</h3>
+
+<ul>
+<li>Add argocd_install_checksum: str, to define the checksum of <code>argocd_install_url</code> (#12467, @k8s-infra-cherrypick-robot)</li>
+<li>Add missing addresses in kube-apiserver certificate SAN. (#12505, @k8s-infra-cherrypick-robot)</li>
+<li>Fix Cilium installation issues (caused by templating syntax errors) when certain non-default features (encryption, etc.) are enabled (#12283, @k8s-infra-cherrypick-robot)</li>
+<li>Fix Hubble-Relay peer discovery in clusters using non-default cluster name by properly configuring clusterDomain in Cilium Helm values (#12374, @k8s-infra-cherrypick-robot)</li>
+<li>Fix cilium installation role to render cilium_config_extra_vars into helm values (#12338, @k8s-infra-cherrypick-robot)</li>
+<li>Fix invalid PodSecurity admission configuration when <code>kube_pod_security_use_default: false</code> (#12478, @k8s-infra-cherrypick-robot)</li>
+<li>Fix the Cilium cluster, which is upgraded from 2.27 to 2.28 will break
+Fix helm release re-use message when installing repeatedly (#12324, @k8s-infra-cherrypick-robot)</li>
+<li>Fix the issue of etcd node addition failure caused by incorrect ETCD_INITIAL_CLUSTER configuration. (#12352, @k8s-infra-cherrypick-robot)</li>
+<li>Fix(kubeadm): Conditionally add &ndash;skip-phases flag for v1.32.0+ (#12354, @k8s-infra-cherrypick-robot)</li>
+<li>Fix: When running <code>./manage-offline-container-images.sh register</code> with using Podman, getting the image_id fails and the script is interrupted. (#12316, @k8s-infra-cherrypick-robot)</li>
+<li>Fixed cilium_enable_bgp_control_plane config (#12432, @k8s-infra-cherrypick-robot)</li>
+<li>Fixes a syntax error that made the &lsquo;_bgp_config&rsquo; an &lsquo;AnsibleUnsafeText&rsquo; instead of a &lsquo;dict&rsquo;, which caused the &ldquo;Calico | Process BGP Configuration&rdquo; step to fail (#12394, @k8s-infra-cherrypick-robot)</li>
+</ul>
+
+<h2 id="components">Components</h2>
+
+<ul>
+<li>kubernetes 1.32.8</li>
+<li>etcd 3.5.22</li>
+<li>docker 28.0</li>
+<li>containerd 2.0.6</li>
+<li>cri-o 1.32.0</li>
+<li>cni-plugins 1.4.1</li>
+<li>calico 3.29.5</li>
+<li>cilium 1.17.7</li>
+<li>flannel 0.22.0</li>
+<li>kube-ovn 1.12.21</li>
+<li>kube-router 2.1.1</li>
+<li>multus 4.1.0</li>
+<li>weave 2.8.7</li>
+<li>kube-vip 0.8.0</li>
+<li>cert-manager 1.15.3</li>
+<li>coredns 1.11.3</li>
+<li>ingress-nginx 1.12.1</li>
+<li>argocd 2.14.5</li>
+<li>helm 3.16.4</li>
+<li>metallb 0.13.9</li>
+<li>registry 2.8.1</li>
+<li>aws-ebs-csi-plugin 0.5.0</li>
+<li>azure-csi-plugin 1.10.0</li>
+<li>cinder-csi-plugin 1.30.0</li>
+<li>gcp-pd-csi-plugin 1.9.2</li>
+<li>local-path-provisioner 0.0.24</li>
+<li>local-volume-provisioner 2.5.0</li>
+<li>node-feature-discovery 0.16.4</li>
+</ul>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.75.0-pre1</h3><h4>2025-08-25</h4><p>This is a prerelease of gRPC Core 1.75.0 (gemini).</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This prerelease contains refinements, improvements, and bug fixes.</p>
+<br><h2>kubernetes/kops</h2> <h3>Release notes for v1.33.1</h3><h4>2025-08-30</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Automated cherry pick of #17550: Recognize Debian 13 by @ameukam in <a href="https://github.com/kubernetes/kops/pull/17570" target="_blank">https://github.com/kubernetes/kops/pull/17570</a></li>
+<li>Automated cherry pick of #17557: Use yum instead of dnf on Amazon Linux 2 by @hakman in <a href="https://github.com/kubernetes/kops/pull/17574" target="_blank">https://github.com/kubernetes/kops/pull/17574</a></li>
+<li>Automated cherry pick of #17554: coredns: Relax zonal topologySpreadConstraints by @hakman in <a href="https://github.com/kubernetes/kops/pull/17584" target="_blank">https://github.com/kubernetes/kops/pull/17584</a></li>
+<li>Automated cherry pick of #17581: Install cgroupfs-mount for distros lower than Debian 13 by @hakman in <a href="https://github.com/kubernetes/kops/pull/17590" target="_blank">https://github.com/kubernetes/kops/pull/17590</a></li>
+<li>Automated cherry pick of #17592: Update Kubernetes hashes with latest releases by @hakman in <a href="https://github.com/kubernetes/kops/pull/17593" target="_blank">https://github.com/kubernetes/kops/pull/17593</a></li>
+<li>Release 1.33.1 by @hakman in <a href="https://github.com/kubernetes/kops/pull/17594" target="_blank">https://github.com/kubernetes/kops/pull/17594</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kops/compare/v1.33.0...v1.33.1" target="_blank">https://github.com/kubernetes/kops/compare/v1.33.0&hellip;v1.33.1</a></p>
+<br><h3>Release notes for v1.32.2</h3><h4>2025-08-30</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Automated cherry pick of #17270: Update nodeup test case to 1.33
+#17482: Fix cloud-provider flag for K8s 1.31+ by @hakman in <a href="https://github.com/kubernetes/kops/pull/17489" target="_blank">https://github.com/kubernetes/kops/pull/17489</a></li>
+<li>tests: don&rsquo;t override etcd-manager image in bare-metal test by @justinsb in <a href="https://github.com/kubernetes/kops/pull/17495" target="_blank">https://github.com/kubernetes/kops/pull/17495</a></li>
+<li>Automated cherry pick of #17500: Fix invalid filters for describing security group rules by @rifelpet in <a href="https://github.com/kubernetes/kops/pull/17508" target="_blank">https://github.com/kubernetes/kops/pull/17508</a></li>
+<li>Automated cherry pick of #17512: Wait for the GCE disk creation operation to finish by @hakman in <a href="https://github.com/kubernetes/kops/pull/17514" target="_blank">https://github.com/kubernetes/kops/pull/17514</a></li>
+<li>Automated cherry pick of #17523: testing: Fix e2e test job name by @hakman in <a href="https://github.com/kubernetes/kops/pull/17530" target="_blank">https://github.com/kubernetes/kops/pull/17530</a></li>
+<li>Automated cherry pick of #17531: metal: Update Debian image by @hakman in <a href="https://github.com/kubernetes/kops/pull/17535" target="_blank">https://github.com/kubernetes/kops/pull/17535</a></li>
+<li>Automated cherry pick of #17557: Use yum instead of dnf on Amazon Linux 2 by @hakman in <a href="https://github.com/kubernetes/kops/pull/17575" target="_blank">https://github.com/kubernetes/kops/pull/17575</a></li>
+<li>Automated cherry pick of #17550: Recognize Debian 13 by @ameukam in <a href="https://github.com/kubernetes/kops/pull/17585" target="_blank">https://github.com/kubernetes/kops/pull/17585</a></li>
+<li>Automated cherry pick of #17581: Install cgroupfs-mount for distros lower than Debian by @hakman in <a href="https://github.com/kubernetes/kops/pull/17591" target="_blank">https://github.com/kubernetes/kops/pull/17591</a></li>
+<li>Release 1.32.2 by @hakman in <a href="https://github.com/kubernetes/kops/pull/17595" target="_blank">https://github.com/kubernetes/kops/pull/17595</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/kops/compare/v1.32.1...v1.32.2" target="_blank">https://github.com/kubernetes/kops/compare/v1.32.1&hellip;v1.32.2</a></p>
+<br><h2>kubernetes/cloud-provider-vsphere</h2> <h3>Release notes for v1.34.0</h3><h4>2025-08-29</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>Added the ability to apply extra volumes, volume mounts and host aliases to the daemonset by @FutureMatt in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1322" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1322</a></li>
+<li>Bump CAPI to v1.10.1 &amp; CAPV to 1.13.0 in E2E by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1482" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1482</a></li>
+<li>:seedling: (chore): Bump golang.org/x/net from 0.39.0 to 0.40.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1483" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1483</a></li>
+<li>Update dependabot for 1.33 release by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1478" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1478</a></li>
+<li>🐛 Fix release-staging job by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1490" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1490</a></li>
+<li>:seedling: (chore): Bump the kubernetes group in /test/e2e with 3 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1479" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1479</a></li>
+<li>🌱 Enable weekly security check job by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1496" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1496</a></li>
+<li>Implement shared session capability by @rikatz in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1489" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1489</a></li>
+<li>e2e: adjustments to enable e2e on community prow by @chrischdi in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1502" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1502</a></li>
+<li>fix: change RoleBinding namespace to kube-system by @edgy-noodle in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1507" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1507</a></li>
+<li>:seedling: (chore): Bump the kubernetes group across 1 directory with 6 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1492" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1492</a></li>
+<li>:seedling: (chore): Bump the kubernetes group across 1 directory with 6 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1517" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1517</a></li>
+<li>Update Supervisor API calls to use FQDN by @silvery1622 in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1514" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1514</a></li>
+<li>:seedling: (chore): Bump sigs.k8s.io/kind from 0.27.0 to 0.29.0 in /hack/tools by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1498" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1498</a></li>
+<li>:seedling: (chore): Bump golang.org/x/net from 0.40.0 to 0.41.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1506" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1506</a></li>
+<li>:seedling: (chore): Bump sigs.k8s.io/yaml from 1.4.0 to 1.5.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1523" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1523</a></li>
+<li>:seedling: (chore): Bump github.com/vmware/govmomi from 0.50.0 to 0.51.0 in /test/e2e by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1500" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1500</a></li>
+<li>🐛 Restart CPI when ownerreference file changes by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1522" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1522</a></li>
+<li>Remove dead code or unused code from CPI by @rikatz in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1501" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1501</a></li>
+<li>🐛 Update config file path due to TKC retirement by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1524" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1524</a></li>
+<li>🐛 Fix releasing scripts by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1525" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1525</a></li>
+<li>:seedling: (chore): Bump github.com/vmware/govmomi from 0.50.0 to 0.51.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1497" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1497</a></li>
+<li>🌱 Bump the Kubernetes group to v0.34.0-beta.0 by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1530" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1530</a></li>
+<li>🌱 Bump CAPI alpha&amp;CAPV alpha&amp;Controller Runtime in E2E by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1526" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1526</a></li>
+<li>:seedling: (chore): Bump github.com/spf13/pflag from 1.0.6 to 1.0.7 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1533" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1533</a></li>
+<li>:seedling: (chore): Bump golang.org/x/net from 0.41.0 to 0.42.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1527" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1527</a></li>
+<li>🌱 Bump CAPI v1.11.0-beta.0 &amp; CAPV v1.14.0-beta.0 in E2E by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1531" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1531</a></li>
+<li>🌱 Automate image promotion by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1541" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1541</a></li>
+<li>:seedling: (chore): Bump the kubernetes group in /test/e2e with 3 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1544" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1544</a></li>
+<li>Use a guaranteed missing file in shared token tests by @nrb in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1532" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1532</a></li>
+<li>Fix security scan by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1546" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1546</a></li>
+<li>:seedling: (chore): Bump sigs.k8s.io/yaml from 1.5.0 to 1.6.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1552" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1552</a></li>
+<li>:seedling: (chore): Bump github.com/onsi/gomega from 1.37.0 to 1.38.0 in /test/e2e in the onsi group by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1553" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1553</a></li>
+<li>:seedling: (chore): Bump github.com/prometheus/client_golang from 1.22.0 to 1.23.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1554" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1554</a></li>
+<li>🐛 Unblock Service deletion when VirtualMachineService is not found by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1551" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1551</a></li>
+<li>🌱 Bump the Kubernetes group to v0.34.0-rc.0 by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1555" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1555</a></li>
+<li>🌱 Bump CAPI v1.11.0-rc.0 &amp; CAPV v1.14.0-rc.0 in E2E by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1556" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1556</a></li>
+<li>:seedling: (chore): Bump golang.org/x/net from 0.42.0 to 0.43.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1557" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1557</a></li>
+<li>Bump go to 1.24.6 by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1560" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1560</a></li>
+<li>Fix: Tags client not returning tags when session manager is used by @BernardMC in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1561" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1561</a></li>
+<li>Sync e2e.sh with CAPV by @sbueringer in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1562" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1562</a></li>
+<li>:seedling: (chore): Bump github.com/onsi/ginkgo/v2 from 2.23.4 to 2.24.0 in /hack/tools by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1563" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1563</a></li>
+<li>:seedling: (chore): Bump github.com/vmware/govmomi from 0.51.0 to 0.52.0 in /test/e2e by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1572" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1572</a></li>
+<li>:seedling: (chore): Bump the kubernetes group in /test/e2e with 3 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1571" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1571</a></li>
+<li>:seedling: (chore): Bump github.com/onsi/ginkgo/v2 from 2.23.4 to 2.24.0 in /test/e2e in the onsi group by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1567" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1567</a></li>
+<li>Bump CAPI v1.11.0 &amp; CAPV v1.14.0-rc.1 in E2E by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1576" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1576</a></li>
+<li>:seedling: (chore): Bump github.com/vmware/govmomi from 0.51.0 to 0.52.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1579" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1579</a></li>
+<li>:seedling: (chore): Bump github.com/onsi/ginkgo/v2 from 2.24.0 to 2.25.1 in /hack/tools by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1577" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1577</a></li>
+<li>:seedling: (chore): Bump github.com/stretchr/testify from 1.10.0 to 1.11.0 by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1578" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1578</a></li>
+<li>:seedling: (chore): Bump the onsi group in /test/e2e with 2 updates by @dependabot[bot] in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1580" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1580</a></li>
+<li>Bump the K8s to 1.34.0 and e2e to CAPI 1.11.0 &amp; CAPV 1.14.0-rc.1 by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1581" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1581</a></li>
+<li>update documents for v1.34.0 release by @zhanggbj in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1582" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1582</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@edgy-noodle made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1507" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1507</a></li>
+<li>@BernardMC made their first contribution in <a href="https://github.com/kubernetes/cloud-provider-vsphere/pull/1561" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/pull/1561</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.33.0...v1.34.0" target="_blank">https://github.com/kubernetes/cloud-provider-vsphere/compare/v1.33.0&hellip;v1.34.0</a></p>
+<br><h3>Release notes for vsphere-cpi-chart-1.34.0</h3><h4>2025-08-29</h4><p>A Helm chart for vSphere Cloud Provider Interface Manager (CPI)</p>
+<br>
+</body>
+
+</html>
