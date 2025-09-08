@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-09-01 - 2025-09-08</h1><h2>containerd/nerdctl</h2> <h3>Release notes for v2.1.4</h3><h4>2025-09-05</h4><p>This release adds many commands: <code>nerdctl manifest (create|inspect|push|annotate|rm)</code>, <code>nerdctl container export</code>, and <code>nerdctl image import</code>.</p>
+
+<h2 id="changes">Changes</h2>
+
+<ul>
+<li><code>nerdctl manifest create</code>:
+
+<ul>
+<li>Add <code>nerdctl manifest create</code> command (#4439, thanks to @ChengyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl manifest inspect</code>:
+
+<ul>
+<li>Add <code>nerdctl manifest inspect</code> command (#4413, thanks to @ChengyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl manifest push</code>:
+
+<ul>
+<li>Add <code>nerdctl manifest push</code> command (#4449, thanks to @ChengyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl manifest annotate</code>:
+
+<ul>
+<li>Add <code>nerdctl manifest annotate</code> command (#4442, thanks to @ChengyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl manifest rm</code>:
+
+<ul>
+<li>Add <code>nerdctl manifest rm</code> command (#4447, thanks to @ChengyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl container inspect</code>:
+
+<ul>
+<li>Add image info (#4471, thanks to @Shubhranshu153)</li>
+</ul></li>
+<li><code>nerdctl container export</code>:
+
+<ul>
+<li>Add <code>nerdctl container export</code> command (#4405, thanks to @craigloewen-msft)</li>
+</ul></li>
+<li><code>nerdctl image import</code>:
+
+<ul>
+<li>Add <code>nerdctl image import</code> command (#4456, thanks to @ChengyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl network create</code>:
+
+<ul>
+<li>Add <code>com.docker.network.bridge.enable_icc</code> network option (#4311, thanks to @swagatbora90)</li>
+<li>Add <code>--internal</code> flag (#4454, thanks to @ChangyuZhu6)</li>
+</ul></li>
+<li><code>nerdctl namespace ls</code>:
+
+<ul>
+<li>Add <code>--format</code> flag (#4446, thanks to @SpiffyEight77)</li>
+</ul></li>
+<li><code>nerdctl compose</code>
+
+<ul>
+<li>Support <code>dockerfile_inline</code> (#4305, thanks to @tushar5526)</li>
+</ul></li>
+<li><code>nerdctl-full</code>
+
+<ul>
+<li>Update containerd (2.1.4), runc (1.3.1), CNI plugins (1.8.0), BuildKit (0.24.0), gomodjail (0.1.3), stargz-snapshotter (0.17.0) etc. (#4490, #4494, #4505)</li>
+</ul></li>
+<li>Project:
+
+<ul>
+<li>MAINTAINERS: move @manugupt1 to emeritus status (#4460, thanks to @manugupt1)</li>
+<li>MAINTAINERS: add @ChengyuZhu6 as a REVIEWER (#4472)</li>
+</ul></li>
+</ul>
+
+<p>Full changes: <a href="https://github.com/containerd/nerdctl/milestone/54?closed=1" target="_blank">https://github.com/containerd/nerdctl/milestone/54?closed=1</a>
+Thanks to @ChengyuZhu6 @Laitr0n @Shubhranshu153 @SpiffyEight77 @Swapnanil-Gupta @apostasie @craigloewen-msft @jonyhy96 @manugupt1 @ningmingxiao @swagatbora90 @tushar5526</p>
+
+<h2 id="compatible-containerd-versions">Compatible containerd versions</h2>
+
+<p>This release of nerdctl is expected to be used with containerd v1.7, v2.0, or v2.1.
+Some features may not work with other releases of containerd.</p>
+
+<blockquote>
+<p>[!NOTE]</p>
+
+<p>Since this release, nerdctl is no longer tested with containerd v1.6.</p>
+</blockquote>
+
+<h2 id="about-the-binaries">About the binaries</h2>
+
+<ul>
+<li>Minimal (<code>nerdctl-2.1.4-linux-amd64.tar.gz</code>): nerdctl only</li>
+<li>Full (<code>nerdctl-full-2.1.4-linux-amd64.tar.gz</code>):    Includes dependencies such as containerd, runc, and CNI</li>
+</ul>
+
+<h3 id="minimal">Minimal</h3>
+
+<p>Extract the archive to a path like <code>/usr/local/bin</code> or <code>~/bin</code> .
+<details><summary>tar Cxzvvf /usr/local/bin nerdctl-2.1.4-linux-amd64.tar.gz</summary>
+<p></p>
+
+<pre><code>-rwxr-xr-x root/root  29589688 2025-09-05 05:52 nerdctl
+-rwxr-xr-x root/root     22657 2025-09-05 05:51 containerd-rootless-setuptool.sh
+-rwxr-xr-x root/root      8708 2025-09-05 05:51 containerd-rootless.sh
+</code></pre>
+
+<p></p>
+</details></p>
+
+<h3 id="full">Full</h3>
+
+<p>Extract the archive to a path like <code>/usr/local</code> or <code>~/.local</code> .</p>
+
+<details><summary>tar Cxzvvf /usr/local nerdctl-full-2.1.4-linux-amd64.tar.gz</summary>
+<p>
+
+```
+drwxr-xr-x 0/0               0 2025-09-05 06:00 bin/
+-rwxr-xr-x 0/0        33536339 2025-09-03 12:19 bin/buildctl
+-rwxr-xr-x 0/0        29909144 2025-05-12 13:10 bin/buildg
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-LICENSE -> ../libexec/cni/LICENSE
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-README.md -> ../libexec/cni/README.md
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-bandwidth -> ../libexec/cni/bandwidth
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-bridge -> ../libexec/cni/bridge
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-dhcp -> ../libexec/cni/dhcp
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-dummy -> ../libexec/cni/dummy
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-firewall -> ../libexec/cni/firewall
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-host-device -> ../libexec/cni/host-device
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-host-local -> ../libexec/cni/host-local
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-ipvlan -> ../libexec/cni/ipvlan
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-loopback -> ../libexec/cni/loopback
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-macvlan -> ../libexec/cni/macvlan
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-portmap -> ../libexec/cni/portmap
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-ptp -> ../libexec/cni/ptp
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-sbr -> ../libexec/cni/sbr
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-static -> ../libexec/cni/static
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-tap -> ../libexec/cni/tap
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-tuning -> ../libexec/cni/tuning
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-vlan -> ../libexec/cni/vlan
+lrwxrwxrwx 0/0               0 2025-09-05 05:59 bin/buildkit-cni-vrf -> ../libexec/cni/vrf
+-rwxr-xr-x 0/0        66476450 2025-09-03 12:19 bin/buildkitd
+-rwxr-xr-x 0/0        16541728 2025-09-05 05:58 bin/bypass4netns
+-rwxr-xr-x 0/0         6389944 2025-09-05 05:58 bin/bypass4netnsd
+-rwxr-xr-x 0/0        41207168 2025-09-05 05:59 bin/containerd
+-rwxr-xr-x 0/0        12021944 2025-05-20 18:06 bin/containerd-fuse-overlayfs-grpc
+-rwxr-xr-x 0/0           22657 2025-09-05 06:00 bin/containerd-rootless-setuptool.sh
+-rwxr-xr-x 0/0            8708 2025-09-05 06:00 bin/containerd-rootless.sh
+-rwxr-xr-x 0/0         8298680 2025-09-05 05:59 bin/containerd-shim-runc-v2
+-rwxr-xr-x 0/0        57929912 2025-07-22 08:25 bin/containerd-stargz-grpc
+-rwxr-xr-x 0/0        23102830 2025-09-05 06:00 bin/ctd-decoder
+-rwxr-xr-x 0/0        21643448 2025-09-05 05:58 bin/ctr
+-rwxr-xr-x 0/0        30554301 2025-09-05 06:00 bin/ctr-enc
+-rwxr-xr-x 0/0        22974648 2025-07-22 08:25 bin/ctr-remote
+-rwxr-xr-x 0/0         1788872 2025-09-05 06:00 bin/fuse-overlayfs
+-rwxr-xr-x 0/0         3985592 2025-09-05 05:58 bin/gomodjail
+-rwxr-xr-x 0/0        29552824 2025-09-05 06:00 bin/nerdctl
+-rwxr-xr-x 0/0        33546100 2025-09-05 06:00 bin/nerdctl.gomodjail
+-rwxr-xr-x 0/0        12236796 2025-05-08 06:00 bin/rootlessctl
+-rwxr-xr-x 0/0        14176992 2025-05-08 06:00 bin/rootlesskit
+-rwxr-xr-x 0/0        17767200 2025-09-05 05:58 bin/runc
+-rwxr-xr-x 0/0         2383224 2025-09-05 06:00 bin/slirp4netns
+-rwxr-xr-x 0/0        56516792 2025-07-22 08:25 bin/stargz-fuse-manager
+-rwxr-xr-x 0/0        10772664 2025-07-22 08:25 bin/stargz-store-helper
+-rwxr-xr-x 0/0          870496 2025-09-05 06:00 bin/tini
+drwxr-xr-x 0/0               0 2025-09-05 05:59 lib/
+drwxr-xr-x 0/0               0 2025-09-05 05:59 lib/systemd/
+drwxr-xr-x 0/0               0 2025-09-05 05:59 lib/systemd/system/
+-rw-r--r-- 0/0            1309 2025-09-05 05:59 lib/systemd/system/buildkit.service
+-rw-r--r-- 0/0            1248 2025-09-05 05:57 lib/systemd/system/containerd.service
+-rw-r--r-- 0/0             312 2025-09-05 05:59 lib/systemd/system/stargz-snapshotter.service
+drwxr-xr-x 0/0               0 2025-09-05 05:59 libexec/
+drwxr-xr-x 0/0               0 2025-09-01 15:29 libexec/cni/
+-rw-r--r-- 0/0           11357 2025-09-01 15:29 libexec/cni/LICENSE
+-rw-r--r-- 0/0            2343 2025-09-01 15:29 libexec/cni/README.md
+-rwxr-xr-x 0/0         5042186 2025-09-01 15:29 libexec/cni/bandwidth
+-rwxr-xr-x 0/0         5694189 2025-09-01 15:29 libexec/cni/bridge
+-rwxr-xr-x 0/0        13719696 2025-09-01 15:29 libexec/cni/dhcp
+-rwxr-xr-x 0/0         5251247 2025-09-01 15:29 libexec/cni/dummy
+-rwxr-xr-x 0/0         5701763 2025-09-01 15:29 libexec/cni/firewall
+-rwxr-xr-x 0/0         5159307 2025-09-01 15:29 libexec/cni/host-device
+-rwxr-xr-x 0/0         4350430 2025-09-01 15:29 libexec/cni/host-local
+-rwxr-xr-x 0/0         5273398 2025-09-01 15:29 libexec/cni/ipvlan
+-rwxr-xr-x 0/0         4301450 2025-09-01 15:29 libexec/cni/loopback
+-rwxr-xr-x 0/0         5306499 2025-09-01 15:29 libexec/cni/macvlan
+-rwxr-xr-x 0/0         5107586 2025-09-01 15:29 libexec/cni/portmap
+-rwxr-xr-x 0/0         5474778 2025-09-01 15:29 libexec/cni/ptp
+-rwxr-xr-x 0/0         4521078 2025-09-01 15:29 libexec/cni/sbr
+-rwxr-xr-x 0/0         3772408 2025-09-01 15:29 libexec/cni/static
+-rwxr-xr-x 0/0         5330851 2025-09-01 15:29 libexec/cni/tap
+-rwxr-xr-x 0/0         4384728 2025-09-01 15:29 libexec/cni/tuning
+-rwxr-xr-x 0/0         5266939 2025-09-01 15:29 libexec/cni/vlan
+-rwxr-xr-x 0/0         4684912 2025-09-01 15:29 libexec/cni/vrf
+drwxr-xr-x 0/0               0 2025-09-05 05:57 share/
+drwxr-xr-x 0/0               0 2025-09-05 06:00 share/doc/
+drwxr-xr-x 0/0               0 2025-09-05 06:00 share/doc/nerdctl/
+-rw-r--r-- 0/0           12101 2025-09-05 05:51 share/doc/nerdctl/README.md
+drwxr-xr-x 0/0               0 2025-09-05 05:51 share/doc/nerdctl/docs/
+-rw-r--r-- 0/0            3953 2025-09-05 05:51 share/doc/nerdctl/docs/build.md
+-rw-r--r-- 0/0            2570 2025-09-05 05:51 share/doc/nerdctl/docs/builder-debug.md
+-rw-r--r-- 0/0            4779 2025-09-05 05:51 share/doc/nerdctl/docs/cni.md
+-rw-r--r-- 0/0           88905 2025-09-05 05:51 share/doc/nerdctl/docs/command-reference.md
+-rw-r--r-- 0/0            1814 2025-09-05 05:51 share/doc/nerdctl/docs/compose.md
+-rw-r--r-- 0/0            7317 2025-09-05 05:51 share/doc/nerdctl/docs/config.md
+-rw-r--r-- 0/0            9128 2025-09-05 05:51 share/doc/nerdctl/docs/cosign.md
+-rw-r--r-- 0/0            5660 2025-09-05 05:51 share/doc/nerdctl/docs/cvmfs.md
+drwxr-xr-x 0/0               0 2025-09-05 05:51 share/doc/nerdctl/docs/dev/
+-rw-r--r-- 0/0           12701 2025-09-05 05:51 share/doc/nerdctl/docs/dev/auditing_dockerfile.md
+-rw-r--r-- 0/0            8586 2025-09-05 05:51 share/doc/nerdctl/docs/dev/store.md
+-rw-r--r-- 0/0            2879 2025-09-05 05:51 share/doc/nerdctl/docs/dir.md
+-rw-r--r-- 0/0             906 2025-09-05 05:51 share/doc/nerdctl/docs/experimental.md
+-rw-r--r-- 0/0           14687 2025-09-05 05:51 share/doc/nerdctl/docs/faq.md
+-rw-r--r-- 0/0             884 2025-09-05 05:51 share/doc/nerdctl/docs/freebsd.md
+-rw-r--r-- 0/0            3273 2025-09-05 05:51 share/doc/nerdctl/docs/gpu.md
+-rw-r--r-- 0/0            2248 2025-09-05 05:51 share/doc/nerdctl/docs/healthchecks.md
+drwxr-xr-x 0/0               0 2025-09-05 05:51 share/doc/nerdctl/docs/images/
+-rw-r--r-- 0/0            1540 2025-09-05 05:51 share/doc/nerdctl/docs/images/nerdctl-white.svg
+-rw-r--r-- 0/0            1462 2025-09-05 05:51 share/doc/nerdctl/docs/images/nerdctl.svg
+-rw-r--r-- 0/0          684421 2025-09-05 05:51 share/doc/nerdctl/docs/images/rootlessKit-network-design.png
+-rw-r--r-- 0/0           14462 2025-09-05 05:51 share/doc/nerdctl/docs/ipfs.md
+-rw-r--r-- 0/0            2426 2025-09-05 05:51 share/doc/nerdctl/docs/multi-platform.md
+-rw-r--r-- 0/0            2960 2025-09-05 05:51 share/doc/nerdctl/docs/notation.md
+-rw-r--r-- 0/0            2610 2025-09-05 05:51 share/doc/nerdctl/docs/nydus.md
+-rw-r--r-- 0/0            3277 2025-09-05 05:51 share/doc/nerdctl/docs/ocicrypt.md
+-rw-r--r-- 0/0            1876 2025-09-05 05:51 share/doc/nerdctl/docs/overlaybd.md
+-rw-r--r-- 0/0           15657 2025-09-05 05:51 share/doc/nerdctl/docs/registry.md
+-rw-r--r-- 0/0            9147 2025-09-05 05:51 share/doc/nerdctl/docs/rootless.md
+-rw-r--r-- 0/0            3933 2025-09-05 05:51 share/doc/nerdctl/docs/soci.md
+-rw-r--r-- 0/0           10312 2025-09-05 05:51 share/doc/nerdctl/docs/stargz.md
+drwxr-xr-x 0/0               0 2025-09-05 05:51 share/doc/nerdctl/docs/testing/
+-rw-r--r-- 0/0            4897 2025-09-05 05:51 share/doc/nerdctl/docs/testing/README.md
+-rw-r--r-- 0/0           15430 2025-09-05 05:51 share/doc/nerdctl/docs/testing/tools.md
+drwxr-xr-x 0/0               0 2025-09-05 06:00 share/doc/nerdctl-full/
+-rw-r--r-- 0/0            1060 2025-09-05 06:00 share/doc/nerdctl-full/README.md
+-rw-r--r-- 0/0            9603 2025-09-05 06:00 share/doc/nerdctl-full/SHA256SUMS
+```
+</p>
+</details>
+
+<details><summary>Included components</summary>
+<p>
+
+See `share/doc/nerdctl-full/README.md`:
+```markdown
+# nerdctl (full distribution)
+- nerdctl: v2.1.4
+- containerd: v2.1.4
+- runc: v1.3.1
+- CNI plugins: v1.8.0
+- BuildKit: v0.24.0
+- Stargz Snapshotter: v0.17.0
+- imgcrypt: v2.0.1
+- slirp4netns: v1.3.3
+- bypass4netns: v0.4.2
+- fuse-overlayfs: v1.15
+- containerd-fuse-overlayfs: v2.1.6
+- Tini: v0.19.0
+- buildg: v0.5.3
+- RootlessKit: v2.3.5
+- gomodjail: v0.1.3@cea529ddd971b677c67d8af7e936fbc62b35b98c
+
+## License
+- bin/slirp4netns:    [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/rootless-containers/slirp4netns/blob/v1.3.3/COPYING)
+- bin/fuse-overlayfs: [GNU GENERAL PUBLIC LICENSE, Version 2](https://github.com/containers/fuse-overlayfs/blob/v1.15/COPYING)
+- bin/{runc,bypass4netns,bypass4netnsd}: Apache License 2.0, statically linked with libseccomp ([LGPL 2.1](https://github.com/seccomp/libseccomp/blob/main/LICENSE), source code available at https://github.com/seccomp/libseccomp/)
+- bin/tini: [MIT License](https://github.com/krallin/tini/blob/v0.19.0/LICENSE)
+- Other files: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+```
+</p>
+</details>
+
+<h2 id="quick-start">Quick start</h2>
+
+<h3 id="rootful">Rootful</h3>
+
+<pre><code class="language-console">$ sudo systemctl enable --now containerd
+$ sudo nerdctl run -d --name nginx -p 80:80 nginx:alpine
+</code></pre>
+
+<h3 id="rootless">Rootless</h3>
+
+<pre><code class="language-console">$ containerd-rootless-setuptool.sh install
+$ nerdctl run -d --name nginx -p 8080:80 nginx:alpine
+</code></pre>
+
+<p>Enabling cgroup v2 is highly recommended for rootless mode, see <a href="https://rootlesscontaine.rs/getting-started/common/cgroup2/" target="_blank">https://rootlesscontaine.rs/getting-started/common/cgroup2/</a> .</p>
+
+<hr>
+
+<p>The binaries were built automatically on GitHub Actions.
+The build log is available for 90 days: <a href="https://github.com/containerd/nerdctl/actions/runs/17484930617" target="_blank">https://github.com/containerd/nerdctl/actions/runs/17484930617</a></p>
+
+<p>The sha256sum of the SHA256SUMS file itself is <code>5c8dcb35f92468b40c58764f187711b2e4443c0ffa5d8154c8ab6a2542ecd667</code> .</p>
+
+<hr>
+
+<p>Release manager: @AkihiroSuda</p>
+<br><h2>kubernetes/autoscaler</h2> <h3>Release notes for vertical-pod-autoscaler-1.4.2</h3><h4>2025-09-03</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>[vpa-release-1.4] include pod namespace when logging updates by @k8s-infra-cherrypick-robot in <a href="https://github.com/kubernetes/autoscaler/pull/8226" target="_blank">https://github.com/kubernetes/autoscaler/pull/8226</a></li>
+<li>[vpa-release-1.4] azure: fix azure_agent_pool UT by @k8s-infra-cherrypick-robot in <a href="https://github.com/kubernetes/autoscaler/pull/8233" target="_blank">https://github.com/kubernetes/autoscaler/pull/8233</a></li>
+<li>[vpa-release-1.4] Fix(VPA): updater in-place metrics initialization by @k8s-infra-cherrypick-robot in <a href="https://github.com/kubernetes/autoscaler/pull/8255" target="_blank">https://github.com/kubernetes/autoscaler/pull/8255</a></li>
+<li>[vpa-release-1.4] fix(VPA): Do not update webhook CA when registerWebhook is disabled by @k8s-infra-cherrypick-robot in <a href="https://github.com/kubernetes/autoscaler/pull/8257" target="_blank">https://github.com/kubernetes/autoscaler/pull/8257</a></li>
+<li>[vpa-release-1.4] Add metric for failed in-place update attempt by @k8s-infra-cherrypick-robot in <a href="https://github.com/kubernetes/autoscaler/pull/8443" target="_blank">https://github.com/kubernetes/autoscaler/pull/8443</a></li>
+<li>[vpa-release-1.4] Fallback to eviction when InPlaceUpdate fail by @k8s-infra-cherrypick-robot in <a href="https://github.com/kubernetes/autoscaler/pull/8447" target="_blank">https://github.com/kubernetes/autoscaler/pull/8447</a></li>
+<li>Bump VPA version to 1.4.2 by @laoj2 in <a href="https://github.com/kubernetes/autoscaler/pull/8471" target="_blank">https://github.com/kubernetes/autoscaler/pull/8471</a></li>
+<li>Update VPA defaults to 1.4.2 in the vpa-release-1.4 branch by @laoj2 in <a href="https://github.com/kubernetes/autoscaler/pull/8477" target="_blank">https://github.com/kubernetes/autoscaler/pull/8477</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes/autoscaler/compare/vertical-pod-autoscaler-1.4.1...vertical-pod-autoscaler-1.4.2" target="_blank">https://github.com/kubernetes/autoscaler/compare/vertical-pod-autoscaler-1.4.1&hellip;vertical-pod-autoscaler-1.4.2</a></p>
+<br><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.11.1</h3><h4>2025-09-02</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.30.x -&gt; v1.34.x</li>
+<li>Workload Cluster: v1.28.x -&gt; v1.34.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-11-0">Changes since v1.11.0</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>22 new commits merged</li>
+<li>3 feature additions ✨</li>
+<li>8 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>CI: Bump autoscaler to a9cb59fdd (#12707)</li>
+<li>CI: Bump Kubernetes in tests to v1.34.0 and claim support for v1.34 (#12705)</li>
+<li>e2e: Bump Kubernetes version used for testing to v1.34.0-rc.2 (#12659)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>API: Only try to convert infraRefs if they are set (#12693)</li>
+<li>API: Register conversion funcs in schemes (#12697)</li>
+<li>CABPK: Always use latest apiVersion when getting owner of KubeadmConfig in CABPK (#12689)</li>
+<li>ClusterClass: Ensure holder field path in GeneratePatchRequest is set based on contract (#12691)</li>
+<li>ClusterClass: Fix field paths in ClusterClass compatibility validation errors (#12670)</li>
+<li>ClusterClass: Stop adding conversion-data annotation to Cluster object (#12721)</li>
+<li>e2e/CAPD: Remove finalizers during deletion if ownerRef was never set (#12678)</li>
+<li>Testing: Fix KubeadmConfig fuzz test flake (#12682)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>clusterctl: Allow metadata.yaml&rsquo;s Kind to be empty (#12715)</li>
+<li>Dependency: Bump github.com/go-viper/mapstructure/v2 to fix CVE (#12680)</li>
+<li>Dependency: Bump to envtest v1.34.0 (#12706)</li>
+<li>e2e: Bump to kind v0.30.0 (#12708)</li>
+<li>e2e: Get kind mgmt cluster logs in clusterctl upgrade test (#12688)</li>
+<li>Misc: Log version and git commit on controller start (#12696)</li>
+<li>Release/clusterctl: Add CAPRKE2 to release tool’s issue-opening providers list (#12717)</li>
+</ul>
+
+<p>:book: Additionally, there have been 4 contributions to our documentation and book. (#12667, #12668, #12671, #12674)</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.3.0...v2.4.0" target="_blank">v2.3.0 → v2.4.0</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.10.6</h3><h4>2025-09-02</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.33.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.33.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-10-5">Changes since v1.10.5</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>1 new commit merged</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Dependency: Bump github.com/go-viper/mapstructure/v2 to fix CVE (#12681)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.3.0...v2.4.0" target="_blank">v2.3.0 → v2.4.0</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>kubernetes-sigs/cluster-api-provider-vsphere</h2> <h3>Release notes for v1.14.0</h3><h4>2025-09-03</h4><h2 id="highlights">Highlights</h2>
+
+<ul>
+<li>Tested with Kubernetes v1.34 &amp; cloud-provider-vsphere v1.34</li>
+<li>Based on Cluster API v1.11</li>
+<li>Bumped to Go 1.24, controller-runtime v0.21, k8s.io/* v0.33, controller-gen v0.18</li>
+<li>Migrated to use core CAPI v1beta2 objects everywhere</li>
+</ul>
+
+<p>supervisor:</p>
+
+<ul>
+<li>Support multi-networking for NSX-VPC and vsphere-network providers</li>
+</ul>
+
+<h2 id="changes-since-v1-13">Changes since v1.13</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>86 new commits merged</li>
+<li>12 feature additions ✨</li>
+<li>9 bugs fixed 🐛</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>Add kube-api-linter (#3560)</li>
+<li>Bump autoscaler to a9cb59fdd (#3613)</li>
+<li>Bump CPI to v1.34.0-beta.0 (#3547)</li>
+<li>Bump Kubernetes to v1.33 and add new OVA&rsquo;s (#3435)</li>
+<li>Bump to CAPI v1.11.0 (#3584)</li>
+<li>Bump to CAPI v1.11.0-beta.0 (#3543)</li>
+<li>Bump to CAPI v1.11.0-beta.1 (#3548)</li>
+<li>Bump to CAPI v1.11.0-beta.2 (#3558)</li>
+<li>Bump to CAPI v1.11.0-rc.0 (#3564)</li>
+<li>Bump to CAPI v1.11.0-rc.1 (#3573)</li>
+<li>Bump to CPI v1.34.0-rc.0 (#3565)</li>
+<li>Support multi-networking for NSX-VPC and vsphere-network providers (#3530)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>Bump test module to get latest version of upgrade test (#3606)</li>
+<li>Bump to CAPI 2025.07.18 &amp; cluster-autoscaler to v1.33, pin apiVersion to v1beta1 (#3545)</li>
+<li>Fix flake in reconciliation tests (#3566)</li>
+<li>Fix: use machine&rsquo;s .spec.failureDomain with fallback to vspheremachine&rsquo;s .spec.failureDomain if not defined (#3587)</li>
+<li>Govmomi: fix additional printer columns for ControlPlaneEndpoint (#3483)</li>
+<li>Register conversion funcs in schemes (#3609)</li>
+<li>Remove finalizer from VSphereMachine during deletion if ownerRef was never set (#3595)</li>
+<li>Remove the CEL validation on VSphereMachineTemplate.spec.network (#3624)</li>
+<li>StoragePolicy should ignore datastores in maintenance mode (#3498)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Able to export webhooks for external utilization (#3434)</li>
+<li>Adjust import alias to align with CAPI migration recommendation (#3491)</li>
+<li>Adjust weekly gh actions to run for release-1.13 branch (#3420)</li>
+<li>Bump CAPI in tests to main (v1.11) (#3468)</li>
+<li>Bump CAPI to v1.10.0-rc.1, K8S and CPI to v1.33.0-rc.0 (#3424)</li>
+<li>Bump CAPI to v1.11.0-alpha.0 (#3478)</li>
+<li>Bump CAPI v1.10.0 (#3433)</li>
+<li>Bump CAPI v1.10.1 (#3443)</li>
+<li>Bump CPI to v1.33.0 (#3441)</li>
+<li>Bump CPI to v1.34.0 (#3619)</li>
+<li>Bump go 1.23.8 (#3446)</li>
+<li>Bump Kubernetes to v1.34 and add new OVA&rsquo;s (#3617)</li>
+<li>Bump Kubernetes version used for testing to v1.34.0-beta.0 (#3555)</li>
+<li>Bump to CAPI 1.11 version with ref changes (#3526)</li>
+<li>Bump to CAPI v1.11.0-alpha.1 (#3519)</li>
+<li>Bump to CAPI v1.11.0-alpha.2 (#3534)</li>
+<li>Bump to CAPI v1.11.1 (#3627)</li>
+<li>Bump to Cluster API 07.07.2025 (#3537)</li>
+<li>Bump to Go v1.24.4, github.com/cloudflare/circl v1.6.1 (#3509)</li>
+<li>Bump to Go v1.24.6 (#3568)</li>
+<li>Bump to Kubernetes v1.33.0-rc.1 (#3426)</li>
+<li>Changes for community owned Prow CI (#3473)</li>
+<li>CI: Partially revert 3473 due to having vSphere 8 in community ci (#3485)</li>
+<li>CI: reschedule release-1.13 jobs (#3495)</li>
+<li>E2e: also collect pod logs (#3490)</li>
+<li>E2e: fixup flake while claiming VIPs and IPAM MTU (#3504)</li>
+<li>E2e: pull calico from a gcr.io mirror (#3525)</li>
+<li>E2e: wait for vsphere api and set mtu for calico (#3508)</li>
+<li>Enhances VirtualMachineSetResourcePolicy reconcile (#3518)</li>
+<li>Fix comment of the NumCoresPerSocket property of VirtualMachineCloneSpec (#3531)</li>
+<li>Fix web-hook structure names and descriptions (#3462)</li>
+<li>Hack: debug vsphere connectivity (#3517)</li>
+<li>Log version and git commit on controller start (#3611)</li>
+<li>Makefile: Bump Kubebuilder to v1.33 (#3476)</li>
+<li>Migrate config and bump golangci lint to v2 (#3469)</li>
+<li>Prepare main for v1.14 (#3453)</li>
+<li>Prowjobs: reschedule main periodics at 23 and 1 UTC (#3494)</li>
+<li>Set log collector for clusterctl upgrade tests (#3598)</li>
+<li>Start using 1.34 for CI latest on main (#3438)</li>
+<li>Temporary fix for ResourceVersion flake (#3608)</li>
+<li>Update InterfaceSpec MTU minimum value (#3586)</li>
+<li>Update topology api (#3561)</li>
+<li>Use release artefacts for CAPI v1.10 (#3448)</li>
+</ul>
+
+<p>:book: Additionally, there have been 3 contributions to our documentation and book. (#3437, #3538, #3551)</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>github.com/envoyproxy/go-control-plane/envoy: <a href="https://github.com/envoyproxy/go-control-plane/tree/envoy/v1.32.4" target="_blank">v1.32.4</a></li>
+<li>github.com/envoyproxy/go-control-plane/ratelimit: <a href="https://github.com/envoyproxy/go-control-plane/tree/ratelimit/v0.1.0" target="_blank">v0.1.0</a></li>
+<li>github.com/klauspost/compress: <a href="https://github.com/klauspost/compress/tree/v1.18.0" target="_blank">v1.18.0</a></li>
+<li>github.com/kylelemons/godebug: <a href="https://github.com/kylelemons/godebug/tree/v1.1.0" target="_blank">v1.1.0</a></li>
+<li>go.opentelemetry.io/auto/sdk: v1.1.0</li>
+<li>go.yaml.in/yaml/v2: v2.4.2</li>
+<li>go.yaml.in/yaml/v3: v3.0.3</li>
+<li>gopkg.in/go-jose/go-jose.v2: v2.6.3</li>
+<li>sigs.k8s.io/randfill: v1.0.0</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>cel.dev/expr: v0.18.0 → v0.19.1</li>
+<li>cloud.google.com/go/compute/metadata: v0.5.2 → v0.6.0</li>
+<li>github.com/cloudflare/circl: <a href="https://github.com/cloudflare/circl/compare/v1.3.7...v1.6.1" target="_blank">v1.3.7 → v1.6.1</a></li>
+<li>github.com/cncf/xds/go: <a href="https://github.com/cncf/xds/compare/024c85f...cff3c89" target="_blank">024c85f → cff3c89</a></li>
+<li>github.com/coredns/corefile-migration: <a href="https://github.com/coredns/corefile-migration/compare/v1.0.26...v1.0.27" target="_blank">v1.0.26 → v1.0.27</a></li>
+<li>github.com/coreos/go-oidc: <a href="https://github.com/coreos/go-oidc/compare/v2.2.1...v2.3.0" target="_blank">v2.2.1+incompatible → v2.3.0+incompatible</a></li>
+<li>github.com/envoyproxy/go-control-plane: <a href="https://github.com/envoyproxy/go-control-plane/compare/v0.13.0...v0.13.4" target="_blank">v0.13.0 → v0.13.4</a></li>
+<li>github.com/envoyproxy/protoc-gen-validate: <a href="https://github.com/envoyproxy/protoc-gen-validate/compare/v1.1.0...v1.2.1" target="_blank">v1.1.0 → v1.2.1</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.4.2...v1.4.3" target="_blank">v1.4.2 → v1.4.3</a></li>
+<li>github.com/go-viper/mapstructure/v2: <a href="https://github.com/go-viper/mapstructure/compare/v2.2.1...v2.4.0" target="_blank">v2.2.1 → v2.4.0</a></li>
+<li>github.com/golang-jwt/jwt/v4: <a href="https://github.com/golang-jwt/jwt/compare/v4.5.0...v4.5.2" target="_blank">v4.5.0 → v4.5.2</a></li>
+<li>github.com/golang/glog: <a href="https://github.com/golang/glog/compare/v1.2.2...v1.2.4" target="_blank">v1.2.2 → v1.2.4</a></li>
+<li>github.com/google/cel-go: <a href="https://github.com/google/cel-go/compare/v0.22.0...v0.23.2" target="_blank">v0.22.0 → v0.23.2</a></li>
+<li>github.com/google/gnostic-models: <a href="https://github.com/google/gnostic-models/compare/v0.6.8...v0.6.9" target="_blank">v0.6.8 → v0.6.9</a></li>
+<li>github.com/gorilla/websocket: <a href="https://github.com/gorilla/websocket/compare/v1.5.3...e064f32" target="_blank">v1.5.3 → e064f32</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/compare/v2.20.0...v2.24.0" target="_blank">v2.20.0 → v2.24.0</a></li>
+<li>github.com/onsi/gomega: <a href="https://github.com/onsi/gomega/compare/v1.37.0...v1.38.0" target="_blank">v1.37.0 → v1.38.0</a></li>
+<li>github.com/prometheus/client_golang: <a href="https://github.com/prometheus/client_golang/compare/v1.19.1...v1.22.0" target="_blank">v1.19.1 → v1.22.0</a></li>
+<li>github.com/prometheus/common: <a href="https://github.com/prometheus/common/compare/v0.55.0...v0.62.0" target="_blank">v0.55.0 → v0.62.0</a></li>
+<li>github.com/rogpeppe/go-internal: <a href="https://github.com/rogpeppe/go-internal/compare/v1.12.0...v1.13.1" target="_blank">v1.12.0 → v1.13.1</a></li>
+<li>github.com/spf13/pflag: <a href="https://github.com/spf13/pflag/compare/v1.0.6...v1.0.7" target="_blank">v1.0.6 → v1.0.7</a></li>
+<li>github.com/spf13/viper: <a href="https://github.com/spf13/viper/compare/v1.20.0...v1.20.1" target="_blank">v1.20.0 → v1.20.1</a></li>
+<li>github.com/vmware/govmomi: <a href="https://github.com/vmware/govmomi/compare/v0.49.0...v0.51.0" target="_blank">v0.49.0 → v0.51.0</a></li>
+<li>go.etcd.io/etcd/api/v3: v3.5.20 → v3.5.22</li>
+<li>go.etcd.io/etcd/client/pkg/v3: v3.5.20 → v3.5.22</li>
+<li>go.etcd.io/etcd/client/v2: v2.305.16 → v2.305.21</li>
+<li>go.etcd.io/etcd/client/v3: v3.5.20 → v3.5.22</li>
+<li>go.etcd.io/etcd/pkg/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/raft/v3: v3.5.16 → v3.5.21</li>
+<li>go.etcd.io/etcd/server/v3: v3.5.16 → v3.5.21</li>
+<li>go.opentelemetry.io/contrib/detectors/gcp: v1.28.0 → v1.34.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.53.0 → v0.58.0</li>
+<li>go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: v0.54.0 → v0.58.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.27.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.28.0 → v1.33.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.29.0 → v1.34.0</li>
+<li>go.opentelemetry.io/otel/sdk/metric: v1.28.0 → v1.34.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.29.0 → v1.34.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.29.0 → v1.34.0</li>
+<li>go.opentelemetry.io/otel: v1.29.0 → v1.34.0</li>
+<li>go.opentelemetry.io/proto/otlp: v1.3.1 → v1.4.0</li>
+<li>golang.org/x/crypto: v0.36.0 → v0.41.0</li>
+<li>golang.org/x/mod: v0.24.0 → v0.27.0</li>
+<li>golang.org/x/net: v0.37.0 → v0.43.0</li>
+<li>golang.org/x/oauth2: v0.28.0 → v0.30.0</li>
+<li>golang.org/x/sync: v0.12.0 → v0.16.0</li>
+<li>golang.org/x/sys: v0.32.0 → v0.35.0</li>
+<li>golang.org/x/telemetry: bda5523 → 1a19826</li>
+<li>golang.org/x/term: v0.30.0 → v0.34.0</li>
+<li>golang.org/x/text: v0.23.0 → v0.28.0</li>
+<li>golang.org/x/time: v0.8.0 → v0.9.0</li>
+<li>golang.org/x/tools: v0.31.0 → v0.36.0</li>
+<li>google.golang.org/genproto/googleapis/api: e6fa225 → 5f5ef82</li>
+<li>google.golang.org/genproto/googleapis/rpc: 3abc09e → 1a7da9e</li>
+<li>google.golang.org/grpc: v1.67.3 → v1.71.3</li>
+<li>google.golang.org/protobuf: v1.36.5 → v1.36.6</li>
+<li>k8s.io/api: v0.32.3 → v0.33.3</li>
+<li>k8s.io/apiextensions-apiserver: v0.32.3 → v0.33.3</li>
+<li>k8s.io/apimachinery: v0.32.3 → v0.33.3</li>
+<li>k8s.io/apiserver: v0.32.3 → v0.33.3</li>
+<li>k8s.io/client-go: v0.32.3 → v0.33.3</li>
+<li>k8s.io/cluster-bootstrap: v0.32.3 → v0.33.3</li>
+<li>k8s.io/code-generator: v0.32.3 → v0.33.3</li>
+<li>k8s.io/component-base: v0.32.3 → v0.33.3</li>
+<li>k8s.io/gengo/v2: 2b36238 → 1244d31</li>
+<li>k8s.io/kms: v0.32.3 → v0.33.3</li>
+<li>k8s.io/kube-openapi: 32ad38e → c8a335a</li>
+<li>sigs.k8s.io/apiserver-network-proxy/konnectivity-client: v0.31.0 → v0.31.2</li>
+<li>sigs.k8s.io/cluster-api: v1.10.1 → v1.11.1</li>
+<li>sigs.k8s.io/controller-runtime: v0.20.4 → v0.21.0</li>
+<li>sigs.k8s.io/structured-merge-diff/v4: v4.4.2 → v4.6.0</li>
+<li>sigs.k8s.io/yaml: v1.4.0 → v1.6.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<ul>
+<li>github.com/asaskevich/govalidator: <a href="https://github.com/asaskevich/govalidator/tree/f61b66f" target="_blank">f61b66f</a></li>
+<li>github.com/census-instrumentation/opencensus-proto: <a href="https://github.com/census-instrumentation/opencensus-proto/tree/v0.4.1" target="_blank">v0.4.1</a></li>
+<li>github.com/go-kit/log: <a href="https://github.com/go-kit/log/tree/v0.2.1" target="_blank">v0.2.1</a></li>
+<li>github.com/go-logfmt/logfmt: <a href="https://github.com/go-logfmt/logfmt/tree/v0.5.1" target="_blank">v0.5.1</a></li>
+<li>gopkg.in/square/go-jose.v2: v2.6.0</li>
+</ul>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>cri-o/cri-o</h2> <h3>Release notes for v1.33.4</h3><h4>2025-09-02</h4><ul>
+<li><a href="#cri-o-v1334">CRI-O v1.33.4</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1333">Changelog since v1.33.3</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-33-4">CRI-O v1.33.4</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.33.3...v1.33.4" target="_blank">v1.33.3&hellip;v1.33.4</a> on Tue, 02 Sep 2025 09:38:10 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz" target="_blank">cri-o.amd64.v1.33.4.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.33.4.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz.sig" target="_blank">cri-o.amd64.v1.33.4.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz.cert" target="_blank">cri-o.amd64.v1.33.4.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz.spdx" target="_blank">cri-o.amd64.v1.33.4.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.33.4.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.33.4.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.33.4.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz" target="_blank">cri-o.arm64.v1.33.4.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.33.4.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz.sig" target="_blank">cri-o.arm64.v1.33.4.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz.cert" target="_blank">cri-o.arm64.v1.33.4.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz.spdx" target="_blank">cri-o.arm64.v1.33.4.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.33.4.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.33.4.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.33.4.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.33.4.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.33.4.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz" target="_blank">cri-o.s390x.v1.33.4.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.33.4.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz.sig" target="_blank">cri-o.s390x.v1.33.4.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz.cert" target="_blank">cri-o.s390x.v1.33.4.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz.spdx" target="_blank">cri-o.s390x.v1.33.4.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.33.4.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.33.4.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.33.4.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.33.4.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.33.4 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.33.4 \
+    --signature cri-o.amd64.v1.33.4.tar.gz.sig \
+    --certificate cri-o.amd64.v1.33.4.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.33.4.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.33.4.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-33-3">Changelog since v1.33.3</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Add HostNetwork field to the <code>/info</code> endpoint to inform cadvisor whether a container is in the host network or not. (#9413, @openshift-cherrypick-robot)</li>
+<li>Server: add real-time memory validation for limit updates (#9404, @openshift-cherrypick-robot)</li>
+<li>Server: ensure CNI teardown prevents IP leaks with missing netns (#9382, @openshift-cherrypick-robot)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.32.8</h3><h4>2025-09-02</h4><ul>
+<li><a href="#cri-o-v1328">CRI-O v1.32.8</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1327">Changelog since v1.32.7</a></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-32-8">CRI-O v1.32.8</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.32.7...v1.32.8" target="_blank">v1.32.7&hellip;v1.32.8</a> on Tue, 02 Sep 2025 00:23:41 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz" target="_blank">cri-o.amd64.v1.32.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.32.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz.sig" target="_blank">cri-o.amd64.v1.32.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz.cert" target="_blank">cri-o.amd64.v1.32.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz.spdx" target="_blank">cri-o.amd64.v1.32.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.32.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.32.8.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.32.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz" target="_blank">cri-o.arm64.v1.32.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.32.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz.sig" target="_blank">cri-o.arm64.v1.32.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz.cert" target="_blank">cri-o.arm64.v1.32.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz.spdx" target="_blank">cri-o.arm64.v1.32.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.32.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.32.8.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.32.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.32.8.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.32.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz" target="_blank">cri-o.s390x.v1.32.8.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.32.8.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz.sig" target="_blank">cri-o.s390x.v1.32.8.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz.cert" target="_blank">cri-o.s390x.v1.32.8.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz.spdx" target="_blank">cri-o.s390x.v1.32.8.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.32.8.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.32.8.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.32.8.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.32.8.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.32.8 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.32.8 \
+    --signature cri-o.amd64.v1.32.8.tar.gz.sig \
+    --certificate cri-o.amd64.v1.32.8.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.32.8.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.32.8.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-32-7">Changelog since v1.32.7</h2>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.31.12</h3><h4>2025-09-02</h4><ul>
+<li><a href="#cri-o-v13112">CRI-O v1.31.12</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v13111">Changelog since v1.31.11</a></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-31-12">CRI-O v1.31.12</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.31.11...v1.31.12" target="_blank">v1.31.11&hellip;v1.31.12</a> on Tue, 02 Sep 2025 00:23:42 UTC.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz" target="_blank">cri-o.amd64.v1.31.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.31.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz.sig" target="_blank">cri-o.amd64.v1.31.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz.cert" target="_blank">cri-o.amd64.v1.31.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz.spdx" target="_blank">cri-o.amd64.v1.31.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.31.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.31.12.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.31.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz" target="_blank">cri-o.arm64.v1.31.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.31.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz.sig" target="_blank">cri-o.arm64.v1.31.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz.cert" target="_blank">cri-o.arm64.v1.31.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz.spdx" target="_blank">cri-o.arm64.v1.31.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.31.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.31.12.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.31.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.31.12.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.31.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz" target="_blank">cri-o.s390x.v1.31.12.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz.sha256sum" target="_blank">cri-o.s390x.v1.31.12.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz.sig" target="_blank">cri-o.s390x.v1.31.12.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz.cert" target="_blank">cri-o.s390x.v1.31.12.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz.spdx" target="_blank">cri-o.s390x.v1.31.12.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz.spdx.sig" target="_blank">cri-o.s390x.v1.31.12.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.s390x.v1.31.12.tar.gz.spdx.cert" target="_blank">cri-o.s390x.v1.31.12.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.31.12.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.31.12 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.31.12 \
+    --signature cri-o.amd64.v1.31.12.tar.gz.sig \
+    --certificate cri-o.amd64.v1.31.12.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.31.12.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.31.12.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-31-11">Changelog since v1.31.11</h2>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br>
+</body>
+
+</html>
