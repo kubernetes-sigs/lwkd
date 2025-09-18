@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-07-08</h1><h2>prometheus/prometheus</h2> <h3>Release notes for 2.53.1 / 2024-07-10</h3><h4>2024-07-10</h4><p>This is a bug-fix release, reverting a change introduced in v2.51.0.</p>
+
+<p>The bug was that remote-write would drop samples if the sending flow stalled for longer than it takes to write one &ldquo;WAL segment&rdquo;. How long this takes depends on the data rate of your Prometheus; as a rough guide with 10 million series scraping once per minute it could be about 5 minutes. The issue is <a href="https://github.com/prometheus/prometheus/issues/14087" target="_blank">#14087</a>.</p>
+
+<ul>
+<li>[BUGFIX] Remote-write: stop dropping samples in catch-up #14446</li>
+</ul>
+
+<p>As usual, container images are available at <a href="https://quay.io/repository/prometheus/prometheus?tab=tags" target="_blank">https://quay.io/repository/prometheus/prometheus?tab=tags</a> and <a href="https://hub.docker.com/r/prom/prometheus/tags" target="_blank">https://hub.docker.com/r/prom/prometheus/tags</a></p>
+<br><h2>kubernetes/cloud-provider-openstack</h2> <h3>Release notes for openstack-cloud-controller-manager-2.30.2</h3><h4>2024-07-12</h4><p>Openstack Cloud Controller Manager Helm Chart</p>
+<br>
+</body>
+
+</html>

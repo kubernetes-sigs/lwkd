@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for 2024-01-08</h1><h2>kubernetes-csi/csi-driver-nfs</h2> <h2>kubernetes-csi/csi-driver-host-path</h2> <h2>kubernetes-csi/csi-driver-smb</h2> <h2>containerd/containerd</h2> <h3>Release notes for containerd 1.7.12</h3><h4>2024-01-12</h4><p>Welcome to the v1.7.12 release of containerd!</p>
+
+<p>The twelfth patch release for containerd 1.7 contains various fixes and updates.</p>
+
+<h3 id="notable-updates">Notable Updates</h3>
+
+<ul>
+<li><strong>Fix on dialer function for Windows</strong> (<a href="https://github.com/containerd/containerd/pull/9501" target="_blank">#9501</a>)</li>
+<li><strong>Improve <code>/etc/group</code> handling when appending groups</strong> (<a href="https://github.com/containerd/containerd/pull/9544" target="_blank">#9544</a>)</li>
+<li><strong>Update shim pidfile permissions to 0644</strong> (<a href="https://github.com/containerd/containerd/pull/9548" target="_blank">#9548</a>)</li>
+<li><strong>Update runc binary to v1.1.11</strong> (<a href="https://github.com/containerd/containerd/pull/9596" target="_blank">#9596</a>)</li>
+<li><strong>Allow import and export to reference missing content</strong> (<a href="https://github.com/containerd/containerd/pull/9600" target="_blank">#9600</a>)</li>
+<li><strong>Remove runc import</strong> (<a href="https://github.com/containerd/containerd/pull/9605" target="_blank">#9605</a>)</li>
+<li><strong>Update Go version to 1.20.13</strong> (<a href="https://github.com/containerd/containerd/pull/9624" target="_blank">#9624</a>)</li>
+</ul>
+
+<h3 id="deprecation-warnings">Deprecation Warnings</h3>
+
+<ul>
+<li><strong>Emit deprecation warning for <code>containerd.io/restart.logpath</code> label usage</strong> (<a href="https://github.com/containerd/containerd/pull/9567" target="_blank">#9567</a>)</li>
+</ul>
+
+<p>See the changelog for complete list of changes</p>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Akihiro Suda</li>
+<li>Sebastiaan van Stijn</li>
+<li>Wei Fu</li>
+<li>Derek McGowan</li>
+<li>Paweł Gronowski</li>
+<li>Jaroslav Jindrak</li>
+<li>Maksym Pavlenko</li>
+<li>Samuel Karp</li>
+<li>Anthony Nandaa</li>
+<li>Bjorn Neergaard</li>
+<li>Djordje Lukic</li>
+<li>Kay Yan</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>34 commits</summary>
+<p>
+
+* [release/1.7] Prepare release notes for v1.7.12 ([#9632](https://github.com/containerd/containerd/pull/9632))
+  * [`775d544fe`](https://github.com/containerd/containerd/commit/775d544fe51cb3bb9ed735fdf3e56ec45a84d78a) Prepare release notes for v1.7.12
+* [release/1.7] update to go1.20.13, test go1.21.6 ([#9624](https://github.com/containerd/containerd/pull/9624))
+  * [`a5dc5b894`](https://github.com/containerd/containerd/commit/a5dc5b894d2bd9bc8bff7c95bdde7564747b138f) update to go1.20.13, test go1.21.6
+* [release/1.7] shim: Create pid-file and address with 0644 permissions ([#9548](https://github.com/containerd/containerd/pull/9548))
+  * [`8d82242eb`](https://github.com/containerd/containerd/commit/8d82242eb525f87b91bbc2c2499559855dd363cf) shim: Create address file with 0644 permissions
+  * [`260963a35`](https://github.com/containerd/containerd/commit/260963a354d972201ffe9a6ce882f1c0e9b319d9) shim: Create pid-file with 0644 permissions
+* [release/1.7 backport] switch back from golang.org/x/sys/execabs to os/exec (go1.19) ([#9602](https://github.com/containerd/containerd/pull/9602))
+  * [`872af82f5`](https://github.com/containerd/containerd/commit/872af82f572a2f2ff17107dd714c61b0eee2081a) remove remaining uses of golang.org/x/sys/execabs
+  * [`2ad2a2e83`](https://github.com/containerd/containerd/commit/2ad2a2e835f27417749c1a0adc47f58e9cae8aa7) switch back from golang.org/x/sys/execabs to os/exec (go1.19)
+* [release/1.7] update to CDI v0.6.1, and remove github.com/opencontainers/runc dependency ([#9605](https://github.com/containerd/containerd/pull/9605))
+  * [`9251072f7`](https://github.com/containerd/containerd/commit/9251072f784dccd9016109c0864ff11c836c9af7) remove github.com/opencontainers/runc dependency
+  * [`4e67213d4`](https://github.com/containerd/containerd/commit/4e67213d4fa02a64b7bb9ed689d68cfc0c4d104a) vendor: github.com/cncf-tags/container-device-interface v0.6.1
+  * [`e0ee0be0d`](https://github.com/containerd/containerd/commit/e0ee0be0df3d3e3a951e24f616f2afc92e665c23) go.mod: github.com/opencontainers/runtime-spec v1.1.0
+  * [`02be2236a`](https://github.com/containerd/containerd/commit/02be2236a26ac6d72a0d5375e61ddd648fa1261c) go.mod: github.com/.../container-device-interface v0.6.0
+  * [`91f953bb4`](https://github.com/containerd/containerd/commit/91f953bb476936d13881781a83b491216d21e3e1) go.mod: github.com/opencontainers/runtime-spec v1.1.0-rc.2
+* [release/1.7 backport] import/export: Support references to missing content  ([#9600](https://github.com/containerd/containerd/pull/9600))
+  * [`6089b05d9`](https://github.com/containerd/containerd/commit/6089b05d9300c231b2f15cfd50426b97e1f77050) images/Export: Revert signature change
+  * [`6b4b760c3`](https://github.com/containerd/containerd/commit/6b4b760c39b3b63755138357d72e0acedb3bee4e) integration/import-export: Add WithSkipMissing tests
+  * [`abb3c5ef9`](https://github.com/containerd/containerd/commit/abb3c5ef943148198998a94c44d74cd01e00ad5e) export: Copy distribution source labels to manifest annotations
+  * [`9609f04f6`](https://github.com/containerd/containerd/commit/9609f04f6bb9fd203b3955d561d976f34b0d4f4f) import/export: Support references to missing content
+  * [`42b60d865`](https://github.com/containerd/containerd/commit/42b60d865296ef1bda5c0f981ef06844e1f58c5d) images/archive: use mediatype helpers
+* [release/1.7 backport] update runc binary to v1.1.11 ([#9596](https://github.com/containerd/containerd/pull/9596))
+  * [`23516a99c`](https://github.com/containerd/containerd/commit/23516a99c6fc64812a3719ea54004e1a92e9e61d) update runc binary to v1.1.11
+* [release/1.7 backport] go.mod: dario.cat/mergo v1.0.0 ([#9569](https://github.com/containerd/containerd/pull/9569))
+  * [`428714e32`](https://github.com/containerd/containerd/commit/428714e320b12dd1474c836fa15e79f824edfe2a) go.mod: dario.cat/mergo v1.0.0
+* [release/1.7] restart: containerd.io/restart.logpath warning ([#9567](https://github.com/containerd/containerd/pull/9567))
+  * [`03fed557e`](https://github.com/containerd/containerd/commit/03fed557e38f3cfeca0652607100c40c86806288) restart: containerd.io/restart.logpath warning
+* [release 1.7] backport: fix on dialer function for windows ([#9501](https://github.com/containerd/containerd/pull/9501))
+  * [`68d237392`](https://github.com/containerd/containerd/commit/68d2373926bc0a9dcc2fb6cdf49dd2188a327b9f) fix(pkg/dialer): minor fix on dialer function for windows
+* [release/1.7] *: enable ARM64 runner ([#9502](https://github.com/containerd/containerd/pull/9502))
+  * [`c63165123`](https://github.com/containerd/containerd/commit/c63165123374eaba96616b6ecdd2bb34aaae8e36) *: enable ARM64 runner
+* [release/1.7 backport] WithAppendAdditionalGroups: better /etc/group handling ([#9544](https://github.com/containerd/containerd/pull/9544))
+  * [`55e570844`](https://github.com/containerd/containerd/commit/55e570844473d689572d68cff7f7bcc5bdcba2ce) WithAppendAdditionalGroups: better /etc/group handling
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>dario.cat/mergo</strong>                                                       v1.0.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/container-orchestrated-devices/container-device-interface</strong>  v0.5.4 -&gt; v0.6.1</li>
+<li><strong>github.com/moby/sys/user</strong>                                              v0.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/opencontainers/runtime-spec</strong>                                v1.1.0-rc.1 -&gt; v1.1.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.7.11" target="_blank">v1.7.11</a></p>
+<br><h3>Release notes for containerd 1.6.27</h3><h4>2024-01-12</h4><p>Welcome to the v1.6.27 release of containerd!</p>
+
+<p>The twenty-seventh patch release for containerd 1.6 contains various fixes and updates.</p>
+
+<h3 id="notable-updates">Notable Updates</h3>
+
+<ul>
+<li><strong>Improve <code>/etc/group</code> handling when appending groups</strong> (<a href="https://github.com/containerd/containerd/pull/9543" target="_blank">#9543</a>)</li>
+<li><strong>Update runc binary to v1.1.11</strong> (<a href="https://github.com/containerd/containerd/pull/9597" target="_blank">#9597</a>)</li>
+<li><strong>Remove runc import</strong> (<a href="https://github.com/containerd/containerd/pull/9606" target="_blank">#9606</a>)</li>
+<li><strong>Update shim pidfile permissions to 0644</strong> (<a href="https://github.com/containerd/containerd/pull/9613" target="_blank">#9613</a>)</li>
+<li><strong>Update Go version to 1.20.13</strong> (<a href="https://github.com/containerd/containerd/pull/9625" target="_blank">#9625</a>)</li>
+</ul>
+
+<h3 id="deprecation-warnings">Deprecation Warnings</h3>
+
+<ul>
+<li><strong>Emit deprecation warning for CRIU config usage</strong> (<a href="https://github.com/containerd/containerd/pull/9448" target="_blank">#9448</a>)</li>
+<li><strong>Emit deprecation warning for some CRI configs</strong> (<a href="https://github.com/containerd/containerd/pull/9447" target="_blank">#9447</a>)</li>
+<li><strong>Emit deprecation warning for <code>containerd.io/restart.logpath</code> label usage</strong> (<a href="https://github.com/containerd/containerd/pull/9572" target="_blank">#9572</a>)</li>
+</ul>
+
+<p>See the changelog for complete list of changes</p>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Samuel Karp</li>
+<li>Akihiro Suda</li>
+<li>Derek McGowan</li>
+<li>Sebastiaan van Stijn</li>
+<li>Djordje Lukic</li>
+<li>Jaroslav Jindrak</li>
+<li>Kay Yan</li>
+<li>Maksym Pavlenko</li>
+<li>Phil Estes</li>
+<li>Wei Fu</li>
+<li>ruiwen-zhao</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>26 commits</summary>
+<p>
+
+* [release/1.6] Prepare release notes for v1.6.27 ([#9631](https://github.com/containerd/containerd/pull/9631))
+  * [`d0edecf28`](https://github.com/containerd/containerd/commit/d0edecf28b51b35cfb549e3d18467bd2087fb0e7) Prepare release notes for v1.6.27
+* [release/1.6] update to go1.20.13, test go1.21.6 ([#9625](https://github.com/containerd/containerd/pull/9625))
+  * [`32a515211`](https://github.com/containerd/containerd/commit/32a515211d03771e3a35bf7bcb4b114bf1131ada) update to go1.20.13, test go1.21.6
+* [release/1.6 backport] shim: Create pid-file with 0644 permissions ([#9613](https://github.com/containerd/containerd/pull/9613))
+  * [`37de14d95`](https://github.com/containerd/containerd/commit/37de14d9562db48f9b66f37b10fa3e704455ae25) shim: Create pid-file with 0644 permissions
+* [release/1.6 backport] remove github.com/opencontainers/runc dependency ([#9606](https://github.com/containerd/containerd/pull/9606))
+  * [`3938d63de`](https://github.com/containerd/containerd/commit/3938d63de4737668ccec1f5eaf552c58a5d32057) remove github.com/opencontainers/runc dependency
+* [release/1.6 backport] update runc binary to v1.1.11 ([#9597](https://github.com/containerd/containerd/pull/9597))
+  * [`9a9b11f73`](https://github.com/containerd/containerd/commit/9a9b11f733f778ce6171396d0c95e2b68cca5e21) update runc binary to v1.1.11
+* [release/1.6 backport] go.mod: dario.cat/mergo v1.0.0 ([#9570](https://github.com/containerd/containerd/pull/9570))
+  * [`6cd8e17ab`](https://github.com/containerd/containerd/commit/6cd8e17aba91d9f46f9e1a27b6381744e6cafe48) go.mod: dario.cat/mergo v1.0.0
+  * [`4f8ff5154`](https://github.com/containerd/containerd/commit/4f8ff5154abd2127d148fb11ca54feb6f0fb47af) go.mod: github.com/imdario/mergo v0.3.13
+* [release/1.6] restart: containerd.io/restart.logpath warning ([#9572](https://github.com/containerd/containerd/pull/9572))
+  * [`d24d263a4`](https://github.com/containerd/containerd/commit/d24d263a42f51dca398070be1f8268fd53fe6cc9) restart: containerd.io/restart.logpath warning
+* [release/1.6 backport] WithAppendAdditionalGroups: better /etc/group handling ([#9543](https://github.com/containerd/containerd/pull/9543))
+  * [`9489c0eb0`](https://github.com/containerd/containerd/commit/9489c0eb0e7e51d90a0c2b5b4f5cbe23936d95ca) WithAppendAdditionalGroups: better /etc/group handling
+* [release/1.6] cri: add deprecation warnings for deprecated CRI configs ([#9547](https://github.com/containerd/containerd/pull/9547))
+  * [`713065793`](https://github.com/containerd/containerd/commit/713065793592c0f877c81712a6f310f3d730bf07) deprecation: fix missing spaces in warnings
+  * [`de0cc92a7`](https://github.com/containerd/containerd/commit/de0cc92a793b84118356715503243a2b9664dfa5) cri: add deprecation warning for runtime_root
+  * [`833b94149`](https://github.com/containerd/containerd/commit/833b94149b6fd4faa6d4719ef7926257f5b2b098) cri: add deprecation warning for rutnime_engine
+  * [`47de3d63d`](https://github.com/containerd/containerd/commit/47de3d63df0e5ffa522dfc2b6cb5b2d472879f28) cri: add deprecation warning for default_runtime
+  * [`d421b8fda`](https://github.com/containerd/containerd/commit/d421b8fda9d0d303e1b90a13f378e6fffe7d9187) cri: add warning for untrusted_workload_runtime
+  * [`802cb64b0`](https://github.com/containerd/containerd/commit/802cb64b00aab14d0f2edb45c9b89eef0016dc1c) cri: add warning for old form of systemd_cgroup
+* [release/1.6] Add warning for CRIU config usage ([#9546](https://github.com/containerd/containerd/pull/9546))
+  * [`f8447466c`](https://github.com/containerd/containerd/commit/f8447466ccd8277083fefeb6db91194c4559ed0b) Add warning for CRIU config usage
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>dario.cat/mergo</strong>           v1.0.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/moby/sys/user</strong>  v0.1.0 <strong><em>new</em></strong></li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v1.6.26" target="_blank">v1.6.26</a></p>
+<br><h2>containerd/nerdctl</h2> <h2>kubernetes/kops</h2> <h2>kubernetes/kubeadm</h2> <h2>grpc/grpc</h2> <h2>golang/go</h2> <h2>coredns/coredns</h2> <h2>containernetworking/cni</h2> <h2>cri-o/cri-o</h2> <h3>Release notes for v1.29.1</h3><h4>2024-01-11</h4><ul>
+<li><a href="#cri-o-v1291">CRI-O v1.29.1</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1290">Changelog since v1.29.0</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#api-change">API Change</a></li>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-29-1">CRI-O v1.29.1</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.29.0...v1.29.1" target="_blank">v1.29.0&hellip;v1.29.1</a> on Fri, 12 Jan 2024 12:56:11 EST.</p>
+
+<p><strong>Note</strong> This release fixes CVE-2023-6476</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz" target="_blank">cri-o.amd64.v1.29.1.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.29.1.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz.sig" target="_blank">cri-o.amd64.v1.29.1.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz.cert" target="_blank">cri-o.amd64.v1.29.1.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz.spdx" target="_blank">cri-o.amd64.v1.29.1.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.29.1.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.29.1.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.29.1.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz" target="_blank">cri-o.arm64.v1.29.1.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.29.1.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz.sig" target="_blank">cri-o.arm64.v1.29.1.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz.cert" target="_blank">cri-o.arm64.v1.29.1.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz.spdx" target="_blank">cri-o.arm64.v1.29.1.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.29.1.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.29.1.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.29.1.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz.sha256sum" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz.sig" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz.cert" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz.spdx" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz.spdx.sig" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.ppc64le.v1.29.1.tar.gz.spdx.cert" target="_blank">cri-o.ppc64le.v1.29.1.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.29.1.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.29.1 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.29.1 \
+    --signature cri-o.amd64.v1.29.1.tar.gz.sig \
+    --certificate cri-o.amd64.v1.29.1.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.29.1.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.29.1.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-29-0">Changelog since v1.29.0</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="bug-or-regression">Bug or Regression</h4>
+
+<ul>
+<li>Fix CVE-2023-6476, where poorly filtered access to an experimental annotation can allow pods to circumvent resource limits on cgroupsv2. See GHSA-p4rx-7wvg-fwrc for more information. (@haircommander)</li>
+</ul>
+
+<h4 id="api-change">API Change</h4>
+
+<ul>
+<li>Added more file system information in <code>ImageFsInfo</code> as part of the garbage collection KEP. (#7269, @kannon92)</li>
+</ul>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Update linked logs to drop an intermediate directory and append <code>.log</code> to the container symlink (#7653, @haircommander)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>golang.org/x/crypto: v0.17.0 → v0.16.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<ul>
+<li>github.com/google/go-github/v50: <a href="https://github.com/google/go-github/v50/tree/v50.2.0" target="_blank">v50.2.0</a></li>
+</ul>
+<br><h3>Release notes for v1.28.3</h3><h4>2024-01-12</h4><ul>
+<li><a href="#cri-o-v1283">CRI-O v1.28.3</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1282">Changelog since v1.28.2</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#uncategorized">Uncategorized</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-28-3">CRI-O v1.28.3</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.28.2...v1.28.3" target="_blank">v1.28.2&hellip;v1.28.3</a> on Fri, 12 Jan 2024 11:52:53 EST.</p>
+
+<p><strong>Note</strong> This release fixes CVE-2023-6476</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz" target="_blank">cri-o.amd64.v1.28.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.28.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz.sig" target="_blank">cri-o.amd64.v1.28.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz.cert" target="_blank">cri-o.amd64.v1.28.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz.spdx" target="_blank">cri-o.amd64.v1.28.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.28.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.28.3.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.28.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz" target="_blank">cri-o.arm64.v1.28.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.28.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz.sig" target="_blank">cri-o.arm64.v1.28.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz.cert" target="_blank">cri-o.arm64.v1.28.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz.spdx" target="_blank">cri-o.arm64.v1.28.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.28.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.28.3.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.28.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.28.3.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.28.3 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.28.3 \
+    --signature cri-o.amd64.v1.28.3.tar.gz.sig \
+    --certificate cri-o.amd64.v1.28.3.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.28.3.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.28.3.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-28-2">Changelog since v1.28.2</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h3 id="bug-or-regression">Bug or Regression</h3>
+
+<ul>
+<li>Fix CVE-2023-6476, where poorly filtered access to an experimental annotation can allow pods to circumvent resource limits on cgroupsv2. See GHSA-p4rx-7wvg-fwrc for more information. (@haircommander)</li>
+</ul>
+
+<h4 id="uncategorized">Uncategorized</h4>
+
+<ul>
+<li>Add support for cpu load balancing annotation for cgroupv2 (#7539, @openshift-cherrypick-robot)</li>
+<li>Allow the <code>io.kubernetes.cri-o.Devices</code> annotation in the default runtime class, which along with AllowedDevices containing /dev/fuse by default, gives containers in the default runtime class optional access to /dev/fuse (#7535, @openshift-cherrypick-robot)</li>
+<li>Go get github.com/containers/common@v0.55.5-0.20231119144331-165b7a4dd43c (#7498, @hswong3i)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>cloud.google.com/go/dataproc/v2: v2.3.0</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>cloud.google.com/go/accessapproval: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/accesscontextmanager: v1.8.1 → v1.8.4</li>
+<li>cloud.google.com/go/aiplatform: v1.45.0 → v1.54.0</li>
+<li>cloud.google.com/go/analytics: v0.21.2 → v0.21.6</li>
+<li>cloud.google.com/go/apigateway: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/apigeeconnect: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/apigeeregistry: v0.7.1 → v0.8.2</li>
+<li>cloud.google.com/go/appengine: v1.8.1 → v1.8.4</li>
+<li>cloud.google.com/go/area120: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/artifactregistry: v1.14.1 → v1.14.6</li>
+<li>cloud.google.com/go/asset: v1.14.1 → v1.15.3</li>
+<li>cloud.google.com/go/assuredworkloads: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/automl: v1.13.1 → v1.13.4</li>
+<li>cloud.google.com/go/baremetalsolution: v0.5.0 → v1.2.3</li>
+<li>cloud.google.com/go/batch: v0.7.0 → v1.6.3</li>
+<li>cloud.google.com/go/beyondcorp: v0.6.1 → v1.0.3</li>
+<li>cloud.google.com/go/bigquery: v1.52.0 → v1.57.1</li>
+<li>cloud.google.com/go/billing: v1.16.0 → v1.17.4</li>
+<li>cloud.google.com/go/binaryauthorization: v1.6.1 → v1.7.3</li>
+<li>cloud.google.com/go/certificatemanager: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/channel: v1.16.0 → v1.17.3</li>
+<li>cloud.google.com/go/cloudbuild: v1.10.1 → v1.15.0</li>
+<li>cloud.google.com/go/clouddms: v1.6.1 → v1.7.3</li>
+<li>cloud.google.com/go/cloudtasks: v1.11.1 → v1.12.4</li>
+<li>cloud.google.com/go/compute: v1.21.0 → v1.23.3</li>
+<li>cloud.google.com/go/contactcenterinsights: v1.9.1 → v1.12.0</li>
+<li>cloud.google.com/go/container: v1.22.1 → v1.28.0</li>
+<li>cloud.google.com/go/containeranalysis: v0.10.1 → v0.11.3</li>
+<li>cloud.google.com/go/datacatalog: v1.14.1 → v1.19.0</li>
+<li>cloud.google.com/go/dataflow: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/dataform: v0.8.1 → v0.9.1</li>
+<li>cloud.google.com/go/datafusion: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/datalabeling: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/dataplex: v1.8.1 → v1.11.2</li>
+<li>cloud.google.com/go/dataqna: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/datastore: v1.12.1 → v1.15.0</li>
+<li>cloud.google.com/go/datastream: v1.9.1 → v1.10.3</li>
+<li>cloud.google.com/go/deploy: v1.11.0 → v1.15.0</li>
+<li>cloud.google.com/go/dialogflow: v1.38.0 → v1.44.3</li>
+<li>cloud.google.com/go/dlp: v1.10.1 → v1.11.1</li>
+<li>cloud.google.com/go/documentai: v1.20.0 → v1.23.5</li>
+<li>cloud.google.com/go/domains: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/edgecontainer: v1.1.1 → v1.1.4</li>
+<li>cloud.google.com/go/essentialcontacts: v1.6.2 → v1.6.5</li>
+<li>cloud.google.com/go/eventarc: v1.12.1 → v1.13.3</li>
+<li>cloud.google.com/go/filestore: v1.7.1 → v1.8.0</li>
+<li>cloud.google.com/go/firestore: v1.11.0 → v1.14.0</li>
+<li>cloud.google.com/go/functions: v1.15.1 → v1.15.4</li>
+<li>cloud.google.com/go/gkebackup: v0.4.0 → v1.3.4</li>
+<li>cloud.google.com/go/gkeconnect: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/gkehub: v0.14.1 → v0.14.4</li>
+<li>cloud.google.com/go/gkemulticloud: v0.6.1 → v1.0.3</li>
+<li>cloud.google.com/go/gsuiteaddons: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/iam: v1.1.1 → v1.1.5</li>
+<li>cloud.google.com/go/iap: v1.8.1 → v1.9.3</li>
+<li>cloud.google.com/go/ids: v1.4.1 → v1.4.4</li>
+<li>cloud.google.com/go/iot: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/kms: v1.12.1 → v1.15.5</li>
+<li>cloud.google.com/go/language: v1.10.1 → v1.12.2</li>
+<li>cloud.google.com/go/lifesciences: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/logging: v1.7.0 → v1.8.1</li>
+<li>cloud.google.com/go/longrunning: v0.5.1 → v0.5.4</li>
+<li>cloud.google.com/go/managedidentities: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/maps: v0.7.0 → v1.6.1</li>
+<li>cloud.google.com/go/mediatranslation: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/memcache: v1.10.1 → v1.10.4</li>
+<li>cloud.google.com/go/metastore: v1.11.1 → v1.13.3</li>
+<li>cloud.google.com/go/monitoring: v1.15.1 → v1.16.3</li>
+<li>cloud.google.com/go/networkconnectivity: v1.12.1 → v1.14.3</li>
+<li>cloud.google.com/go/networkmanagement: v1.8.0 → v1.9.3</li>
+<li>cloud.google.com/go/networksecurity: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/notebooks: v1.9.1 → v1.11.2</li>
+<li>cloud.google.com/go/optimization: v1.4.1 → v1.6.2</li>
+<li>cloud.google.com/go/orchestration: v1.8.1 → v1.8.4</li>
+<li>cloud.google.com/go/orgpolicy: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/osconfig: v1.12.1 → v1.12.4</li>
+<li>cloud.google.com/go/oslogin: v1.10.1 → v1.12.2</li>
+<li>cloud.google.com/go/phishingprotection: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/policytroubleshooter: v1.7.1 → v1.10.2</li>
+<li>cloud.google.com/go/privatecatalog: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/pubsub: v1.32.0 → v1.33.0</li>
+<li>cloud.google.com/go/recaptchaenterprise/v2: v2.7.2 → v2.8.4</li>
+<li>cloud.google.com/go/recommendationengine: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/recommender: v1.10.1 → v1.11.3</li>
+<li>cloud.google.com/go/redis: v1.13.1 → v1.14.1</li>
+<li>cloud.google.com/go/resourcemanager: v1.9.1 → v1.9.4</li>
+<li>cloud.google.com/go/resourcesettings: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/retail: v1.14.1 → v1.14.4</li>
+<li>cloud.google.com/go/run: v0.9.0 → v1.3.3</li>
+<li>cloud.google.com/go/scheduler: v1.10.1 → v1.10.5</li>
+<li>cloud.google.com/go/secretmanager: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/security: v1.15.1 → v1.15.4</li>
+<li>cloud.google.com/go/securitycenter: v1.23.0 → v1.24.2</li>
+<li>cloud.google.com/go/servicedirectory: v1.10.1 → v1.11.3</li>
+<li>cloud.google.com/go/shell: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/spanner: v1.47.0 → v1.53.0</li>
+<li>cloud.google.com/go/speech: v1.17.1 → v1.21.0</li>
+<li>cloud.google.com/go/storagetransfer: v1.10.0 → v1.10.3</li>
+<li>cloud.google.com/go/talent: v1.6.2 → v1.6.5</li>
+<li>cloud.google.com/go/texttospeech: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/tpu: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/trace: v1.10.1 → v1.10.4</li>
+<li>cloud.google.com/go/translate: v1.8.1 → v1.9.3</li>
+<li>cloud.google.com/go/video: v1.17.1 → v1.20.3</li>
+<li>cloud.google.com/go/videointelligence: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/vision/v2: v2.7.2 → v2.7.5</li>
+<li>cloud.google.com/go/vmmigration: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/vmwareengine: v0.4.1 → v1.0.3</li>
+<li>cloud.google.com/go/vpcaccess: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/webrisk: v1.9.1 → v1.9.4</li>
+<li>cloud.google.com/go/websecurityscanner: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/workflows: v1.11.1 → v1.12.3</li>
+<li>cloud.google.com/go: v0.110.4 → v0.110.10</li>
+<li>github.com/containers/common: <a href="https://github.com/containers/common/compare/v0.55.3...8fedf2e" target="_blank">v0.55.3 → 8fedf2e</a></li>
+<li>github.com/go-jose/go-jose/v3: <a href="https://github.com/go-jose/go-jose/v3/compare/v3.0.0...v3.0.1" target="_blank">v3.0.0 → v3.0.1</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.2.4...v1.3.0" target="_blank">v1.2.4 → v1.3.0</a></li>
+<li>github.com/golang/glog: <a href="https://github.com/golang/glog/compare/v1.1.0...v1.1.2" target="_blank">v1.1.0 → v1.1.2</a></li>
+<li>github.com/google/go-cmp: <a href="https://github.com/google/go-cmp/compare/v0.5.9...v0.6.0" target="_blank">v0.5.9 → v0.6.0</a></li>
+<li>github.com/google/uuid: <a href="https://github.com/google/uuid/compare/v1.3.0...v1.3.1" target="_blank">v1.3.0 → v1.3.1</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/v2/compare/v2.15.2...v2.18.1" target="_blank">v2.15.2 → v2.18.1</a></li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.42.0 → v0.46.1</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/internal/retry: v1.16.0 → v1.15.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.16.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.16.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/metric: v1.16.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.16.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.16.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel: v1.16.0 → v1.21.0</li>
+<li>go.opentelemetry.io/proto/otlp: v0.19.0 → v1.0.0</li>
+<li>go.uber.org/goleak: v1.2.1 → v1.3.0</li>
+<li>golang.org/x/crypto: v0.14.0 → v0.16.0</li>
+<li>golang.org/x/net: v0.17.0 → v0.19.0</li>
+<li>golang.org/x/oauth2: v0.10.0 → v0.13.0</li>
+<li>golang.org/x/sys: v0.13.0 → v0.15.0</li>
+<li>golang.org/x/term: v0.13.0 → v0.15.0</li>
+<li>golang.org/x/text: v0.13.0 → v0.14.0</li>
+<li>google.golang.org/genproto/googleapis/api: 782d3b1 → 3a041ad</li>
+<li>google.golang.org/genproto/googleapis/rpc: 782d3b1 → 3a041ad</li>
+<li>google.golang.org/genproto: 782d3b1 → 83a465c</li>
+<li>google.golang.org/grpc: v1.58.3 → v1.59.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+<br><h3>Release notes for v1.27.3</h3><h4>2024-01-12</h4><ul>
+<li><a href="#cri-o-v1273">CRI-O v1.27.3</a>
+
+<ul>
+<li><a href="#downloads">Downloads</a></li>
+<li><a href="#changelog-since-v1272">Changelog since v1.27.2</a>
+
+<ul>
+<li><a href="#changes-by-kind">Changes by Kind</a>
+
+<ul>
+<li><a href="#bug-or-regression">Bug or Regression</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dependencies">Dependencies</a>
+
+<ul>
+<li><a href="#added">Added</a></li>
+<li><a href="#changed">Changed</a></li>
+<li><a href="#removed">Removed</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="cri-o-v1-27-3">CRI-O v1.27.3</h1>
+
+<p>The release notes have been generated for the commit range
+<a href="https://github.com/cri-o/cri-o/compare/v1.27.2...v1.27.3" target="_blank">v1.27.2&hellip;v1.27.3</a> on Fri, 12 Jan 2024 11:05:48 EST.</p>
+
+<p><strong>Note</strong> This release fixes CVE-2023-6476</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p>Download one of our static release bundles via our Google Cloud Bucket:</p>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz" target="_blank">cri-o.amd64.v1.27.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz.sha256sum" target="_blank">cri-o.amd64.v1.27.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz.sig" target="_blank">cri-o.amd64.v1.27.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz.cert" target="_blank">cri-o.amd64.v1.27.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz.spdx" target="_blank">cri-o.amd64.v1.27.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz.spdx.sig" target="_blank">cri-o.amd64.v1.27.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.v1.27.3.tar.gz.spdx.cert" target="_blank">cri-o.amd64.v1.27.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz" target="_blank">cri-o.arm64.v1.27.3.tar.gz</a>
+
+<ul>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz.sha256sum" target="_blank">cri-o.arm64.v1.27.3.tar.gz.sha256sum</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz.sig" target="_blank">cri-o.arm64.v1.27.3.tar.gz.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz.cert" target="_blank">cri-o.arm64.v1.27.3.tar.gz.cert</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz.spdx" target="_blank">cri-o.arm64.v1.27.3.tar.gz.spdx</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz.spdx.sig" target="_blank">cri-o.arm64.v1.27.3.tar.gz.spdx.sig</a></li>
+<li><a href="https://storage.googleapis.com/cri-o/artifacts/cri-o.arm64.v1.27.3.tar.gz.spdx.cert" target="_blank">cri-o.arm64.v1.27.3.tar.gz.spdx.cert</a></li>
+</ul></li>
+</ul>
+
+<p>To verify the artifact signatures via <a href="https://github.com/sigstore/cosign" target="_blank">cosign</a>, run:</p>
+
+<pre><code class="language-console">&gt; export COSIGN_EXPERIMENTAL=1
+&gt; cosign verify-blob cri-o.amd64.v1.27.3.tar.gz \
+    --certificate-identity https://github.com/cri-o/cri-o/.github/workflows/test.yml@refs/tags/v1.27.3 \
+    --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+    --certificate-github-workflow-repository cri-o/cri-o \
+    --certificate-github-workflow-ref refs/tags/v1.27.3 \
+    --signature cri-o.amd64.v1.27.3.tar.gz.sig \
+    --certificate cri-o.amd64.v1.27.3.tar.gz.cert
+</code></pre>
+
+<p>To verify the bill of materials (SBOM) in <a href="https://spdx.org" target="_blank">SPDX</a> format using the <a href="https://sigs.k8s.io/bom" target="_blank">bom</a> tool, run:</p>
+
+<pre><code class="language-console">&gt; tar xfz cri-o.amd64.v1.27.3.tar.gz
+&gt; bom validate -e cri-o.amd64.v1.27.3.tar.gz.spdx -d cri-o
+</code></pre>
+
+<h2 id="changelog-since-v1-27-2">Changelog since v1.27.2</h2>
+
+<h3 id="changes-by-kind">Changes by Kind</h3>
+
+<h4 id="bug-or-regression">Bug or Regression</h4>
+
+<ul>
+<li>Fix CVE-2023-6476, where poorly filtered access to an experimental annotation can allow pods to circumvent resource limits on cgroupsv2. See <a href="https://github.com/cri-o/cri-o/security/advisories/GHSA-p4rx-7wvg-fwrc" target="_blank">https://github.com/cri-o/cri-o/security/advisories/GHSA-p4rx-7wvg-fwrc</a> for more information. (@haircommander)</li>
+<li>Go get github.com/alvistack/containers-common@v0.53.1-0.20231122050942-6c64d1accb28 (#7499, @hswong3i)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+<li>cloud.google.com/go/dataproc/v2: v2.3.0</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>cloud.google.com/go/accessapproval: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/accesscontextmanager: v1.8.1 → v1.8.4</li>
+<li>cloud.google.com/go/aiplatform: v1.45.0 → v1.54.0</li>
+<li>cloud.google.com/go/analytics: v0.21.2 → v0.21.6</li>
+<li>cloud.google.com/go/apigateway: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/apigeeconnect: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/apigeeregistry: v0.7.1 → v0.8.2</li>
+<li>cloud.google.com/go/appengine: v1.8.1 → v1.8.4</li>
+<li>cloud.google.com/go/area120: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/artifactregistry: v1.14.1 → v1.14.6</li>
+<li>cloud.google.com/go/asset: v1.14.1 → v1.15.3</li>
+<li>cloud.google.com/go/assuredworkloads: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/automl: v1.13.1 → v1.13.4</li>
+<li>cloud.google.com/go/baremetalsolution: v0.5.0 → v1.2.3</li>
+<li>cloud.google.com/go/batch: v0.7.0 → v1.6.3</li>
+<li>cloud.google.com/go/beyondcorp: v0.6.1 → v1.0.3</li>
+<li>cloud.google.com/go/bigquery: v1.52.0 → v1.57.1</li>
+<li>cloud.google.com/go/billing: v1.16.0 → v1.17.4</li>
+<li>cloud.google.com/go/binaryauthorization: v1.6.1 → v1.7.3</li>
+<li>cloud.google.com/go/certificatemanager: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/channel: v1.16.0 → v1.17.3</li>
+<li>cloud.google.com/go/cloudbuild: v1.10.1 → v1.15.0</li>
+<li>cloud.google.com/go/clouddms: v1.6.1 → v1.7.3</li>
+<li>cloud.google.com/go/cloudtasks: v1.11.1 → v1.12.4</li>
+<li>cloud.google.com/go/compute: v1.21.0 → v1.23.3</li>
+<li>cloud.google.com/go/contactcenterinsights: v1.9.1 → v1.12.0</li>
+<li>cloud.google.com/go/container: v1.22.1 → v1.28.0</li>
+<li>cloud.google.com/go/containeranalysis: v0.10.1 → v0.11.3</li>
+<li>cloud.google.com/go/datacatalog: v1.14.1 → v1.19.0</li>
+<li>cloud.google.com/go/dataflow: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/dataform: v0.8.1 → v0.9.1</li>
+<li>cloud.google.com/go/datafusion: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/datalabeling: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/dataplex: v1.8.1 → v1.11.2</li>
+<li>cloud.google.com/go/dataqna: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/datastore: v1.12.1 → v1.15.0</li>
+<li>cloud.google.com/go/datastream: v1.9.1 → v1.10.3</li>
+<li>cloud.google.com/go/deploy: v1.11.0 → v1.15.0</li>
+<li>cloud.google.com/go/dialogflow: v1.38.0 → v1.44.3</li>
+<li>cloud.google.com/go/dlp: v1.10.1 → v1.11.1</li>
+<li>cloud.google.com/go/documentai: v1.20.0 → v1.23.5</li>
+<li>cloud.google.com/go/domains: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/edgecontainer: v1.1.1 → v1.1.4</li>
+<li>cloud.google.com/go/essentialcontacts: v1.6.2 → v1.6.5</li>
+<li>cloud.google.com/go/eventarc: v1.12.1 → v1.13.3</li>
+<li>cloud.google.com/go/filestore: v1.7.1 → v1.8.0</li>
+<li>cloud.google.com/go/firestore: v1.11.0 → v1.14.0</li>
+<li>cloud.google.com/go/functions: v1.15.1 → v1.15.4</li>
+<li>cloud.google.com/go/gkebackup: v0.4.0 → v1.3.4</li>
+<li>cloud.google.com/go/gkeconnect: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/gkehub: v0.14.1 → v0.14.4</li>
+<li>cloud.google.com/go/gkemulticloud: v0.6.1 → v1.0.3</li>
+<li>cloud.google.com/go/gsuiteaddons: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/iam: v1.1.1 → v1.1.5</li>
+<li>cloud.google.com/go/iap: v1.8.1 → v1.9.3</li>
+<li>cloud.google.com/go/ids: v1.4.1 → v1.4.4</li>
+<li>cloud.google.com/go/iot: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/kms: v1.12.1 → v1.15.5</li>
+<li>cloud.google.com/go/language: v1.10.1 → v1.12.2</li>
+<li>cloud.google.com/go/lifesciences: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/logging: v1.7.0 → v1.8.1</li>
+<li>cloud.google.com/go/longrunning: v0.5.1 → v0.5.4</li>
+<li>cloud.google.com/go/managedidentities: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/maps: v0.7.0 → v1.6.1</li>
+<li>cloud.google.com/go/mediatranslation: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/memcache: v1.10.1 → v1.10.4</li>
+<li>cloud.google.com/go/metastore: v1.11.1 → v1.13.3</li>
+<li>cloud.google.com/go/monitoring: v1.15.1 → v1.16.3</li>
+<li>cloud.google.com/go/networkconnectivity: v1.12.1 → v1.14.3</li>
+<li>cloud.google.com/go/networkmanagement: v1.8.0 → v1.9.3</li>
+<li>cloud.google.com/go/networksecurity: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/notebooks: v1.9.1 → v1.11.2</li>
+<li>cloud.google.com/go/optimization: v1.4.1 → v1.6.2</li>
+<li>cloud.google.com/go/orchestration: v1.8.1 → v1.8.4</li>
+<li>cloud.google.com/go/orgpolicy: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/osconfig: v1.12.1 → v1.12.4</li>
+<li>cloud.google.com/go/oslogin: v1.10.1 → v1.12.2</li>
+<li>cloud.google.com/go/phishingprotection: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/policytroubleshooter: v1.7.1 → v1.10.2</li>
+<li>cloud.google.com/go/privatecatalog: v0.9.1 → v0.9.4</li>
+<li>cloud.google.com/go/pubsub: v1.32.0 → v1.33.0</li>
+<li>cloud.google.com/go/recaptchaenterprise/v2: v2.7.2 → v2.8.4</li>
+<li>cloud.google.com/go/recommendationengine: v0.8.1 → v0.8.4</li>
+<li>cloud.google.com/go/recommender: v1.10.1 → v1.11.3</li>
+<li>cloud.google.com/go/redis: v1.13.1 → v1.14.1</li>
+<li>cloud.google.com/go/resourcemanager: v1.9.1 → v1.9.4</li>
+<li>cloud.google.com/go/resourcesettings: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/retail: v1.14.1 → v1.14.4</li>
+<li>cloud.google.com/go/run: v0.9.0 → v1.3.3</li>
+<li>cloud.google.com/go/scheduler: v1.10.1 → v1.10.5</li>
+<li>cloud.google.com/go/secretmanager: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/security: v1.15.1 → v1.15.4</li>
+<li>cloud.google.com/go/securitycenter: v1.23.0 → v1.24.2</li>
+<li>cloud.google.com/go/servicedirectory: v1.10.1 → v1.11.3</li>
+<li>cloud.google.com/go/shell: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/spanner: v1.47.0 → v1.53.0</li>
+<li>cloud.google.com/go/speech: v1.17.1 → v1.21.0</li>
+<li>cloud.google.com/go/storagetransfer: v1.10.0 → v1.10.3</li>
+<li>cloud.google.com/go/talent: v1.6.2 → v1.6.5</li>
+<li>cloud.google.com/go/texttospeech: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/tpu: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/trace: v1.10.1 → v1.10.4</li>
+<li>cloud.google.com/go/translate: v1.8.1 → v1.9.3</li>
+<li>cloud.google.com/go/video: v1.17.1 → v1.20.3</li>
+<li>cloud.google.com/go/videointelligence: v1.11.1 → v1.11.4</li>
+<li>cloud.google.com/go/vision/v2: v2.7.2 → v2.7.5</li>
+<li>cloud.google.com/go/vmmigration: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/vmwareengine: v0.4.1 → v1.0.3</li>
+<li>cloud.google.com/go/vpcaccess: v1.7.1 → v1.7.4</li>
+<li>cloud.google.com/go/webrisk: v1.9.1 → v1.9.4</li>
+<li>cloud.google.com/go/websecurityscanner: v1.6.1 → v1.6.4</li>
+<li>cloud.google.com/go/workflows: v1.11.1 → v1.12.3</li>
+<li>cloud.google.com/go: v0.110.4 → v0.110.10</li>
+<li>github.com/cenkalti/backoff/v4: <a href="https://github.com/cenkalti/backoff/v4/compare/v4.2.0...v4.2.1" target="_blank">v4.2.0 → v4.2.1</a></li>
+<li>github.com/containers/common: <a href="https://github.com/containers/common/compare/v0.53.0...6b57a0d" target="_blank">v0.53.0 → 6b57a0d</a></li>
+<li>github.com/containers/storage: <a href="https://github.com/containers/storage/compare/v1.46.1...65bf8c5" target="_blank">v1.46.1 → 65bf8c5</a></li>
+<li>github.com/go-logr/logr: <a href="https://github.com/go-logr/logr/compare/v1.2.3...v1.3.0" target="_blank">v1.2.3 → v1.3.0</a></li>
+<li>github.com/golang/glog: <a href="https://github.com/golang/glog/compare/v1.1.0...v1.1.2" target="_blank">v1.1.0 → v1.1.2</a></li>
+<li>github.com/google/go-cmp: <a href="https://github.com/google/go-cmp/compare/v0.5.9...v0.6.0" target="_blank">v0.5.9 → v0.6.0</a></li>
+<li>github.com/google/uuid: <a href="https://github.com/google/uuid/compare/v1.3.0...v1.3.1" target="_blank">v1.3.0 → v1.3.1</a></li>
+<li>github.com/grpc-ecosystem/grpc-gateway/v2: <a href="https://github.com/grpc-ecosystem/grpc-gateway/v2/compare/v2.15.2...v2.18.1" target="_blank">v2.15.2 → v2.18.1</a></li>
+<li>github.com/stretchr/testify: <a href="https://github.com/stretchr/testify/compare/v1.8.2...v1.8.4" target="_blank">v1.8.2 → v1.8.4</a></li>
+<li>go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: v0.40.0 → v0.46.1</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc: v1.14.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/exporters/otlp/otlptrace: v1.14.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/metric: v0.37.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/sdk: v1.14.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel/trace: v1.14.0 → v1.21.0</li>
+<li>go.opentelemetry.io/otel: v1.14.0 → v1.21.0</li>
+<li>go.opentelemetry.io/proto/otlp: v0.19.0 → v1.0.0</li>
+<li>go.uber.org/goleak: v1.2.1 → v1.3.0</li>
+<li>golang.org/x/crypto: v0.14.0 → v0.16.0</li>
+<li>golang.org/x/net: v0.17.0 → v0.19.0</li>
+<li>golang.org/x/oauth2: v0.10.0 → v0.13.0</li>
+<li>golang.org/x/sys: v0.13.0 → v0.15.0</li>
+<li>golang.org/x/term: v0.13.0 → v0.15.0</li>
+<li>golang.org/x/text: v0.13.0 → v0.14.0</li>
+<li>google.golang.org/genproto/googleapis/api: 782d3b1 → 3a041ad</li>
+<li>google.golang.org/genproto/googleapis/rpc: 782d3b1 → 3a041ad</li>
+<li>google.golang.org/genproto: 782d3b1 → 83a465c</li>
+<li>google.golang.org/grpc: v1.58.3 → v1.59.0</li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<ul>
+<li>cloud.google.com/go/dataproc: v1.12.0</li>
+<li>github.com/pkg/diff: <a href="https://github.com/pkg/diff/tree/20ebb0f" target="_blank">20ebb0f</a></li>
+</ul>
+<br><h2>cri-o/ocicni</h2> <h2>etcd-io/etcd</h2> <h3>Release notes for v3.4.29</h3><h4>2024-01-09</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.4.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.4/upgrades/upgrade_3_4.md" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://github.com/etcd-io/etcd/tree/master/Documentation#operating-etcd-clusters" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://github.com/etcd-io/website/blob/main/content/en/docs/v3.4/op-guide/supported-platform.md" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.4.29
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+</code></pre>
+
+<pre><code class="language-bash"># start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-bash">ETCD_VER=v3.4.29
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-bash">rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:v3.4.29 || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-v3.4.29 \
+  gcr.io/etcd-development/etcd:v3.4.29 \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-v3.4.29  /usr/local/bin/etcd --version
+docker exec etcd-gcr-v3.4.29  /usr/local/bin/etcdctl version
+docker exec etcd-gcr-v3.4.29  /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-v3.4.29  /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-v3.4.29  /usr/local/bin/etcdctl get foo
+</code></pre>
+<br>
+</body>
+
+</html>

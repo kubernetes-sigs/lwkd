@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-{% seo %}
-{% feed_meta %}
+    {% seo %}
+    {% feed_meta %}
+    {% include favicons.html %}
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -21,8 +22,9 @@
         <a href="{{ site.github.url }}"> <h1>{{ site.title | default: site.github.repository_name }}</h1> </a>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
         <p>
-          <div><a href="http://eepurl.com/dkBy_j"><i class="fa fa-envelope"></i> Subscribe</a></div>
-          <div><a href="https://twitter.com/LWKDNews"><i class="fa fa-twitter"></i> Twitter</a></div>
+          <div><a href="https://buttondown.email/LastWeekInKubernetes"><i class="fa fa-envelope"></i> Subscribe</a></div>
+          <div><a href="https://m6n.io/@lwkd"><i class="fab fa-mastodon"></i> Mastodon</a></div>
+          <div><a href="https://bsky.app/profile/lwkd.info"><i class="fa-brands fa-bluesky"></i> BlueSky</a></div>
           <div><a href="/feed.xml"><i class="fa fa-rss"></i> RSS</a></div>
         </p>
         <p class="view"><a href="{{ site.github.repository_url }}">View LWKD on GitHub</a></p>
