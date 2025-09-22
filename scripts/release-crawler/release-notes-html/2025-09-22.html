@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-09-15 - 2025-09-22</h1><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.2.0-beta.0</h3><h4>2025-09-18</h4><p>Welcome to the v2.2.0-beta.0 release of containerd!
+<em>This is a pre-release of containerd</em></p>
+
+<p>The second minor release of containerd 2.x focuses on continued stability alongside
+new features and improvements. This is the second time-based released for containerd.</p>
+
+<p>This is a beta release and some functionality is still under development.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Add support for back references in the garbage collector (<a href="https://github.com/containerd/containerd/pull/12025" target="_blank">#12025</a>)</li>
+</ul>
+
+<h4 id="go-client">Go client</h4>
+
+<ul>
+<li>Update pkg/oci to use fs.FS interface and os.OpenRoot (<a href="https://github.com/containerd/containerd/pull/12245" target="_blank">#12245</a>)</li>
+</ul>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Tar unpack progress through transfer service (<a href="https://github.com/containerd/containerd/pull/11921" target="_blank">#11921</a>)</li>
+</ul>
+
+<h4 id="image-storage">Image Storage</h4>
+
+<ul>
+<li>Add snapshotter and differ for block CIMs (<a href="https://github.com/containerd/containerd/pull/12050" target="_blank">#12050</a>)</li>
+<li>Add tar index mode to erofs snapshotter (<a href="https://github.com/containerd/containerd/pull/11919" target="_blank">#11919</a>)</li>
+</ul>
+
+<h4 id="node-resource-interface-nri">Node Resource Interface (NRI)</h4>
+
+<ul>
+<li>Enable otel traces in NRI (<a href="https://github.com/containerd/containerd/pull/12082" target="_blank">#12082</a>)</li>
+<li>Add WASM plugin support (<a href="https://github.com/containerd/nri/pull/121" target="_blank">containerd/nri#121</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Fix pidfd leak in UnshareAfterEnterUserns (<a href="https://github.com/containerd/containerd/pull/12167" target="_blank">#12167</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Phil Estes</li>
+<li>Derek McGowan</li>
+<li>Krisztian Litkey</li>
+<li>Akihiro Suda</li>
+<li>Maksym Pavlenko</li>
+<li>Mike Brown</li>
+<li>Wei Fu</li>
+<li>Markus Lehtonen</li>
+<li>Samuel Karp</li>
+<li>Sebastiaan van Stijn</li>
+<li>Austin Vazquez</li>
+<li>ningmingxiao</li>
+<li>yashsingh74</li>
+<li>Jin Dong</li>
+<li>Kirtana Ashok</li>
+<li>Etienne Champetier</li>
+<li>Rodrigo Campos</li>
+<li>Akhil Mohan</li>
+<li>Chris Henzie</li>
+<li>Gao Xiang</li>
+<li>Sascha Grunert</li>
+<li>Aleksa Sarai</li>
+<li>Eric Mountain</li>
+<li>Keith Mattix II</li>
+<li>Paweł Gronowski</li>
+<li>Adrien Delorme</li>
+<li>Enji Cooper</li>
+<li>Kohei Tokunaga</li>
+<li>Yang Yang</li>
+<li>jokemanfire</li>
+<li>Aadhar Agarwal</li>
+<li>Amit Barve</li>
+<li>Andrew Halaney</li>
+<li>Antonio Ojea</li>
+<li>Brian Goff</li>
+<li>Chenyang Yan</li>
+<li>Dawei Wei</li>
+<li>Divya Rani</li>
+<li>Fabiano Fidêncio</li>
+<li>Henry Wang</li>
+<li>Iceber Gu</li>
+<li>Jared Ledvina</li>
+<li>Jonathan Perkin</li>
+<li>Jose Fernandez</li>
+<li>Karl Baumgartner</li>
+<li>Radostin Stoyanov</li>
+<li>Rehan Khan</li>
+<li>Ruidong Cao</li>
+<li>Sameer</li>
+<li>Swagat Bora</li>
+<li>Sylvain MOUQUET</li>
+<li>Tom Wieczorek</li>
+<li>Tycho Andersen</li>
+<li>Ubuntu</li>
+<li>Wuyue (Tony) Sun</li>
+<li>jinda.ljd</li>
+<li>tanhuaan</li>
+<li>zounengren</li>
+</ul>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>dario.cat/mergo</strong>                                                    v1.0.1 -&gt; v1.0.2</li>
+<li><strong>github.com/Microsoft/hcsshim</strong>                                       v0.13.0-rc.3 -&gt; v0.14.0-rc.1</li>
+<li><strong>github.com/checkpoint-restore/checkpointctl</strong>                        v1.3.0 -&gt; v1.4.0</li>
+<li><strong>github.com/containerd/console</strong>                                      v1.0.4 -&gt; v1.0.5</li>
+<li><strong>github.com/containerd/go-cni</strong>                                       v1.1.12 -&gt; v1.1.13</li>
+<li><strong>github.com/containerd/nri</strong>                                          v0.8.0 -&gt; v0.10.0</li>
+<li><strong>github.com/containernetworking/plugins</strong>                             v1.7.1 -&gt; v1.8.0</li>
+<li><strong>github.com/coreos/go-systemd/v22</strong>                                   v22.5.0 -&gt; v22.6.0</li>
+<li><strong>github.com/cpuguy83/go-md2man/v2</strong>                                   v2.0.5 -&gt; v2.0.7</li>
+<li><strong>github.com/emicklei/go-restful/v3</strong>                                  v3.11.0 -&gt; v3.13.0</li>
+<li><strong>github.com/fxamacker/cbor/v2</strong>                                       v2.7.0 -&gt; v2.9.0</li>
+<li><strong>github.com/go-jose/go-jose/v4</strong>                                      v4.0.5 -&gt; v4.1.1</li>
+<li><strong>github.com/go-logr/logr</strong>                                            v1.4.2 -&gt; v1.4.3</li>
+<li><strong>github.com/golang/groupcache</strong>                                       41bb18bfe9da -&gt; 2c02b8208cf8</li>
+<li><strong>github.com/gorilla/websocket</strong>                                       v1.5.0 -&gt; e064f32e3674</li>
+<li><strong>github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus</strong>  v1.0.1 -&gt; v1.1.0</li>
+<li><strong>github.com/intel/goresctrl</strong>                                         v0.8.0 -&gt; v0.9.0</li>
+<li><strong>github.com/knqyf263/go-plugin</strong>                                      v0.9.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/modern-go/reflect2</strong>                                      v1.0.2 -&gt; 35a7c28c31ee</li>
+<li><strong>github.com/prometheus/client_golang</strong>                                v1.22.0 -&gt; v1.23.2</li>
+<li><strong>github.com/prometheus/client_model</strong>                                 v0.6.1 -&gt; v0.6.2</li>
+<li><strong>github.com/prometheus/common</strong>                                       v0.62.0 -&gt; v0.66.1</li>
+<li><strong>github.com/prometheus/procfs</strong>                                       v0.15.1 -&gt; v0.16.1</li>
+<li><strong>github.com/stretchr/testify</strong>                                        v1.10.0 -&gt; v1.11.1</li>
+<li><strong>github.com/tchap/go-patricia/v2</strong>                                    v2.3.2 -&gt; v2.3.3</li>
+<li><strong>github.com/tetratelabs/wazero</strong>                                      v1.9.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/urfave/cli/v2</strong>                                           v2.27.6 -&gt; v2.27.7</li>
+<li><strong>github.com/vishvananda/netlink</strong>                                     0e7078ed04c8 -&gt; v1.3.1</li>
+<li><strong>go.etcd.io/bbolt</strong>                                                   v1.4.0 -&gt; v1.4.3</li>
+<li><strong>go.opentelemetry.io/otel</strong>                                           v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.opentelemetry.io/otel/metric</strong>                                    v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.opentelemetry.io/otel/sdk</strong>                                       v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.opentelemetry.io/otel/trace</strong>                                     v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.uber.org/goleak</strong>                                                 v1.3.0 <strong><em>new</em></strong></li>
+<li><strong>go.yaml.in/yaml/v2</strong>                                                 v2.4.2 <strong><em>new</em></strong></li>
+<li><strong>golang.org/x/crypto</strong>                                                v0.36.0 -&gt; v0.41.0</li>
+<li><strong>golang.org/x/mod</strong>                                                   v0.24.0 -&gt; v0.28.0</li>
+<li><strong>golang.org/x/net</strong>                                                   v0.38.0 -&gt; v0.43.0</li>
+<li><strong>golang.org/x/oauth2</strong>                                                v0.27.0 -&gt; v0.30.0</li>
+<li><strong>golang.org/x/sync</strong>                                                  v0.14.0 -&gt; v0.17.0</li>
+<li><strong>golang.org/x/sys</strong>                                                   v0.33.0 -&gt; v0.36.0</li>
+<li><strong>golang.org/x/term</strong>                                                  v0.30.0 -&gt; v0.34.0</li>
+<li><strong>golang.org/x/text</strong>                                                  v0.23.0 -&gt; v0.28.0</li>
+<li><strong>golang.org/x/time</strong>                                                  v0.7.0 -&gt; v0.9.0</li>
+<li><strong>google.golang.org/genproto/googleapis/api</strong>                          56aae31c358a -&gt; 8d1bb00bc6a7</li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>                          56aae31c358a -&gt; 8d1bb00bc6a7</li>
+<li><strong>google.golang.org/grpc</strong>                                             v1.72.0 -&gt; v1.75.1</li>
+<li><strong>google.golang.org/protobuf</strong>                                         v1.36.6 -&gt; v1.36.9</li>
+<li><strong>k8s.io/api</strong>                                                         v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/apimachinery</strong>                                                v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/client-go</strong>                                                   v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/cri-api</strong>                                                     v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/utils</strong>                                                       3ea5e8cea738 -&gt; 4c0f3b243397</li>
+<li><strong>sigs.k8s.io/json</strong>                                                   9aa6b5e7a4b3 -&gt; cfa47c3a1cc8</li>
+<li><strong>sigs.k8s.io/randfill</strong>                                               v1.0.0 <strong><em>new</em></strong></li>
+<li><strong>sigs.k8s.io/structured-merge-diff/v6</strong>                               v6.3.0 <strong><em>new</em></strong></li>
+<li><strong>sigs.k8s.io/yaml</strong>                                                   v1.4.0 -&gt; v1.6.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v2.1.0" target="_blank">v2.1.0</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.35 (Ubuntu 22.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on Linux distributions that do not use glibc &gt;= 2.35. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br><h2>grpc/grpc</h2> <h3>Release notes for Release v1.75.0</h3><h4>2025-09-15</h4><p>This is release 1.75.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">gemini</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[Security] Cherry Pick Spiffe Verification. (<a href="https://github.com/grpc/grpc/pull/40515" target="_blank">#40515</a>)</li>
+<li>[Python][Typeguard] Part 3 - Add Typeguard to AIO stack in tests. (<a href="https://github.com/grpc/grpc/pull/40217" target="_blank">#40217</a>)</li>
+<li>[c-ares] update version to 1.34.5. (<a href="https://github.com/grpc/grpc/pull/39508" target="_blank">#39508</a>)</li>
+<li>[pick_first] fix bug that caused us to stop attempting to connect. (<a href="https://github.com/grpc/grpc/pull/40162" target="_blank">#40162</a>)</li>
+</ul>
+
+<h2 id="c">C++</h2>
+
+<ul>
+<li>[OTel C++] Implement retry metrics. (<a href="https://github.com/grpc/grpc/pull/39195" target="_blank">#39195</a>)</li>
+</ul>
+
+<h2 id="objective-c">Objective-C</h2>
+
+<ul>
+<li>Fix data race by adding custom getter for <code>state</code> property with <code>@synchronized</code> locking. (<a href="https://github.com/grpc/grpc/pull/40146" target="_blank">#40146</a>)</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>gRPC Python (grpcio) now depends on <code>typing-extensions~=4.13</code>. (#40137)</li>
+<li>Update musllinux wheels from <code>musllinux_1_1</code> to <code>musllinux_1_2</code>. (#40317)
+
+<ul>
+<li>Dropping <code>musllinux_1_1</code> because it reached EOL in November 2024</li>
+<li>Reference on musllinux platform tags: <a href="https://peps.python.org/pep-0656" target="_blank">PEP 656</a></li>
+</ul></li>
+<li><code>grpc.aio</code> typehint fixes. (#40215, #40217)
+
+<ul>
+<li>Fixes type hints for <code>grpc.aio._utils</code>, <code>grpc.aio._call</code>, <code>grpc.aio._interceptor</code> and <code>grpc.aio._utils</code></li>
+<li>Fixing the error in public API: <code>ClientCallDetails.method</code> was declared as <code>str</code> but always called with <code>bytes</code>, see <a href="https://github.com/grpc/grpc/blob/49bc1b1098f3772b40a46325250fe5c6f4df1eeb/src/python/grpcio/grpc/aio/_interceptor.py#L628" target="_blank">InterceptedUnaryUnaryCall</a>.<br>
+</li>
+</ul></li>
+<li>Fixes issue #40325 with grpcio failing to install on all non-Mac Apple devices internal builds. (#40347)</li>
+</ul>
+
+<h2 id="ruby">Ruby</h2>
+
+<ul>
+<li>Ruby: Mark credential object in channel. (<a href="https://github.com/grpc/grpc/pull/40394" target="_blank">#40394</a>)</li>
+<li>[Ruby] Add rubygems support for linux-gnu and linux-musl platforms. (<a href="https://github.com/grpc/grpc/pull/39549" target="_blank">#39549</a>)</li>
+</ul>
+<br><h2>etcd-io/etcd</h2> <h3>Release notes for v3.6.5</h3><h4>2025-09-19</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.6.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.6/upgrades/upgrade_3_6/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.6/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.6/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.5
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1 --no-same-owner
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.5
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.6.5
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl get foo
+</code></pre>
+<br><h3>Release notes for v3.5.23</h3><h4>2025-09-19</h4><p>Please check out <a href="https://github.com/etcd-io/etcd/blob/main/CHANGELOG/CHANGELOG-3.5.md" target="_blank">CHANGELOG</a> for a full list of changes. And make sure to read <a href="https://etcd.io/docs/v3.5/upgrades/upgrade_3_5/" target="_blank">upgrade guide</a> before upgrading etcd (there may be breaking changes).</p>
+
+<p>For installation guides, please check out <a href="http://play.etcd.io" target="_blank">play.etcd.io</a> and <a href="https://etcd.io/docs/v3.5/op-guide/" target="_blank">operating etcd</a>. Latest support status for common architectures and operating systems can be found at <a href="https://etcd.io/docs/v3.5/op-guide/supported-platform/" target="_blank">supported platforms</a>.</p>
+
+<h6 id="linux">Linux</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.23
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1 --no-same-owner
+rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+
+# start a local etcd server
+/tmp/etcd-download-test/etcd
+
+# write,read to etcd
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 put foo bar
+/tmp/etcd-download-test/etcdctl --endpoints=localhost:2379 get foo
+</code></pre>
+
+<h6 id="macos-darwin">macOS (Darwin)</h6>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.23
+
+# choose either URL
+GOOGLE_URL=https://storage.googleapis.com/etcd
+GITHUB_URL=https://github.com/etcd-io/etcd/releases/download
+DOWNLOAD_URL=${GOOGLE_URL}
+
+rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+rm -rf /tmp/etcd-download-test &amp;&amp; mkdir -p /tmp/etcd-download-test
+
+curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-darwin-amd64.zip -o /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+unzip /tmp/etcd-${ETCD_VER}-darwin-amd64.zip -d /tmp &amp;&amp; rm -f /tmp/etcd-${ETCD_VER}-darwin-amd64.zip
+mv /tmp/etcd-${ETCD_VER}-darwin-amd64/* /tmp/etcd-download-test &amp;&amp; rm -rf mv /tmp/etcd-${ETCD_VER}-darwin-amd64
+
+/tmp/etcd-download-test/etcd --version
+/tmp/etcd-download-test/etcdctl version
+/tmp/etcd-download-test/etcdutl version
+</code></pre>
+
+<h6 id="docker">Docker</h6>
+
+<p>etcd uses <a href="https://gcr.io/etcd-development/etcd" target="_blank"><code>gcr.io/etcd-development/etcd</code></a> as a primary container registry, and <a href="https://quay.io/coreos/etcd" target="_blank"><code>quay.io/coreos/etcd</code></a> as secondary.</p>
+
+<pre><code class="language-sh">ETCD_VER=v3.5.23
+
+rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \
+  docker rmi gcr.io/etcd-development/etcd:${ETCD_VER} || true &amp;&amp; \
+  docker run \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \
+  --name etcd-gcr-${ETCD_VER} \
+  gcr.io/etcd-development/etcd:${ETCD_VER} \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new \
+  --log-level info \
+  --logger zap \
+  --log-outputs stderr
+
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcd --version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdutl version
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl endpoint health
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl put foo bar
+docker exec etcd-gcr-${ETCD_VER} /usr/local/bin/etcdctl get foo
+</code></pre>
+<br>
+</body>
+
+</html>
