@@ -95,7 +95,7 @@ Merges we should almost always publish include:
 * Features (look for `kind/feature`)
 * All deprecations
 * API changes (look for the `kind/api-change` label)
-* Major version updates to critical dependances (golang, etcd, etc.)
+* Major version updates to critical dependencies (golang, etcd, etc.)
 * Changes that carry a release note (will be in the PR description)
 * Feature promotions
 * Fixes for crash bugs and/or security holes
