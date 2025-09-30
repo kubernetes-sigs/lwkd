@@ -55,6 +55,8 @@ Sources of this information include, but are not limited to:
 * Chairs and Leads slack channel
 * Issues and PRs in Community, Enhancements, and Test-Infra repos
 * Steering committee meeting minutes
+* The [Contributor Comms Meeting notes](https://docs.google.com/document/d/1KxutG0BivRcOtm9yxTrNRhq51qEE7wY0ZibyDTxrjtM/edit?tab=t.0)
+ from the prior week (link is to 2025 edition)
 
 ## Searching for PRs
 
