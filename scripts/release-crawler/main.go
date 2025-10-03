@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/gomarkdown/markdown"
-
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
 	"github.com/google/go-github/v57/github"
+	"golang.org/x/oauth2"
 )
 
 var repos map[string][]string = map[string][]string{
@@ -21,7 +21,6 @@ var repos map[string][]string = map[string][]string{
 		"csi-driver-nfs",
 		"csi-driver-host-path",
 		"csi-driver-smb",
-		"csi-driver-vsphere",
 	},
 	"containernetworking": []string{"cni"},
 	"cri-o": []string{
@@ -35,7 +34,6 @@ var repos map[string][]string = map[string][]string{
 	"kubernetes": []string{
 		"kops",
 		"kubeadm",
-		"ngninx-ingress",
 		"cloud-provider",
 		"cloud-provider-aws",
 		"cloud-provider-gcp",
@@ -43,6 +41,7 @@ var repos map[string][]string = map[string][]string{
 		"cloud-provider-vsphere",
 		"minikube",
 		"ingress-gce",
+		"ingress-nginx",
 		"kompose",
 		"cloud-provider-alibaba-cloud",
 		"autoscaler",
@@ -50,6 +49,7 @@ var repos map[string][]string = map[string][]string{
 	"kubernetes-sigs": {
 		"cluster-api",
 		"cluster-api-provider-vsphere",
+		"vsphere-csi-driver",
 		"kind",
 		"kubebuilder",
 		"kustomize",
@@ -152,9 +152,20 @@ func createMDFile(filename string, mdContent string) error {
 // main function
 func main() {
 	ctx := context.Background()
+	// Load GitHub token from environment variable
+	token := os.Getenv("GITHUB_TOKEN")
+	if token == "" {
+		log.Fatal("GITHUB_TOKEN environment variable not set")
+	}
+
+	// Authenticate client
+	ts := oauth2.StaticTokenSource(
+		&oauth2.Token{AccessToken: token},
+	)
+	tc := oauth2.NewClient(ctx, ts)
 
 	now := time.Now()
-	client := github.NewClient(nil)
+	client := github.NewClient(tc)
 	oneWeekAgo := now.AddDate(0, 0, -7)
 
 	var mdContent string
@@ -222,3 +233,4 @@ func main() {
 	}
 	fmt.Println("Done")
 }
+
