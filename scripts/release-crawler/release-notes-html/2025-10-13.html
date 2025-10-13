@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2025-10-06 - 2025-10-13</h1><h2>containerd/containerd</h2> <h3>Release notes for containerd 2.2.0-beta.1</h3><h4>2025-10-10</h4><p>Welcome to the v2.2.0-beta.1 release of containerd!
+<em>This is a pre-release of containerd</em></p>
+
+<p>The second minor release of containerd 2.x focuses on continued stability alongside
+new features and improvements. This is the second time-based released for containerd.</p>
+
+<p>This is a beta release and some functionality is still under development.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Add mount manager (<a href="https://github.com/containerd/containerd/pull/12063" target="_blank">#12063</a>)</li>
+<li>Add conf.d include in the default config (<a href="https://github.com/containerd/containerd/pull/12323" target="_blank">#12323</a>)</li>
+<li>Add support for back references in the garbage collector (<a href="https://github.com/containerd/containerd/pull/12025" target="_blank">#12025</a>)</li>
+</ul>
+
+<h4 id="go-client">Go client</h4>
+
+<ul>
+<li>Update pkg/oci to use fs.FS interface and os.OpenRoot (<a href="https://github.com/containerd/containerd/pull/12245" target="_blank">#12245</a>)</li>
+</ul>
+
+<h4 id="image-distribution">Image Distribution</h4>
+
+<ul>
+<li>Add referrers fetcher to remotes (<a href="https://github.com/containerd/containerd/pull/12309" target="_blank">#12309</a>)</li>
+<li>Tar unpack progress through transfer service (<a href="https://github.com/containerd/containerd/pull/11921" target="_blank">#11921</a>)</li>
+</ul>
+
+<h4 id="image-storage">Image Storage</h4>
+
+<ul>
+<li>Add snapshotter and differ for block CIMs (<a href="https://github.com/containerd/containerd/pull/12050" target="_blank">#12050</a>)</li>
+<li>Add tar index mode to erofs snapshotter (<a href="https://github.com/containerd/containerd/pull/11919" target="_blank">#11919</a>)</li>
+</ul>
+
+<h4 id="node-resource-interface-nri">Node Resource Interface (NRI)</h4>
+
+<ul>
+<li>Enable otel traces in NRI (<a href="https://github.com/containerd/containerd/pull/12082" target="_blank">#12082</a>)</li>
+<li>Add WASM plugin support (<a href="https://github.com/containerd/nri/pull/121" target="_blank">containerd/nri#121</a>)</li>
+</ul>
+
+<h4 id="runtime">Runtime</h4>
+
+<ul>
+<li>Fix pidfd leak in UnshareAfterEnterUserns (<a href="https://github.com/containerd/containerd/pull/12167" target="_blank">#12167</a>)</li>
+</ul>
+
+<h4 id="deprecations">Deprecations</h4>
+
+<ul>
+<li>1.6 is EOL (<a href="https://github.com/containerd/containerd/pull/12348" target="_blank">#12348</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Phil Estes</li>
+<li>Maksym Pavlenko</li>
+<li>Krisztian Litkey</li>
+<li>Akihiro Suda</li>
+<li>Mike Brown</li>
+<li>Wei Fu</li>
+<li>Markus Lehtonen</li>
+<li>Sebastiaan van Stijn</li>
+<li>Samuel Karp</li>
+<li>Austin Vazquez</li>
+<li>ningmingxiao</li>
+<li>yashsingh74</li>
+<li>Jin Dong</li>
+<li>Kirtana Ashok</li>
+<li>Aadhar Agarwal</li>
+<li>Chris Henzie</li>
+<li>Etienne Champetier</li>
+<li>Rodrigo Campos</li>
+<li>Akhil Mohan</li>
+<li>Gao Xiang</li>
+<li>Sascha Grunert</li>
+<li>Henry Wang</li>
+<li>Aleksa Sarai</li>
+<li>Eric Mountain</li>
+<li>Keith Mattix II</li>
+<li>Paweł Gronowski</li>
+<li>Adrien Delorme</li>
+<li>Apurv Barve</li>
+<li>Enji Cooper</li>
+<li>Kohei Tokunaga</li>
+<li>Rehan Khan</li>
+<li>Yang Yang</li>
+<li>jokemanfire</li>
+<li>Amit Barve</li>
+<li>Andrew Halaney</li>
+<li>Antonio Ojea</li>
+<li>Brian Goff</li>
+<li>Carlos Eduardo Arango Gutierrez</li>
+<li>Chenyang Yan</li>
+<li>Dawei Wei</li>
+<li>Divya Rani</li>
+<li>Fabiano Fidêncio</li>
+<li>Iceber Gu</li>
+<li>Jared Ledvina</li>
+<li>Jonathan Perkin</li>
+<li>Jose Fernandez</li>
+<li>Karl Baumgartner</li>
+<li>Osama Abdelkader</li>
+<li>Radostin Stoyanov</li>
+<li>Ruidong Cao</li>
+<li>Sameer</li>
+<li>Sergey Kanzhelev</li>
+<li>Swagat Bora</li>
+<li>Sylvain MOUQUET</li>
+<li>Tom Wieczorek</li>
+<li>Tycho Andersen</li>
+<li>Tõnis Tiigi</li>
+<li>Wuyue (Tony) Sun</li>
+<li>jinda.ljd</li>
+<li>tanhuaan</li>
+<li>zounengren</li>
+</ul>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<ul>
+<li><strong>dario.cat/mergo</strong>                                                    v1.0.1 -&gt; v1.0.2</li>
+<li><strong>github.com/Microsoft/hcsshim</strong>                                       v0.13.0-rc.3 -&gt; v0.14.0-rc.1</li>
+<li><strong>github.com/StackExchange/wmi</strong>                                       cbe66965904d <strong><em>new</em></strong></li>
+<li><strong>github.com/checkpoint-restore/checkpointctl</strong>                        v1.3.0 -&gt; v1.4.0</li>
+<li><strong>github.com/containerd/console</strong>                                      v1.0.4 -&gt; v1.0.5</li>
+<li><strong>github.com/containerd/containerd/api</strong>                               v1.9.0 -&gt; v1.10.0-beta.1</li>
+<li><strong>github.com/containerd/go-cni</strong>                                       v1.1.12 -&gt; v1.1.13</li>
+<li><strong>github.com/containerd/nri</strong>                                          v0.8.0 -&gt; v0.10.0</li>
+<li><strong>github.com/containernetworking/plugins</strong>                             v1.7.1 -&gt; v1.8.0</li>
+<li><strong>github.com/coreos/go-systemd/v22</strong>                                   v22.5.0 -&gt; v22.6.0</li>
+<li><strong>github.com/cpuguy83/go-md2man/v2</strong>                                   v2.0.5 -&gt; v2.0.7</li>
+<li><strong>github.com/emicklei/go-restful/v3</strong>                                  v3.11.0 -&gt; v3.13.0</li>
+<li><strong>github.com/fxamacker/cbor/v2</strong>                                       v2.7.0 -&gt; v2.9.0</li>
+<li><strong>github.com/go-jose/go-jose/v4</strong>                                      v4.0.5 -&gt; v4.1.2</li>
+<li><strong>github.com/go-logr/logr</strong>                                            v1.4.2 -&gt; v1.4.3</li>
+<li><strong>github.com/go-ole/go-ole</strong>                                           v1.2.6 <strong><em>new</em></strong></li>
+<li><strong>github.com/golang/groupcache</strong>                                       41bb18bfe9da -&gt; 2c02b8208cf8</li>
+<li><strong>github.com/google/certtostore</strong>                                      v1.0.6 <strong><em>new</em></strong></li>
+<li><strong>github.com/google/deck</strong>                                             105ad94aa8ae <strong><em>new</em></strong></li>
+<li><strong>github.com/gorilla/websocket</strong>                                       v1.5.0 -&gt; e064f32e3674</li>
+<li><strong>github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus</strong>  v1.0.1 -&gt; v1.1.0</li>
+<li><strong>github.com/hashicorp/errwrap</strong>                                       v1.1.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/intel/goresctrl</strong>                                         v0.8.0 -&gt; v0.9.0</li>
+<li><strong>github.com/knqyf263/go-plugin</strong>                                      v0.9.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/moby/sys/capability</strong>                                     v0.4.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/modern-go/reflect2</strong>                                      v1.0.2 -&gt; 35a7c28c31ee</li>
+<li><strong>github.com/opencontainers/runtime-tools</strong>                            2e043c6bd626 -&gt; 0ea5ed0382a2</li>
+<li><strong>github.com/prometheus/client_golang</strong>                                v1.22.0 -&gt; v1.23.2</li>
+<li><strong>github.com/prometheus/client_model</strong>                                 v0.6.1 -&gt; v0.6.2</li>
+<li><strong>github.com/prometheus/common</strong>                                       v0.62.0 -&gt; v0.66.1</li>
+<li><strong>github.com/prometheus/procfs</strong>                                       v0.15.1 -&gt; v0.16.1</li>
+<li><strong>github.com/stretchr/testify</strong>                                        v1.10.0 -&gt; v1.11.1</li>
+<li><strong>github.com/tchap/go-patricia/v2</strong>                                    v2.3.2 -&gt; v2.3.3</li>
+<li><strong>github.com/tetratelabs/wazero</strong>                                      v1.9.0 <strong><em>new</em></strong></li>
+<li><strong>github.com/urfave/cli/v2</strong>                                           v2.27.6 -&gt; v2.27.7</li>
+<li><strong>github.com/vishvananda/netlink</strong>                                     0e7078ed04c8 -&gt; v1.3.1</li>
+<li><strong>go.etcd.io/bbolt</strong>                                                   v1.4.0 -&gt; v1.4.3</li>
+<li><strong>go.opentelemetry.io/otel</strong>                                           v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.opentelemetry.io/otel/metric</strong>                                    v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.opentelemetry.io/otel/sdk</strong>                                       v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.opentelemetry.io/otel/trace</strong>                                     v1.35.0 -&gt; v1.37.0</li>
+<li><strong>go.uber.org/goleak</strong>                                                 v1.3.0 <strong><em>new</em></strong></li>
+<li><strong>go.yaml.in/yaml/v2</strong>                                                 v2.4.2 <strong><em>new</em></strong></li>
+<li><strong>golang.org/x/crypto</strong>                                                v0.36.0 -&gt; v0.41.0</li>
+<li><strong>golang.org/x/mod</strong>                                                   v0.24.0 -&gt; v0.28.0</li>
+<li><strong>golang.org/x/net</strong>                                                   v0.38.0 -&gt; v0.43.0</li>
+<li><strong>golang.org/x/oauth2</strong>                                                v0.27.0 -&gt; v0.30.0</li>
+<li><strong>golang.org/x/sync</strong>                                                  v0.14.0 -&gt; v0.17.0</li>
+<li><strong>golang.org/x/sys</strong>                                                   v0.33.0 -&gt; v0.36.0</li>
+<li><strong>golang.org/x/term</strong>                                                  v0.30.0 -&gt; v0.34.0</li>
+<li><strong>golang.org/x/text</strong>                                                  v0.23.0 -&gt; v0.28.0</li>
+<li><strong>golang.org/x/time</strong>                                                  v0.7.0 -&gt; v0.9.0</li>
+<li><strong>google.golang.org/genproto/googleapis/api</strong>                          56aae31c358a -&gt; a7a43d27e69b</li>
+<li><strong>google.golang.org/genproto/googleapis/rpc</strong>                          56aae31c358a -&gt; a7a43d27e69b</li>
+<li><strong>google.golang.org/grpc</strong>                                             v1.72.0 -&gt; v1.76.0</li>
+<li><strong>google.golang.org/protobuf</strong>                                         v1.36.6 -&gt; v1.36.10</li>
+<li><strong>k8s.io/api</strong>                                                         v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/apimachinery</strong>                                                v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/client-go</strong>                                                   v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/cri-api</strong>                                                     v0.32.3 -&gt; v0.34.1</li>
+<li><strong>k8s.io/utils</strong>                                                       3ea5e8cea738 -&gt; 4c0f3b243397</li>
+<li><strong>sigs.k8s.io/json</strong>                                                   9aa6b5e7a4b3 -&gt; cfa47c3a1cc8</li>
+<li><strong>sigs.k8s.io/randfill</strong>                                               v1.0.0 <strong><em>new</em></strong></li>
+<li><strong>sigs.k8s.io/structured-merge-diff/v6</strong>                               v6.3.0 <strong><em>new</em></strong></li>
+<li><strong>sigs.k8s.io/yaml</strong>                                                   v1.4.0 -&gt; v1.6.0</li>
+</ul>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/v2.1.0" target="_blank">v2.1.0</a></p>
+
+<h3 id="which-file-should-i-download">Which file should I download?</h3>
+
+<ul>
+<li><code>containerd-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:         ✅Recommended. Dynamically linked with glibc 2.35 (Ubuntu 22.04).</li>
+<li><code>containerd-static-&lt;VERSION&gt;-&lt;OS&gt;-&lt;ARCH&gt;.tar.gz</code>:  Statically linked. Expected to be used on Linux distributions that do not use glibc &gt;= 2.35. Not position-independent.</li>
+</ul>
+
+<p>In addition to containerd, typically you will have to install <a href="https://github.com/opencontainers/runc/releases" target="_blank">runc</a>
+and <a href="https://github.com/containernetworking/plugins/releases" target="_blank">CNI plugins</a> from their official sites too.</p>
+
+<p>See also the <a href="https://github.com/containerd/containerd/blob/main/docs/getting-started.md" target="_blank">Getting Started</a> documentation.</p>
+<br><h3>Release notes for containerd API 1.10.0-beta.1</h3><h4>2025-10-08</h4><p>Welcome to the api/v1.10.0-beta.1 release of containerd!
+<em>This is a pre-release of containerd</em></p>
+
+<p>The 11th release for the containerd 1.x API aligns with the containerd 2.2 release.</p>
+
+<h3 id="highlights">Highlights</h3>
+
+<ul>
+<li>Add mount manager (<a href="https://github.com/containerd/containerd/pull/12063" target="_blank">#12063</a>)</li>
+</ul>
+
+<p>Please try out the release binaries and report any issues at
+<a href="https://github.com/containerd/containerd/issues" target="_blank">https://github.com/containerd/containerd/issues</a>.</p>
+
+<h3 id="contributors">Contributors</h3>
+
+<ul>
+<li>Derek McGowan</li>
+<li>Wei Fu</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<details><summary>6 commits</summary>
+<p>
+
+* Prepare release notes for api/v1.10.0-beta.0 ([#12346](https://github.com/containerd/containerd/pull/12346))
+  * [`aa571f63c`](https://github.com/containerd/containerd/commit/aa571f63c6529d827bfef02956a8db9bee57ab8c) Prepare release notes for api/v1.10.0-beta.0
+* Add mount manager ([#12063](https://github.com/containerd/containerd/pull/12063))
+  * [`8db301086`](https://github.com/containerd/containerd/commit/8db3010865ae9926aed6c5e476a7c6b2413b44d5) Add mounts api service
+  * [`67fbf9db9`](https://github.com/containerd/containerd/commit/67fbf9db9cbf6ae83df58d18a19f32b28ebc0017) Generate and vendor proto changes
+  * [`c5097ac63`](https://github.com/containerd/containerd/commit/c5097ac63fd704213c507a2b712fa2db7744090b) Add mount manager to protobuf services and types
+</p>
+</details>
+
+<h3 id="dependency-changes">Dependency Changes</h3>
+
+<p>This release has no dependency changes</p>
+
+<p>Previous release can be found at <a href="https://github.com/containerd/containerd/releases/tag/api/v1.9.0" target="_blank">api/v1.9.0</a></p>
+<br><h2>kubernetes-csi/csi-driver-nfs</h2> <h3>Release notes for v4.12.0 release</h3><h4>2025-10-09</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v4.11.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/880" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/880</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.23.0 to 2.23.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/883" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/883</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.23.1 to 2.23.2 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/884" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/884</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.23.2 to 2.23.3 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/887" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/887</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.5 to 1.36.6 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/888" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/888</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.36.2 to 1.36.3 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/890" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/890</a></li>
+<li>chore: use go1.24 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/895" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/895</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.37.0 to 0.38.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/893" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/893</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.71.0 to 1.71.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/896" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/896</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.36.3 to 1.37.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/897" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/897</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.23.3 to 2.23.4 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/898" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/898</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.38.0 to 0.39.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/900" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/900</a></li>
+<li>test: fix CVE-2025-22871 in trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/902" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/902</a></li>
+<li>chore: upgrade resizer sidecar image version to v1.13.2 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/903" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/903</a></li>
+<li>feat: add POD_NAMESPACE environment var by @mfhunruh in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/901" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/901</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.71.1 to 1.72.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/904" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/904</a></li>
+<li>chore: upgrade snapshot sidecar image to v8.2.1 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/905" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/905</a></li>
+<li>fix: goroutine leak when timeout by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/907" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/907</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.39.0 to 0.40.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/910" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/910</a></li>
+<li>chore: create voume/snapshot should respect mountOptions in secret by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/911" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/911</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.72.0 to 1.72.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/913" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/913</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.72.1 to 1.72.2 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/916" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/916</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/920" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/920</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.72.2 to 1.73.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/922" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/922</a></li>
+<li>chore(deps): bump golang.org/x/mod from 0.24.0 to 0.25.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/924" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/924</a></li>
+<li>test: fix CVE-2025-4673 in trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/926" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/926</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.4 to bookworm-v1.0.5 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/928" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/928</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.40.0 to 0.41.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/925" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/925</a></li>
+<li>chore(deps): bump sigs.k8s.io/yaml from 1.4.0 to 1.5.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/931" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/931</a></li>
+<li>chore: upgrade snapshot and csi-resizer image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/932" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/932</a></li>
+<li>chore(deps): bump golang.org/x/mod from 0.25.0 to 0.26.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/933" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/933</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.41.0 to 0.42.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/934" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/934</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.73.0 to 1.74.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/935" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/935</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.74.0 to 1.74.2 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/936" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/936</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.37.0 to 1.38.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/937" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/937</a></li>
+<li>chore(deps): bump sigs.k8s.io/yaml from 1.5.0 to 1.6.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/938" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/938</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.42.0 to 0.43.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/941" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/941</a></li>
+<li>chore(deps): bump golang.org/x/mod from 0.26.0 to 0.27.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/942" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/942</a></li>
+<li>test: fix CVE-2025-47907 trivy test failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/943" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/943</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.6 to 1.36.7 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/947" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/947</a></li>
+<li>chore(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/948" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/948</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.23.4 to 2.25.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/951" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/951</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.25.0 to 2.25.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/952" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/952</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.38.0 to 1.38.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/953" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/953</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.74.2 to 1.75.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/954" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/954</a></li>
+<li>fix: CVE-2025-5187 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/956" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/956</a></li>
+<li>chore(deps): bump actions/setup-go from 5 to 6 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/958" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/958</a></li>
+<li>chore(deps): bump github.com/onsi/gomega from 1.38.1 to 1.38.2 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/957" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/957</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.25.1 to 2.25.3 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/959" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/959</a></li>
+<li>chore(deps): bump golang.org/x/mod from 0.27.0 to 0.28.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/960" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/960</a></li>
+<li>chore(deps): bump github.com/stretchr/testify from 1.10.0 to 1.11.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/961" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/961</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.7 to 1.36.9 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/962" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/962</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.75.0 to 1.75.1 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/963" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/963</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.43.0 to 0.44.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/964" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/964</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.5 to bookworm-v1.0.6 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/966" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/966</a></li>
+<li>chore: upgrade csi sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/967" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/967</a></li>
+<li>doc: update semver change doc for helm chart install by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/969" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/969</a></li>
+<li>chore(deps): bump google.golang.org/protobuf from 1.36.9 to 1.36.10 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/970" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/970</a></li>
+<li>chore(deps): bump github.com/onsi/ginkgo/v2 from 2.25.3 to 2.26.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/971" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/971</a></li>
+<li>chore(deps): bump google.golang.org/grpc from 1.75.1 to 1.76.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/972" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/972</a></li>
+<li>chore(deps): bump github/codeql-action from 3 to 4 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/975" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/975</a></li>
+<li>chore(deps): bump golang.org/x/net from 0.44.0 to 0.45.0 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/976" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/976</a></li>
+<li>feat: support multiple storage classes creation using helm chart by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/977" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/977</a></li>
+</ul>
+
+<h2 id="new-contributors">New Contributors</h2>
+
+<ul>
+<li>@mfhunruh made their first contribution in <a href="https://github.com/kubernetes-csi/csi-driver-nfs/pull/901" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/pull/901</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-nfs/compare/v4.11.0...v4.12.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-nfs/compare/v4.11.0&hellip;v4.12.0</a></p>
+<br><h2>kubernetes-csi/csi-driver-smb</h2> <h3>Release notes for v1.19.0 release</h3><h4>2025-10-09</h4><h2 id="what-s-changed">What&rsquo;s Changed</h2>
+
+<ul>
+<li>doc: cut v1.18.0 release by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/953" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/953</a></li>
+<li>test: fix CVE-2025-4673 in trivy action by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/959" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/959</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.4 to bookworm-v1.0.5 in /cmd/smbplugin by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/960" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/960</a></li>
+<li>chore: upgrade sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/957" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/957</a></li>
+<li>chore: upgrade csi-resizer to v1.14.0 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/962" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/962</a></li>
+<li>fix: CVE-2025-22868 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/964" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/964</a></li>
+<li>test: fix CVE-2025-47907 trivy test failure by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/965" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/965</a></li>
+<li>fix: enable to use secrets with special characters by @mpatlasov in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/961" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/961</a></li>
+<li>chore(deps): bump actions/checkout from 4 to 5 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/966" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/966</a></li>
+<li>fix: CVE-2025-5187 by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/972" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/972</a></li>
+<li>chore(deps): bump actions/setup-go from 5 to 6 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/971" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/971</a></li>
+<li>chore(deps): bump build-image/debian-base from bookworm-v1.0.5 to bookworm-v1.0.6 in /cmd/smbplugin by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/973" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/973</a></li>
+<li>chore: upgrade csi sidecar image versions by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/975" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/975</a></li>
+<li>chore(deps): bump github/codeql-action from 3 to 4 by @dependabot[bot] in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/979" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/979</a></li>
+<li>feat: support multiple storage classes creation using helm chart by @andyzhangx in <a href="https://github.com/kubernetes-csi/csi-driver-smb/pull/980" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/pull/980</a></li>
+</ul>
+
+<p><strong>Full Changelog</strong>: <a href="https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.18.0...v1.19.0" target="_blank">https://github.com/kubernetes-csi/csi-driver-smb/compare/v1.18.0&hellip;v1.19.0</a></p>
+<br><h2>kubernetes/autoscaler</h2> <h3>Release notes for vertical-pod-autoscaler-chart-0.2.0</h3><h4>2025-10-11</h4><p>Automatically adjust resources for your workloads</p>
+<br><h3>Release notes for vertical-pod-autoscaler-chart-0.1.1</h3><h4>2025-10-11</h4><p>Automatically adjust resources for your workloads</p>
+<br><h3>Release notes for cluster-autoscaler-chart-9.51.0</h3><h4>2025-10-10</h4><p>Scales Kubernetes worker nodes within autoscaling groups.</p>
+<br><h2>kubernetes-sigs/cluster-api</h2> <h3>Release notes for v1.11.2</h3><h4>2025-10-07</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.30.x -&gt; v1.34.x</li>
+<li>Workload Cluster: v1.28.x -&gt; v1.34.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-11-1">Changes since v1.11.1</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>6 new commits merged</li>
+<li>1 feature addition ✨</li>
+<li>1 bug fixed 🐛</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>KCP: Bump coredns/corefile-migration to v1.0.28 (#12750)</li>
+</ul>
+
+<h2 id="bug-bug-fixes">:bug: Bug Fixes</h2>
+
+<ul>
+<li>clusterctl: Verify providers need upgrade before applying (#12768)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>Autoscaling: Bump autoscaler in e2e tests to v1.33.1 (#12792)</li>
+<li>clusterctl: Add Metal3 as an IPAMProvider (#12760)</li>
+<li>Dependency: Bump go to v1.24.7 (#12735)</li>
+</ul>
+
+<p>:book: Additionally, there has been 1 contribution to our documentation and book. (#12780)</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/coredns/corefile-migration: <a href="https://github.com/coredns/corefile-migration/compare/v1.0.27...v1.0.28" target="_blank">v1.0.27 → v1.0.28</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h3>Release notes for v1.10.7</h3><h4>2025-10-07</h4><h2 id="kubernetes-version-support">👌 Kubernetes version support</h2>
+
+<ul>
+<li>Management Cluster: v1.28.x -&gt; v1.33.x</li>
+<li>Workload Cluster: v1.26.x -&gt; v1.33.x</li>
+</ul>
+
+<p><a href="https://cluster-api.sigs.k8s.io/reference/versions.html" target="_blank">More information about version support can be found here</a></p>
+
+<h2 id="changes-since-v1-10-6">Changes since v1.10.6</h2>
+
+<h2 id="chart-with-upwards-trend-overview">:chart_with_upwards_trend: Overview</h2>
+
+<ul>
+<li>2 new commits merged</li>
+<li>1 feature addition ✨</li>
+</ul>
+
+<h2 id="sparkles-new-features">:sparkles: New Features</h2>
+
+<ul>
+<li>KCP: Bump coredns/corefile-migration to v1.0.28 (#12749)</li>
+</ul>
+
+<h2 id="seedling-others">:seedling: Others</h2>
+
+<ul>
+<li>e2e: Fix flaky test in extensionconfig_controller_test.go (#12783)</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="added">Added</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+<li>github.com/coredns/corefile-migration: <a href="https://github.com/coredns/corefile-migration/compare/v1.0.27...v1.0.28" target="_blank">v1.0.27 → v1.0.28</a></li>
+</ul>
+
+<h3 id="removed">Removed</h3>
+
+<p><em>Nothing has changed.</em></p>
+
+<p><em>Thanks to all our contributors!</em> 😊</p>
+<br><h2>prometheus/prometheus</h2> <h3>Release notes for 3.7.0-rc.0 / 2025-10-02</h3><h4>2025-10-08</h4><ul>
+<li>[CHANGE] Remote-write: Deprecate <code>prometheus_remote_storage_{samples,exemplars,histograms}_in_total</code> and <code>prometheus_remote_storage_highest_timestamp_in_seconds</code> metrics, see their respective descriptions for alternatives. #17065</li>
+<li>[FEATURE] PromQL: Add support for experimental anchored and smoothed rate behind feature flag <code>promql-extended-range-selectors</code>. #16457</li>
+<li>[FEATURE] Federation: Add support for native histograms with custom buckets (NHCB). #17215</li>
+<li>[FEATURE] PromQL: Add <code>first_over_time(...)</code> and <code>ts_of_first_over_time(...)</code> behind feature flag <code>experimental-promql-functions</code>. #16963 #17021</li>
+<li>[FEATURE] Remote-write: Add support for Azure Workload Identity as an authentication method for the receiver. #16788</li>
+<li>[FEATURE] Remote-write: Add type and unit labels to outgoing time series in remote-write 2.0 when the <code>type-and-unit-labels</code> feature flag is enabled. #17033</li>
+<li>[FEATURE] OTLP: Write start time of metrics as created time zero samples into TSDB when <code>created-timestamp-zero-ingestion</code> feature flag is enabled. #16951</li>
+<li>[ENHANCEMENT] PromQL: Add warn-level annotations for counter reset conflicts in certain histogram operations. #17051 #17094</li>
+<li>[ENHANCEMENT] UI: Add scrape interval and scrape timeout to targets page. #17158</li>
+<li>[ENHANCEMENT] TSDB: Reduce the resolution of native histograms read from chunks or remote read if the schema is exponential. #17213</li>
+<li>[ENHANCEMENT] Remote write: Add logging for unexpected metadata in sample batches, when metadata entries are found in samples-only batches. #17034 #17082</li>
+<li>[ENHANCEMENT] Remote-write: Add <code>prometheus_remote_storage_queue_highest_timestamp_seconds</code> metric, tracking the highest timestamp actually enqueued, taking <code>write_relabel_configs</code> into account. #17065</li>
+<li>[ENHANCEMENT] Mixin: Replace <code>prometheus_remote_storage_highest_timestamp_in_seconds</code> metric with the new <code>prometheus_remote_storage_queue_highest_timestamp_seconds</code> metric in dashboards and alerts to properly account for relabeling, for better accuracy. #17065</li>
+<li>[ENHANCEMENT] Rules: Support concurrent evaluation for rules querying <code>ALERTS</code> and <code>ALERTS_FOR_STATE</code>. #17064</li>
+<li>[ENHANCEMENT] TSDB: Add logs to improve visibility into internal operations. #17074</li>
+<li>[PERF] OTLP: Write directly to TSDB instead of passing through a Remote-Write adapter when receiving OTLP metrics. #16951</li>
+<li>[PERF] OTLP: Reduce number of logs emitted from OTLP endpoint. No need to log duplicate sample errors. #17201</li>
+<li>[PERF] PromQL: Move more work to preprocessing step. #16896</li>
+<li>[PERF] PromQL: Reduce allocations when walking the syntax tree. #16593</li>
+<li>[PERF] TSDB: Optimize appender creation, slightly speeding up startup. #16922</li>
+<li>[PERF] TSDB: Improve reverse index lookup performance. #13971</li>
+<li>[BUGFIX] Alerting: Mutating alerts relabeling (using <code>replace</code> actions, etc.) within a <code>alertmanager_config.alert_relabel_configs</code> block is now scoped correctly and no longer yields altered alerts to subsequent blocks. #17063</li>
+<li>[BUGFIX] Config: Infer valid escaping scheme when scrape config validation scheme is set. #16923</li>
+<li>[BUGFIX] TSDB: Correctly handle appending mixed-typed samples to the same series. #17071 #17241 #17290 #17295 #17296</li>
+<li>[BUGFIX] Remote-write: Prevent sending unsupported native histograms with custom buckets (NHCB) over Remote-write 1.0, log warning. #17146</li>
+<li>[BUGFIX] TSDB: Fix metadata entries handling on <code>metadata-wal-records</code> feature for Native Histograms with custom buckets in protobuf scraping. #17156</li>
+<li>[BUGFIX] TSDB: Ignore Native Histograms with invalid schemas during WAL/WBL replay. #17214</li>
+<li>[BUGFIX] PromQL: Avoid empty metric names in annotations for <code>histogram_quantile()</code>. #16794</li>
+<li>[BUGFIX] PromQL: Fix the character position of errors in some aggregate expressions. #16996 #17031</li>
+<li>[BUGFIX] PromQL: Fix <code>info()</code> function on churning series. #17135</li>
+<li>[BUGFIX] PromQL: Set native histogram to gauge type when subtracting or multiplying/dividing with negative factors. #17004</li>
+<li>[BUGFIX] TSDB: Reject unsupported native histogram schemas when attempting to append to TSDB. For scrape and remote-write implement reducing the resolution to fit the maximum if the schema is within the -9 to 52. #17189</li>
+<li>[BUGFIX] Remote-write: Fix HTTP handler to return after writing error response for invalid compression. #17050</li>
+<li>[BUGFIX] Remote-write: Return HTTP error <code>400</code> instead of <code>5xx</code> for wrongly formatted Native Histograms. #17210</li>
+<li>[BUGFIX] Scrape: Prevent staleness markers from generating unnecessary series. #16429</li>
+<li>[BUGFIX] TSDB: Avoid misleading <code>Failed to calculate size of \&quot;wal\&quot; dir</code> error logs during WAL clean-up. #17006</li>
+<li>[BUGFIX] TSDB: Prevent erroneously dropping series records during WAL checkpoints. #17029</li>
+<li>[BUGFIX] UI: Fix redirect to path of <code>-web.external-url</code> if <code>-web.route-prefix</code> is configured. #17240</li>
+<li>[BUGIFX] Remote-write: Do not panic on invalid symbol table in remote-write 2.0. #17160</li>
+</ul>
+<br><h2>coredns/coredns</h2> <h3>Release notes for v1.13.1</h3><h4>2025-10-08</h4><p>This release updates CoreDNS to Go 1.25.2 and golang.org/x/net v0.45.0 to address multiple
+high-severity CVEs. It also improves core performance by avoiding string concatenation in
+loops, and hardens the sign plugin by rejecting invalid UTF-8 tokens in dbfile.</p>
+
+<h2 id="brought-to-you-by">Brought to You By</h2>
+
+<p>Catena cyber
+Ville Vesilehto
+Yong Tang</p>
+
+<h2 id="noteworthy-changes">Noteworthy Changes</h2>
+
+<ul>
+<li>core: Avoid string concatenation in loops (<a href="https://github.com/coredns/coredns/pull/7572" target="_blank">https://github.com/coredns/coredns/pull/7572</a>)</li>
+<li>core: Update golang to 1.25.2 and golang.org/x/net to v0.45.0 on CVE fixes (<a href="https://github.com/coredns/coredns/pull/7598" target="_blank">https://github.com/coredns/coredns/pull/7598</a>)</li>
+<li>plugin/sign: Reject invalid UTF‑8 dbfile token (<a href="https://github.com/coredns/coredns/pull/7589" target="_blank">https://github.com/coredns/coredns/pull/7589</a>)</li>
+</ul>
+<br><h3>Release notes for v1.13.0</h3><h4>2025-10-06</h4><p>This release introduces a new Nomad plugin for integrating CoreDNS with HashiCorp Nomad.
+It also fixes major Corefile issues on infinite loops and import cycles, improves shutdown
+handling, normalizes core panics, addresses data races in the file plugin, enforces gRPC size
+limits, adjusts forward failover behavior, as well as prevents reload deadlocks.</p>
+
+<h2 id="brought-to-you-by">Brought to You By</h2>
+
+<p>Fitz_dev
+Ilya Kulakov
+Olli Janatuinen
+Ville Vesilehto
+Yong Tang</p>
+
+<h2 id="noteworthy-changes">Noteworthy Changes</h2>
+
+<ul>
+<li>core: Export timeout values in dnsserver.Server (<a href="https://github.com/coredns/coredns/pull/7497" target="_blank">https://github.com/coredns/coredns/pull/7497</a>)</li>
+<li>core: Fix Corefile infinite loop on unclosed braces (<a href="https://github.com/coredns/coredns/pull/7571" target="_blank">https://github.com/coredns/coredns/pull/7571</a>)</li>
+<li>core: Fix Corefile related import cycle issue (<a href="https://github.com/coredns/coredns/pull/7567" target="_blank">https://github.com/coredns/coredns/pull/7567</a>)</li>
+<li>core: Normalize panics on invalid origins (<a href="https://github.com/coredns/coredns/pull/7563" target="_blank">https://github.com/coredns/coredns/pull/7563</a>)</li>
+<li>core: Rely on dns.Server.ShutdownContext to gracefully stop (<a href="https://github.com/coredns/coredns/pull/7517" target="_blank">https://github.com/coredns/coredns/pull/7517</a>)</li>
+<li>plugin/dnstap: Add bounds for plugin args (<a href="https://github.com/coredns/coredns/pull/7557" target="_blank">https://github.com/coredns/coredns/pull/7557</a>)</li>
+<li>plugin/file: Fix data race in tree Elem.Name (<a href="https://github.com/coredns/coredns/pull/7574" target="_blank">https://github.com/coredns/coredns/pull/7574</a>)</li>
+<li>plugin/forward: No failover to next upstream when receiving SERVFAIL or REFUSED response codes (<a href="https://github.com/coredns/coredns/pull/7458" target="_blank">https://github.com/coredns/coredns/pull/7458</a>)</li>
+<li>plugin/grpc: Enforce DNS message size limits (<a href="https://github.com/coredns/coredns/pull/7490" target="_blank">https://github.com/coredns/coredns/pull/7490</a>)</li>
+<li>plugin/loop: Prevent panic when ListenHosts is empty (<a href="https://github.com/coredns/coredns/pull/7565" target="_blank">https://github.com/coredns/coredns/pull/7565</a>)</li>
+<li>plugin/loop: Avoid panic on invalid server block  (<a href="https://github.com/coredns/coredns/pull/7568" target="_blank">https://github.com/coredns/coredns/pull/7568</a>)</li>
+<li>plugin/nomad: Add a Nomad plugin (<a href="https://github.com/coredns/coredns/pull/7467" target="_blank">https://github.com/coredns/coredns/pull/7467</a>)</li>
+<li>plugin/reload: Prevent SIGTERM/reload deadlock (<a href="https://github.com/coredns/coredns/pull/7562" target="_blank">https://github.com/coredns/coredns/pull/7562</a>)</li>
+</ul>
+<br>
+</body>
+
+</html>
