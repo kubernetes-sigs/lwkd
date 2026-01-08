@@ -12,16 +12,19 @@ Editors:
 
 * [Josh Berkus](https://github.com/jberkus)
 * [Sreeram Venkitesh](https://github.com/sreeram-venkitesh)
-* [Noah Kantrowitz](https://github.com/coderanger)
+* [Arpit Agrawal](https://github.com/Hii-Arpit)
 
-LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our regular contributors in 2024 are:
+LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our recent writer contributors are:
 
 * [Aakansha Priya](https://github.com/priyaaakansha)
-* [Mario Fahlandt](https://github.com/mfahlandt)
-* [Faeka Ansari](https://github.com/fykaa)
-* [Satyam Soni](https://github.com/satyampsoni)
+* [Kirti Goyal](https://github.com/kirti763)
+* [Darshan Murthy](https://github.com/darshansreenivas)
+* [Avni Mahajan](https://github.com/avni-mahajan)
+* [Arujjwal Negi](https://github.com/arujjval)
+* [Devi Krishna](https://github.com/devikrishnamk0123)
+* [Siddhant Khisty](https://github.com/siddhant-khisty)
 
-A full list of contributors can be found on our [github repository](https://github.com/kubernetes-sigs/lwkd/graphs/contributors)
+However, we accept new writers all the time so this list may be out of date. A full list of contributors can be found on our [github repository](https://github.com/kubernetes-sigs/lwkd/graphs/contributors)
 
 ## Licensing
 
