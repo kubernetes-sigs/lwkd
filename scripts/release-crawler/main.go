@@ -54,6 +54,7 @@ var repos map[string][]string = map[string][]string{
 		"kubebuilder",
 		"kustomize",
 		"kubespray",
+		"headlamp",
 	},
 	"etcd-io": []string{
 		"etcd",
@@ -66,6 +67,9 @@ var repos map[string][]string = map[string][]string{
 	},
 	"golang": []string{
 		"go",
+	},
+	"headlamp-k8s": []string{
+		"plugins",
 	},
 }
 
