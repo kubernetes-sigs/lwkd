@@ -50,8 +50,8 @@ Developer News should include anything of interest to the whole pool of Kubernet
 
 Sources of this information include, but are not limited to:
 
-* The kubernetes.io/dev mailing list archives
-* Kubernetes.dev/events website and the Summit Team
+* The [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) mailing list archives
+* [kubernetes.dev/events](https://www.kubernetes.dev/events/) website and the Summit Team
 * Chairs and Leads slack channel
 * Issues and PRs in Community, Enhancements, and Test-Infra repos
 * Steering committee meeting minutes
