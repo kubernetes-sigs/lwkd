@@ -26,6 +26,16 @@ LWKD has multiple regular contributors, and of course any member of the communit
 
 However, we accept new writers all the time so this list may be out of date. A full list of contributors can be found on our [github repository](https://github.com/kubernetes-sigs/lwkd/graphs/contributors)
 
+## Publication Timeline
+
+LWKD publishes weekly.  Our expected publication timeline is as follows:
+
+* Friday (anytime): new branch + blank edition created
+*	Monday (anytime): writers start drafting, editors review as PRs come in
+*	Tuesday EOD Eastern Time / Wednesday Early Morning IST: draft PRs due for all sections (submitting earlier is better!)
+•	Wednesday: deadline to respond to review comments on PRs
+•	Wednesday EOD Eastern / Thursday morning IST: LWKD is published
+
 ## Licensing
 
 LWKD is under the [Creative Commons Attribution 4.0 International](LICENSE).  All contributors agree that their content may be distributed under that license.
