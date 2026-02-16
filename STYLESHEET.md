@@ -235,9 +235,3 @@ The format template for these announcements is:
 ```
 
 The changes listed are 2-4 word summaries of major changes in that release (e.g. "fix CVE 2024-0576").  The "also" portion is for listing any backported update releases at the same time.
-
-As we're trying to keep this section brief (like all of LWKD), some additional limits:
-
-* Do not include helm chart only updates
-* Do not include any alpha or beta releases, only full releases and patch updates
-* If a project patches several supported releases, list it once only, see above for the "also" clause.
