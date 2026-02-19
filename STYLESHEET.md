@@ -8,7 +8,7 @@ The audience for LWKD is, in priority order:
 2. Contributors to closely related projects
 3. Engineers and documentation writers who work on Kubernetes distributions
 
-Kubernetes users are not our audience, unless the are the kind of power user who tests alpha versions.
+Kubernetes users are not our audience, unless they are the kind of power user who tests alpha versions.
 
 ## Mission
 
