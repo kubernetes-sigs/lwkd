@@ -33,7 +33,9 @@ Should you do this, please make sure to add your initials, name and contact link
 
 All contributors will be honored in the Authors.md file for a year or more after their last contribution.
 
-## Developer News
+## Sections
+
+### Developer News
 
 Developer News should include anything of interest to the whole pool of Kubernetes developers, which should include:
 
@@ -50,13 +52,17 @@ Developer News should include anything of interest to the whole pool of Kubernet
 
 Sources of this information include, but are not limited to:
 
-* The kubernetes.io/dev mailing list archives
-* Kubernetes.dev/events website and the Summit Team
+* The [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) mailing list archives
+* [kubernetes.dev/events](https://www.kubernetes.dev/events/) website and the Summit Team
 * Chairs and Leads slack channel
 * Issues and PRs in Community, Enhancements, and Test-Infra repos
 * Steering committee meeting minutes
 * The [Contributor Comms Meeting notes](https://docs.google.com/document/d/1KxutG0BivRcOtm9yxTrNRhq51qEE7wY0ZibyDTxrjtM/edit?tab=t.0)
  from the prior week (link is to 2025 edition)
+
+### Promotions
+
+Promotions should include all features that have been promoted to a new stage. `test/compatibility_lifecycle/reference/versioned_feature_list.yaml` is the source of truth for feature gates, so you can check its commit history for relevant changes.
 
 ## Searching for PRs
 
