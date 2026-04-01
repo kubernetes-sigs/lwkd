@@ -84,7 +84,81 @@ KEP
 Prow
 ```
 
-### Merge Reporting
+### Featured PRs
+
+Each week, we try to find one or two PRs which are of special interest to our readers.  This could include PRs that do any of the following:
+
+* make significant changes to how Kubernetes is built or tested
+* re-organize the Kubernetes code or docs in a way that affects many contributors
+* introduce a brand-new, interesting feature
+* advance an interesting/major feature to GA
+* fix a difficult problem with Kubernetes that has been open for years
+* fix a major security vulnerability, particularly if changes to APIs are involved
+* introduce new and interesting tests or test suites
+
+Bug fixes, test-only changes, doc-only changes, moving features to beta, refactorings, and similar "minor" PRs are generally not interesting and should not be in the Featured PR section.  This does mean that some weeks, particularly during Code Freeze, there will be no PRs to feature.
+
+The goal of the Featured PR section is to give readers *in-depth* coverage of one or two PRs, rather than trying to offer shallow coverage of all interesting PRs.  Coverage of a featured PR should include:
+
+* names of contributors who worked on it
+* any KEPs it's linked to
+* links to any additional discussions, docs, or related issues
+* links to related (sub)projects and repositories
+* mentions of how the change will affect contributors and/or users
+* discussion of the history of the PR, if any
+
+This section is formatted as a major section with subsections:
+
+```
+## Featured PR
+
+### [99999: PR Title From Github](https://github.com/kubernetes/kubernetes/pulls/99999)
+
+[Joe Contributor](https://github.com/joecontributor) finally resolved [long-standing issue from 2022](https://github.com/k/k/issues/999999) by frobbijanging the thingamajig.  This required [adding a new E2E test](link to test) and requires [deprecating the v1beta2 API](link to API file or deprecation PR).  Please test that this resolves the issue for you. 
+```
+
+### KEP of the Week
+
+The KEP of The Week section keeps our contributors aware of development planning in the project, particularly helping them keep on top of KEPs created by SIGs other than their own.  Writers should choose a KEP that has had significant activity in the last few weeks, which could be any of:
+
+* has a currently open call for discussion or request for help
+* just recently published
+* being included as alpha for the first time in this release
+* going to GA in this release
+* having been recently refactored, rewritten, or heavily updated
+* being closed/terminated/replaced after years of work
+
+This KEP should be one that LWKD has not covered in the last 6 months, so search the LWKD repo for the KEP number to make sure.  Also, pick a KEP that you can tell a story about, either because it's generally interesting (e.g. new user-visible feature), has an interesting history, or because it's deeply technical and you can explain it to non-experts.
+
+In exceptional weeks, LWKD might cover two KEPs because there's been a call for discussion on both of them.  90% of the time, though, writers will cover only one KEP.
+
+KEPs can be covered in future tense ("This enhancement plans to ...") if the KEP is proposed and not yet accepted.  Once the KEP is in alpha state or later, it should be covered in present or past tense ("This enhancement implements ...", "KEP 0000 would have created ...").  Present tense is always acceptable.
+
+This section should include all of the following information about the KEP:
+
+* a summary of the proposed changes, including technical details if the writer understands them
+* a brief history of the KEP/idea
+* the KEP's current status, including level in this release, and expected timeline
+* the names of contributors who are working on the KEP
+* if the KEP is being discussed, the location of the discussion
+* any current technical work happening this week with the KEP
+* links to any related issues and/or recently created/merged PRs
+* notes about changes that will affect the rest of Kubernetes, if any
+
+The KEP of The Week Section is formatted this way:
+
+```
+## KEP of the Week
+
+### [KEP-0000: SIG-KEP: Title Of KEP Here](https://github.com/kubernetes/enhancements/tree/master/keps/sig-someone/0000-this-kep-this-week)
+
+This KEP implements Feature X, [proposed by SIG-something](/link/to/discussion/or/issue) in 2024.  Feature X will change the X interface of Kubernetes, allowing the use of protocol M and Q.  It replaces the old Y API, which will be deprecated after GA.  Priya Contributor and Yuan Maintainer are currently [working on the controller](/link/to/open/pr) and have [called for help on E2E tests](/link/to/kdev/post).
+
+KEP 0000 is scheduled to be GA in 1.39, but will be postponed if testing requirements are incomplete.
+```
+
+
+### General Merge Reporting
 
 Each week, we report merges that had some noticeable effect on either users or Kubernetes developers.  This includes new features, API changes, code reorganizations, new metrics, new tests, crash bug fixes, feature advancements, and a few other kinds of changes.
 
