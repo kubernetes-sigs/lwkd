@@ -16,7 +16,9 @@ Editors:
 
 LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our recent writer contributors are:
 
-* [Aakansha Priya](https://github.com/priyaaakansha)
+* [Rahul Sharma](https://github.com/sharmarahul8222)
+* [Unnati Mishra](https://github.com/CodesbyUnnati)
+* [Yashasvi Misra](https://github.com/yashasvimisra2798)
 * [Kirti Goyal](https://github.com/kirti763)
 * [Darshan Murthy](https://github.com/darshansreenivas)
 * [Avni Mahajan](https://github.com/avni-mahajan)
