@@ -57,6 +57,7 @@ Sources of this information include, but are not limited to:
 * Steering committee meeting minutes
 * The [Contributor Comms Meeting notes](https://docs.google.com/document/d/1KxutG0BivRcOtm9yxTrNRhq51qEE7wY0ZibyDTxrjtM/edit?tab=t.0)
  from the prior week (link is to 2025 edition)
+* Issues and PRs in the [kubernetes/community repository](https://github.com/kubernetes/community) for contributor-wide process, governance, and leadership updates
 
 ## Searching for PRs
 
