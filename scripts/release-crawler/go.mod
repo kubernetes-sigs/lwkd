@@ -1,4 +1,4 @@
-module github.com/jayeshmahajan/lwkd/scripts/release-crawler
+module github.com/kubernetes-sigs/lwkd/scripts/release-crawler
 
 go 1.21
 
