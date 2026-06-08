@@ -2,7 +2,7 @@
 
 [The LWKD repository](https://github.com/lwkd/lwkd.github.io) contains the .md files used to produce the weekly Kubernetes updates called "Last Week in Kubernetes Development", or LWKD.  Contributions by pull request are encouraged and accepted.
 
-Feel free to reach out on [Kubernetes Slack](https://slack.k8s.io), #sig-contribex channel to ask questions.
+Feel free to reach out on [Kubernetes Slack](https://slack.k8s.io), #sig-contribex-comms channel to ask questions.
 
 ## Leads and Contributors
 
@@ -13,6 +13,8 @@ Editors:
 * [Josh Berkus](https://github.com/jberkus)
 * [Sreeram Venkitesh](https://github.com/sreeram-venkitesh)
 * [Arpit Agrawal](https://github.com/Hii-Arpit)
+* [Darshan Murthy](https://github.com/darshansreenivas)
+* [Harini Anand](https://github.com/inirah02)
 
 LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our recent writer contributors are:
 
@@ -20,9 +22,7 @@ LWKD has multiple regular contributors, and of course any member of the communit
 * [Unnati Mishra](https://github.com/CodesbyUnnati)
 * [Yashasvi Misra](https://github.com/yashasvimisra2798)
 * [Kirti Goyal](https://github.com/kirti763)
-* [Darshan Murthy](https://github.com/darshansreenivas)
 * [Avni Mahajan](https://github.com/avni-mahajan)
-* [Arujjwal Negi](https://github.com/arujjval)
 * [Devi Krishna](https://github.com/devikrishnamk0123)
 * [Siddhant Khisty](https://github.com/siddhant-khisty)
 
