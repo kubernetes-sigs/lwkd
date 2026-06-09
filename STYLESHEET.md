@@ -309,3 +309,15 @@ The format template for these announcements is:
 ```
 
 The changes listed are 2-4 word summaries of major changes in that release (e.g. "fix CVE 2024-0576").  The "also" portion is for listing any backported update releases at the same time.
+
+### Shoutouts
+
+The Shoutouts section recognizes contributors and community members for efforts that help improve Kubernetes.
+
+Review messages posted in the [#shoutouts channel](https://kubernetes.slack.com/archives/C92G08FGD) and edit them for clarity. Remove emojis and informal chat language while preserving the original recognition.
+
+If there are no new shoutouts, use:
+
+```
+* No shoutouts this week. Want to thank someone for special efforts to improve Kubernetes? Tag them in the #shoutouts channel.
+```
