@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whats new in the last week</title>
+</head>
+
+<body>
+<h1>Latest Releases for the week 2026-06-04 - 2026-06-11</h1><h2>grpc/grpc</h2> <h3>Release notes for Release v1.81.1</h3><h4>2026-06-08</h4><p>This is release 1.81.0 (<a href="https://github.com/grpc/grpc/blob/master/doc/g_stands_for.md" target="_blank">graphic</a>) of gRPC Core.</p>
+
+<p>For gRPC documentation, see <a href="https://grpc.io/" target="_blank">grpc.io</a>. For previous releases, see <a href="https://github.com/grpc/grpc/releases" target="_blank">Releases</a>.</p>
+
+<p>This release contains refinements, improvements, and bug fixes, with highlights listed below.</p>
+
+<h2 id="core">Core</h2>
+
+<ul>
+<li>[EventEngine] Fix a potential use-after-free error on Windows. (<a href="https://github.com/grpc/grpc/pull/42078" target="_blank">#42078</a>)</li>
+<li>[ssl] Server side handshaker factory stores a map of key signers. (<a href="https://github.com/grpc/grpc/pull/42002" target="_blank">#42002</a>)</li>
+<li>[Core] Fix completion queue shutdown race on weak memory models (ARM). (<a href="https://github.com/grpc/grpc/pull/41510" target="_blank">#41510</a>)</li>
+<li>[EventEngine] Fix a Windows race that causes an assertion error. (<a href="https://github.com/grpc/grpc/pull/41563" target="_blank">#41563</a>)</li>
+<li>[grpc_error] enable error_flatten experiment in OSS. (<a href="https://github.com/grpc/grpc/pull/41471" target="_blank">#41471</a>)</li>
+<li>[Python] Trim Python2 backward compatiblity syntax - removed (object) inheritance. (<a href="https://github.com/grpc/grpc/pull/41708" target="_blank">#41708</a>)</li>
+</ul>
+
+<h2 id="objective-c">Objective-C</h2>
+
+<ul>
+<li>[ObjC] Add receiveNextMessage to GRPCUnaryProtoCall. (<a href="https://github.com/grpc/grpc/pull/42260" target="_blank">#42260</a>)</li>
+</ul>
+
+<h2 id="python">Python</h2>
+
+<ul>
+<li>[Python] Add typing_extensions dep to aio Bazel target. (<a href="https://github.com/grpc/grpc/pull/42001" target="_blank">#42001</a>)</li>
+<li>[Python] [Pyright] Part 1 - Pyright for src/python/grpcio/grpc/aio/_base_server.py. (<a href="https://github.com/grpc/grpc/pull/42240" target="_blank">#42240</a>)</li>
+<li>[Python] Drop 3.9. (<a href="https://github.com/grpc/grpc/pull/42145" target="_blank">#42145</a>)</li>
+<li>[Python] grpc-status: Relax protobuf dependency upper bound to allow 7.x. (<a href="https://github.com/grpc/grpc/pull/41948" target="_blank">#41948</a>)</li>
+<li>[Python] [Typeguard] Part 5 - Add Typeguard SYNC Stack in tests. (<a href="https://github.com/grpc/grpc/pull/40278" target="_blank">#40278</a>)</li>
+<li>[Python] Remove GIL from ReceiveMessageOperation.un_c method. (<a href="https://github.com/grpc/grpc/pull/41812" target="_blank">#41812</a>)</li>
+<li>[Python] Support observability in AsyncIO stack. (<a href="https://github.com/grpc/grpc/pull/41573" target="_blank">#41573</a>)</li>
+</ul>
+
+<h2 id="ruby">Ruby</h2>
+
+<ul>
+<li>[Ruby] Drop support for EOL Ruby 3.1 and clean up. (<a href="https://github.com/grpc/grpc/pull/41435" target="_blank">#41435</a>)</li>
+<li>[Ruby] Composed CallCredentials keep a reference to their source. (<a href="https://github.com/grpc/grpc/pull/41782" target="_blank">#41782</a>)</li>
+</ul>
+<br><h2>coredns/coredns</h2> <h3>Release notes for v1.14.4</h3><h4>2026-06-09</h4><p>This release improves transport security and operational flexibility, with
+enhancements for DoH3 and DoQ, improved DNSSEC signing behavior, and support for
+the loong64 architecture. It also adds configurable cache verification, hostname
+resolution for forward targets, incoming connection support for dnstap, fallthrough
+support in the secondary plugin, automatic zone reloads, and improved forwarding
+behavior for NODATA responses.</p>
+
+<h2 id="brought-to-you-by">Brought to You By</h2>
+
+<p>Cedric Wang
+Charlie Tonneslan
+Dmytro Alieksieiev
+Endre Szabo
+Immanuel Tikhonov
+Isolus
+James R T
+JUN YANG
+Jöran Malek
+Nicholas Amorim
+Syed Azeez
+Umut Polat
+Ville Vesilehto
+weiguozhang
+Yong Tang
+徐晓伟</p>
+
+<h2 id="noteworthy-changes">Noteworthy Changes</h2>
+
+<ul>
+<li>core: Add loong64 arch support (<a href="https://github.com/coredns/coredns/pull/8137" target="_blank">https://github.com/coredns/coredns/pull/8137</a>)</li>
+<li>core: Bound HTTP/3 request header size for DoH3 (<a href="https://github.com/coredns/coredns/pull/8135" target="_blank">https://github.com/coredns/coredns/pull/8135</a>)</li>
+<li>core: Expose TLS ConnectionState (SNI) for DoQ (<a href="https://github.com/coredns/coredns/pull/8129" target="_blank">https://github.com/coredns/coredns/pull/8129</a>)</li>
+<li>core: Remove duplicate cipher suites (<a href="https://github.com/coredns/coredns/pull/8118" target="_blank">https://github.com/coredns/coredns/pull/8118</a>)</li>
+<li>core: Use http.LocalAddrContextKey for DoH local address (<a href="https://github.com/coredns/coredns/pull/8149" target="_blank">https://github.com/coredns/coredns/pull/8149</a>)</li>
+<li>plgin/kubernetes: Remove debug fmt.Println from multicluster zone validation (<a href="https://github.com/coredns/coredns/pull/8131" target="_blank">https://github.com/coredns/coredns/pull/8131</a>)</li>
+<li>plugin/any: Reject invalid any and local config (<a href="https://github.com/coredns/coredns/pull/8133" target="_blank">https://github.com/coredns/coredns/pull/8133</a>)</li>
+<li>plugin/azure: Apply <code>access</code> mode to every zone in the same block (<a href="https://github.com/coredns/coredns/pull/8110" target="_blank">https://github.com/coredns/coredns/pull/8110</a>)</li>
+<li>plugin/cache: Add optional verify timeout to serve_stale (<a href="https://github.com/coredns/coredns/pull/8070" target="_blank">https://github.com/coredns/coredns/pull/8070</a>)</li>
+<li>plugin/cache: Allow cache TTLs above default 3600s (<a href="https://github.com/coredns/coredns/pull/8134" target="_blank">https://github.com/coredns/coredns/pull/8134</a>)</li>
+<li>plugin/cache: Prefer positive cache over SERVFAIL in ncache (<a href="https://github.com/coredns/coredns/pull/8003" target="_blank">https://github.com/coredns/coredns/pull/8003</a>)</li>
+<li>plugin/chaos: Reject unknown chaos block options (<a href="https://github.com/coredns/coredns/pull/8121" target="_blank">https://github.com/coredns/coredns/pull/8121</a>)</li>
+<li>plugin/dnssec: Sign each RRset with the zone that owns its name, not the query zone (<a href="https://github.com/coredns/coredns/pull/8138" target="_blank">https://github.com/coredns/coredns/pull/8138</a>)</li>
+<li>plugin/dnstap: Feature: Added incoming connection support (<a href="https://github.com/coredns/coredns/pull/8086" target="_blank">https://github.com/coredns/coredns/pull/8086</a>)</li>
+<li>plugin/file: Canonicalize escape form in owner names (<a href="https://github.com/coredns/coredns/pull/8109" target="_blank">https://github.com/coredns/coredns/pull/8109</a>)</li>
+<li>plugin/file: Trigger reload of zones based on mtime (<a href="https://github.com/coredns/coredns/pull/8085" target="_blank">https://github.com/coredns/coredns/pull/8085</a>)</li>
+<li>plugin/forward: Add hostname resolution support for TO endpoints (<a href="https://github.com/coredns/coredns/pull/5646" target="_blank">https://github.com/coredns/coredns/pull/5646</a>) (<a href="https://github.com/coredns/coredns/pull/7923" target="_blank">https://github.com/coredns/coredns/pull/7923</a>)</li>
+<li>plugin/forward: Forward NODATA responses to Next handler (<a href="https://github.com/coredns/coredns/pull/8065" target="_blank">https://github.com/coredns/coredns/pull/8065</a>)</li>
+<li>plugin/health: Use descriptive error for unknown block options in health and log plugins (<a href="https://github.com/coredns/coredns/pull/8128" target="_blank">https://github.com/coredns/coredns/pull/8128</a>)</li>
+<li>plugin/ready: Reject unknown ready plugin properties (<a href="https://github.com/coredns/coredns/pull/8119" target="_blank">https://github.com/coredns/coredns/pull/8119</a>)</li>
+<li>plugin/proxyproto: Prevent nil pointer dereference when dropping malformed PROXY packets (<a href="https://github.com/coredns/coredns/pull/8154" target="_blank">https://github.com/coredns/coredns/pull/8154</a>)</li>
+<li>plugin/secondary: Add fallthrough support (<a href="https://github.com/coredns/coredns/pull/8041" target="_blank">https://github.com/coredns/coredns/pull/8041</a>)</li>
+<li>plugin/trace: Reject unknown trace and dnstap block options (<a href="https://github.com/coredns/coredns/pull/8120" target="_blank">https://github.com/coredns/coredns/pull/8120</a>)</li>
+</ul>
+<br>
+</body>
+
+</html>
