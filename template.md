@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Week Ending Month DD, 2025
+title: Week Ending Month DD, YYYY
 date: POST_DATE 22:00:00 -0000
 slug: POST_SLUG_DATE-update
 ---
