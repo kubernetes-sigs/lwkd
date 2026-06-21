@@ -6,11 +6,11 @@ MODE="${1:-next}"
 
 case "$MODE" in
   next)
-    SUNDAY_FLAG_BSD="+sun"
+    SUNDAY_FLAGS_BSD="-v+sun"
     SUNDAY_PHRASE_GNU="next sunday"
     ;;
   last)
-    SUNDAY_FLAG_BSD="-sun"
+    SUNDAY_FLAGS_BSD="-v-1w -v+sun"
     SUNDAY_PHRASE_GNU="last sunday"
     ;;
   *)
@@ -23,7 +23,7 @@ git checkout main
 git pull origin main
 
 if [ "$(uname)" = "Darwin" ]; then
-  BRANCH_DATE=$(date -v "$SUNDAY_FLAG_BSD" +"%Y%m%d")
+  BRANCH_DATE=$(date $SUNDAY_FLAGS_BSD +"%Y%m%d")
 else
   BRANCH_DATE=$(date -d "$SUNDAY_PHRASE_GNU" +"%Y%m%d")
 fi
@@ -33,8 +33,8 @@ DATE_IN_TEMPLATE="POST_DATE"
 SLUG_IN_TEMPLATE="POST_SLUG_DATE"
 
 if [ "$(uname)" = "Darwin" ]; then
-    NEW_DATE=$(date -v "$SUNDAY_FLAG_BSD" +"%Y-%m-%d")
-    MONTH_DAY_YEAR=$(date -v "$SUNDAY_FLAG_BSD" +"%B %d, %Y")
+    NEW_DATE=$(date $SUNDAY_FLAGS_BSD +"%Y-%m-%d")
+    MONTH_DAY_YEAR=$(date $SUNDAY_FLAGS_BSD +"%B %d, %Y")
     cp template.md ./_posts/$NEW_DATE-update.md
     sed -i '' "s/$SLUG_IN_TEMPLATE/$NEW_DATE/g" ./_posts/$NEW_DATE-update.md
     sed -i '' "s/$DATE_IN_TEMPLATE/$NEW_DATE/g" ./_posts/$NEW_DATE-update.md
