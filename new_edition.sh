@@ -10,7 +10,7 @@ case "$MODE" in
     SUNDAY_PHRASE_GNU="next sunday"
     ;;
   last)
-    SUNDAY_FLAG_BSD="-1sun"
+    SUNDAY_FLAG_BSD="-sun"
     SUNDAY_PHRASE_GNU="last sunday"
     ;;
   *)
