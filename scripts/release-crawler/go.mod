@@ -1,6 +1,6 @@
 module github.com/kubernetes-sigs/lwkd/scripts/release-crawler
 
-go 1.21
+go 1.25.0
 
 require (
 	github.com/gomarkdown/markdown v0.0.0-20260417124207-7d523f7318df
