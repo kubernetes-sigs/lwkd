@@ -258,6 +258,9 @@ Now some specifics:
 
 * The Next Deadline should be a major item on the release schedule, such as PRR deadline, Docs due, Code Freeze, etc.  It shouldn't be, say, an alpha release.
 * You can get information about next deadline on the [release information page](https://www.kubernetes.dev/resources/release/#timeline).
+* When mentioning the next deadline, add two links:
+  - Link the milestone name to the corresponding section of the Release Phases guide explaining that milestone.
+  - Link the descriptive text to the corresponding section of the current release information page for that milestone.
 * Upcoming patch release information can be found on the [patch release page](https://kubernetes.io/releases/patch-releases/).
 * You can also checkout the [Kubernetes dev mailing group](https://groups.google.com/a/kubernetes.io/g/dev) to get recent updates about release information.
 * The week of cherry pick deadlines, report that deadline.
