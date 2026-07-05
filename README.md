@@ -2,7 +2,7 @@
 
 [The LWKD repository](https://github.com/lwkd/lwkd.github.io) contains the .md files used to produce the weekly Kubernetes updates called "Last Week in Kubernetes Development", or LWKD.  Contributions by pull request are encouraged and accepted.
 
-Feel free to reach out on [Kubernetes Slack](https://slack.k8s.io), #sig-contribex channel to ask questions.
+Feel free to reach out on [Kubernetes Slack](https://slack.k8s.io), #sig-contribex-comms channel to ask questions.
 
 ## Leads and Contributors
 
@@ -12,16 +12,31 @@ Editors:
 
 * [Josh Berkus](https://github.com/jberkus)
 * [Sreeram Venkitesh](https://github.com/sreeram-venkitesh)
-* [Noah Kantrowitz](https://github.com/coderanger)
+* [Arpit Agrawal](https://github.com/Hii-Arpit)
+* [Darshan Murthy](https://github.com/darshansreenivas)
+* [Harini Anand](https://github.com/inirah02)
 
-LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our regular contributors in 2024 are:
+LWKD has multiple regular contributors, and of course any member of the community is welcome to submit items.  Among our recent writer contributors are:
 
-* [Aakansha Priya](https://github.com/priyaaakansha)
-* [Mario Fahlandt](https://github.com/mfahlandt)
-* [Faeka Ansari](https://github.com/fykaa)
-* [Satyam Soni](https://github.com/satyampsoni)
+* [Rahul Sharma](https://github.com/sharmarahul8222)
+* [Unnati Mishra](https://github.com/CodesbyUnnati)
+* [Yashasvi Misra](https://github.com/yashasvimisra2798)
+* [Kirti Goyal](https://github.com/kirti763)
+* [Avni Mahajan](https://github.com/avni-mahajan)
+* [Devi Krishna](https://github.com/devikrishnamk0123)
+* [Siddhant Khisty](https://github.com/siddhant-khisty)
 
-A full list of contributors can be found on our [github repository](https://github.com/kubernetes-sigs/lwkd/graphs/contributors)
+However, we accept new writers all the time so this list may be out of date. A full list of contributors can be found on our [github repository](https://github.com/kubernetes-sigs/lwkd/graphs/contributors)
+
+## Publication Timeline
+
+LWKD publishes weekly.  Our expected publication timeline is as follows:
+
+* Friday (anytime): new branch + blank edition created
+*	Monday (anytime): writers start drafting, editors review as PRs come in
+*	Tuesday EOD Eastern Time / Wednesday Early Morning IST: draft PRs due for all sections (submitting earlier is better!)
+•	Wednesday: deadline to respond to review comments on PRs
+•	Wednesday EOD Eastern / Thursday morning IST: LWKD is published
 
 ## Licensing
 
