@@ -19,8 +19,8 @@ case "$MODE" in
     ;;
 esac
 
-# git checkout main
-# git pull origin main
+git checkout main
+git pull origin main
 
 if [ "$(uname)" = "Darwin" ]; then
   BRANCH_DATE=$(date $SUNDAY_FLAGS_BSD +"%Y%m%d")
