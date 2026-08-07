@@ -3,3 +3,6 @@
 approvers:
   - lwkd-maintainers
   - sig-contributor-experience-leads
+reviewers:
+  - lwkd-maintainers
+

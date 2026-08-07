@@ -8,6 +8,10 @@ slug: POST_SLUG_DATE-update
 ## Developer News
 
 
+### Election Update
+
+### Contributor Blog
+
 ## Release Schedule
 
 **Next Deadline:**
