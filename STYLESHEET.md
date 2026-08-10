@@ -107,6 +107,9 @@ The goal of the Featured PR section is to give readers *in-depth* coverage of on
 * mentions of how the change will affect contributors and/or users
 * discussion of the history of the PR, if any
 
+**Drafting & Phrasing Guidance:**
+* **Do not preempt official Release Comms:** Avoid writing titles or text that announce a feature has "reached" or "graduated to" GA/Beta as if the minor release is already live (e.g., write "Feature ready for general availability" or "Feature PR lands ahead of GA" instead of "Feature reaches general availability"). Reserve official release announcements for the Kubernetes Release Team.
+
 This section is formatted as a major section with subsections:
 
 ```
