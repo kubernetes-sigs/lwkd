@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	stdhtml "html"
 	"html/template"
 	"log"
 	"os"
@@ -194,7 +195,7 @@ func main() {
 					mdContent += "## " + p + "/" + r + "  \n"
 
 					for _, release := range lastWeekRelease {
-						htmlContent += "<h3>Release notes for " + release.GetName() + "</h3>"
+						htmlContent += "<h3>Release notes for " + stdhtml.EscapeString(release.GetName()) + "</h3>"
 						htmlContent += "<h4>" + release.GetPublishedAt().Format("2006-01-02") + "</h4>"
 
 						mdContent += "### Release notes for " + release.GetName() + "  \n"
