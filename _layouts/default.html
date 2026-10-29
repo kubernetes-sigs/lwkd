@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>.social-icon { width: 1em; height: 1em; fill: currentColor; vertical-align: -0.125em; }</style>
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,9 +24,9 @@
         <p>{{ site.description | default: site.github.project_tagline }}</p>
         <p>
           <div><a href="https://buttondown.email/LastWeekInKubernetes"><i class="fa fa-envelope"></i> Subscribe</a></div>
-          <div><a href="https://m6n.io/@lwkd"><i class="fab fa-mastodon"></i> Mastodon</a></div>
-          <div><a href="https://bsky.app/profile/lwkd.info"><i class="fa-brands fa-bluesky"></i> Bluesky</a></div>
-          <div><a href="https://x.com/LWKDNews">X</a></div>
+          <div><a href="https://m6n.io/@lwkd">{% include social_icon.html name="mastodon" %} Mastodon</a></div>
+          <div><a href="https://bsky.app/profile/lwkd.info">{% include social_icon.html name="bluesky" %} Bluesky</a></div>
+          <div><a href="https://x.com/LWKDNews">{% include social_icon.html name="x" %} X</a></div>
           <div><a href="/feed.xml"><i class="fa fa-rss"></i> RSS</a></div>
         </p>
         <p class="view"><a href="{{ site.github.repository_url }}">View LWKD on GitHub</a></p>
