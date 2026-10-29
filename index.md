@@ -2,7 +2,7 @@ LWKD is a weekly newsletter summarizing code activity in the Kubernetes project:
 
 LWKD is the product of [contributors from the Kubernetes Project's SIG-Contributor Experience](https://github.com/lwkd/lwkd.github.io).  If you're interested in helping with LWKD, see our [README](https://github.com/lwkd/lwkd.github.io).  You can also contact us at lwkd@kubernetes.io.
 
-[Subscribe](https://buttondown.email/LastWeekInKubernetes) to receive LWKD by email, or [follow us on Twitter](https://twitter.com/LWKDNews) or on our [RSS feed](/feed.xml)
+[Subscribe](https://buttondown.email/LastWeekInKubernetes) to receive LWKD by email, or follow us on [Mastodon](https://m6n.io/@lwkd), [Bluesky](https://bsky.app/profile/lwkd.info), or [X](https://x.com/LWKDNews). You can also use our [RSS feed](/feed.xml).
 
 {% for post in site.posts limit: 25 %}
   {% assign currentdate = post.date | date: "%Y" %}
